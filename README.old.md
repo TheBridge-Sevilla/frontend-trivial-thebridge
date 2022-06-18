@@ -8,3 +8,6 @@
 2. Una vez instalado, entrar en la ruta y acceder a React con el comando:
 >npm start
 
+
+## Instalar countdown en react
+https://www.npmjs.com/package/react-countdown

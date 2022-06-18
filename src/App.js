@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
 
 function App() {
+  const [name, setName] = useState("");
+
+  /* Esta función era para cambiar el nombre al pulsar el boton. la mantengo para poder ver como funciona el hook useStateal incluirle el tiempo.
+  const changeName = () => {
+    setName("Chikara");
+  };
+*/
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <label>Jugador:
+        <input type="text" name="jugador" /></label>
+
+      <label>Seleccionar categoría:
+        <input list="categoria" name="categoria" /></label>
+      <datalist id="categoria">
+        <option value=""></option>
+      </datalist>
+
+      <button onClick=""> Empezar juego </button>
     </div>
+
   );
 }
 
