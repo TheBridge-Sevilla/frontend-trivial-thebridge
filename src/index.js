@@ -1,15 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import App from './Usuario/AccesoUsuario';
 import reportWebVitals from './reportWebVitals';
-import cuenta_atras from './cuenta_atras';
+import Tiempo from './Quizz/tiempoJuego'
+import Quiz from './Quizz/quizz_logica_front';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>
+    <Quiz />
+    <Tiempo />
+    </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

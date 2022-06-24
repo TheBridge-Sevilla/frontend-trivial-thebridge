@@ -1,6 +1,10 @@
 import { useState } from "react";
 
+
 function App() {
+ 
+ 
+ 
   const [name, setName] = useState("");
 
   /* Esta función era para cambiar el nombre al pulsar el boton. la mantengo para poder ver como funciona el hook useStateal incluirle el tiempo.
