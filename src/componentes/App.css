@@ -12,25 +12,27 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
-.App-header {
+body  {
   background-color: #E79110;
-  min-height: 100vh;
+  margin-top: 50px;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contenedor {
+  width: 600px;
+  height: 850px;
+  background-color: #00ADA3;
+  border-radius: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  
+  
   
 }
-#botoninicio {
-  background-color: #00ADA3;
-  border-color:#00ADA3;
-}
-#botoninicio:hover {
-  background-color: rgba(77, 77, 182, 0.932);
-  border-color: rgba(77, 77, 182, 0.932);
-}
+
 
 .App-link {
   color: #61dafb;
