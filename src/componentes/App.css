@@ -1,0 +1,26 @@
+body {
+  background-color: #E79110;
+  margin-top: 50px;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#contenedor {
+  width: 600px;
+  height: 850px;
+  background-color: #00ADA3;
+  border-radius: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#contenedorPreguntas>button {
+  background-color: #E79110;
+  margin-top: 50px;
+  
+
+}
+
