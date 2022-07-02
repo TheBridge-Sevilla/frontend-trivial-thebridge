@@ -17,6 +17,8 @@
     "plugins": [
         "react"
     ],
+
+    
     "rules": {},
     "settings": {
         "react": {
