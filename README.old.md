@@ -20,4 +20,4 @@ Una vez instalado, entrar en la ruta y acceder a React con el comando:
 
 ## Usar eslint
 
->npx eslint src/ 
+>npx eslint src/
