@@ -1,18 +1,4 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-body  {
+body {
   background-color: #E79110;
   margin-top: 50px;
   flex-direction: column;
@@ -20,7 +6,8 @@ body  {
   align-items: center;
   justify-content: center;
 }
-.contenedor {
+
+#contenedor {
   width: 600px;
   height: 850px;
   background-color: #00ADA3;
@@ -28,23 +15,12 @@ body  {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
-  
-  
 }
 
+#contenedorPreguntas>button {
+  background-color: #E79110;
+  margin-top: 50px;
+  
 
-.App-link {
-  color: #61dafb;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 

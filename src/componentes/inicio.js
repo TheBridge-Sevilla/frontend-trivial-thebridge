@@ -1,7 +1,7 @@
 import './App.css';
-import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 import React, { useState } from 'react';
+import 'primeflex/primeflex.css';
 
 
 import "primereact/resources/themes/lara-light-indigo/theme.css";  //theme
@@ -16,19 +16,21 @@ function Inicio() {
     return (
 
         <body>
-            <div className="contenedor">
-                <h1>INICIO</h1>
-                <InputText className='nombre' size={50} />
-                <br></br>
-                <InputText className='categoria' size={50} />
-                <br></br>
-                <InputText className='categoria' size={50} />
-                <br></br>
-                <InputText className='categoria' size={50} />
+            <div id="contenedor">
+                <h1>Preguntas</h1>
+                <div id="contenedorPreguntas">
+                    <Button label="Secondary" className="p-button-outlined p-button-secondary" />
+                    <br></br>
+                    <Button label="Secondary" className="p-button-outlined p-button-secondary" />
+                    <br></br>
+                    <Button label="Secondary" className="p-button-outlined p-button-secondary" />
+                    <br></br>
+                    <Button label="Secondary" className="p-button-outlined p-button-secondary" />
+                </div>
 
             </div>
         </body>
-    );
+    )
 }
 
 
