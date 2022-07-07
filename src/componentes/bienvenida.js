@@ -1,32 +1,52 @@
-import './App.css';
+
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 import React, { useState } from 'react';
 
-
 import "primereact/resources/themes/lara-light-indigo/theme.css";  //theme
 import "primereact/resources/primereact.min.css";                  //core css
 import "primeicons/primeicons.css";
+import "primeflex/primeflex.css"
+
+
 //icons
 
 
 
 
 function Bienvenida(props) {
+
     return (
-        <div className="contenedorPrincipal">
-            <body className="contenedorInicio">
-                <h1>TRIVIAL</h1>
-                Nombre
-                <InputText className='nombre' size={50} />
-                <br></br>
-                Preguntas
-                <InputText className='categoria' size={50} />
-                <br></br>
-                <Button onClick={() => props.setEsPantallaPrincipal(false)} id="botoninicio" type="button" label="Empezar juego" icon="pi pi-check"></Button> <br />
-            </body>
+
+        <div className="flex align-items-center justify-content-center">
+            <div className="w-auto bg-white ">
+                <div className="text-center mb-5">
+                    <div className="text-900 text-3xl font-medium mb-3 p-4">Pregunta de Trivial que es bastante larga la verdad</div>
+                    <span className="text-600 font-medium line-height-3">Categoria</span>
+                </div>
+
+
+
+                <div class="card">
+                    <div class="card-container yellow-container">
+                        <div class="block bg-yellow-300 font-bold text-center p-4 border-round mb-3 w-8 m-auto lg:bg-blue-500">1</div>
+                        <div class="block bg-yellow-500 font-bold text-center p-4 border-round mb-3 w-8 m-auto">2</div>
+                        <div class="block bg-yellow-500 font-bold text-center p-4 border-round mb-3 w-8 m-auto">3</div>
+                        <div class="block bg-yellow-500 font-bold text-center p-4 border-round mb-3 w-8 m-auto">4</div>
+                        <Button id="boton-opcion" label="Proceed" className="p-button-raised  block bg-yellow-500 font-bold text-center p-4 border-round mb-3 w-8 m-auto" />
+                        
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
 
         </div>
+
+
     );
 }
 
