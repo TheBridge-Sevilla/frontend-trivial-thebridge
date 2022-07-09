@@ -1,5 +1,5 @@
 body {
-  background-color: #E79110;
+  background-color: #76A5FF;
   margin-top: 50px;
   flex-direction: column;
   display: flex;
@@ -25,4 +25,8 @@ body {
 }
 #boton-hover{
   background-color: chartreuse;
+}
+
+#botoninicio {
+  background-color: #E79110;
 }
