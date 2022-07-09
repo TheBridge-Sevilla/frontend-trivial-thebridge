@@ -5,7 +5,7 @@ import "primereact/resources/themes/lara-light-indigo/theme.css";  //theme
 import "primereact/resources/primereact.min.css";                  //core css
 import "primeicons/primeicons.css";
 import Bienvenida from './componentes/bienvenida';
-import Inicio from './componentes/inicio';
+import Pregunta from './componentes/pregunta'
 //icons
 
 
@@ -21,7 +21,7 @@ function App() {
   } else {
     return (
       <React.StrictMode>
-        <Inicio />
+        <Pregunta />
       </React.StrictMode>
     );
 

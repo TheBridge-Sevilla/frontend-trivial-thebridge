@@ -14,7 +14,7 @@ import "primeflex/primeflex.css"
 
 
 
-function Bienvenida(props) {
+function Pregunta(props) {
 
     return (
 
@@ -52,4 +52,4 @@ function Bienvenida(props) {
 }
 
 
-export default Bienvenida;
+export default Pregunta;
