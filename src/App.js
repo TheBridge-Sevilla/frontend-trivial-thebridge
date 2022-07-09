@@ -4,7 +4,7 @@ import 'primeflex/primeflex.css';
 import "primereact/resources/themes/lara-light-indigo/theme.css";  //theme
 import "primereact/resources/primereact.min.css";                  //core css
 import "primeicons/primeicons.css";
-import Bienvenida from './componentes/bienvenida';
+import Bienvenida from './componentes/bienvenida.js';
 import Pregunta from './componentes/pregunta'
 //icons
 
