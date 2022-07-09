@@ -29,15 +29,16 @@ function Bienvenida(props) {
 
                 <div class="card">
                     <div class="card-container yellow-container">
-                        <div class="block bg-yellow-300 font-bold text-center p-4 border-round mb-3 w-8 m-auto lg:bg-blue-500">1</div>
-                        <div class="block bg-yellow-500 font-bold text-center p-4 border-round mb-3 w-8 m-auto">2</div>
-                        <div class="block bg-yellow-500 font-bold text-center p-4 border-round mb-3 w-8 m-auto">3</div>
-                        <div class="block bg-yellow-500 font-bold text-center p-4 border-round mb-3 w-8 m-auto">4</div>
-                        <Button id="boton-opcion" label="Proceed" className="p-button-raised  block bg-yellow-500 font-bold text-center p-4 border-round mb-3 w-8 m-auto" />
+                        
+                        <Button id="boton-opcion" label="opciones" className="p-button-raised  block bg-yellow-500 font-bold text-center p-4 border-round mb-3 w-8 m-auto" />
+                        <Button id="boton-opcion" label="opciones" className="p-button-raised  block bg-yellow-500 font-bold text-center p-4 border-round mb-3 w-8 m-auto" />
+                        <Button id="boton-opcion" label="opciones" className="p-button-raised  block bg-yellow-500 font-bold text-center p-4 border-round mb-3 w-8 m-auto" />
+                        <Button id="boton-opcion" label="opciones" className="p-button-raised  block bg-yellow-500 font-bold text-center p-4 border-round mb-3 w-8 m-auto" />
                         
                     </div>
 
                 </div>
+                
 
             </div>
 
