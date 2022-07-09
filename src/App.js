@@ -18,9 +18,19 @@ function App() {
       <datalist id="categoria">
         <option value=""></option>
       </datalist>
+      <button onClick={}> Empezar juego </button>
 
-      <button onClick=""> Empezar juego </button>
+      
     </div>
+  
+
+  
+
+
+
+    
+    
+
 
   );
 }
