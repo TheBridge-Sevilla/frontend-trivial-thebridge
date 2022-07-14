@@ -4,7 +4,7 @@ import 'primeflex/primeflex.css';
 import "primereact/resources/themes/lara-light-indigo/theme.css";  //theme
 import "primereact/resources/primereact.min.css";                  //core css
 import "primeicons/primeicons.css";
-import Bienvenida from './componentes/bienvenida_paul';
+import Bienvenida from './componentes/bienvenida';
 import Pregunta from './componentes/pregunta'
 //icons
 
@@ -15,13 +15,13 @@ function App() {
   if (esPantallaPrincipal) {
     return (
       <React.StrictMode>
-        <Bienvenida esPantallaPrincipal={esPantallaPrincipal} setEsPantallaPrincipal={setEsPantallaPrincipal} />
-      </React.StrictMode>
+      <Bienvenida esPantallaPrincipal={esPantallaPrincipal} setEsPantallaPrincipal={setEsPantallaPrincipal} />
+</React.StrictMode>
     );
   } else {
     return (
       <React.StrictMode>
-        <Pregunta />
+      <Pregunta />
       </React.StrictMode>
     );
 

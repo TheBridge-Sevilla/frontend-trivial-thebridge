@@ -1,38 +1,37 @@
-import "./App-inicio.css";
+import "./App.css";
 import { InputText } from "primereact/inputtext";
-//import { Button } from "primereact/button";
+import { Button } from "primereact/button";
 import React from "react";
-
+import "primereact/resources/themes/lara-light-indigo/theme.css"; //theme
+import "primereact/resources/primereact.min.css"; //core css
+import "primeicons/primeicons.css";
 
 function Bienvenida(props) {
   return (
-    <div className="cuerpo">
-      <div className="contenedor">
-        <div className="presentacion">
-          <h1 className="trivial">TRIVIAL</h1>
-
+    <div className="card">
+      <div className="card-container purple-container m-auto bg-cyan-500" id="contenedor">
+        <div className="bg-cyan-500 border-round-top p-8 font-bold text-gray-900">
+          <h1 className="m-auto">TRIVIAL</h1>
         </div>
-        <div className="jugador">
-
+        <div className="bg-yellow-500 p-8 font-bold text-gray-900" id="usuario">
           <InputText className="nombre" placeholder="Nombre" />
           <br></br>
           <InputText className="categoria" placeholder="Categorias" />
           <br></br>
-          <div className="seleccion-categoria">
-            <select className="selector" id="categoria">
+          <div className="w-13rem h-12 mb-3">
+            <select className="block appearance-none w-full h-full p-3 border-round" id="categoria">
               <option>Programación</option>
               <option>Musica</option>
               <option>Deporte</option>
             </select>
           </div>
-          <div className="boton-inicio">
-            <button
+          <div className="border-round-top-xl p-2 font-bold text-gray-900" id="botoninicio">
+            <Button
               onClick={() => props.setEsPantallaPrincipal(false)}
-              id="botoninicio"
               type="button"
               label="Entar"
               icon="pi pi-check"
-            >Entrar</button>{" "}
+            ></Button>{" "}
           </div>
         </div>
       </div>
