@@ -7,15 +7,16 @@ import "primereact/resources/primereact.min.css"; //core css
 import "primeicons/primeicons.css";
 import PropTypes from 'prop-types';
 import SelectCategoria from "./categoria";
+import { useTranslation } from "react-i18next";
 //icons
 
 function Bienvenida(props) {
-  const [categoria, setCategoria] = useState();
+  const { t } = useTranslation();
 
   return (
     <div className="contenedorPrincipal">
       <body className="contenedorInicio">
-        <h1>TRIVIAL</h1>
+        <h1>{t('trivial')}</h1>
         <h3>Nombre</h3>
         <InputText className="nombre" size={50} />
         <br></br>
@@ -32,8 +33,8 @@ function Bienvenida(props) {
           icon="pi pi-check"
         ></Button>{" "}
         <br />
-      </body>
-    </div>
+      </body >
+    </div >
   );
 }
 
