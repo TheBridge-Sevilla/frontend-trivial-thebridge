@@ -1,3 +1,6 @@
 {
-    "trivial":"Trivial en Ingles"
+    "trivial":"Trivial",
+    "nombre":"Name",
+    "elige-categoria":"Choose a category",
+    "iniciar":"Start game"
 }

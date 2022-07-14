@@ -1,3 +1,6 @@
 {
-    "trivial":"Trivial en Español"
+    "trivial":"Trivial",
+    "nombre":"Nombre",
+    "elige-categoria":"Elige una categoría",
+    "iniciar":"Iniciar partida"
 }
