@@ -8,7 +8,6 @@ import "primeicons/primeicons.css";
 import PropTypes from 'prop-types';
 import SelectCategoria from "./categoria";
 import { useTranslation } from "react-i18next";
-//icons
 
 function Bienvenida(props) {
   const { t } = useTranslation();
@@ -37,10 +36,5 @@ function Bienvenida(props) {
     </div >
   );
 }
-
-Bienvenida.PropTypes = {
-  esPantallaPrincipal: PropTypes.bool,
-  setEsPantallaPrincipal: PropTypes.func,
-};
 
 export default Bienvenida;
