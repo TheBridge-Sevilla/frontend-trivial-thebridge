@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 import "primereact/resources/themes/lara-light-indigo/theme.css"; //theme
@@ -10,12 +10,12 @@ import { useTranslation } from "react-i18next";
 
 function Bienvenida(props) {
   const { t } = useTranslation();
-  const [categoria, setCategoria] = useState();
+  const { categoria, setCategoria } = useState("");
 
   return (
     <div className="contenedorPrincipal">
       <body className="contenedorInicio">
-        <h1>{t('trivial')}</h1>
+        <h1>{t("trivial")}</h1>
         <h3>Nombre</h3>
         <InputText className="nombre" size={50} />
         <br></br>
@@ -32,8 +32,8 @@ function Bienvenida(props) {
           icon="pi pi-check"
         ></Button>
         <br />
-      </body >
-    </div >
+      </body>
+    </div>
   );
 }
 
