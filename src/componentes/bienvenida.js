@@ -1,17 +1,17 @@
 import "./App.css";
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 import "primereact/resources/themes/lara-light-indigo/theme.css"; //theme
 import "primereact/resources/primereact.min.css"; //core css
 import "primeicons/primeicons.css";
-import PropTypes from 'prop-types';
 import SelectCategoria from "./categoria";
 import { useTranslation } from "react-i18next";
 //icons
 
 function Bienvenida(props) {
   const { t } = useTranslation();
+  const [categoria, setCategoria] = useState();
 
   return (
     <div className="contenedorPrincipal">
@@ -31,16 +31,11 @@ function Bienvenida(props) {
           type="button"
           label="Empezar juego"
           icon="pi pi-check"
-        ></Button>{" "}
+        ></Button>
         <br />
       </body >
     </div >
   );
 }
-
-Bienvenida.PropTypes = {
-  esPantallaPrincipal: PropTypes.bool,
-  setEsPantallaPrincipal: PropTypes.func,
-};
 
 export default Bienvenida;
