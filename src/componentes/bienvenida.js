@@ -8,13 +8,16 @@ import PropTypes from "prop-types";
 import "primereact/resources/themes/lara-light-indigo/theme.css"; //theme
 import "primereact/resources/primereact.min.css"; //core css
 import "primeicons/primeicons.css";
+import { useTranslation } from "react-i18next";
 //icons
 
 function Bienvenida(props) {
+  const { t } = useTranslation();
+
   return (
     <div className="contenedorPrincipal">
       <body className="contenedorInicio">
-        <h1>TRIVIAL</h1>
+        <h1>{t('trivial')}</h1>
         Nombre
         <InputText className="nombre" size={50} />
         <br></br>
