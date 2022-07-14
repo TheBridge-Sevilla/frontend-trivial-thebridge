@@ -1,31 +1,41 @@
-import "./App.css";
+import "./App-inicio.css";
 import { InputText } from "primereact/inputtext";
-import { Button } from "primereact/button";
+//import { Button } from "primereact/button";
 import React from "react";
-import "primereact/resources/themes/lara-light-indigo/theme.css"; //theme
-import "primereact/resources/primereact.min.css"; //core css
-import "primeicons/primeicons.css";
+
 
 function Bienvenida(props) {
   return (
-    <div className="contenedorPrincipal">
-      <body className="contenedorInicio">
-        <h1>TRIVIAL</h1>
-        Nombre
-        <InputText className="nombre" size={50} />
-        <br></br>
-        Preguntas
-        <InputText className="categoria" size={50} />
-        <br></br>
-        <Button
-          onClick={() => props.setEsPantallaPrincipal(false)}
-          id="botoninicio"
-          type="button"
-          label="Empezar juego"
-          icon="pi pi-check"
-        ></Button>{" "}
-        <br />
-      </body>
+    <div className="cuerpo">
+      <div className="contenedor">
+        <div className="presentacion">
+          <h1 className="trivial">TRIVIAL</h1>
+
+        </div>
+        <div className="jugador">
+
+          <InputText className="nombre" placeholder="Nombre" />
+          <br></br>
+          <InputText className="categoria" placeholder="Categorias" />
+          <br></br>
+          <div className="seleccion-categoria">
+            <select className="selector" id="categoria">
+              <option>Programación</option>
+              <option>Musica</option>
+              <option>Deporte</option>
+            </select>
+          </div>
+          <div className="boton-inicio">
+            <button
+              onClick={() => props.setEsPantallaPrincipal(false)}
+              id="botoninicio"
+              type="button"
+              label="Entar"
+              icon="pi pi-check"
+            >Entrar</button>{" "}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
