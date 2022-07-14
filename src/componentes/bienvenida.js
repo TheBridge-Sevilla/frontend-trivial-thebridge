@@ -7,7 +7,6 @@ import "primereact/resources/primereact.min.css"; //core css
 import "primeicons/primeicons.css";
 import SelectCategoria from "./categoria";
 import { useTranslation } from "react-i18next";
-//icons
 
 function Bienvenida(props) {
   const { t } = useTranslation();
