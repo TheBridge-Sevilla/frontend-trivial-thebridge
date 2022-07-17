@@ -14,33 +14,17 @@ function Pregunta() {
       <div className="w-auto bg-white ">
         <div className="text-center mb-5">
           <div className="text-900 text-3xl font-medium mb-3 p-4">
-            Pregunta de Trivial que es bastante larga la verdad
+            <h2>Pregunta de Trivial que es bastante larga la verdad</h2>
           </div>
           <span className="text-600 font-medium line-height-3">Categoria</span>
         </div>
 
         <div className="card">
           <div className="card-container yellow-container">
-            <Button
-              id="boton-opcion"
-              label="opciones"
-              className="p-button-raised  block bg-yellow-500 font-bold text-center p-4 border-round mb-3 w-8 m-auto"
-            />
-            <Button
-              id="boton-opcion"
-              label="opciones"
-              className="p-button-raised  block bg-yellow-500 font-bold text-center p-4 border-round mb-3 w-8 m-auto"
-            />
-            <Button
-              id="boton-opcion"
-              label="opciones"
-              className="p-button-raised  block bg-yellow-500 font-bold text-center p-4 border-round mb-3 w-8 m-auto"
-            />
-            <Button
-              id="boton-opcion"
-              label="opciones"
-              className="p-button-raised  block bg-yellow-500 font-bold text-center p-4 border-round mb-3 w-8 m-auto"
-            />
+            <Boton disposicion="correcta" />
+            <Boton disposicion="incorrecta" />
+            <Boton disposicion="" />
+            <Boton />
           </div>
         </div>
       </div>

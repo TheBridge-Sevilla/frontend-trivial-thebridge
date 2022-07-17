@@ -13,26 +13,20 @@ function Bienvenida(props) {
   const [categoria, setCategoria] = useState();
 
   return (
-    <div className="contenedorPrincipal">
-      <body className="contenedorInicio">
-        <h1>TRIVIAL</h1>
-        <h3>Nombre</h3>
-        <InputText className="nombre" size={50} />
-        <br></br>
-        <h3>Elige la categoria</h3>
-        <label className="categoria" />
-        <SelectCategoria setCategoria={setCategoria} />
-        {categoria}
-        <br></br>
-        <Button
-          onClick={() => props.setEsPantallaPrincipal(false)}
-          id="botoninicio"
-          type="button"
-          label="Empezar juego"
-          icon="pi pi-check"
-        ></Button>{" "}
-        <br />
-      </body>
+    <div className="contenedorInicio">
+      <h1>{t("trivial")}</h1>
+      <h3>{t("nombre")}</h3>
+      <InputText className="nombre" size={50} />
+      <br></br>
+      <h3>{t("elige-categoria")}</h3>
+      <label className="categoria" />
+      <SelectCategoria setCategoria={setCategoria} />
+      {categoria}
+      <br></br>
+      <Button onClick={() => props.setEsPantallaPrincipal(false)} id="botoninicio"
+        type="button" label={t("iniciar")} icon="pi pi-check"
+      ></Button>
+      <br />
     </div>
   );
 }

@@ -15,21 +15,19 @@ import "primeicons/primeicons.css";
 function Inicio() {
     return (
 
-        <body>
-            <div id="contenedor">
-                <h1>Preguntas</h1>
-                <div id="contenedorPreguntas">
-                    <Button label="Secondary" className="p-button-outlined p-button-secondary" />
-                    <br></br>
-                    <Button label="Secondary" className="p-button-outlined p-button-secondary" />
-                    <br></br>
-                    <Button label="Secondary" className="p-button-outlined p-button-secondary" />
-                    <br></br>
-                    <Button label="Secondary" className="p-button-outlined p-button-secondary" />
-                </div>
-
+        <div id="contenedor">
+            <h1>Preguntas</h1>
+            <div id="contenedorPreguntas">
+                <Button label="Secondary" className="p-button-outlined p-button-secondary" />
+                <br></br>
+                <Button label="Secondary" className="p-button-outlined p-button-secondary" />
+                <br></br>
+                <Button label="Secondary" className="p-button-outlined p-button-secondary" />
+                <br></br>
+                <Button label="Secondary" className="p-button-outlined p-button-secondary" />
             </div>
-        </body>
+
+        </div>
     )
 }
 
