@@ -1,0 +1,13 @@
+table {
+    align-items: center;
+    border: 1px solid black;
+    border-spacing: 60px 10px;
+    border-collapse: collapse;
+    width: 100%;
+
+}
+
+
+#fin-partida {
+    padding: 5%;
+}
