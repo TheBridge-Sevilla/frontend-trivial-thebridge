@@ -8,7 +8,6 @@ import "./Ranking.css";
 
 function FinPartida() {
 
-
   return (
     <div className="flex align-items-center justify-content-center">
       <div className="w-full bg-cyan-600" id="fin-partida">
@@ -32,7 +31,6 @@ function FinPartida() {
             </table>
           </div>
         </div>
-
         <div className="card-container yellow-container mb-5 p-5">
           <Boton disposicion="correcta" />
         </div>

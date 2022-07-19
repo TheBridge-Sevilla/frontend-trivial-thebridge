@@ -38,8 +38,6 @@ function Bienvenida(props) {
     </div>
   );
 
-
-
   return (
     <div className="card" id="app">
       <div className="card-container purple-container bg-cyan-500" id="contenedor">
@@ -52,7 +50,7 @@ function Bienvenida(props) {
 
             <div className="categorias">
               <div style={{ height: "auto" }}>
-                <Button id="btn-categoria"label="Show dialog" onClick={() => setDisplayDialog(true)} />
+                <Button id="btn-categoria" label="Show dialog" onClick={() => setDisplayDialog(true)} />
                 <Dialog
                   className="min-w-min"
                   style={{ width: "60%" }}
