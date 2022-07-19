@@ -19,8 +19,8 @@ function Pregunta() {
         <div className="card">
           <div className="card-container yellow-container">
             <Boton disposicion="correcta" />
-            <Boton disposicion="incorrecta"/>
-            <Boton disposicion=""/>
+            <Boton disposicion="incorrecta" />
+            <Boton disposicion="" />
             <Boton />
           </div>
         </div>

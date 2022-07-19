@@ -10,7 +10,7 @@ import { useTranslation } from "react-i18next";
 
 function Bienvenida(props) {
   const { t } = useTranslation();
-  const { categoria, setCategoria } = useState("");
+  const [ categoria, setCategoria ] = useState("");
 
   return (
     <div className="contenedorInicio">

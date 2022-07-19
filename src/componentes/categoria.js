@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 
 
-function SelectCategoria() {
+function SelectCategoria(props) {
 
     const url = 'http://localhost:3050/categorias';
     const [categorias, setCategorias] = useState([]);
     useEffect(() => {
         fetch(url).then(res => res.json()).then(json => setCategorias(json.map(categoria => categoria.nombre)))
     });
-    const handleCategorias = (e) => {console.log(categorias[e.target.value])}
+    const handleCategorias = (e) => { props.setCategoria(e.target.value) }
     return (
         < select onChange={(e) => handleCategorias(e)} >
             {
