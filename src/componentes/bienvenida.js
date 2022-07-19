@@ -1,16 +1,16 @@
 import "./App.css";
-import React, { useState, useEffect } from 'react';
+import React, { useState } from "react";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 import "primereact/resources/themes/lara-light-indigo/theme.css"; //theme
 import "primereact/resources/primereact.min.css"; //core css
 import "primeicons/primeicons.css";
-import PropTypes from 'prop-types';
 import SelectCategoria from "./categoria";
-//icons
+import { useTranslation } from "react-i18next";
 
 function Bienvenida(props) {
-  const [categoria, setCategoria] = useState();
+  const { t } = useTranslation();
+  const { categoria, setCategoria } = useState("");
 
   return (
     <div className="contenedorInicio">
@@ -30,10 +30,5 @@ function Bienvenida(props) {
     </div>
   );
 }
-
-Bienvenida.PropTypes = {
-  esPantallaPrincipal: PropTypes.bool,
-  setEsPantallaPrincipal: PropTypes.func,
-};
 
 export default Bienvenida;

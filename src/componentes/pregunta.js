@@ -1,12 +1,9 @@
-import { Button } from "primereact/button";
 import React from "react";
-
 import "primereact/resources/themes/lara-light-indigo/theme.css"; //theme
 import "primereact/resources/primereact.min.css"; //core css
 import "primeicons/primeicons.css";
 import "primeflex/primeflex.css";
-
-//icons
+import Boton from "./boton-opciones";
 
 function Pregunta() {
   return (
@@ -22,8 +19,8 @@ function Pregunta() {
         <div className="card">
           <div className="card-container yellow-container">
             <Boton disposicion="correcta" />
-            <Boton disposicion="incorrecta" />
-            <Boton disposicion="" />
+            <Boton disposicion="incorrecta"/>
+            <Boton disposicion=""/>
             <Boton />
           </div>
         </div>
