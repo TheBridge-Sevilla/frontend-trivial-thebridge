@@ -5,17 +5,18 @@
 #botoninicio {
   display: flex;
   justify-content: center !important;
-  margin: 20%;
+  margin: 10%;
 }
 
+#presentacion {
+  flex-direction: column !important;
+}
 #usuario {
   border-top-right-radius: 25% !important;
 
 }
-body {
-  justify-content: center !important;
+#select-categoria{
+  margin-top: 2% !important;
+  align-content: center !important;
 
-}
-#card, #contenedor {
-  justify-content: center !important;
 }

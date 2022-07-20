@@ -9,17 +9,14 @@ import "primeicons/primeicons.css";
 function Bienvenida(props) {
   return (
     <div className="card">
-      <div className="card-container purple-container m-auto bg-cyan-500" id="contenedor">
-        <div className="bg-cyan-500 border-round-top p-8 font-bold text-gray-900">
-          <h1 className="m-auto">TRIVIAL</h1>
+      <div className="flex justify-content-center bg-cyan-500" id="presentacion">
+        <div className="flex justify-content-center bg-cyan-500 border-round-top p-8 font-bold text-gray-900">
+          <h1 className="">TRIVIAL</h1>
         </div>
-        <div className="bg-yellow-500 p-8 font-bold text-gray-900" id="usuario">
+        <div className="text-center bg-yellow-500 p-4 font-bold text-gray-900" id="usuario">
           <InputText className="nombre" placeholder="Nombre" />
-          <br></br>
-          <InputText className="categoria" placeholder="Categorias" />
-          <br></br>
-          <div className="w-13rem h-12 mb-3">
-            <select className="block appearance-none w-full h-full p-3 border-round" id="categoria">
+          <div className="flex justify-content-center  mb-auto" id="select-categoria">
+            <select className=" w-13rem h-full p-3 border-round" id="categoria">
               <option>Programación</option>
               <option>Musica</option>
               <option>Deporte</option>
