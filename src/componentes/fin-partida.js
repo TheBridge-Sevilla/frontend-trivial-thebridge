@@ -4,7 +4,7 @@ import "primereact/resources/primereact.min.css"; //core css
 import "primeicons/primeicons.css";
 import "primeflex/primeflex.css";
 import Boton from "./boton-opciones";
-import "./Ranking.css";
+import "./fin-partida.css";
 
 function FinPartida() {
 

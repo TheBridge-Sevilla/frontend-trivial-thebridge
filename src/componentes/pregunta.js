@@ -5,7 +5,7 @@ import "primeicons/primeicons.css";
 import "primeflex/primeflex.css";
 import Boton from "./boton-opciones";
 import Reloj from "./tiempo";
-import "./Pregunta.css";
+import "./pregunta.css";
 
 function Pregunta() {
   return (

@@ -1,4 +1,4 @@
-import "./App.css";
+import "./bienvenida.css";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 import React from "react";
