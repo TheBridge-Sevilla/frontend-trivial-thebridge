@@ -16,7 +16,7 @@ function Bienvenida(props) {
         <div className="text-center bg-yellow-500 p-4 font-bold text-gray-900" id="usuario">
           <InputText className="nombre" placeholder="Nombre" />
           <div className="flex justify-content-center  mb-auto" id="select-categoria">
-            <select className=" w-13rem h-full p-3 border-round" id="categoria">
+            <select className="w-13rem h-full p-3 border-round" id="categoria">
               <option>Programación</option>
               <option>Musica</option>
               <option>Deporte</option>
