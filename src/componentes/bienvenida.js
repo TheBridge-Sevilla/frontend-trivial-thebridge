@@ -1,4 +1,4 @@
-import "./App.css";
+import "./bienvenida.css";
 import React, { useState } from "react";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
@@ -10,31 +10,33 @@ import { useTranslation } from "react-i18next";
 
 function Bienvenida(props) {
   const { t } = useTranslation();
-  const { categoria, setCategoria } = useState("");
+  const [categoria, setCategoria] = useState("");
 
   return (
-    <div className="contenedorPrincipal">
-      <body className="contenedorInicio">
-        <h1>{t("trivial")}</h1>
-        <h3>Nombre</h3>
-        <InputText className="nombre" size={50} />
-        <br></br>
-        <h3>Elige la categoria</h3>
-        <label className="categoria" />
-        <SelectCategoria setCategoria={setCategoria} />
-        {categoria}
-        <br></br>
-        <Button
-          onClick={() => props.setEsPantallaPrincipal(false)}
-          id="botoninicio"
-          type="button"
-          label="Empezar juego"
-          icon="pi pi-check"
-        ></Button>{" "}
-        <br />
-      </body>
+    <div className="card">
+      <div className="flex justify-content-center bg-cyan-500" id="presentacion">
+        <div className="flex justify-content-center bg-cyan-500 border-round-top p-8 font-bold text-gray-900">
+          <h1>{t("trivial")}</h1>
+        </div>
+        <div className="text-center bg-yellow-500 p-4 font-bold text-gray-900" id="usuario">
+          <InputText className="nombre" placeholder={t("nombre")} />
+          <div className="flex justify-content-center  mb-auto" id="select-categoria">
+            <SelectCategoria className="w-13rem h-full p-3 border-round" id="categoria" setCategoria={setCategoria} />
+            <h3>{t("elige-categoria")}</h3>
+            {categoria}
+          </div>
+          <div className="border-round-top-xl p-2 font-bold text-gray-900" id="botoninicio">
+            <Button
+              onClick={() => props.setEsPantallaPrincipal(false)}
+              type="button"
+              label={t("iniciar")}
+              icon="pi pi-check"
+            ></Button>
+          </div>
+        </div>
+      </div>
     </div>
-  );
+  )
 }
 
 export default Bienvenida;

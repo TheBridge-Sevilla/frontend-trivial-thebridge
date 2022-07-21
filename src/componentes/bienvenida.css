@@ -1,0 +1,22 @@
+#boton-hover{
+  background-color: chartreuse;
+}
+
+#botoninicio {
+  display: flex;
+  justify-content: center !important;
+  margin: 10%;
+}
+
+#presentacion {
+  flex-direction: column !important;
+}
+#usuario {
+  border-top-right-radius: 25% !important;
+
+}
+#select-categoria{
+  margin-top: 2% !important;
+  align-content: center !important;
+
+}

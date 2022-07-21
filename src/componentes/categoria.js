@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Component } from 'react';
+import React, { useState, useEffect } from 'react';
 
 
 function SelectCategoria(props) {
@@ -8,13 +8,9 @@ function SelectCategoria(props) {
     useEffect(() => {
         fetch(url).then(res => res.json()).then(json => setCategorias(json.map(categoria => categoria.nombre)))
     });
-
-    const handleAddrTypeChange = (e) => { props.setCategoria(e.target.value) }
-
+    const handleCategorias = (e) => { props.setCategoria(e.target.value) }
     return (
-        < select
-            onChange={e => handleAddrTypeChange(e)}
-            className="browser-default custom-select" >
+        < select onChange={(e) => handleCategorias(e)} >
             {
                 categorias.map(name => <option key={name} value={name}>{name}</option>)
             }
