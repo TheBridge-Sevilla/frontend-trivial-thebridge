@@ -8,6 +8,7 @@ import Reloj from "./tiempo";
 import "./pregunta.css";
 
 function Pregunta(props) {
+  console.log(props)
 
   return (
     <div className="flex align-items-center justify-content-center">
