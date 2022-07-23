@@ -2,7 +2,6 @@ import React from "react";
 import { Button } from "primereact/button";
 
 export default function Boton(props) {
-  console.log(props)
   if (!props.disposicion) {
     return (
 

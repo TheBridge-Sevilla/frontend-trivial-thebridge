@@ -13,19 +13,17 @@ function App() {
   const [categoria, setCategoria] = useState("");
   if (esPantallaPrincipal) {
     return (
-      <React.StrictMode>
+      <div>
         <CambiarIdioma />
         <Bienvenida esPantallaPrincipal={esPantallaPrincipal}
           setEsPantallaPrincipal={setEsPantallaPrincipal}
           categoria={categoria}
           setCategoria={setCategoria} />
-      </React.StrictMode>
+      </div>
     );
   } else {
     return (
-      <React.StrictMode>
         <Preguntas categoria={categoria} />
-      </React.StrictMode>
     );
 
   }
