@@ -8,7 +8,10 @@ import Reloj from "./tiempo";
 import "./pregunta.css";
 
 function Pregunta(props) {
-  console.log(props)
+  console.log(props);
+  const handleIndicePreguntas = () => {
+    props.setIndicePregunta(props.indicePregunta + 1);
+  };
 
   return (
     <div className="flex align-items-center justify-content-center">
@@ -21,8 +24,13 @@ function Pregunta(props) {
         </div>
 
         <div className="card">
-        <Reloj />
+          <Reloj />
           <div className="card-container yellow-container">
+            <button onClick={handleIndicePreguntas}>
+              {" "}
+              {props.indicePregunta}
+            </button>
+
             <Boton disposicion="correcta" />
             <Boton disposicion="incorrecta" />
             <Boton disposicion="" />

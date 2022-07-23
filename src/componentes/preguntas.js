@@ -1,4 +1,3 @@
-import { Button } from "primereact/button";
 import React, { useState, useEffect } from "react";
 import Pregunta from "./pregunta";
 
@@ -8,7 +7,7 @@ function Preguntas(props) {
   const [indicePregunta, setIndicePregunta] = useState(0);
 
   useEffect(() => {
-    console.log("preguntas dentro del useeffect", preguntas)
+    console.log("preguntas dentro del useeffect", preguntas);
     console.log("entra en el useEffect");
     fetch(url, {
       method: "POST",
@@ -19,24 +18,24 @@ function Preguntas(props) {
     })
       .then((res) => res.json())
       .then((json) => {
-        setPreguntas(json)
+        setPreguntas(json);
       });
-  },[indicePregunta]);
+  }, [indicePregunta]);
 
-  if (!preguntas.length){
+  if (!preguntas.length) {
     return <div>cargando...</div>;
+  } else {
+    return (
+      <div>
+        <Pregunta
+          pregunta={preguntas[indicePregunta]}
+          setIndicePregunta={setIndicePregunta}
+          indicePregunta={indicePregunta}
+        />
+        
+      </div>
+    );
   }
-  else{
-      return(
-        <div>
-    <Pregunta pregunta={preguntas[indicePregunta]} setIndicePregunta = {setIndicePregunta} />
-    <button onClick={setIndicePregunta[indicePregunta+1]}>hola </button >
-    </div>
-    )
-
-  }
-
-  
 }
 
 export default Preguntas;
