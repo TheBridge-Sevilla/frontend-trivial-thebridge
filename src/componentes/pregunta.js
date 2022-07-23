@@ -5,9 +5,10 @@ import "primeicons/primeicons.css";
 import "primeflex/primeflex.css";
 import Boton from "./boton-opciones";
 import Reloj from "./tiempo";
+//import PrimeraPregunta from "./PrimeraPregunta";
 import "./pregunta.css";
 
-function Pregunta() {
+function Pregunta(props) {
   return (
     <div className="flex align-items-center justify-content-center">
       <div className="w-auto bg-cyan-600" id="pregunta">
@@ -19,7 +20,7 @@ function Pregunta() {
         </div>
 
         <div className="card">
-        <Reloj />
+          <Reloj />
           <div className="card-container yellow-container">
             <Boton disposicion="correcta" />
             <Boton disposicion="incorrecta" />
