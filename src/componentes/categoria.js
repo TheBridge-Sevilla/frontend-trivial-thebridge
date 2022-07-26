@@ -12,9 +12,9 @@ function SelectCategoria(props) {
         console.log(categorias)
     }, []);
 
-    const handleCategorias = (e) => { setCategoriaSeleccionada(e.value),props.setCategoria(e.target.value) }
+    const handleCategorias = (e) => { setCategoriaSeleccionada(e.value), props.setCategoria(e.target.value) }
     return (
-        <Dropdown className="text-blue-800"
+        <Dropdown className='w-1'
             value={categoriaSeleccionada} options={categorias}
             onChange={(e) => handleCategorias(e)} placeholder="Categorias" />)
 }

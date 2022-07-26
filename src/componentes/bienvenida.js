@@ -1,5 +1,5 @@
 import "./bienvenida.css";
-import React, { useState } from "react";
+import React from "react";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 import "primereact/resources/themes/lara-light-indigo/theme.css"; //theme
@@ -20,7 +20,7 @@ function Bienvenida(props) {
         <div className="text-center bg-yellow-500 p-4 font-bold text-gray-900" id="usuario">
           <InputText className="nombre" placeholder={t("nombre")} />
           <div className="flex justify-content-center  mb-auto" id="select-categoria">
-            <SelectCategoria id="categoria" />
+            <SelectCategoria id="categoria" setCategoria={props.setCategoria} />
           </div>
           <div className="border-round-top-xl p-2 font-bold text-gray-900" id="botoninicio">
             <Button

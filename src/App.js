@@ -8,14 +8,15 @@ import Bienvenida from './componentes/bienvenida';
 import Pregunta from './componentes/pregunta';
 import CambiarIdioma from './componentes/cambiar-idioma';
 
-
 function App() {
   const [esPantallaPrincipal, setEsPantallaPrincipal] = useState(true);
+  const [categoria, setCategoria] = useState();
   if (esPantallaPrincipal) {
     return (
       <React.StrictMode>
         <CambiarIdioma />
-        <Bienvenida esPantallaPrincipal={esPantallaPrincipal} setEsPantallaPrincipal={setEsPantallaPrincipal} />
+        <Bienvenida esPantallaPrincipal={esPantallaPrincipal} setEsPantallaPrincipal={setEsPantallaPrincipal} setCategoria={setCategoria} />
+        {categoria}
       </React.StrictMode>
     );
   } else {
