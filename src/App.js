@@ -16,7 +16,6 @@ function App() {
       <React.StrictMode>
         <CambiarIdioma />
         <Bienvenida esPantallaPrincipal={esPantallaPrincipal} setEsPantallaPrincipal={setEsPantallaPrincipal} setCategoria={setCategoria} />
-        {categoria}
       </React.StrictMode>
     );
   } else {
