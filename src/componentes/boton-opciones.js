@@ -7,7 +7,7 @@ export default function Boton(props) {
 
       <Button
         id="boton-opcion"
-        label="opciones"
+        label="{props.pregunta.opciones[0]}"
         className="p-button-raised  block bg-bluegray-100 font-bold text-center p-4 border-round mb-3 w-8 m-auto"
       />
     );

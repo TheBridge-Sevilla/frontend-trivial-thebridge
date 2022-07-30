@@ -3,14 +3,18 @@ import "primereact/resources/themes/lara-light-indigo/theme.css"; //theme
 import "primereact/resources/primereact.min.css"; //core css
 import "primeicons/primeicons.css";
 import "primeflex/primeflex.css";
-import Boton from "./boton-opciones";
+//import Boton from "./boton-opciones";
 import Reloj from "./tiempo";
 import "./pregunta.css";
 
 function Pregunta(props) {
   console.log(props);
   const handleIndicePreguntas = () => {
-    props.setIndicePregunta(props.indicePregunta + 1);
+  props.setIndicePregunta(props.indicePregunta + 1);
+  
+  
+    
+
   };
 
   return (
@@ -26,15 +30,11 @@ function Pregunta(props) {
         <div className="card">
           <Reloj />
           <div className="card-container yellow-container">
-            <button onClick={handleIndicePreguntas}>
-              {" "}
-              {props.indicePregunta}
-            </button>
-
-            <Boton disposicion="correcta" />
-            <Boton disposicion="incorrecta" />
-            <Boton disposicion="" />
-            <Boton />
+            
+            {props.pregunta.opciones.map(opcion => (
+                  <button onClick={handleIndicePreguntas} key={opcion}> {opcion }</button>)
+                  
+            )}
           </div>
         </div>
       </div>
