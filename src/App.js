@@ -5,24 +5,25 @@ import "primereact/resources/themes/lara-light-indigo/theme.css";  //theme
 import "primereact/resources/primereact.min.css";                  //core css
 import "primeicons/primeicons.css";
 import Bienvenida from './componentes/bienvenida';
-import Pregunta from './componentes/pregunta';
 import CambiarIdioma from './componentes/cambiar-idioma';
+import Preguntas from './componentes/preguntas';
 
 function App() {
   const [esPantallaPrincipal, setEsPantallaPrincipal] = useState(true);
-  const [categoria, setCategoria] = useState();
+  const [categoria, setCategoria] = useState("");
   if (esPantallaPrincipal) {
     return (
-      <React.StrictMode>
+      <div>
         <CambiarIdioma />
-        <Bienvenida esPantallaPrincipal={esPantallaPrincipal} setEsPantallaPrincipal={setEsPantallaPrincipal} setCategoria={setCategoria} />
-      </React.StrictMode>
+        <Bienvenida esPantallaPrincipal={esPantallaPrincipal}
+          setEsPantallaPrincipal={setEsPantallaPrincipal}
+          categoria={categoria}
+          setCategoria={setCategoria} />
+      </div>
     );
   } else {
     return (
-      <React.StrictMode>
-        <Pregunta />
-      </React.StrictMode>
+      <Preguntas categoria={categoria} />
     );
 
   }

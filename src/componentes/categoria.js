@@ -8,6 +8,7 @@ function SelectCategoria(props) {
     const [categorias, setCategorias] = useState([]);
     const [categoriaSeleccionada, setCategoriaSeleccionada] = useState();
     useEffect(() => {
+        console.log('useffect categoria')
         fetch(url).then(res => res.json()).then(json => setCategorias(json.map(categoria => categoria.nombre)))
         console.log(categorias)
     }, []);
