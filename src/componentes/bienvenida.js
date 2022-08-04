@@ -17,14 +17,12 @@ function Bienvenida(props) {
     <div className="card">
       <div className="flex justify-content-center bg-cyan-500" id="presentacion">
         <div className="flex justify-content-center bg-cyan-500 border-round-top p-8 font-bold text-gray-900">
-          <h1>{t("trivial")}</h1>
+          <h1 className="font-trivial">{t("trivial")}</h1>
         </div>
         <div className="text-center bg-yellow-500 p-4 font-bold text-gray-900" id="usuario">
           <InputText className="nombre" placeholder={t("nombre")} />
           <div className="flex justify-content-center  mb-auto" id="select-categoria">
             <SelectCategoria className="w-13rem h-full p-3 border-round" id="categoria" setCategoria={props.setCategoria} />
-            <h3>{t("elige-categoria")}</h3>
-            {props.categoria}
           </div>
           <div className="border-round-top-xl p-2 font-bold text-gray-900" id="botoninicio">
             <Button
