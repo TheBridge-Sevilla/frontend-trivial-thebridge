@@ -12,8 +12,8 @@ function SelectCategoria(props) {
         fetch(url).then(res => res.json()).then(json => setCategorias(json.map(categoria => categoria.nombre)))
         console.log(categorias)
     }, []);
-
     const handleCategorias = (e) => { setCategoriaSeleccionada(e.value), props.setCategoria(e.target.value) }
+
     return (
         <Dropdown className='w-1'
             value={categoriaSeleccionada} options={categorias}
