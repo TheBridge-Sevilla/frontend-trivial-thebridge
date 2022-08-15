@@ -6,9 +6,11 @@ import "primeflex/primeflex.css";
 //import Boton from "./boton-opciones";
 import Reloj from "./tiempo";
 import "./pregunta.css";
+import { useTranslation } from "react-i18next";
 
 function Pregunta(props) {
-  console.log(props);
+  const { i18n } = useTranslation();
+  
   const handleIndicePreguntas = () => {
   props.setIndicePregunta(props.indicePregunta + 1);
   
@@ -31,7 +33,7 @@ function Pregunta(props) {
           <Reloj />
           <div className="card-container yellow-container">
             
-            {props.pregunta.opciones.map(opcion => (
+            {props.pregunta.opciones[i18n.language].map(opcion => (
                   <button onClick={handleIndicePreguntas} key={opcion}> {opcion }</button>)
                   
             )}
