@@ -1,4 +1,5 @@
-import React from "react";
+import React  from "react";
+import { Button } from 'primereact/button';
 import "primereact/resources/themes/lara-light-indigo/theme.css"; //theme
 import "primereact/resources/primereact.min.css"; //core css
 import "primeicons/primeicons.css";
@@ -9,15 +10,26 @@ import "./pregunta.css";
 import { useTranslation } from "react-i18next";
 
 function Pregunta(props) {
-  console.log(props)
+  console.log(props.pregunta)
   const { i18n } = useTranslation();
   
-  const handleIndicePreguntas = () => {
-  props.setIndicePregunta(props.indicePregunta + 1);
-  
-  
-    
+ 
 
+  const handleIndicePreguntas = (e) => {
+    const respuestaCorrecta = props.pregunta.solucion
+    const opcionElegida = e.target.innerText
+    if (opcionElegida == props.pregunta.opciones[i18n.language][respuestaCorrecta]){
+      console.log("Opcion correcta")
+
+    }
+    else{
+
+      console.log("has fallado")
+    }
+  
+    setTimeout(() => {
+      props.setIndicePregunta(props.indicePregunta + 1);
+    }, 1500);
   };
 
   return (
@@ -35,7 +47,8 @@ function Pregunta(props) {
           <div className="card-container yellow-container">
             
             {props.pregunta.opciones[i18n.language].map(opcion => (
-                  <button onClick={handleIndicePreguntas} key={opcion}> {opcion }</button>)
+                  
+                  <Button onClick={handleIndicePreguntas} key={opcion} id="boton-opcion" label={opcion} className="p-button-raised  block bg-yellow-500 font-bold text-center p-4 border-round mb-3 w-8 m-auto" />)
                   
             )}
           </div>
@@ -46,3 +59,11 @@ function Pregunta(props) {
 }
 
 export default Pregunta;
+
+
+
+
+
+   
+
+
