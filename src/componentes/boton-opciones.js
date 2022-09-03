@@ -2,13 +2,12 @@ import React from "react";
 import { Button } from "primereact/button";
 
 export default function Boton(props) {
-  console.log(props)
   if (!props.disposicion) {
     return (
 
       <Button
         id="boton-opcion"
-        label="opciones"
+        label="{props.pregunta.opciones[0]}"
         className="p-button-raised  block bg-bluegray-100 font-bold text-center p-4 border-round mb-3 w-8 m-auto"
       />
     );

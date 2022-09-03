@@ -1,20 +1,23 @@
 import React, { useState, useEffect } from 'react';
-
+import "./categoria.css";
+import { Dropdown } from 'primereact/dropdown';
 
 function SelectCategoria(props) {
 
     const url = 'http://localhost:3050/categorias';
     const [categorias, setCategorias] = useState([]);
+    const [categoriaSeleccionada, setCategoriaSeleccionada] = useState();
     useEffect(() => {
+        console.log('useffect categoria')
         fetch(url).then(res => res.json()).then(json => setCategorias(json.map(categoria => categoria.nombre)))
-    });
-    const handleCategorias = (e) => { props.setCategoria(e.target.value) }
+        console.log(categorias)
+    }, []);
+    const handleCategorias = (e) => { setCategoriaSeleccionada(e.value), props.setCategoria(e.target.value) }
+
     return (
-        < select onChange={(e) => handleCategorias(e)} >
-            {
-                categorias.map(name => <option key={name} value={name}>{name}</option>)
-            }
-        </select >)
+        <Dropdown className='w-1'
+            value={categoriaSeleccionada} options={categorias}
+            onChange={(e) => handleCategorias(e)} placeholder="Categorias" />)
 }
 
 export default SelectCategoria
