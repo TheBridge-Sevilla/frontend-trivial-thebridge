@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 import "primereact/resources/themes/lara-light-indigo/theme.css"; //theme
 import "primereact/resources/primereact.min.css"; //core css
 import "primeicons/primeicons.css";
@@ -8,16 +8,15 @@ import Reloj from "./tiempo";
 import "./pregunta.css";
 import { useTranslation } from "react-i18next";
 
+
 function Pregunta(props) {
   console.log(props)
   const { i18n } = useTranslation();
-  
-  const handleIndicePreguntas = () => {
-  props.setIndicePregunta(props.indicePregunta + 1);
-  
-  
-    
 
+  const handleIndicePreguntas = () => {
+    props.setIndicePregunta(props.indicePregunta + 1);
+    props.setTiempo(props.tiempo)
+    
   };
 
   return (
@@ -33,10 +32,11 @@ function Pregunta(props) {
         <div className="card">
           <Reloj />
           <div className="card-container yellow-container">
-            
+
             {props.pregunta.opciones[i18n.language].map(opcion => (
-                  <button onClick={handleIndicePreguntas} key={opcion}> {opcion }</button>)
-                  
+              <button
+                onClick={handleIndicePreguntas} key={opcion}> {opcion}
+              </button>)
             )}
           </div>
         </div>
