@@ -10,7 +10,7 @@ import { useTranslation } from "react-i18next";
 
 
 function Pregunta(props) {
-  console.log(props)
+  console.log("tiempo",props.inicioTiempo)
   const { i18n } = useTranslation();
 
   const handleIndicePreguntas = () => {

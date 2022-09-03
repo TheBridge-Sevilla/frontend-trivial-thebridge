@@ -4,7 +4,9 @@ export default function Reloj() {
 
     const Ref = useRef(null);
 
-       const definirTiempo = (e) => {
+    const [tiempo, setTiempo] = useState('00:00:00');
+
+    const definirTiempo = (e) => {
         const total = Date.parse(e) - Date.parse(new Date());
         const segundos = Math.floor((total / 1000) % 60);
         const minutos = Math.floor((total / 1000 / 60) % 60);
