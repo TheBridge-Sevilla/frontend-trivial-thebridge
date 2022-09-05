@@ -27,7 +27,14 @@ function Pregunta(props) {
     setInterval(handleIndicePreguntas, 20000);
   }
 
+  function restablecerTiempoPregunta() {
+  
+      clearTimeout(tiempoSiguientePregunta);
+    
+  }
+
   tiempoSiguientePregunta()
+  restablecerTiempoPregunta()
 
   return (
     <div className="flex align-items-center justify-content-center">
