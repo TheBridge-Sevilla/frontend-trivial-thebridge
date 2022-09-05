@@ -10,14 +10,24 @@ import { useTranslation } from "react-i18next";
 
 
 function Pregunta(props) {
-  console.log("tiempo",props.inicioTiempo)
+
   const { i18n } = useTranslation();
 
   const handleIndicePreguntas = () => {
-    props.setIndicePregunta(props.indicePregunta + 1);
-    props.setTiempo(props.tiempo)
-    
+
+    props.setIndicePregunta(props.indicePregunta + 1)
+
   };
+
+  function tiempoSiguientePregunta() {
+
+    //Se aplica la funcion cada 20000 milisegundos (tiempo por pregunta).
+    //Importante el tiempo por pregunta debe coincidir con el del reloj (archivo tiempo.js)
+
+    setInterval(handleIndicePreguntas, 20000);
+  }
+
+  tiempoSiguientePregunta()
 
   return (
     <div className="flex align-items-center justify-content-center">
@@ -28,7 +38,6 @@ function Pregunta(props) {
           </div>
           <span className="text-600 font-medium line-height-3">Categoria</span>
         </div>
-
         <div className="card">
           <Reloj />
           <div className="card-container yellow-container">

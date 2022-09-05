@@ -1,9 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react'
 
-export default function Reloj() {
+export default function Reloj(props) {
 
     const Ref = useRef(null);
-
     const [tiempo, setTiempo] = useState('00:00:00');
 
     const definirTiempo = (e) => {
@@ -17,8 +16,9 @@ export default function Reloj() {
     }
 
     const obtenerTiempo = (e) => {
-        let { total, horas, minutos, segundos }
-            = definirTiempo(e);
+
+        let { total, horas, minutos, segundos } = definirTiempo(e);
+
         if (total >= 0) {
             setTiempo(
                 (horas > 9 ? horas : '0' + horas) + ':' +
@@ -35,6 +35,7 @@ export default function Reloj() {
 
         //  actualización de la variable del temporizador será
         // después de 1000ms o 1seg
+
         if (Ref.current) clearInterval(Ref.current);
         const intervalo = setInterval(() => {
             obtenerTiempo(e);
@@ -50,23 +51,20 @@ export default function Reloj() {
         return tiempoRespuesta;
     }
 
-
     useEffect(() => {
         inicioTiempo(nuevoTiempoRespuesta());
-    }, []);
+    }, [props]);
 
-        const onClickReset = () => {
-            inicioTiempo(nuevoTiempoRespuesta());
-        }
+    const onClickReset = () => {
+        inicioTiempo(nuevoTiempoRespuesta());
+    }
 
     return (
 
         <div className="flex flex-wrap align-items-center justify-content-center card-container blue-container">
             <div className="scalein animation-duration-500 animation-iteration-1 flex align-items-center justify-content-center
-    font-bold bg-yellow-500 text-white border-round m-2 px-5 py-3" id="crono">{tiempo}</div>
-    <button onClick={onClickReset}></button>
-
+            font-bold bg-yellow-500 text-white border-round m-2 px-5 py-3" id="crono">{tiempo}</div>
+            <button onClick={onClickReset}></button>
         </div>
-
     );
 }
