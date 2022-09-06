@@ -5,6 +5,8 @@ import "primeicons/primeicons.css";
 import "primeflex/primeflex.css";
 import Boton from "./boton-opciones";
 import "./fin-partida.css";
+import { DataTable } from 'primereact/datatable';
+import { Column } from 'primereact/column';
 
 function FinPartida() {
 
@@ -23,16 +25,18 @@ function FinPartida() {
 
           <div className="w-full flex justify-content-center">
 
-            <table id="tabla">
-              <tr><th>Posición</th><th>Jugador</th><th>Puntos</th><th>Categoria</th></tr>
-              <tr><td># 100</td><td>Jugador 123456123131345</td><td>5/10</td><td>Programación</td></tr>
-              <tr><td># 1</td><td>Jugador 1</td><td>5/5</td><td>Música</td></tr>
-              <tr><td># 2</td><td>Jugador 2</td><td>4/5</td><td>Deporte</td></tr>
-            </table>
+          <DataTable  responsiveLayout="scroll">
+                    <Column field="posicion" header="Posición"></Column>
+                    <Column field="jugador" header="Jugador"></Column>
+                    <Column field="puntos" header="Puntos"></Column>
+                    <Column field="categoria" header="Categoria"></Column>
+                </DataTable>
           </div>
         </div>
         <div className="card-container yellow-container mb-5 p-5">
+          
           <Boton disposicion="correcta" />
+          
         </div>
       </div>
     </div>
