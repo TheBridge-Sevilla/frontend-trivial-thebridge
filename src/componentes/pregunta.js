@@ -12,13 +12,14 @@ function Pregunta(props) {
   console.log(props)
   const { i18n } = useTranslation();
   
+
+
   const handleIndicePreguntas = () => {
   props.setIndicePregunta(props.indicePregunta + 1);
   
-  
-    
-
   };
+  
+  //if(props.IndicePregunta < ){}
 
   return (
     <div className="flex align-items-center justify-content-center">

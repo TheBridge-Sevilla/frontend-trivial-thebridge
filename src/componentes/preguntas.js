@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Pregunta from "./pregunta";
+import FinPartida from "./fin-partida";
 
 function Preguntas(props) {
   const url = "http://localhost:3050/preguntas/categoria";
@@ -24,7 +25,8 @@ function Preguntas(props) {
 
   if (!preguntas.length) {
     return <div>cargando...</div>;
-  } else {
+  }
+  if (indicePregunta < preguntas.length) {
     return (
       <div>
         <Pregunta
@@ -32,10 +34,13 @@ function Preguntas(props) {
           setIndicePregunta={setIndicePregunta}
           indicePregunta={indicePregunta}
         />
-        
-      </div>
+
+      </div >
+    );
+  } else {
+    return (
+    <FinPartida />
     );
   }
 }
-
 export default Preguntas;
