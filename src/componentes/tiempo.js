@@ -3,25 +3,23 @@ import React, { useState, useRef, useEffect } from 'react'
 export default function Reloj(props) {
 
     const Ref = useRef(null);
-    const [tiempo, setTiempo] = useState('00:00:00');
+    const [tiempo, setTiempo] = useState('00:00');
 
     const definirTiempo = (e) => {
         const total = Date.parse(e) - Date.parse(new Date());
         const segundos = Math.floor((total / 1000) % 60);
         const minutos = Math.floor((total / 1000 / 60) % 60);
-        const horas = Math.floor((total / 1000 * 60 * 60) % 24);
         return {
-            total, horas, minutos, segundos
+            total, minutos, segundos
         };
     }
 
     const obtenerTiempo = (e) => {
 
-        let { total, horas, minutos, segundos } = definirTiempo(e);
+        let { total, minutos, segundos } = definirTiempo(e);
 
         if (total >= 0) {
             setTiempo(
-                (horas > 9 ? horas : '0' + horas) + ':' +
                 (minutos > 9 ? minutos : '0' + minutos) + ':'
                 + (segundos > 9 ? segundos : '0' + segundos)
             )
@@ -31,7 +29,7 @@ export default function Reloj(props) {
     const inicioTiempo = (e) => {
 
         //Ajustar tiempo partida
-        setTiempo('00:00:20');
+        setTiempo('00:20');
 
         //  actualización de la variable del temporizador será
         // después de 1000ms o 1seg

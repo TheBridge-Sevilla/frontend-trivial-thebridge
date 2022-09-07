@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import "primereact/resources/themes/lara-light-indigo/theme.css"; //theme
 import "primereact/resources/primereact.min.css"; //core css
 import "primeicons/primeicons.css";
@@ -13,28 +13,20 @@ function Pregunta(props) {
 
   const { i18n } = useTranslation();
 
-  const handleIndicePreguntas = () => {
 
+  const handleIndicePreguntas = () => {
+    
     props.setIndicePregunta(props.indicePregunta + 1)
 
   };
 
-  function tiempoSiguientePregunta() {
+  useEffect(() => {
+    const pasarPregunta = setTimeout(() => {
+      props.setIndicePregunta(props.indicePregunta + 1)
+    }, 20000);
+    return () => clearTimeout(pasarPregunta);
+  }, [props.indicePregunta]);
 
-    //Se aplica la funcion cada 20000 milisegundos (tiempo por pregunta).
-    //Importante el tiempo por pregunta debe coincidir con el del reloj (archivo tiempo.js)
-
-    setInterval(handleIndicePreguntas, 20000);
-  }
-
-  function restablecerTiempoPregunta() {
-  
-      clearTimeout(tiempoSiguientePregunta);
-    
-  }
-
-  tiempoSiguientePregunta()
-  restablecerTiempoPregunta()
 
   return (
     <div className="flex align-items-center justify-content-center">
