@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Pregunta from "./pregunta";
 import FinPartida from "./fin-partida";
 
+
 function Preguntas(props) {
   const url = "http://localhost:3050/preguntas/categoria";
   const [preguntas, setPreguntas] = useState([]);
@@ -40,6 +41,7 @@ function Preguntas(props) {
   } else {
     return (
     <FinPartida />
+
     );
   }
 }
