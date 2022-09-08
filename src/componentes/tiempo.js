@@ -53,16 +53,12 @@ export default function Reloj(props) {
         inicioTiempo(nuevoTiempoRespuesta());
     }, [props]);
 
-    const onClickReset = () => {
-        inicioTiempo(nuevoTiempoRespuesta());
-    }
 
     return (
 
         <div className="flex flex-wrap align-items-center justify-content-center card-container blue-container">
             <div className="scalein animation-duration-500 animation-iteration-1 flex align-items-center justify-content-center
             font-bold bg-yellow-500 text-white border-round m-2 px-5 py-3" id="crono">{tiempo}</div>
-            <button onClick={onClickReset}></button>
         </div>
     );
 }
