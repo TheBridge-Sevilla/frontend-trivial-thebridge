@@ -14,11 +14,14 @@ function App() {
   if (esPantallaPrincipal) {
     return (
       <div>
+        <div id="banderas">
         <CambiarIdioma />
+        </div>
         <Bienvenida esPantallaPrincipal={esPantallaPrincipal}
           setEsPantallaPrincipal={setEsPantallaPrincipal}
           categoria={categoria}
-          setCategoria={setCategoria} />
+          setCategoria={setCategoria} /> 
+          
       </div>
     );
   } else {

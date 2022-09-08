@@ -13,12 +13,13 @@ function Pregunta(props) {
 
   const { i18n } = useTranslation();
 
-
   const handleIndicePreguntas = () => {
     
     props.setIndicePregunta(props.indicePregunta + 1)
 
   };
+  
+  //if(props.IndicePregunta < ){}
 
   useEffect(() => {
     const pasarPregunta = setTimeout(() => {
