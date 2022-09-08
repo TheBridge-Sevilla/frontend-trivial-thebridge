@@ -1,5 +1,5 @@
 import "./bienvenida.css";
-import React from "react";
+import React, { useState } from "react";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 import "primereact/resources/themes/lara-light-indigo/theme.css"; //theme
@@ -9,9 +9,10 @@ import SelectCategoria from "./categoria";
 import { useTranslation } from "react-i18next";
 
 function Bienvenida(props) {
-  
+
   const { t } = useTranslation();
-  
+  const [disabledButton, setDisabledButton] = useState(true);
+  console.log(props.categoria);
 
   return (
     <div className="card">
@@ -20,14 +21,26 @@ function Bienvenida(props) {
           <h1>{t("trivial")}</h1>
         </div>
         <div className="text-center bg-yellow-500 p-4 font-bold text-gray-900" id="usuario">
-          <InputText className="nombre" placeholder={t("nombre")} />
+          <InputText
+            className="nombre"
+            placeholder={t("nombre")}
+            onChange={e => {
+              if (e.target.value.length != 0) {
+                setDisabledButton(false)
+              }
+              else { setDisabledButton(true) }
+            }}
+          />
           <div className="flex justify-content-center  mb-auto" id="select-categoria">
-            <SelectCategoria className="w-13rem h-full p-3 border-round" id="categoria" setCategoria={props.setCategoria} />
-            <h3>{t("elige-categoria")}</h3>
-            {props.categoria}
+            <SelectCategoria
+              className="w-13rem h-full p-3 border-round"
+              id="categoria"
+              setCategoria={props.setCategoria}
+            />
           </div>
           <div className="border-round-top-xl p-2 font-bold text-gray-900" id="botoninicio">
             <Button
+              disabled={props.categoria != undefined && disabledButton}
               onClick={() => props.setEsPantallaPrincipal(false)}
               type="button"
               label={t("iniciar")}
