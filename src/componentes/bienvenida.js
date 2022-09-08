@@ -40,7 +40,7 @@ function Bienvenida(props) {
           </div>
           <div className="border-round-top-xl p-2 font-bold text-gray-900" id="botoninicio">
             <Button
-              disabled={props.categoria != undefined && disabledButton}
+              disabled={!props.categoria || disabledButton}
               onClick={() => props.setEsPantallaPrincipal(false)}
               type="button"
               label={t("iniciar")}
