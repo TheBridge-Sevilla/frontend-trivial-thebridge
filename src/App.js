@@ -10,15 +10,18 @@ import Preguntas from './componentes/preguntas';
 
 function App() {
   const [esPantallaPrincipal, setEsPantallaPrincipal] = useState(true);
-  const [categoria, setCategoria] = useState("");
+  const [categoria, setCategoria] = useState(false);
   if (esPantallaPrincipal) {
     return (
       <div>
+        <div id="banderas">
         <CambiarIdioma />
+        </div>
         <Bienvenida esPantallaPrincipal={esPantallaPrincipal}
           setEsPantallaPrincipal={setEsPantallaPrincipal}
           categoria={categoria}
-          setCategoria={setCategoria} />
+          setCategoria={setCategoria} /> 
+          
       </div>
     );
   } else {

@@ -1,3 +1,4 @@
+
 import React  from "react";
 import { Button } from 'primereact/button';
 import "primereact/resources/themes/lara-light-indigo/theme.css"; //theme
@@ -9,12 +10,10 @@ import Reloj from "./tiempo";
 import "./pregunta.css";
 import { useTranslation } from "react-i18next";
 
-function Pregunta(props) {
-  console.log(props.pregunta)
-  const { i18n } = useTranslation();
-  
- 
 
+function Pregunta(props) {
+  const { i18n } = useTranslation();
+ 
   const handleIndicePreguntas = (e) => {
     const respuestaCorrecta = props.pregunta.solucion
     const opcionElegida = e.target.innerText
@@ -31,6 +30,16 @@ function Pregunta(props) {
       props.setIndicePregunta(props.indicePregunta + 1);
     }, 1500);
   };
+  
+  //if(props.IndicePregunta < ){}
+
+  useEffect(() => {
+    const pasarPregunta = setTimeout(() => {
+      props.setIndicePregunta(props.indicePregunta + 1)
+    }, 20000);
+    return () => clearTimeout(pasarPregunta);
+  }, [props.indicePregunta]);
+
 
   return (
     <div className="flex align-items-center justify-content-center">
@@ -41,15 +50,14 @@ function Pregunta(props) {
           </div>
           <span className="text-600 font-medium line-height-3">Categoria</span>
         </div>
-
         <div className="card">
           <Reloj />
           <div className="card-container yellow-container">
-            
+
             {props.pregunta.opciones[i18n.language].map(opcion => (
                   
                   <Button onClick={handleIndicePreguntas} key={opcion} id="boton-opcion" label={opcion} className="p-button-raised  block bg-yellow-500 font-bold text-center p-4 border-round mb-3 w-8 m-auto" />)
-                  
+               
             )}
           </div>
         </div>
