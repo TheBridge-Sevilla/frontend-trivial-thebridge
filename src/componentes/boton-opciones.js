@@ -3,23 +3,20 @@ import { Button } from "primereact/button";
 
 export default function Boton(props) {
   const [colorBoton, setColorBoton] = useState("yellow");
-
-  
+  console.log('selec',props.botonSelecionado)
   const handleIndicePreguntas = () => {
-    if (props.opcion == props.respuesta) {
-      setColorBoton("green");
-    } else {
-      setColorBoton("red");
+    if (!props.botonSelecionado) {
+      if (props.opcion == props.respuesta) {
+        setColorBoton("green");
+      } else {
+        setColorBoton("red");
+      }
     }
-    const botones = document.getElementsByTagName("button");
-    for (const boton of botones) {
-      boton.disabled=true;
-
-    }
-
+    props.setBotonSelecionado(true);
     setTimeout(() => {
       props.setIndicePregunta(props.indicePregunta + 1);
     }, 1500);
+    props.setBotonSelecionado(false);
   };
 
   return (

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "primereact/resources/themes/lara-light-indigo/theme.css"; //theme
 import "primereact/resources/primereact.min.css"; //core css
 import "primeicons/primeicons.css";
@@ -12,6 +12,8 @@ function Pregunta(props) {
   const { i18n } = useTranslation();
   const respuestaCorrecta = props.pregunta.solucion;
   const respuesta = props.pregunta.opciones[i18n.language][respuestaCorrecta];
+
+  const [botonSelecionado,setBotonSelecionado] = useState(false)
 
 
   useEffect(() => {
@@ -41,6 +43,8 @@ function Pregunta(props) {
                 respuesta={respuesta}
                 indicePregunta={props.indicePregunta}
                 setIndicePregunta={props.setIndicePregunta}
+                botonSelecionado={botonSelecionado}
+                setBotonSelecionado={setBotonSelecionado}
 
                 
               />
