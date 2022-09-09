@@ -1,45 +1,25 @@
-
-import React  from "react";
-import { Button } from 'primereact/button';
+import React, { useEffect } from "react";
 import "primereact/resources/themes/lara-light-indigo/theme.css"; //theme
 import "primereact/resources/primereact.min.css"; //core css
 import "primeicons/primeicons.css";
 import "primeflex/primeflex.css";
-//import Boton from "./boton-opciones";
+import Boton from "./boton-opciones";
 import Reloj from "./tiempo";
 import "./pregunta.css";
 import { useTranslation } from "react-i18next";
 
-
 function Pregunta(props) {
   const { i18n } = useTranslation();
- 
-  const handleIndicePreguntas = (e) => {
-    const respuestaCorrecta = props.pregunta.solucion
-    const opcionElegida = e.target.innerText
-    if (opcionElegida == props.pregunta.opciones[i18n.language][respuestaCorrecta]){
-      console.log("Opcion correcta")
+  const respuestaCorrecta = props.pregunta.solucion;
+  const respuesta = props.pregunta.opciones[i18n.language][respuestaCorrecta];
 
-    }
-    else{
-
-      console.log("has fallado")
-    }
-  
-    setTimeout(() => {
-      props.setIndicePregunta(props.indicePregunta + 1);
-    }, 1500);
-  };
-  
-  //if(props.IndicePregunta < ){}
 
   useEffect(() => {
     const pasarPregunta = setTimeout(() => {
-      props.setIndicePregunta(props.indicePregunta + 1)
+      props.setIndicePregunta(props.indicePregunta + 1);
     }, 20000);
     return () => clearTimeout(pasarPregunta);
   }, [props.indicePregunta]);
-
 
   return (
     <div className="flex align-items-center justify-content-center">
@@ -53,12 +33,18 @@ function Pregunta(props) {
         <div className="card">
           <Reloj />
           <div className="card-container yellow-container">
+            {props.pregunta.opciones[i18n.language].map((opcion) => (
+              <Boton
+                key={opcion}
+                id="boton-opcion"
+                opcion={opcion}
+                respuesta={respuesta}
+                indicePregunta={props.indicePregunta}
+                setIndicePregunta={props.setIndicePregunta}
 
-            {props.pregunta.opciones[i18n.language].map(opcion => (
-                  
-                  <Button onClick={handleIndicePreguntas} key={opcion} id="boton-opcion" label={opcion} className="p-button-raised  block bg-yellow-500 font-bold text-center p-4 border-round mb-3 w-8 m-auto" />)
-               
-            )}
+                
+              />
+            ))}
           </div>
         </div>
       </div>
@@ -67,11 +53,3 @@ function Pregunta(props) {
 }
 
 export default Pregunta;
-
-
-
-
-
-   
-
-
