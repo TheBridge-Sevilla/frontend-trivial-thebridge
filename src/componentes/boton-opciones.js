@@ -11,12 +11,14 @@ export default function Boton(props) {
       } else {
         setColorBoton("red");
       }
+      props.setBotonSelecionado(true);
+      setTimeout(() => {
+        props.setIndicePregunta(props.indicePregunta + 1);
+        props.setBotonSelecionado(false);
+      }, 1500);
     }
-    props.setBotonSelecionado(true);
-    setTimeout(() => {
-      props.setIndicePregunta(props.indicePregunta + 1);
-    }, 1500);
-    props.setBotonSelecionado(false);
+
+    
   };
 
   return (
