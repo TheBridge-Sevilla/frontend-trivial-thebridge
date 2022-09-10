@@ -34,6 +34,7 @@ function Preguntas(props) {
           pregunta={preguntas[indicePregunta]}
           setIndicePregunta={setIndicePregunta}
           indicePregunta={indicePregunta}
+          categoria={props.categoria}
         />
 
       </div >
