@@ -32,7 +32,7 @@ function Bienvenida(props) {
           />
           <div className="flex justify-content-center  mb-auto" id="select-categoria">
             <SelectCategoria
-              className="w-13rem h-full p-3 border-round"
+              className="min-w-13rem h-full p-3 border-round"
               id="categoria"
               setCategoria={props.setCategoria}
             />
