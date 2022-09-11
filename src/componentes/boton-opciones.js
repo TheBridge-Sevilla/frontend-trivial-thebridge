@@ -29,7 +29,7 @@ export default function Boton(props) {
       className={
         "p-button-raised block bg-" +
         colorBoton +
-        "-500 font-bold text-center p-4 border-round mb-3 w-8 m-auto"
+        "-500 font-bold text-center p-4 border-round mb-3 w-8 m-auto transition-colors transition-duration-500 hover:border-300"
       }
     />
   );
