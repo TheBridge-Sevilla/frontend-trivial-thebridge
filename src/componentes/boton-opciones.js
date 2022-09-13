@@ -1,18 +1,23 @@
 import React, { useState } from "react";
 import { Button } from "primereact/button";
 
+
 export default function Boton(props) {
   const [colorBoton, setColorBoton] = useState("yellow");
+
   console.log('selec',props.botonSelecionado)
+
   const handleIndicePreguntas = () => {
     if (!props.botonSelecionado) {
       if (props.opcion == props.respuesta) {
         setColorBoton("green");
+        props.setPuntuacion(props.puntuacion+1)
       } else {
         setColorBoton("red");
       }
-      props.setBotonSelecionado(true);
-      setTimeout(() => {
+       props.setBotonSelecionado(true);
+
+       setTimeout(() => {
         props.setIndicePregunta(props.indicePregunta + 1);
         props.setBotonSelecionado(false);
       }, 1500);

@@ -7,6 +7,7 @@ function Preguntas(props) {
   const url = "http://localhost:3050/preguntas/categoria";
   const [preguntas, setPreguntas] = useState([]);
   const [indicePregunta, setIndicePregunta] = useState(0);
+  const [puntuacion, setPuntuacion] = useState(0)
 
   useEffect(() => {
     console.log("preguntas dentro del useeffect", preguntas);
@@ -34,13 +35,19 @@ function Preguntas(props) {
           pregunta={preguntas[indicePregunta]}
           setIndicePregunta={setIndicePregunta}
           indicePregunta={indicePregunta}
+          puntuacion={puntuacion}
+          setPuntuacion={setPuntuacion}
+
         />
 
       </div >
     );
   } else {
     return (
-    <FinPartida />
+      <FinPartida
+      indicePregunta={indicePregunta}
+      puntuacion={puntuacion}
+      />
 
     );
   }

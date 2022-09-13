@@ -11,7 +11,7 @@ import "primeicons/primeicons.css";
 function Inicio() {
     return (
 
-        <div id="contenedor">
+        <div className="h-screen w-screen">
             <h1>Preguntas</h1>
             <div id="contenedorPreguntas">
                 <Button label="Secondary" className="p-button-outlined p-button-secondary" />
