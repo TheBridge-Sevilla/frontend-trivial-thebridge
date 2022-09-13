@@ -22,7 +22,7 @@ function Bienvenida(props) {
         </div>
         <div className="text-center bg-yellow-500 p-4 font-bold text-gray-900" id="usuario">
           <InputText
-            className="nombre"
+            className="nombre w-13rem"
             placeholder={t("nombre")}
             onChange={e => {
               if (e.target.value.length != 0) {
@@ -31,7 +31,7 @@ function Bienvenida(props) {
               else { setDisabledButton(true) }
             }}
           />
-          <div className="flex justify-content-center  mb-auto" id="select-categoria">
+          <div className=" flex justify-content-center  mb-auto" id="select-categoria">
             <SelectCategoria
               className="w-13rem h-full p-3 border-round"
               id="categoria"
