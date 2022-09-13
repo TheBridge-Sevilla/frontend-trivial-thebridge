@@ -12,15 +12,14 @@ function Bienvenida(props) {
 
   const { t } = useTranslation();
   const [disabledButton, setDisabledButton] = useState(true);
-  console.log(props.categoria);
 
   return (
-    <div className="card">
-      <div className="flex justify-content-center bg-cyan-500" id="presentacion">
-        <div className="flex justify-content-center bg-cyan-500 border-round-top p-8 font-bold text-gray-900">
+    <div className="card ">
+      <div className="w-full h-screen flex justify-content-center bg-cyan-500" id="presentacion">
+        <div className="h-full flex justify-content-center bg-cyan-500 border-round-top p-8 font-bold text-gray-900">
           <h1>{t("trivial")}</h1>
         </div>
-        <div className="text-center bg-yellow-500 p-4 font-bold text-gray-900" id="usuario">
+        <div className="h-screen text-center bg-yellow-500 p-4 font-bold text-gray-900" id="usuario">
           <InputText
             className="nombre"
             placeholder={t("nombre")}
@@ -33,7 +32,7 @@ function Bienvenida(props) {
           />
           <div className="flex justify-content-center  mb-auto" id="select-categoria">
             <SelectCategoria
-              className="w-13rem h-full p-3 border-round"
+              className="min-w-13rem h-full p-3 border-round"
               id="categoria"
               setCategoria={props.setCategoria}
             />
