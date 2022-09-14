@@ -7,7 +7,6 @@ import "primereact/resources/primereact.min.css"; //core css
 import "primeicons/primeicons.css";
 import SelectCategoria from "./categoria";
 import { useTranslation } from "react-i18next";
-import CambiarIdioma from "./cambiar-idioma";
 
 function Bienvenida(props) {
 
@@ -17,8 +16,6 @@ function Bienvenida(props) {
 
   return (
     <div className="h-screen w-screen flex justify-content-center bg-cyan-500" id="presentacion">
-      <div className="p-5">
-        <CambiarIdioma /></div>
       <div className="flex justify-content-center bg-cyan-500 border-round-top p-8 font-bold text-gray-900">
         <h1>{t("trivial")}</h1>
       </div>
@@ -51,7 +48,6 @@ function Bienvenida(props) {
         </div>
       </div>
     </div>
-
   )
 }
 
