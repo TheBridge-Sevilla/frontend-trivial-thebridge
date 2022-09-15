@@ -7,7 +7,7 @@ import { Button } from "primereact/button";
 //import "./fin-partida.css";
 /* import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';  */
-import Clasificacion from "./inicio";
+import Clasificacion from "./clasificacion";
 
 function FinPartida(props) {
   const resultado = props.puntuacion*100/props.indicePregunta

@@ -23,7 +23,7 @@ console.log("partidas",partidas)
     return (
         <DataTable responsiveLayout="w-full scroll p-4" value={partidas}>
             <Column field="posicion" header="posicion"></Column>
-            <Column field="jugador" header="jugador"></Column>
+            <Column field="nombre" header="jugador"></Column>
             <Column field="categoria" header="categoria"></Column>
             <Column field="puntuacion" header="puntuacion"></Column>
         </DataTable>
