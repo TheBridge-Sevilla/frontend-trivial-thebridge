@@ -7,6 +7,7 @@ import "primereact/resources/primereact.min.css"; //core css
 import "primeicons/primeicons.css";
 import SelectCategoria from "./categoria";
 import { useTranslation } from "react-i18next";
+import Registro from "./registrarse";
 
 function Bienvenida(props) {
 
@@ -32,6 +33,7 @@ function Bienvenida(props) {
             }}
           />
           <div className="flex justify-content-center  mb-auto" id="select-categoria">
+            <Registro/>
             <SelectCategoria
               className="w-13rem h-full p-3 border-round"
               id="categoria"
