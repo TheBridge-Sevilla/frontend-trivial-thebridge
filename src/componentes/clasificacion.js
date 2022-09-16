@@ -21,12 +21,13 @@ function Clasificacion() {
     }, [])
 console.log("partidas",partidas)
     return (
-        <DataTable responsiveLayout="w-full scroll p-4" value={partidas}>
+        <div className='w-full'>
+        <DataTable responsiveLayout="scroll" value={partidas}>
             <Column field="posicion" header="posicion"></Column>
             <Column field="nombre" header="jugador"></Column>
             <Column field="categoria" header="categoria"></Column>
             <Column field="puntuacion" header="puntuacion"></Column>
-        </DataTable>
+        </DataTable></div>
     );
 
 }

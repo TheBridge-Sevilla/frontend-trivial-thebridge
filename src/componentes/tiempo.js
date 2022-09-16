@@ -49,9 +49,13 @@ export default function Reloj(props) {
         return tiempoRespuesta;
     }
 
+
     useEffect(() => {
+   
         inicioTiempo(nuevoTiempoRespuesta());
     }, [props]);
+
+
 
 
     return (

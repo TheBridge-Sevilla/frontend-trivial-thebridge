@@ -7,7 +7,7 @@ import "primereact/resources/primereact.min.css"; //core css
 import "primeicons/primeicons.css";
 import SelectCategoria from "./categoria";
 import { useTranslation } from "react-i18next";
-
+import CambiarIdioma from "./cambiar-idioma";
 function Bienvenida(props) {
 
   const { t } = useTranslation();
@@ -15,7 +15,10 @@ function Bienvenida(props) {
   console.log(props.categoria);
 
   return (
-    <div className="h-screen w-screen flex justify-content-center bg-cyan-500" id="presentacion">
+    <div className="flex-column h-screen w-screen flex justify-content-center bg-cyan-500">
+        <div className="p-3">
+        <CambiarIdioma />
+        </div>
       <div className="flex justify-content-center bg-cyan-500 border-round-top p-8 font-bold text-gray-900">
         <h1>{t("trivial")}</h1>
       </div>
@@ -30,10 +33,9 @@ function Bienvenida(props) {
             else { setDisabledButton(true) }
           }}
         />
-        <div className="flex justify-content-center  mb-auto" id="select-categoria">
+        <div className="p-2" id="select-categoria">
           <SelectCategoria
             className="w-13rem h-full p-3 border-round"
-            id="categoria"
             setCategoria={props.setCategoria}
           />
         </div>
@@ -41,6 +43,7 @@ function Bienvenida(props) {
           <Button
             disabled={!props.categoria || disabledButton}
             onClick={() => props.setEsPantallaPrincipal(false)}
+            esPantallaPrincipal={props.esPantallaPrincipal}
             type="button"
             label={t("iniciar")}
             icon="pi pi-check"

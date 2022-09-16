@@ -1,11 +1,10 @@
-import './App.css';
 import React, { useState } from 'react';
 import 'primeflex/primeflex.css';
 import "primereact/resources/themes/lara-light-indigo/theme.css";  //theme
 import "primereact/resources/primereact.min.css";                  //core css
 import "primeicons/primeicons.css";
 import Bienvenida from './componentes/bienvenida';
-import CambiarIdioma from './componentes/cambiar-idioma';
+
 import Preguntas from './componentes/preguntas';
 
 function App() {
@@ -13,16 +12,11 @@ function App() {
   const [categoria, setCategoria] = useState(false);
   if (esPantallaPrincipal) {
     return (
-      <div>
-        <div id="banderas">
-        <CambiarIdioma />
-        </div>
-        <Bienvenida esPantallaPrincipal={esPantallaPrincipal}
-          setEsPantallaPrincipal={setEsPantallaPrincipal}
-          categoria={categoria}
-          setCategoria={setCategoria} /> 
-          
-      </div>
+      <Bienvenida
+        esPantallaPrincipal={esPantallaPrincipal}
+        setEsPantallaPrincipal={setEsPantallaPrincipal}
+        categoria={categoria}
+        setCategoria={setCategoria} />
     );
   } else {
     return (
