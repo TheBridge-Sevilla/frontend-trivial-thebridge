@@ -1,12 +1,23 @@
 import {React, useState} from "react"
-import {  signInWithPopup, GoogleAuthProvider, signOut} from "firebase/auth";
+import {  signInWithPopup, GoogleAuthProvider, signOut , onAuthStateChanged} from "firebase/auth";
 import { auth } from "./firebase";
+import { Button } from "primereact/button";
+
 
 
 const provider = new GoogleAuthProvider();
 
 function Registro(){
     const [usuario, setUsuario] = useState()
+    onAuthStateChanged(auth, (usuarioFirebase)=>{
+      if (usuarioFirebase){
+        setUsuario(usuarioFirebase)
+      }
+      else{
+        setUsuario()
+      }
+    })
+
     const signInWithGoogle = () =>{
         signInWithPopup(auth, provider).then((resultado)=>{
           const nombre = resultado.user.displayName
@@ -27,13 +38,15 @@ function Registro(){
           })
      }
 
-    return(
-        <div className="Registro">
-            {usuario ? <button onClick={signOutWithGoogle}>Cerrar Sesión</button> : <button onClick={signInWithGoogle}>Inicia Sesión</button>}
-            <p>{usuario}</p>
+     
+     return(
+      <div className="flex align-items-center justify-content-center ">
+             {usuario ? <Button  label="Cerrar Sesión" onClick={signOutWithGoogle}/>: <Button icon="pi pi-google" label="Inicia Sesión" onClick={signInWithGoogle}/>} 
+         </div>
+     )
+     }
 
-        </div>
-    )
-}
+
+
 
 export default Registro
