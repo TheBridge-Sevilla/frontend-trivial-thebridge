@@ -7,7 +7,7 @@ import "primereact/resources/primereact.min.css"; //core css
 import "primeicons/primeicons.css";
 import SelectCategoria from "./categoria";
 import { useTranslation } from "react-i18next";
-import DialogDemo from "./dialogo-registro";
+import DialogDemo from "./Firebase/dialogo-registro";
 import CambiarIdioma from "./cambiar-idioma";
 
 
@@ -45,7 +45,7 @@ function Bienvenida(props) {
           />
 
         </div>
-        <DialogDemo/>
+        <DialogDemo />
         <div
           className="border-round-top-xl p-2 font-bold text-gray-900"
           id="botoninicio"
