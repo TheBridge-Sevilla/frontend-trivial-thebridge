@@ -7,8 +7,9 @@ import "primereact/resources/primereact.min.css"; //core css
 import "primeicons/primeicons.css";
 import SelectCategoria from "./categoria";
 import { useTranslation } from "react-i18next";
+import DialogDemo from "./dialogo-registro";
 import CambiarIdioma from "./cambiar-idioma";
-import Registro from "./registrarse";
+
 
 function Bienvenida(props) {
   const { t } = useTranslation();
@@ -37,13 +38,14 @@ function Bienvenida(props) {
             }
           }}
         />
-        <Registro />
         <div className="p-2" id="select-categoria">
           <SelectCategoria
             className="w-13rem h-full p-3 border-round"
             setCategoria={props.setCategoria}
           />
+
         </div>
+        <DialogDemo/>
         <div
           className="border-round-top-xl p-2 font-bold text-gray-900"
           id="botoninicio"
