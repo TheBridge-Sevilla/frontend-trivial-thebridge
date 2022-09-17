@@ -38,7 +38,6 @@ function Bienvenida(props) {
             }
           }}
         />
-        <Registro />
         <div className="p-2" id="select-categoria">
           <SelectCategoria
             className="w-13rem h-full p-3 border-round"
