@@ -5,7 +5,6 @@ import "primeicons/primeicons.css";
 import "primeflex/primeflex.css";
 import Boton from "./boton-opciones";
 import Reloj from "./tiempo";
-import "./pregunta.css";
 import { useTranslation } from "react-i18next";
 
 function Pregunta(props) {
@@ -13,8 +12,7 @@ function Pregunta(props) {
   const respuestaCorrecta = props.pregunta.solucion;
   const respuesta = props.pregunta.opciones[i18n.language][respuestaCorrecta];
 
-  const [botonSelecionado, setBotonSelecionado] = useState(false)
-
+  const [botonSelecionado, setBotonSelecionado] = useState(false);
 
   useEffect(() => {
     const pasarPregunta = setTimeout(() => {
@@ -24,16 +22,16 @@ function Pregunta(props) {
   }, [props.indicePregunta]);
 
   return (
-    <div className="w-full min-h-screen bg-cyan-500" id="pregunta">
-      <div className="w-full flex-wrap bg-yellow-500 text-center mb-5 border-round-xl p-3">
-        <span className="text-purple-800 text-lg line-height-3">{props.categoria}</span>
-        <h2 className="text-lg md:text-2xl lg:text-4xl">{props.pregunta.pregunta[i18n.language]}</h2>
+    <div className="bg-cyan-600 p-4 w-full h-full p-4">
+      <div className="w-auto h-auto bg-blue-300 text-center text-900 font-auto p-4">
+        <h2 className="text-lg md:text-2xl lg:text-4xl">
+          {props.pregunta.pregunta[i18n.language]}
+        </h2>
+        <span className="text-600 font-auto line-height-3">Categoria</span>
       </div>
-      <div className="card">
-        <div id="reloj" className="mb-3">
-          <Reloj />
-        </div>
-        <div className="card-container yellow-container flex-column">
+      <div className="card w-auto h-auto">
+        <Reloj />
+        <div className="card-container w-auto h-auto bg-blue-300 p-3 yellow-container">
           {props.pregunta.opciones[i18n.language].map((opcion) => (
             <Boton
               key={opcion}
@@ -44,6 +42,8 @@ function Pregunta(props) {
               setIndicePregunta={props.setIndicePregunta}
               botonSelecionado={botonSelecionado}
               setBotonSelecionado={setBotonSelecionado}
+              puntuacion={props.puntuacion}
+              setPuntuacion={props.setPuntuacion}
             />
           ))}
         </div>

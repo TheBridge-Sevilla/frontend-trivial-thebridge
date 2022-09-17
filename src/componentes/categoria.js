@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import "./categoria.css";
 import { Dropdown } from 'primereact/dropdown';
 
 function SelectCategoria(props) {

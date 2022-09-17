@@ -1,4 +1,3 @@
-import './App.css';
 import React, { useState } from 'react';
 import 'primeflex/primeflex.css';
 import "primereact/resources/themes/lara-light-indigo/theme.css";  //theme
@@ -12,13 +11,11 @@ function App() {
   const [categoria, setCategoria] = useState(false);
   if (esPantallaPrincipal) {
     return (
-      <div>
-        <Bienvenida esPantallaPrincipal={esPantallaPrincipal}
-          setEsPantallaPrincipal={setEsPantallaPrincipal}
-          categoria={categoria}
-          setCategoria={setCategoria} /> 
-          
-      </div>
+      <Bienvenida
+        esPantallaPrincipal={esPantallaPrincipal}
+        setEsPantallaPrincipal={setEsPantallaPrincipal}
+        categoria={categoria}
+        setCategoria={setCategoria} />
     );
   } else {
     return (

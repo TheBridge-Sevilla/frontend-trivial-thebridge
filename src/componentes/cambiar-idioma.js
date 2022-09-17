@@ -1,8 +1,5 @@
 import { useTranslation } from "react-i18next";
 import React from "react";
-import "./cambiar-idioma.css"
-
-
 
 function CambiarIdioma() {
     const { i18n } = useTranslation();
