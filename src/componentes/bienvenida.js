@@ -8,38 +8,46 @@ import "primeicons/primeicons.css";
 import SelectCategoria from "./categoria";
 import { useTranslation } from "react-i18next";
 import CambiarIdioma from "./cambiar-idioma";
-function Bienvenida(props) {
+import Registro from "./registrarse";
 
+function Bienvenida(props) {
   const { t } = useTranslation();
   const [disabledButton, setDisabledButton] = useState(true);
-  console.log(props.categoria);
 
   return (
     <div className="flex-column h-screen w-screen flex justify-content-center bg-cyan-500">
-        <div className="p-3">
+      <div className="p-3">
         <CambiarIdioma />
-        </div>
+      </div>
       <div className="flex justify-content-center bg-cyan-500 border-round-top p-8 font-bold text-gray-900">
         <h1>{t("trivial")}</h1>
       </div>
-      <div className="h-screen w-screen text-center bg-yellow-500 p-4 font-bold text-gray-900" id="usuario">
+      <div
+        className="h-screen w-screen text-center bg-yellow-500 p-4 font-bold text-gray-900"
+        id="usuario"
+      >
         <InputText
-          className="nombre"
+          className="w-13rem"
           placeholder={t("nombre")}
-          onChange={e => {
+          onChange={(e) => {
             if (e.target.value.length != 0) {
-              setDisabledButton(false)
+              setDisabledButton(false);
+            } else {
+              setDisabledButton(true);
             }
-            else { setDisabledButton(true) }
           }}
         />
+        <Registro />
         <div className="p-2" id="select-categoria">
           <SelectCategoria
             className="w-13rem h-full p-3 border-round"
             setCategoria={props.setCategoria}
           />
         </div>
-        <div className="border-round-top-xl p-2 font-bold text-gray-900" id="botoninicio">
+        <div
+          className="border-round-top-xl p-2 font-bold text-gray-900"
+          id="botoninicio"
+        >
           <Button
             disabled={!props.categoria || disabledButton}
             onClick={() => props.setEsPantallaPrincipal(false)}
@@ -51,7 +59,7 @@ function Bienvenida(props) {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default Bienvenida;

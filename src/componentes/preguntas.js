@@ -37,9 +37,8 @@ function Preguntas(props) {
           indicePregunta={indicePregunta}
           puntuacion={puntuacion}
           setPuntuacion={setPuntuacion}
-
+          categoria={props.categoria}
         />
-
       </div >
     );
   } else {

@@ -12,9 +12,7 @@ function Pregunta(props) {
   const respuestaCorrecta = props.pregunta.solucion;
   const respuesta = props.pregunta.opciones[i18n.language][respuestaCorrecta];
 
-  const [botonSelecionado, setBotonSelecionado] = useState(false)
-
-
+  const [botonSelecionado, setBotonSelecionado] = useState(false);
 
   useEffect(() => {
     const pasarPregunta = setTimeout(() => {
@@ -24,11 +22,11 @@ function Pregunta(props) {
   }, [props.indicePregunta]);
 
   return (
-
     <div className="bg-cyan-600 p-4 w-full h-full p-4">
-
       <div className="w-auto h-auto bg-blue-300 text-center text-900 font-auto p-4">
-        <h2>{props.pregunta.pregunta[i18n.language]}</h2>
+        <h2 className="text-lg md:text-2xl lg:text-4xl">
+          {props.pregunta.pregunta[i18n.language]}
+        </h2>
         <span className="text-600 font-auto line-height-3">Categoria</span>
       </div>
       <div className="card w-auto h-auto">
@@ -51,7 +49,6 @@ function Pregunta(props) {
         </div>
       </div>
     </div>
-
   );
 }
 
