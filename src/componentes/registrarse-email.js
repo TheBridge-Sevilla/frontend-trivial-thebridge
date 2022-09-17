@@ -19,7 +19,7 @@ function RegistroConEmail (){
         .then((usuarioFirebase)=>{
             return usuarioFirebase
         })
-        console.log(infoUsuario.user.uid)
+        console.log(infoUsuario.user)
         const documento =  doc(firestore, `Jugadores/${infoUsuario.user.uid}`)
         setDoc(documento, {email : email , jugador: jugador});
  
