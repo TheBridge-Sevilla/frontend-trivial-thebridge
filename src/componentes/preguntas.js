@@ -7,6 +7,7 @@ function Preguntas(props) {
   const url = "http://localhost:3050/preguntas/categoria";
   const [preguntas, setPreguntas] = useState([]);
   const [indicePregunta, setIndicePregunta] = useState(0);
+  const [puntuacion, setPuntuacion] = useState(0)
 
   useEffect(() => {
     console.log("preguntas dentro del useeffect", preguntas);
@@ -29,18 +30,25 @@ function Preguntas(props) {
   }
   if (indicePregunta < preguntas.length) {
     return (
-      <div>
+      <div className="w-screen h-screen bg-cyan-600 flex align-items-center justify-content-center">
         <Pregunta
           pregunta={preguntas[indicePregunta]}
           setIndicePregunta={setIndicePregunta}
           indicePregunta={indicePregunta}
+          puntuacion={puntuacion}
+          setPuntuacion={setPuntuacion}
+          categoria={props.categoria}
         />
-
       </div >
     );
   } else {
     return (
-    <FinPartida />
+      <FinPartida
+      indicePregunta={indicePregunta}
+      puntuacion={puntuacion}
+      esPantallaPrincipal={props.esPantallaPrincipal}
+      setEsPantallaPrincipal={props.setEsPantallaPrincipal}
+      />
 
     );
   }
