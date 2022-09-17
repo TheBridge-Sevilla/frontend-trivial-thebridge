@@ -29,20 +29,17 @@ function Preguntas(props) {
   }
   if (indicePregunta < preguntas.length) {
     return (
-      <div>
+      <div className="min-h-full">
         <Pregunta
           pregunta={preguntas[indicePregunta]}
           setIndicePregunta={setIndicePregunta}
           indicePregunta={indicePregunta}
+          categoria={props.categoria}
         />
-
       </div >
     );
   } else {
-    return (
-    <FinPartida />
-
-    );
+    return (<FinPartida />);
   }
 }
 export default Preguntas;

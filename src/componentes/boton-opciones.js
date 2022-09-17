@@ -1,35 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "primereact/button";
 
 export default function Boton(props) {
-  if (!props.disposicion) {
-    return (
+  const [colorBoton, setColorBoton] = useState("yellow");
+  console.log('selec', props.botonSelecionado)
+  const handleIndicePreguntas = () => {
+    if (!props.botonSelecionado) {
+      if (props.opcion == props.respuesta) {
+        setColorBoton("green");
+      } else {
+        setColorBoton("red");
+      }
+      props.setBotonSelecionado(true);
+      setTimeout(() => {
+        props.setIndicePregunta(props.indicePregunta + 1);
+        props.setBotonSelecionado(false);
+      }, 1500);
+    }
 
-      <Button
-        id="boton-opcion"
-        label="{props.pregunta.opciones[0]}"
-        className="p-button-raised  block bg-bluegray-100 font-bold text-center p-4 border-round mb-3 w-8 m-auto"
-      />
-    );
-  }
-  if (props.disposicion == "correcta") {
-    return (
 
-      <Button
-        id="boton-opcion"
-        label="opciones"
-        className="p-button-raised  block bg-green-500 font-bold text-center p-4 border-round mb-3 w-8 m-auto"
-      />
-    );
-  }
-  if (props.disposicion == "incorrecta") {
-    return (
+  };
 
-      <Button
-        id="boton-opcion"
-        label="opciones"
-        className="p-button-raised  block bg-red-500 font-bold text-center p-4 border-round mb-3 w-8 m-auto"
-      />
-    );
-  }
+  return (
+    <Button
+      onClick={handleIndicePreguntas}
+      id="boton-opcion"
+      label={props.opcion}
+      className={
+        "p-button-raised block bg-" +
+        colorBoton +
+        "-500 font-bold text-center p-4 border-round mb-3 w-8 m-auto transition-colors transition-duration-500 hover:border-300"
+      }
+    />
+  );
 }
