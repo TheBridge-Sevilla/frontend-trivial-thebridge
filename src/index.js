@@ -4,11 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "./i18n";
+import { ContextoUsuarioProvider } from './componentes/contexto/contextoUsuario';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+    <ContextoUsuarioProvider>
     <App />
+    </ContextoUsuarioProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

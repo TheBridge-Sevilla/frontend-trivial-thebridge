@@ -12,29 +12,7 @@ import {doc, setDoc} from "firebase/firestore"
 
 
 function RegistroConEmail (){
-    const [isRegistrado, setIsRegistrado] = useState(false)
-
-    async function registrarUsuario(email, contraseña, jugador){
-        const infoUsuario = await createUserWithEmailAndPassword(auth, email, contraseña, jugador)
-        .then((usuarioFirebase)=>{
-            return usuarioFirebase
-        })
-        console.log(infoUsuario.user)
-        const documento =  doc(firestore, `Jugadores/${infoUsuario.user.uid}`)
-        setDoc(documento, {email : email , jugador: jugador});
- 
-    }
-
-    function handleSummit(){
-        const email = document.getElementById("email").value
-        const contraseña = document.getElementById("contraseña").value
-        const jugador = document.getElementById("jugador").value
-        console.log(email, contraseña, jugador)
-        if(isRegistrado){
-            registrarUsuario(email,contraseña,jugador)
-        }
-
-
+   
     }
 
     return(

@@ -6,6 +6,7 @@ import "primeicons/primeicons.css";
 import Bienvenida from './componentes/bienvenida';
 import Preguntas from './componentes/preguntas';
 
+
 function App() {
   const [esPantallaPrincipal, setEsPantallaPrincipal] = useState(true);
   const [categoria, setCategoria] = useState(false);

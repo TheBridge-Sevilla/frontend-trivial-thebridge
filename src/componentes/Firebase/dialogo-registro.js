@@ -1,6 +1,5 @@
 import {React , useState} from "react";
-import RegistroConEmail from "./registrarse-email";
-import Registro from "./registrarse";
+import Usuario from "./usuario"
 import { Dialog } from 'primereact/dialog';
 import { Button } from 'primereact/button';
 
@@ -24,8 +23,7 @@ const DialogDemo = () => {
                 
                 <Button label="Registrate" icon="pi pi-user" onClick={() => setDisplayResponsive(true)} />
                 <Dialog visible={displayResponsive} onHide={() => setDisplayResponsive(!displayResponsive)} breakpoints={{'960px': '75vw'}} style={{width: '50vw'}} /* footer={renderFooter('displayResponsive')} */>
-                  <RegistroConEmail/>
-                  <Registro/>
+                 <Usuario/>
 
                 </Dialog>
   
