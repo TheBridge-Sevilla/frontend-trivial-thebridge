@@ -9,6 +9,8 @@ import Preguntas from './componentes/preguntas';
 function App() {
   const [esPantallaPrincipal, setEsPantallaPrincipal] = useState(true);
   const [categoria, setCategoria] = useState(false);
+
+      
   if (esPantallaPrincipal) {
     return (
       <Bienvenida
@@ -19,7 +21,8 @@ function App() {
     );
   } else {
     return (
-      <Preguntas categoria={categoria} />
+      <Preguntas categoria={categoria}
+      setEsPantallaPrincipal={setEsPantallaPrincipal} />
     );
 
   }

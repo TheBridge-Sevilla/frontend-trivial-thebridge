@@ -44,10 +44,11 @@ function Preguntas(props) {
   } else {
     return (
       <FinPartida
-      indicePregunta={indicePregunta}
-      puntuacion={puntuacion}
-      esPantallaPrincipal={props.esPantallaPrincipal}
-      setEsPantallaPrincipal={props.setEsPantallaPrincipal}
+        indicePregunta={indicePregunta}
+        puntuacion={puntuacion}
+        esPantallaPrincipal={props.esPantallaPrincipal}
+        setEsPantallaPrincipal={props.setEsPantallaPrincipal}
+        categoria={props.categoria}
       />
 
     );
