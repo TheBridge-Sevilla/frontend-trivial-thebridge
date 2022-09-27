@@ -1,10 +1,37 @@
-import React, { useRef } from "react";
+import React, { useRef /* useEffect */ } from "react";
 import { useContextoUsuario } from "../contexto/contextoUsuario";
+import {
+  signInWithEmailAndPassword,
+/*   onAuthStateChanged, */
+  sendPasswordResetEmail,
+} from "firebase/auth";
+import { auth } from "./firebase"
 
 const IniciarSesion = () => {
   const emailRef = useRef();
   const contraseñaRef = useRef();
-  const { iniciarSesion, contraseñaOlvidada } = useContextoUsuario();
+  const { setUsuario } = useContextoUsuario();
+
+  const iniciarSesion = (email, contraseña,) => {
+    signInWithEmailAndPassword(auth, email, contraseña).then(() => {
+      setUsuario(auth.currentUser.displayName)
+      console.log(auth.currentUser.displayName)
+    })
+  }
+
+  const contraseñaOlvidada = (email) => {
+    return sendPasswordResetEmail(auth, email)
+  }
+
+/*   useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (respuesta) => {
+      respuesta ? setUsuario(respuesta.email) : setUsuario()
+
+      console.log("respuesta:" + respuesta)
+    })
+
+    return unsubscribe
+  }, []) */
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -16,7 +43,7 @@ const IniciarSesion = () => {
   const forgotPasswordHandler = () => {
     const email = emailRef.current.value;
     if (email)
-    contraseñaOlvidada(email).then(() => {
+      contraseñaOlvidada(email).then(() => {
         emailRef.current.value = "";
       });
   };

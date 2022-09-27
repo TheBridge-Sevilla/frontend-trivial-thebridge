@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import IniciarSesion from "./inicar-sesion-contexto"
-import Registrarse  from "./registro-contexto"
+import Registrarse from "./registro-contexto"
 const Usuario = () => {
   const [index, setIndex] = useState(false);
   const toggleIndex = () => {

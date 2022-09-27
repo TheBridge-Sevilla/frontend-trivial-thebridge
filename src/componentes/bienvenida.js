@@ -9,11 +9,13 @@ import SelectCategoria from "./categoria";
 import { useTranslation } from "react-i18next";
 import DialogDemo from "./Firebase/dialogo-registro";
 import CambiarIdioma from "./cambiar-idioma";
+import { useContextoUsuario } from "../componentes/contexto/contextoUsuario";
 
 
 function Bienvenida(props) {
   const { t } = useTranslation();
   const [disabledButton, setDisabledButton] = useState(true);
+  const { usuario} = useContextoUsuario();
 
   return (
     <div className="flex-column h-screen w-screen flex justify-content-center bg-cyan-500">
@@ -29,6 +31,7 @@ function Bienvenida(props) {
       >
         <InputText
           className="w-13rem"
+          defaultValue={usuario}
           placeholder={t("nombre")}
           onChange={(e) => {
             if (e.target.value.length != 0) {
@@ -50,6 +53,12 @@ function Bienvenida(props) {
           className="border-round-top-xl p-2 font-bold text-gray-900"
           id="botoninicio"
         >
+             <Button
+            onClick={() => console.log(usuario)}          
+            type="button"
+            label={"usuario"}
+
+          ></Button>
           <Button
             disabled={!props.categoria || disabledButton}
             onClick={() => props.setEsPantallaPrincipal(false)}

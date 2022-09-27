@@ -1,61 +1,19 @@
-import React ,{ createContext, useContext, useState, useEffect } from "react";
-import {
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
-  onAuthStateChanged,
-  signOut,
-  updateProfile,
-  sendPasswordResetEmail,
-} from "firebase/auth";
-import { auth } from "../Firebase/firebase";
+import React, { createContext, useContext, useState } from "react";
 
 const ContextoUsuario = createContext({})
 
 export const useContextoUsuario = () => useContext(ContextoUsuario)
- 
-export const ContextoUsuarioProvider =({children})=>{
-    const [usuario, setUsuario] = useState();
 
-    useEffect(()=>{
-        const unsubscribe = onAuthStateChanged(auth, (respuesta)=>{
-            respuesta ? setUsuario(respuesta) : setUsuario();
-        })
-        return unsubscribe
-    },[])
-
-    const registrarUsuario = (email , contraseña , nombre)=>{
-        createUserWithEmailAndPassword(auth , email , contraseña).then(()=>{
-            return updateProfile(auth.currentUser,{
-                displayName: nombre
-            });
-        })
-        .then((respuesta)=>{
-            console.log(respuesta)
-        })
-
-    }
-    const iniciarSesion = (email , contraseña ,)=>{
-        signInWithEmailAndPassword(auth, email, contraseña)
-        
-    }
-    const cerrarSesion = ()=>{
-        signOut(auth)
-    }
-    const contraseñaOlvidada = (email )=>{
-        return sendPasswordResetEmail(auth, email)
-    }
-
+export const ContextoUsuarioProvider = ({ children }) => {
+    const [usuario, setUsuario] = useState("");
 
     const contextValue = {
         usuario,
-        registrarUsuario,
-        iniciarSesion,
-        cerrarSesion,
-        contraseñaOlvidada
+        setUsuario
     }
 
     return (
         <ContextoUsuario.Provider value={contextValue}>{children}</ContextoUsuario.Provider>
-      );
-    
+    );
+
 }
