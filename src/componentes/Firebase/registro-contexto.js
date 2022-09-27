@@ -1,8 +1,8 @@
-import React, { useRef/* , useEffect  */ } from "react";
+import React, { useRef} from "react";
 import { useContextoUsuario } from "../contexto/contextoUsuario";
 import {
   createUserWithEmailAndPassword,
-  /*   onAuthStateChanged, */
+
   updateProfile,
 } from "firebase/auth";
 import { auth } from "./firebase"
@@ -22,23 +22,11 @@ const Registrarse = () => {
     })
       .then(() => {
         setUsuario(auth.currentUser.displayName)
-        console.log(auth.currentUser.displayName)
       })
 
 
 
   }
-
-
-  /*   useEffect(() => {
-      const unsubscribe = onAuthStateChanged(auth, (respuesta) => {
-        respuesta ? setUsuario(respuesta.email) : setUsuario()
-  
-        console.log("nombre usuario:" + respuesta.email)
-      })
-  
-      return unsubscribe
-    }, []) */
 
   const onSubmit = (e) => {
     e.preventDefault();

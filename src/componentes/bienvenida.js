@@ -15,7 +15,7 @@ import { useContextoUsuario } from "../componentes/contexto/contextoUsuario";
 function Bienvenida(props) {
   const { t } = useTranslation();
   const [disabledButton, setDisabledButton] = useState(true);
-  const { usuario} = useContextoUsuario();
+  const { usuario } = useContextoUsuario();
 
   return (
     <div className="flex-column h-screen w-screen flex justify-content-center bg-cyan-500">
@@ -53,12 +53,7 @@ function Bienvenida(props) {
           className="border-round-top-xl p-2 font-bold text-gray-900"
           id="botoninicio"
         >
-             <Button
-            onClick={() => console.log(usuario)}          
-            type="button"
-            label={"usuario"}
 
-          ></Button>
           <Button
             disabled={!props.categoria || disabledButton}
             onClick={() => props.setEsPantallaPrincipal(false)}
