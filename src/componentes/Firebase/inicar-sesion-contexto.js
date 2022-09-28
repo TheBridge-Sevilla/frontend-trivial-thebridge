@@ -1,10 +1,10 @@
-import React, { useRef} from "react";
+import React, { useRef } from "react";
 import { useContextoUsuario } from "../contexto/contextoUsuario";
-import {
-  signInWithEmailAndPassword,
-  sendPasswordResetEmail,
-} from "firebase/auth";
+import { signInWithEmailAndPassword, sendPasswordResetEmail, } from "firebase/auth";
 import { auth } from "./firebase"
+import { Password } from 'primereact/password';
+import { InputText } from 'primereact/inputtext';
+import { Button } from 'primereact/button';
 
 const IniciarSesion = () => {
   const emailRef = useRef();
@@ -38,12 +38,12 @@ const IniciarSesion = () => {
 
   return (
     <div className="form">
-      <h2> Login </h2>
+      <h1 className="text-blue-600"> Login </h1>
       <form onSubmit={onSubmit}>
-        <input placeholder="Email" type="email" ref={emailRef} />
-        <input placeholder="Contraseña" type="password" ref={contraseñaRef} />
-        <button type="submit">Sign In</button>
-        <p onClick={forgotPasswordHandler}>Forgot Password?</p>
+        <InputText placeholder="Email" icon="pi pi-envelope" type="email" ref={emailRef} />
+        <Password placeholder="Contraseña" type="password" ref={contraseñaRef} />
+        <Button type="submit">Iniciar sesion</Button>
+        <p className="cursor-pointer" onClick={forgotPasswordHandler}>Contraseña olvidada?</p>
       </form>
     </div>
   );

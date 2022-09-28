@@ -10,7 +10,7 @@ const Usuario = () => {
     <div className="container">
       {!index ? <IniciarSesion /> : <Registrarse />}
       <p onClick={toggleIndex}>
-        {!index ? "New user? Click here " : "Already have an acount?"}
+        {!index ? <p className="cursor-pointer">New user? Click here</p> : <p className="cursor-pointer">Already have an acount?</p>}
       </p>
     </div>
   );

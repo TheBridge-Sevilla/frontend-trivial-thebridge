@@ -5,12 +5,12 @@ import { getFirestore } from "firebase/firestore"
 
 
 const firebaseConfig = {
-  apiKey:  process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain:  process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-  projectId:  process.env.REACT_APP_FIREBASE_PROJECT_ID,
-  storageBucket:  process.env.REACT_APP_FIREBASE_TORAGEBUCKET,
-  messagingSenderId:  process.env.REACT_APP_FIREBASE_MESSAGINGSENDER_ID,
-  appId: process.env.REACT_APP_FIREBASE_APP_ID 
+  apiKey: "AIzaSyB7lnrKz2u3BTcXuQSIEubmXd7V0V-gOc4",
+  authDomain: "autentificacion-trivial.firebaseapp.com",
+  projectId: "autentificacion-trivial",
+  storageBucket: "autentificacion-trivial.appspot.com",
+  messagingSenderId: "532597283133",
+  appId: "1:532597283133:web:f8c673acc0db9216dd4d54"
 };
 
 
