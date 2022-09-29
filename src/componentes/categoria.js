@@ -10,19 +10,28 @@ function SelectCategoria(props) {
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
-      .then((json) =>
-        setCategorias(json.map((categoria) => categoria._id))
-      );
+      .then((json) => {
+        setCategorias(json.map((categoria) => categoria));
+        console.log(categorias);
+      });
   }, [i18n.language]);
   const handleCategorias = (e) => {
-    setCategoriaSeleccionada(e.value), props.setCategoria(e.target.value);
+    // El objeto entero de la categoría.
+    let categoriaObj = categorias.filter((categoria) => 
+      categoria.nombre[i18n.language] == e.target.value
+    )[0];
+
+
+    // categorias.map((categoria) => console.log(categoria))
+    setCategoriaSeleccionada(e.value), props.setCategoria(categoriaObj);
+
   };
 
   return (
     <Dropdown
       className="w-13rem"
       value={categoriaSeleccionada}
-      options={categorias}
+      options={categorias.map((categoria) => categoria.nombre[i18n.language])}
       onChange={(e) => handleCategorias(e)}
       placeholder="Categorias"
     />
