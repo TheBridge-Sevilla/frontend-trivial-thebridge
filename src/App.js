@@ -19,7 +19,7 @@ function App() {
     );
   } else {
     return (
-      <Preguntas categoria={categoria} />
+      <Preguntas categoria={categoria}  setEsPantallaPrincipal={setEsPantallaPrincipal}/>
     );
 
   }
