@@ -17,7 +17,7 @@ function Preguntas(props) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ categoria: props.categoria }),
+      body: JSON.stringify({ id: props.categoria._id }),
     })
       .then((res) => res.json())
       .then((json) => {
