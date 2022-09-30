@@ -1,10 +1,9 @@
 import React, { useRef} from "react";
 import { useContextoUsuario } from "../contexto/contextoUsuario";
-import {
-  createUserWithEmailAndPassword,
-
-  updateProfile,
-} from "firebase/auth";
+import {createUserWithEmailAndPassword,updateProfile,} from "firebase/auth";
+import { Password } from 'primereact/password';
+import { InputText } from 'primereact/inputtext';
+import { Button } from 'primereact/button';
 import { auth } from "./firebase"
 
 const Registrarse = () => {
@@ -38,12 +37,12 @@ const Registrarse = () => {
 
   return (
     <div className="form">
-      <h2> New User</h2>
+      <h1 className="text-blue-600"> Crear Cuenta </h1>
       <form onSubmit={onSubmit}>
-        <input placeholder="Email" type="email" ref={emailRef} />
-        <input placeholder="Nombre" type="name" ref={nombreRef} />
-        <input placeholder="Contraseña" type="password" ref={contraseñaRef} />
-        <button type="submit">Register</button>
+        <InputText placeholder="Email" type="email" ref={emailRef} />
+        <InputText placeholder="Nombre" type="name" ref={nombreRef} />
+        <Password placeholder="Contraseña" type="password" ref={contraseñaRef} />
+        <Button type="submit">Registrarse</Button>
       </form>
     </div>
   );
