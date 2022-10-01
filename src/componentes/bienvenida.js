@@ -55,7 +55,7 @@ function Bienvenida(props) {
           <Button
             disabled={!props.categoria || disabledButton}
             onClick={() => props.setEsPantallaPrincipal(false)}
-            esPantallaPrincipal={props.esPantallaPrincipal}
+            espantallaprincipal={props.espantallaprincipal}
             type="button"
             label={t("iniciar")}
             icon="pi pi-check"

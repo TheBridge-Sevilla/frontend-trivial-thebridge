@@ -1,5 +1,5 @@
 import { React } from "react"
-import { signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { auth } from "./firebase";
 import { Button } from "primereact/button";
 import { useContextoUsuario } from '../contexto/contextoUsuario'
@@ -9,7 +9,7 @@ import { useContextoUsuario } from '../contexto/contextoUsuario'
 const provider = new GoogleAuthProvider();
 
 function RegistroConGoogle() {
-  const { usuario, setUsuario, setDisabledInputText } = useContextoUsuario();
+  const { usuario, setUsuario, setDisabledInputText, setVisibleTop } = useContextoUsuario();
 
 
   const signInWithGoogle = () => {
@@ -17,33 +17,19 @@ function RegistroConGoogle() {
       const nombre = resultado.user.displayName
       setUsuario(nombre)
       setDisabledInputText(true)
+      setVisibleTop(false)
     })
       .catch((error) => {
         console.log(error)
       })
 
   }
-  const signOutWithGoogle = () => {
-    signOut(auth).then(() => {
-      setUsuario()
-      setDisabledInputText(false)
-
-    })
-      .catch((error) => {
-        console.log(error)
-      })
-  }
-
 
   return (
     <div className="flex align-items-center justify-content-center ">
-      {usuario ? <Button className="mx-1" label="Cerrar Sesión" onClick={signOutWithGoogle} /> : <Button className="mx-1" icon="pi pi-google" label="Inicia Sesión" onClick={signInWithGoogle} />}
-      <p>{usuario}</p>
+      {usuario ? <></> : <Button className="mx-1" icon="pi pi-google" label="Inicia Sesión" onClick={signInWithGoogle} />}
     </div>
   )
 }
-
-
-
 
 export default RegistroConGoogle
