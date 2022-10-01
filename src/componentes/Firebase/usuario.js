@@ -10,14 +10,14 @@ const Usuario = () => {
 
 
     <div className="container">
-    {registrado && contraseñaOlvidada ? <ContraseñaOlvidada /> : (registrado && !contraseñaOlvidada ? <IniciarSesion/> : <Registrarse />)}
-    <p onClick={() => setRegistrado(!registrado)}>
-      {registrado ? <p className="cursor-pointer">¿Aun No tienes Cuenta?</p> : <p className="cursor-pointer">¿Ya Tienes Cuenta?</p>}
-    </p>
+      {registrado && contraseñaOlvidada ? <ContraseñaOlvidada /> : (registrado && !contraseñaOlvidada ? <IniciarSesion /> : <Registrarse />)}
+      <div onClick={() => setRegistrado(!registrado)}>
+        {registrado ? <p className="cursor-pointer">¿Aun No tienes Cuenta?</p> : <p className="cursor-pointer">¿Ya Tienes Cuenta?</p>}
+      </div>
       {registrado && contraseñaOlvidada ? <p onClick={() => setContraseñaOlvidada(!contraseñaOlvidada)} className="cursor-pointer">He Recordado Mi Contraseña</p>
-      : (registrado && !contraseñaOlvidada ?  <p onClick={() => setContraseñaOlvidada(!contraseñaOlvidada)} className="cursor-pointer">He Olvidado Mi Contraseña</p>
-      : <></>)}
-  </div>
+        : (registrado && !contraseñaOlvidada ? <p onClick={() => setContraseñaOlvidada(!contraseñaOlvidada)} className="cursor-pointer">He Olvidado Mi Contraseña</p>
+          : <></>)}
+    </div>
   );
 };
 

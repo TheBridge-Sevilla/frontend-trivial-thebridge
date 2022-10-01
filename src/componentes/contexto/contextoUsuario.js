@@ -8,6 +8,7 @@ export const ContextoUsuarioProvider = ({ children }) => {
     const [usuario, setUsuario] = useState('');
     const [disabledInputText, setDisabledInputText] = useState(false)
     const [visibleTop, setVisibleTop] = useState(false);
+    const [displayResponsive, setDisplayResponsive] = useState(false)
 
 
 
@@ -17,7 +18,9 @@ export const ContextoUsuarioProvider = ({ children }) => {
         disabledInputText,
         setDisabledInputText,
         visibleTop,
-        setVisibleTop
+        setVisibleTop,
+        displayResponsive,
+        setDisplayResponsive
     }
 
     return (

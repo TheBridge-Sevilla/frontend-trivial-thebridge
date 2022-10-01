@@ -10,7 +10,7 @@ const Registrarse = () => {
   const emailRef = useRef();
   const nombreRef = useRef();
   const contraseñaRef = useRef();
-  const { setUsuario, setDisabledInputText } = useContextoUsuario();
+  const { setUsuario, setDisabledInputText,setVisibleTop, setDisplayResponsive } = useContextoUsuario();
 
   const registrarUsuario = (email, contraseña, nombre) => {
     createUserWithEmailAndPassword(auth, email, contraseña).then(() => {
@@ -31,6 +31,8 @@ const Registrarse = () => {
     const nombre = nombreRef.current.value;
     const contraseña = contraseñaRef.current.value;
     if (email && contraseña && nombre) registrarUsuario(email, contraseña, nombre);
+    setVisibleTop(false)
+    setDisplayResponsive(false)
   };
 
   return (

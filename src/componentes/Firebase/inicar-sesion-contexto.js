@@ -9,7 +9,7 @@ import { Button } from 'primereact/button';
 const IniciarSesion = () => {
   const emailRef = useRef();
   const contraseñaRef = useRef();
-  const { setUsuario, setDisabledInputText } = useContextoUsuario();
+  const { setUsuario, setDisabledInputText, setVisibleTop, setDisplayResponsive } = useContextoUsuario();
 
   const iniciarSesion = (email, contraseña,) => {
     signInWithEmailAndPassword(auth, email, contraseña).then(() => {
@@ -18,15 +18,14 @@ const IniciarSesion = () => {
     })
   }
 
-
-
   const onSubmit = (e) => {
     e.preventDefault();
     const email = emailRef.current.value;
     const contraseña = contraseñaRef.current.value;
     if (email && contraseña) iniciarSesion(email, contraseña);
+    setVisibleTop(false)
+    setDisplayResponsive(false)
   };
-
 
 
   return (
