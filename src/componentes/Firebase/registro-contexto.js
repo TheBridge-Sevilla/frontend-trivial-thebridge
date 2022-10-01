@@ -1,4 +1,4 @@
-import React, { useRef} from "react";
+import React, { useRef } from "react";
 import { useContextoUsuario } from "../contexto/contextoUsuario";
 import {
   createUserWithEmailAndPassword,
@@ -11,7 +11,7 @@ const Registrarse = () => {
   const emailRef = useRef();
   const nombreRef = useRef();
   const contraseñaRef = useRef();
-  const {  setUsuario } = useContextoUsuario();
+  const { setUsuario, setDisabledInputText } = useContextoUsuario();
 
   const registrarUsuario = (email, contraseña, nombre) => {
     createUserWithEmailAndPassword(auth, email, contraseña).then(() => {
@@ -22,10 +22,8 @@ const Registrarse = () => {
     })
       .then(() => {
         setUsuario(auth.currentUser.displayName)
+      setDisabledInputText(true)
       })
-
-
-
   }
 
   const onSubmit = (e) => {

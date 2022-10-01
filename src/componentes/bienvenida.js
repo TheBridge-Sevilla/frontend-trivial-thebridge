@@ -15,26 +15,16 @@ import { useContextoUsuario } from "../componentes/contexto/contextoUsuario";
 function Bienvenida(props) {
   const { t } = useTranslation();
   const [disabledButton, setDisabledButton] = useState(true);
-  const [disabledInputText, setDisabledInputText] = useState(false)
-  const { usuario } = useContextoUsuario();
-  const handleChange = () => {
-    (e) => {
-      if (e.target.value.length != 0) {
-        setDisabledButton(false);
-      } else {
+  const { usuario, setUsuario, disabledInputText } = useContextoUsuario();
+
+     useEffect(() => {
+      if (usuario == '') {
         setDisabledButton(true);
       }
-    }
-  }
-
-  useEffect(() => {
-    if (usuario == undefined) {
-      setDisabledInputText(false)
-    }
-    else {
-      setDisabledInputText(true)
-    }
-  }, [{ usuario }]);
+      else {
+        setDisabledButton(false);
+      }
+    }, [{ usuario }]);
 
   return (
     <div className="flex-column h-screen w-screen flex justify-content-center bg-cyan-500">
@@ -48,21 +38,20 @@ function Bienvenida(props) {
         id="usuario">
         <div className="flex justify-content-center">
           <InputText className="w-13rem mr-2 ml-7" defaultValue={usuario}
-            placeholder={t("nombre")} disabled={disabledInputText} onChange={handleChange} />
+            placeholder={t("nombre")} disabled={disabledInputText}
+            onChange={(e) => setUsuario(e.target.value)} />
           <UserSidebar />
         </div>
         <div className="p-2" id="select-categoria">
           <SelectCategoria
             className="w-13rem h-full p-3 border-round"
-            setCategoria={props.setCategoria}
-          />
+            setCategoria={props.setCategoria} />
 
         </div>
         <div
           className="border-round-top-xl p-2 font-bold text-gray-900"
           id="botoninicio"
         >
-
           <Button
             disabled={!props.categoria || disabledButton}
             onClick={() => props.setEsPantallaPrincipal(false)}

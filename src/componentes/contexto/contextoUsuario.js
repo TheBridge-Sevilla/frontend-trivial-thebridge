@@ -5,11 +5,15 @@ const ContextoUsuario = createContext({})
 export const useContextoUsuario = () => useContext(ContextoUsuario)
 
 export const ContextoUsuarioProvider = ({ children }) => {
-    const [usuario, setUsuario] = useState(undefined);
+    const [usuario, setUsuario] = useState('');
+    const [disabledInputText, setDisabledInputText] = useState(false)
+
 
     const contextValue = {
         usuario,
-        setUsuario
+        setUsuario,
+        disabledInputText,
+        setDisabledInputText
     }
 
     return (

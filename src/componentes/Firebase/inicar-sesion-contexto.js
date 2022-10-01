@@ -9,11 +9,12 @@ import { Button } from 'primereact/button';
 const IniciarSesion = () => {
   const emailRef = useRef();
   const contraseñaRef = useRef();
-  const { setUsuario } = useContextoUsuario();
+  const { setUsuario, setDisabledInputText } = useContextoUsuario();
 
   const iniciarSesion = (email, contraseña,) => {
     signInWithEmailAndPassword(auth, email, contraseña).then(() => {
       setUsuario(auth.currentUser.displayName)
+      setDisabledInputText(true)
     })
   }
 

@@ -1,21 +1,22 @@
-import { React, useState } from "react"
+import { React } from "react"
 import { signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
 import { auth } from "./firebase";
 import { Button } from "primereact/button";
+import { useContextoUsuario } from '../contexto/contextoUsuario'
 
 
 
 const provider = new GoogleAuthProvider();
 
 function RegistroConGoogle() {
-  const [usuario, setUsuario] = useState()
+  const { usuario, setUsuario, setDisabledInputText } = useContextoUsuario();
 
 
   const signInWithGoogle = () => {
     signInWithPopup(auth, provider).then((resultado) => {
       const nombre = resultado.user.displayName
       setUsuario(nombre)
-      console.log(nombre)
+      setDisabledInputText(true)
     })
       .catch((error) => {
         console.log(error)
@@ -25,6 +26,8 @@ function RegistroConGoogle() {
   const signOutWithGoogle = () => {
     signOut(auth).then(() => {
       setUsuario()
+      setDisabledInputText(false)
+
     })
       .catch((error) => {
         console.log(error)
