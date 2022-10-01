@@ -17,7 +17,7 @@ function UserSidebar() {
                     <RegistroConEmail />
                 </div>
             </Sidebar>
-            <Button icon="pi pi-user-plus" onClick={() => setVisibleTop(true)} className="mx-1" />
+            <Button icon="pi pi-user-plus" onClick={() => setVisibleTop(true)} className="mx-2" />
         </div>
 
     )

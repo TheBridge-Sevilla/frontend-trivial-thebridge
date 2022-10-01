@@ -17,14 +17,14 @@ function Bienvenida(props) {
   const [disabledButton, setDisabledButton] = useState(true);
   const { usuario, setUsuario, disabledInputText } = useContextoUsuario();
 
-     useEffect(() => {
-      if (usuario == '') {
-        setDisabledButton(true);
-      }
-      else {
-        setDisabledButton(false);
-      }
-    }, [{ usuario }]);
+  useEffect(() => {
+    if (usuario == '') {
+      setDisabledButton(true);
+    }
+    else {
+      setDisabledButton(false);
+    }
+  }, [{ usuario }]);
 
   return (
     <div className="flex-column h-screen w-screen flex justify-content-center bg-cyan-500">
@@ -37,10 +37,10 @@ function Bienvenida(props) {
       <div className="h-screen w-screen text-center bg-yellow-500 p-4 font-bold text-gray-900"
         id="usuario">
         <div className="flex justify-content-center">
-          <InputText className="w-13rem mr-2 ml-7" defaultValue={usuario}
+          <UserSidebar />
+          <InputText className="w-13rem mr-7" defaultValue={usuario}
             placeholder={t("nombre")} disabled={disabledInputText}
             onChange={(e) => setUsuario(e.target.value)} />
-          <UserSidebar />
         </div>
         <div className="p-2" id="select-categoria">
           <SelectCategoria
