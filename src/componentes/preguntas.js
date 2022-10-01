@@ -39,17 +39,16 @@ function Preguntas(props) {
           setPuntuacion={setPuntuacion}
           categoria={props.categoria}
         />
-      </div >
+      </div>
     );
   } else {
     return (
       <FinPartida
-      indicePregunta={indicePregunta}
-      puntuacion={puntuacion}
-      esPantallaPrincipal={props.esPantallaPrincipal}
-      setEsPantallaPrincipal={props.setEsPantallaPrincipal}
+        indicePregunta={indicePregunta}
+        puntuacion={puntuacion}
+        esPantallaPrincipal={props.esPantallaPrincipal}
+        setEsPantallaPrincipal={props.setEsPantallaPrincipal}
       />
-
     );
   }
 }
