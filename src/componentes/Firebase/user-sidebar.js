@@ -11,11 +11,15 @@ import { useContextoUsuario } from '../contexto/contextoUsuario'
 
 function UserSidebar() {
     //visibleTop necesario para Sidebar, elemento de PrimeReact
-    const { usuario, setUsuario, setDisabledInputText, visibleTop, setVisibleTop } = useContextoUsuario();
+    const { usuario,
+        setUsuario,
+        setDisabledInputName,
+        visibleTop,
+        setVisibleTop } = useContextoUsuario();
     const handleClick = () => {
         signOut(auth).then(() => {
             setUsuario()
-            setDisabledInputText(false)
+            setDisabledInputName(false)
         }
         )
             .catch((error) => {

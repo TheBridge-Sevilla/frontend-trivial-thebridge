@@ -14,15 +14,16 @@ import { useContextoUsuario } from "../componentes/contexto/contextoUsuario";
 
 function Bienvenida(props) {
   const { t } = useTranslation();
-  const [disabledButton, setDisabledButton] = useState(true);
-  const { usuario, setUsuario, disabledInputText } = useContextoUsuario();
+  const [disabledStartButton, setDisabledStartButton] = useState(true);
+  const { usuario, setUsuario, disabledInputName } = useContextoUsuario();
+
 
   useEffect(() => {
-    if (usuario == '') {
-      setDisabledButton(true);
+    if (usuario) {
+      setDisabledStartButton(false);
     }
     else {
-      setDisabledButton(false);
+      setDisabledStartButton(true);
     }
   }, [{ usuario }]);
 
@@ -39,7 +40,7 @@ function Bienvenida(props) {
         <div className="flex justify-content-center">
           <UserSidebar />
           <InputText className="w-13rem mr-7" defaultValue={usuario}
-            placeholder={t("nombre")} disabled={disabledInputText}
+            placeholder={t("nombre")} disabled={disabledInputName}
             onChange={(e) => setUsuario(e.target.value)} />
         </div>
         <div className="p-2" id="select-categoria">
@@ -53,7 +54,7 @@ function Bienvenida(props) {
           id="botoninicio"
         >
           <Button
-            disabled={!props.categoria || disabledButton}
+            disabled={!props.categoria || disabledStartButton}
             onClick={() => props.setEsPantallaPrincipal(false)}
             espantallaprincipal={props.espantallaprincipal}
             type="button"

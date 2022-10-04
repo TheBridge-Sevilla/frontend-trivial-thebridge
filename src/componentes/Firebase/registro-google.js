@@ -9,14 +9,14 @@ import { useContextoUsuario } from '../contexto/contextoUsuario'
 const provider = new GoogleAuthProvider();
 
 function RegistroConGoogle() {
-  const { usuario, setUsuario, setDisabledInputText, setVisibleTop } = useContextoUsuario();
+  const { usuario, setUsuario, setDisabledInputName, setVisibleTop } = useContextoUsuario();
 
 
   const signInWithGoogle = () => {
     signInWithPopup(auth, provider).then((resultado) => {
       const nombre = resultado.user.displayName
       setUsuario(nombre)
-      setDisabledInputText(true)
+      setDisabledInputName(true)
       setVisibleTop(false)
     })
       .catch((error) => {

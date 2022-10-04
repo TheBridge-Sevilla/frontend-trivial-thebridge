@@ -9,11 +9,11 @@ import { onAuthStateChanged } from "firebase/auth";
 
 const RegistroConEmail = () => {
   //Display responsive es un estado necesario para el Dialog, elemento de PrimeReact
-  const { usuario, setUsuario, setDisabledInputText, displayResponsive, setDisplayResponsive } = useContextoUsuario();
+  const { usuario, setUsuario, setDisabledInputName, displayResponsive, setDisplayResponsive } = useContextoUsuario();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (respuesta) => {
-      respuesta ? (setUsuario(respuesta.email), setDisabledInputText(true)) : setUsuario()
+      respuesta ? (setUsuario(respuesta.email), setDisabledInputName(true)) : setUsuario()
     })
 
     return unsubscribe
