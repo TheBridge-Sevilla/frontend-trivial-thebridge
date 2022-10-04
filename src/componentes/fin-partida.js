@@ -10,8 +10,8 @@ function FinPartida(props) {
   const resultado = props.puntuacion * 100 / props.indicePregunta
 
   return (
-    <div className="bg-cyan-600 h-screen w-screen">
-      <div className="w-full bg-cyan-600 p-4">
+    <div className="bg-cyan-500 h-screen w-screen">
+      <div className="w-full bg-cyan-500 p-4">
         <div className="w-auto bg-bluegray-100 text-center p-4">
           <div className="card-container text-center text-3xl font-medium">
             Fin de Partida
