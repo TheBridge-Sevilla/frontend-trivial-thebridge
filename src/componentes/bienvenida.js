@@ -16,7 +16,7 @@ function Bienvenida(props) {
   const { t } = useTranslation();
   const [disabledStartButton, setDisabledStartButton] = useState(true);
   const { usuario, setUsuario, disabledInputName } = useContextoUsuario();
-
+  const [disabledLogOut, setDisabledLogOut] = useState(false)
 
   useEffect(() => {
     if (usuario) {
@@ -26,6 +26,11 @@ function Bienvenida(props) {
       setDisabledStartButton(true);
     }
   }, [{ usuario }]);
+
+  const handleChange = (e) => {
+    setUsuario(e.target.value);
+    setDisabledLogOut(true)
+  }
 
   return (
     <div className="flex-column h-screen w-screen flex justify-content-center bg-cyan-500">
@@ -38,10 +43,10 @@ function Bienvenida(props) {
       <div className="h-screen w-screen text-center bg-yellow-500 p-4 font-bold text-gray-900"
         id="usuario">
         <div className="flex justify-content-center">
-          <UserSidebar />
+          <UserSidebar disabledLogOut={disabledLogOut} />
           <InputText className="w-13rem mr-7" defaultValue={usuario}
             placeholder={t("nombre")} disabled={disabledInputName}
-            onChange={(e) => setUsuario(e.target.value)} />
+            onChange={handleChange} />
         </div>
         <div className="p-2" id="select-categoria">
           <SelectCategoria

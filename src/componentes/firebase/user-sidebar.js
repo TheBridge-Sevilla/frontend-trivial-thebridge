@@ -8,14 +8,14 @@ import { auth } from "./firebase";
 import { useContextoUsuario } from '../contexto/contextoUsuario'
 
 
-
-function UserSidebar() {
+function UserSidebar(props) {
     //visibleTop necesario para Sidebar, elemento de PrimeReact
     const { usuario,
         setUsuario,
         setDisabledInputName,
         visibleTop,
         setVisibleTop } = useContextoUsuario();
+
     const handleClick = () => {
         signOut(auth).then(() => {
             setUsuario()
@@ -27,7 +27,6 @@ function UserSidebar() {
             })
     }
 
-
     return (
         <div className='card'>
             <Sidebar visible={visibleTop} className="p-sidebar-sm" position="top" onHide={() => setVisibleTop(false)}>
@@ -36,7 +35,7 @@ function UserSidebar() {
                     <RegistroConEmail />
                 </div>
             </Sidebar>
-            {usuario ? <Button icon="pi pi-sign-out" onClick={handleClick} tooltip="Cerrar sesión" tooltipOptions={{ position: 'top' }} className="mx-2" /> : <Button icon="pi pi-user-plus" onClick={() => setVisibleTop(true)} tooltip="Inciar sesión" tooltipOptions={{ position: 'top' }} className="mx-2" />}
+            {usuario ? <Button icon="pi pi-sign-out" disabled={props.disabledLogOut} onClick={handleClick} tooltip="Cerrar sesión" tooltipOptions={{ position: 'top' }} className="mx-2" /> : <Button icon="pi pi-user-plus" onClick={() => setVisibleTop(true)} tooltip="Inciar sesión" tooltipOptions={{ position: 'top' }} className="mx-2" />}
         </div>
 
     )
