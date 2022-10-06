@@ -18,7 +18,6 @@ function Bienvenida(props) {
   const { usuario, setUsuario, disabledInputName } = useContextoUsuario();
   const [disabledLogOut, setDisabledLogOut] = useState(false)
 
-
   useEffect(() => {
     if (usuario) {
       setDisabledStartButton(false);

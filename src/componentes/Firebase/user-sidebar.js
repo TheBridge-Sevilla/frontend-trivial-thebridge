@@ -8,7 +8,6 @@ import { auth } from "./firebase";
 import { useContextoUsuario } from '../contexto/contextoUsuario'
 
 
-
 function UserSidebar(props) {
     //visibleTop necesario para Sidebar, elemento de PrimeReact
     const { usuario,
@@ -16,7 +15,6 @@ function UserSidebar(props) {
         setDisabledInputName,
         visibleTop,
         setVisibleTop } = useContextoUsuario();
-
 
     const handleClick = () => {
         signOut(auth).then(() => {
@@ -28,7 +26,6 @@ function UserSidebar(props) {
                 console.log(error)
             })
     }
-
 
     return (
         <div className='card'>
