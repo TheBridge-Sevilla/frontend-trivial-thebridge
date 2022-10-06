@@ -11,7 +11,6 @@ function Pregunta(props) {
   const { i18n } = useTranslation();
   const respuestaCorrecta = props.pregunta.solucion;
   const respuesta = props.pregunta.opciones[i18n.language][respuestaCorrecta];
-
   const [botonSelecionado, setBotonSelecionado] = useState(false);
 
   useEffect(() => {
