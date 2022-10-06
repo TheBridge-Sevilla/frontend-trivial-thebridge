@@ -24,7 +24,6 @@ const IniciarSesion = () => {
     const contraseña = contraseñaRef.current.value;
     if (email && contraseña) iniciarSesion(email, contraseña);
     if (usuario) {
-      alert("Your file is being uploaded!")
       setVisibleTop(false);
       setDisplayResponsive(false);
     }

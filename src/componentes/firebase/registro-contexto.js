@@ -1,16 +1,24 @@
 import React, { useRef } from "react";
 import { useContextoUsuario } from "../contexto/contextoUsuario";
-import {createUserWithEmailAndPassword,updateProfile,} from "firebase/auth";
-import { Password } from 'primereact/password';
+import { createUserWithEmailAndPassword, updateProfile, } from "firebase/auth";
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 import { auth } from "./firebase"
+import { Toast } from 'primereact/toast';
+
+
+
 
 const Registrarse = () => {
   const emailRef = useRef();
   const nombreRef = useRef();
   const contraseñaRef = useRef();
-  const { setUsuario, setDisabledInputName,setVisibleTop, setDisplayResponsive } = useContextoUsuario();
+  const toast = useRef(null);
+  const { setUsuario, setDisabledInputName, setVisibleTop, setDisplayResponsive, mensaje, setMensaje } = useContextoUsuario();
+
+  const showSuccess = (error) => {
+    toast.current.show({ severity: 'error', summary: 'Error ', detail: `${error}`, life: 3000 });
+  }
 
   const registrarUsuario = (email, contraseña, nombre) => {
     createUserWithEmailAndPassword(auth, email, contraseña).then(() => {
@@ -24,16 +32,29 @@ const Registrarse = () => {
         setDisabledInputName(true)
       })
   }
+  
 
-  const onSubmit = (e) => {
+  async function onSubmit(e) {
     e.preventDefault();
     const email = emailRef.current.value;
     const nombre = nombreRef.current.value;
     const contraseña = contraseñaRef.current.value;
-    if (email && contraseña && nombre) registrarUsuario(email, contraseña, nombre);
-    setVisibleTop(false)
-    setDisplayResponsive(false)
-  };
+    if (!email || !nombre || !contraseña) {
+      setMensaje("Error Al Crear La Cuenta")
+
+      console.log(mensaje)
+      showSuccess(mensaje)
+
+    }
+
+    if (email && contraseña && nombre) {
+      await registrarUsuario(email, contraseña, nombre);
+      setVisibleTop(false)
+      setDisplayResponsive(false)
+    }
+  }
+
+  
 
   return (
     <div className="form">
@@ -41,9 +62,10 @@ const Registrarse = () => {
       <form onSubmit={onSubmit}>
         <InputText placeholder="Email" type="email" ref={emailRef} />
         <InputText placeholder="Nombre" type="name" ref={nombreRef} />
-        <Password placeholder="Contraseña" type="password" ref={contraseñaRef} />
+        <InputText placeholder="Contraseña" type="password" ref={contraseñaRef} />
         <Button type="submit">Registrarse</Button>
       </form>
+      <Toast ref={toast} />
     </div>
   );
 };
