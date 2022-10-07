@@ -6,6 +6,7 @@ import RegistroConEmail from './registro-email';
 import { signOut } from "firebase/auth";
 import { auth } from "./firebase";
 import { useContextoUsuario } from '../contexto/contextoUsuario'
+import { useTranslation } from "react-i18next";
 
 
 function UserSidebar(props) {
@@ -15,6 +16,8 @@ function UserSidebar(props) {
         setDisabledInputName,
         visibleTop,
         setVisibleTop } = useContextoUsuario();
+    const { t } = useTranslation();
+
 
     const handleClick = () => {
         signOut(auth).then(() => {
@@ -35,7 +38,7 @@ function UserSidebar(props) {
                     <RegistroConEmail />
                 </div>
             </Sidebar>
-            {usuario ? <Button icon="pi pi-sign-out" disabled={props.disabledLogOut} onClick={handleClick} tooltip="Cerrar sesión" tooltipOptions={{ position: 'top' }} className="mx-2" /> : <Button icon="pi pi-user-plus" onClick={() => setVisibleTop(true)} tooltip="Inciar sesión" tooltipOptions={{ position: 'top' }} className="mx-2" />}
+            {usuario ? <Button icon="pi pi-sign-out" disabled={props.disabledLogOut} onClick={handleClick} tooltip="Cerrar sesión" tooltipOptions={{ position: 'top' }} className="mx-2" /> : <Button icon="pi pi-user-plus" onClick={() => setVisibleTop(true)} tooltip={t("iniciar-sesion")} tooltipOptions={{ position: 'top' }} className="mx-2" />}
         </div>
 
     )
