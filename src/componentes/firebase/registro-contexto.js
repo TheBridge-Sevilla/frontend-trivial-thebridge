@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { useContextoUsuario } from "../contexto/contextoUsuario";
 import {createUserWithEmailAndPassword,updateProfile,} from "firebase/auth";
 import { Password } from 'primereact/password';
@@ -7,6 +8,7 @@ import { Button } from 'primereact/button';
 import { auth } from "./firebase"
 
 const Registrarse = () => {
+  const { t } = useTranslation();
   const emailRef = useRef();
   const nombreRef = useRef();
   const contraseñaRef = useRef();
@@ -37,12 +39,12 @@ const Registrarse = () => {
 
   return (
     <div className="form">
-      <h1 className="text-blue-600"> Crear Cuenta </h1>
+      <h1 className="text-blue-600">{t("crear-cuenta")}</h1>
       <form onSubmit={onSubmit}>
         <InputText placeholder="Email" type="email" ref={emailRef} />
-        <InputText placeholder="Nombre" type="name" ref={nombreRef} />
-        <Password placeholder="Contraseña" type="password" ref={contraseñaRef} />
-        <Button type="submit">Registrarse</Button>
+        <InputText placeholder={t("nombre")} type="name" ref={nombreRef} />
+        <Password placeholder={t("contraseña")} type="password" ref={contraseñaRef} />
+        <Button type="submit">{t("crear-cuenta")}</Button>
       </form>
     </div>
   );
