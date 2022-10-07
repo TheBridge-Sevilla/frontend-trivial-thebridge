@@ -1,4 +1,5 @@
 import { React, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import Usuario from "./usuario"
 import { Dialog } from 'primereact/dialog';
 import { Button } from 'primereact/button';
@@ -10,6 +11,7 @@ import { onAuthStateChanged } from "firebase/auth";
 const RegistroConEmail = () => {
   //Display responsive es un estado necesario para el Dialog, elemento de PrimeReact
   const { usuario, setUsuario, setDisabledInputName, displayResponsive, setDisplayResponsive } = useContextoUsuario();
+  const { t } = useTranslation();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (respuesta) => {
@@ -23,7 +25,7 @@ const RegistroConEmail = () => {
 
     <div>
 
-      {usuario ? <></> : <Button className="mx-1" label="Registrate" icon="pi pi-user" onClick={() => setDisplayResponsive(true)} />}
+      {usuario ? <></> : <Button className="mx-1" label={t("crear-cuenta")} icon="pi pi-user" onClick={() => setDisplayResponsive(true)} />}
 
       <Dialog visible={displayResponsive} onHide={() => setDisplayResponsive(!displayResponsive)} breakpoints={{ '960px': '75vw' }} style={{ width: '50vw' }} >
         <Usuario />

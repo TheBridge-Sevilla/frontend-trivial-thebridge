@@ -2,5 +2,15 @@
     "trivial":"Trivial",
     "nombre":"Name",
     "elige-categoria":"Choose a category",
-    "iniciar":"Start game"
+    "iniciar":"Start game",
+    "categoria":"Categories",
+    "iniciar-sesion":"Log in",
+    "contraseña": "Password",
+    "cuenta-no":"I don't have account yet",
+    "cuenta-si":"I already have an account",
+    "contraseña-olvidada":"I Have forggoten my password",
+    "contraseña-recordada":"I already know my password",
+    "cambiar-contraseña":"Change password",
+    "recuperar-contraseña":"Restore password",
+    "crear-cuenta":"Sign in"
 }

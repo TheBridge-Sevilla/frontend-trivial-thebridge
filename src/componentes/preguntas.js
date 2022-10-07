@@ -30,7 +30,7 @@ function Preguntas(props) {
   }
   if (indicePregunta < preguntas.length) {
     return (
-      <div className="w-screen h-screen bg-cyan-500 flex align-items-center justify-content-center">
+      <>
         <Pregunta
           pregunta={preguntas[indicePregunta]}
           setIndicePregunta={setIndicePregunta}
@@ -39,7 +39,7 @@ function Preguntas(props) {
           setPuntuacion={setPuntuacion}
           categoria={props.categoria}
         />
-      </div>
+      </>
     );
   } else {
     return (
