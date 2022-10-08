@@ -1,8 +1,7 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-
+import { Toast } from 'primereact/toast';
 import { useContextoUsuario } from "../contexto/contextoUsuario";
-
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { Password } from "primereact/password";
 import { InputText } from "primereact/inputtext";
@@ -14,14 +13,25 @@ const Registrarse = () => {
   const { t } = useTranslation();
   const emailRef = useRef();
   const nombreRef = useRef();
-
   const [contraseña, setContraseña] = useState();
+  const toast = useRef();
   const {
     setUsuario,
     setDisabledInputName,
     setVisibleTop,
     setDisplayResponsive,
+    mensaje,
+    setMensaje
   } = useContextoUsuario();
+
+  const mostrarError = (mensaje) => {
+    toast.current.show({ severity: 'error', summary: 'Error',detail:`${mensaje}` , life: 3000 });
+  }
+
+  useEffect(() => {
+    mostrarError(mensaje)
+  }, [mensaje])
+  
 
 
   const registrarUsuario = (email, contraseña, nombre) => {
@@ -43,12 +53,17 @@ const Registrarse = () => {
     e.preventDefault();
     const email = emailRef.current.value;
     const nombre = nombreRef.current.value;
+    if (!email || !contraseña || !nombre) {
+      setMensaje("Error al registrarse")
+      console.log(mensaje)
+    }
 
-    if (email && contraseña && nombre)
+    if (email && contraseña && nombre) {
       registrarUsuario(email, contraseña, nombre);
-    setVisibleTop(false);
-    setDisplayResponsive(false);
-  };
+      setVisibleTop(false);
+      setDisplayResponsive(false)
+    }
+  }
 
 
   return (
