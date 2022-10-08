@@ -33,7 +33,7 @@ function Bienvenida(props) {
   }
 
   return (
-    <div className="flex-column h-screen w-screen flex justify-content-center bg-cyan-500">
+    <div className="flex-column h-screen w-screen flex justify-content-center bg-teal-400">
       <div className="p-3">
         <CambiarIdioma />
       </div>

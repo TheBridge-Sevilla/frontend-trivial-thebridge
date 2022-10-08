@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { useContextoUsuario } from "../contexto/contextoUsuario";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./firebase"
@@ -7,6 +8,7 @@ import { Button } from 'primereact/button';
 
 
 const IniciarSesion = () => {
+  const { t } = useTranslation();
   const emailRef = useRef();
   const contraseñaRef = useRef();
   const { usuario, setUsuario, setDisabledInputName, setVisibleTop, setDisplayResponsive } = useContextoUsuario();
@@ -35,8 +37,8 @@ const IniciarSesion = () => {
       <h1 className="text-blue-600"> Iniciar Sesión </h1>
       <form onSubmit={onSubmit}>
         <InputText placeholder="Email" icon="pi pi-envelope" type="email" ref={emailRef} />
-        <InputText placeholder="Contraseña" type="password" ref={contraseñaRef} />
-        <Button type="submit">Iniciar Sesión</Button>
+        <InputText placeholder={t("contraseña")} ref={contraseñaRef} />
+        <Button type="submit">{t("iniciar-sesion")}</Button>
       </form>
     </div>
   );

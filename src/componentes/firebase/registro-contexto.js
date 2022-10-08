@@ -1,73 +1,68 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
+
 import { useContextoUsuario } from "../contexto/contextoUsuario";
-import { createUserWithEmailAndPassword, updateProfile, } from "firebase/auth";
-import { InputText } from 'primereact/inputtext';
-import { Button } from 'primereact/button';
-import { auth } from "./firebase"
-import { Toast } from 'primereact/toast';
 
-
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { Password } from "primereact/password";
+import { InputText } from "primereact/inputtext";
+import { Button } from "primereact/button";
+import { auth } from "./firebase";
 
 
 const Registrarse = () => {
+  const { t } = useTranslation();
   const emailRef = useRef();
   const nombreRef = useRef();
-  const contraseñaRef = useRef();
-  const toast = useRef(null);
-  const { setUsuario, setDisabledInputName, setVisibleTop, setDisplayResponsive, mensaje, setMensaje } = useContextoUsuario();
 
-  const showSuccess = (error) => {
-    toast.current.show({ severity: 'error', summary: 'Error ', detail: `${error}`, life: 3000 });
-  }
+  const [contraseña, setContraseña] = useState();
+  const {
+    setUsuario,
+    setDisabledInputName,
+    setVisibleTop,
+    setDisplayResponsive,
+  } = useContextoUsuario();
+
 
   const registrarUsuario = (email, contraseña, nombre) => {
-    createUserWithEmailAndPassword(auth, email, contraseña).then(() => {
-
-      return updateProfile(auth.currentUser, {
-        displayName: nombre
-      });
-    })
+    createUserWithEmailAndPassword(auth, email, contraseña)
       .then(() => {
-        setUsuario(auth.currentUser.displayName)
-        setDisabledInputName(true)
+        return updateProfile(auth.currentUser, {
+          displayName: nombre,
+        });
       })
-  }
-  
+
+      .then(() => {
+        setUsuario(auth.currentUser.displayName);
+        setDisabledInputName(true);
+      });
+  };
+
 
   async function onSubmit(e) {
     e.preventDefault();
     const email = emailRef.current.value;
     const nombre = nombreRef.current.value;
-    const contraseña = contraseñaRef.current.value;
-    if (!email || !nombre || !contraseña) {
-      setMensaje("Error Al Crear La Cuenta")
 
-      console.log(mensaje)
-      showSuccess(mensaje)
+    if (email && contraseña && nombre)
+      registrarUsuario(email, contraseña, nombre);
+    setVisibleTop(false);
+    setDisplayResponsive(false);
+  };
 
-    }
-
-    if (email && contraseña && nombre) {
-      await registrarUsuario(email, contraseña, nombre);
-      setVisibleTop(false)
-      setDisplayResponsive(false)
-    }
-  }
-
-  
 
   return (
     <div className="form">
-      <h1 className="text-blue-600"> Crear Cuenta </h1>
+      <h1 className="text-blue-600">{t("crear-cuenta")}</h1>
       <form onSubmit={onSubmit}>
         <InputText placeholder="Email" type="email" ref={emailRef} />
-        <InputText placeholder="Nombre" type="name" ref={nombreRef} />
-        <InputText placeholder="Contraseña" type="password" ref={contraseñaRef} />
-        <Button type="submit">Registrarse</Button>
+
+        <InputText placeholder={t("nombre")} type="name" ref={nombreRef} />
+        <Password placeholder={t("contraseña")} type="password" onChange={(e) => setContraseña(e.target.value)} />
+        <Button type="submit">{t("crear-cuenta")}</Button>
       </form>
       <Toast ref={toast} />
     </div>
   );
 };
-
 export default Registrarse;
