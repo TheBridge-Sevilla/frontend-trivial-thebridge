@@ -5,11 +5,11 @@ import { Button } from "primereact/button";
 import "primereact/resources/themes/lara-light-indigo/theme.css"; //theme
 import "primereact/resources/primereact.min.css"; //core css
 import "primeicons/primeicons.css";
-import SelectCategoria from "./categoria";
+import SelectCategoria from "../../acciones/categoria";
 import { useTranslation } from "react-i18next";
-import UserSidebar from "./firebase/user-sidebar";
-import CambiarIdioma from "./cambiar-idioma";
-import { useContextoUsuario } from "../componentes/contexto/contextoUsuario";
+import UserSidebar from "./../../firebase/user-sidebar";
+import CambiarIdioma from "../../acciones/cambiar-idioma";
+import { useContextoUsuario } from "../../contexto/contextoUsuario";
 
 
 function Bienvenida(props) {

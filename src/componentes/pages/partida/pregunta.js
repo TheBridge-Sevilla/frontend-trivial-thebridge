@@ -4,7 +4,7 @@ import "primereact/resources/primereact.min.css"; //core css
 import "primeicons/primeicons.css";
 import "primeflex/primeflex.css";
 import Boton from "./boton-opciones";
-import Reloj from "./tiempo";
+import Reloj from "../../acciones/tiempo";
 import { useTranslation } from "react-i18next";
 
 function Pregunta(props) {

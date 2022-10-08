@@ -4,7 +4,7 @@ import "primereact/resources/primereact.min.css"; //core css
 import "primeicons/primeicons.css";
 import "primeflex/primeflex.css";
 import { Button } from "primereact/button";
-import Clasificacion from "./clasificacion";
+import Clasificacion from "./../../acciones/clasificacion";
 
 function FinPartida(props) {
   const resultado = props.puntuacion * 100 / props.indicePregunta

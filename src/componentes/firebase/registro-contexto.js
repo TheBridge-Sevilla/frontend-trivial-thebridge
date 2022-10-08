@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useContextoUsuario } from "../contexto/contextoUsuario";
 import {createUserWithEmailAndPassword,updateProfile,} from "firebase/auth";
@@ -11,7 +11,7 @@ const Registrarse = () => {
   const { t } = useTranslation();
   const emailRef = useRef();
   const nombreRef = useRef();
-  const contraseñaRef = useRef();
+  const [contraseña, setContraseña] = useState();
   const { setUsuario, setDisabledInputName,setVisibleTop, setDisplayResponsive } = useContextoUsuario();
 
   const registrarUsuario = (email, contraseña, nombre) => {
@@ -31,7 +31,6 @@ const Registrarse = () => {
     e.preventDefault();
     const email = emailRef.current.value;
     const nombre = nombreRef.current.value;
-    const contraseña = contraseñaRef.current.value;
     if (email && contraseña && nombre) registrarUsuario(email, contraseña, nombre);
     setVisibleTop(false)
     setDisplayResponsive(false)
@@ -43,7 +42,7 @@ const Registrarse = () => {
       <form onSubmit={onSubmit}>
         <InputText placeholder="Email" type="email" ref={emailRef} />
         <InputText placeholder={t("nombre")} type="name" ref={nombreRef} />
-        <Password placeholder={t("contraseña")} type="password" ref={contraseñaRef} />
+        <Password placeholder={t("contraseña")} type="password" onChange={(e) => setContraseña(e.target.value)} />
         <Button type="submit">{t("crear-cuenta")}</Button>
       </form>
     </div>
