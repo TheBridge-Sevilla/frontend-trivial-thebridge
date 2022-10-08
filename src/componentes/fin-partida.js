@@ -1,13 +1,43 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "primereact/resources/themes/lara-light-indigo/theme.css"; //theme
 import "primereact/resources/primereact.min.css"; //core css
 import "primeicons/primeicons.css";
 import "primeflex/primeflex.css";
 import { Button } from "primereact/button";
 import Clasificacion from "./clasificacion";
+import { useContextoUsuario } from "../componentes/contexto/contextoUsuario";
 
 function FinPartida(props) {
-  const resultado = props.puntuacion * 100 / props.indicePregunta
+  const resultado = (props.puntuacion * 100) / props.indicePregunta;
+  const { usuario } = useContextoUsuario();
+
+  let obtenerFecha = new Date();
+  /*   const mes = obtenerFecha.toLocaleString("es-ES", { month: "short" });
+  const dia = obtenerFecha.toLocaleString("es-ES", { day: "2-digit" });
+  const ano = obtenerFecha.getFullYear();
+  let fechaPartida = dia + "/" + mes + "/" + ano; */
+
+  let nuevaPartida = {
+    nombre: usuario,
+    categoria: props.categoria._id,
+    puntuacion: resultado,
+    fecha: obtenerFecha,
+  };
+
+  const url = "http://localhost:3050/partidas";
+
+  useEffect(() => {
+    console.log("partida dentro del useeffect", nuevaPartida);
+    console.log("entra en el useEffect");
+    fetch(url, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(nuevaPartida),
+    });
+  }, []);
 
   return (
     <div className="bg-cyan-500 h-screen w-screen">
@@ -17,21 +47,24 @@ function FinPartida(props) {
             Fin de Partida
           </div>
           <div className="card-container text-center text-3xl font-medium">
-            Tú puntuación es: {props.puntuacion + "/" + props.indicePregunta} ({resultado} %)
+            Tú puntuación es: {props.puntuacion + "/" + props.indicePregunta} (
+            {resultado} %)
           </div>
         </div>
-        <div className="w-full bg-blue-300 text-center"><h3>Ranking</h3>
+        <div className="w-full bg-blue-300 text-center">
+          <h3>Ranking</h3>
           <Clasificacion />
         </div>
         <div className="card-container yellow-container p-5">
-          <Button className="p-button-raised block bg-yellow-500 font-bold text-center p-4 border-round w-auto m-auto"
+          <Button
+            className="p-button-raised block bg-yellow-500 font-bold text-center p-4 border-round w-auto m-auto"
             onClick={() => props.setEsPantallaPrincipal(true)}
-
-          >Volver a jugar
+          >
+            Volver a jugar
           </Button>
         </div>
       </div>
-    </div >
+    </div>
   );
 }
 

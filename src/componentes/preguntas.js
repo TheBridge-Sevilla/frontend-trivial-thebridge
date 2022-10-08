@@ -48,6 +48,7 @@ function Preguntas(props) {
         puntuacion={puntuacion}
         esPantallaPrincipal={props.esPantallaPrincipal}
         setEsPantallaPrincipal={props.setEsPantallaPrincipal}
+        categoria={props.categoria}
       />
     );
   }

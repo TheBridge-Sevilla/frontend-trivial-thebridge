@@ -6,29 +6,38 @@ import "primeicons/primeicons.css";
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 
-function Clasificacion() {
-    const url = 'http://localhost:3050/partidas';
+function Clasificacion(props) {
+  const url = 'http://localhost:3050/partidas/categoria';
+  const [resultados, setResultados] = useState()
 
-    const [partidas, setPartidas] = useState()
+  useEffect(() => {
+    console.log("preguntas dentro del useeffect", resultados);
+    console.log("entra en el useEffect");
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ categoria: props.categoria }),
+    })
+      .then((res) => res.json())
+      .then(json => setResultados(json.map(resultado => resultado)))
 
-    useEffect(() => {
-/*         fetch(url).then(data => setPartidas(data));
-        console.log("partidas",partidas) */
+  }, [])
 
-        fetch(url).then(res => res.json()).then(json => setPartidas(json.map(partida => partida)))
-        console.log("partidas",partidas)
+  function listaPosicion(resultados, i) {
+    return "# " + (i.rowIndex + 1);
+  }
+  return (
 
-    }, [])
-console.log("partidas",partidas)
-    return (
-        <div className='w-full'>
-        <DataTable responsiveLayout="scroll" value={partidas}>
-            <Column field="posicion" header="posicion"></Column>
-            <Column field="nombre" header="jugador"></Column>
-            <Column field="categoria" header="categoria"></Column>
-            <Column field="puntuacion" header="puntuacion"></Column>
-        </DataTable></div>
-    );
+    <div className='w-full'>
+      <DataTable responsiveLayout="scroll" value={resultados}>
+        <Column field="Index" header="Pos." body={listaPosicion}></Column>
+        <Column field="nombre" header="Jugador"></Column>
+        <Column field="categoria.nombre" header="Categoria"></Column>
+        <Column field="puntuacion" header="Puntos"></Column>
+      </DataTable></div>
+  );
 
 }
 
