@@ -42,6 +42,9 @@ function Pregunta(props) {
               setIndicePregunta={props.setIndicePregunta}
               botonSelecionado={botonSelecionado}
               setBotonSelecionado={setBotonSelecionado}
+              puntuacion={props.puntuacion}
+              setPuntuacion={props.setPuntuacion}
+
             />
           ))}
         </div>

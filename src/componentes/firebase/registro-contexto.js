@@ -1,31 +1,37 @@
 import React, { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+
 import { useContextoUsuario } from "../contexto/contextoUsuario";
-import {createUserWithEmailAndPassword,updateProfile,} from "firebase/auth";
-import { Password } from 'primereact/password';
-import { InputText } from 'primereact/inputtext';
-import { Button } from 'primereact/button';
-import { auth } from "./firebase"
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { Password } from "primereact/password";
+import { InputText } from "primereact/inputtext";
+import { Button } from "primereact/button";
+import { auth } from "./firebase";
 
 const Registrarse = () => {
   const { t } = useTranslation();
   const emailRef = useRef();
   const nombreRef = useRef();
   const [contraseña, setContraseña] = useState();
-  const { setUsuario, setDisabledInputName,setVisibleTop, setDisplayResponsive } = useContextoUsuario();
+  const {
+    setUsuario,
+    setDisabledInputName,
+    setVisibleTop,
+    setDisplayResponsive,
+  } = useContextoUsuario();
 
   const registrarUsuario = (email, contraseña, nombre) => {
-    createUserWithEmailAndPassword(auth, email, contraseña).then(() => {
-
-      return updateProfile(auth.currentUser, {
-        displayName: nombre
-      });
-    })
+    createUserWithEmailAndPassword(auth, email, contraseña)
       .then(() => {
-        setUsuario(auth.currentUser.displayName)
-        setDisabledInputName(true)
+        return updateProfile(auth.currentUser, {
+          displayName: nombre,
+        });
       })
-  }
+      .then(() => {
+        setUsuario(auth.currentUser.displayName);
+        setDisabledInputName(true);
+      });
+  };
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -48,5 +54,4 @@ const Registrarse = () => {
     </div>
   );
 };
-
 export default Registrarse;
