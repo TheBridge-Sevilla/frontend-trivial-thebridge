@@ -21,17 +21,24 @@ const Registrarse = () => {
     setVisibleTop,
     setDisplayResponsive,
     mensaje,
-    setMensaje
+    setMensaje,
+    tipo,
+    setTipo
   } = useContextoUsuario();
 
-  const mostrarError = (mensaje) => {
-    toast.current.show({ severity: 'error', summary: 'Error',detail:`${mensaje}` , life: 3000 });
+  const mostrarError = (tipo ,mensaje) => {
+    toast.current.show({ severity: `${tipo}`, detail: `${mensaje}`, life: 3000 });
   }
 
   useEffect(() => {
-    mostrarError(mensaje)
+    if (mensaje) mostrarError(tipo ,mensaje)
+
+    return (() => {
+      setMensaje()
+    })
+
   }, [mensaje])
-  
+
 
 
   const registrarUsuario = (email, contraseña, nombre) => {
@@ -40,6 +47,15 @@ const Registrarse = () => {
         return updateProfile(auth.currentUser, {
           displayName: nombre,
         });
+      }).catch((e) => {
+        if (e.code == "auth/email-already-in-use") {
+          setMensaje("Email ya registrado")
+          setTipo("error")
+        }
+        if (e.code == "auth/weak-password") {
+          setMensaje("La Contraseña Debe Tener Al Menos 6 Caracteres")
+          setTipo("error")
+        }
       })
 
       .then(() => {
@@ -53,16 +69,19 @@ const Registrarse = () => {
     e.preventDefault();
     const email = emailRef.current.value;
     const nombre = nombreRef.current.value;
-    if (!email || !contraseña || !nombre) {
-      setMensaje("Error al registrarse")
-      console.log(mensaje)
-    }
 
+    if (!email || !contraseña || !nombre) {
+      setMensaje("Rellene Los Campos Obligatorios")
+      setTipo("error")
+    }
     if (email && contraseña && nombre) {
-      registrarUsuario(email, contraseña, nombre);
-      setVisibleTop(false);
+      registrarUsuario(email, contraseña, nombre)
+      setVisibleTop(false)
       setDisplayResponsive(false)
     }
+
+
+
   }
 
 
@@ -71,7 +90,6 @@ const Registrarse = () => {
       <h1 className="text-blue-600">{t("crear-cuenta")}</h1>
       <form onSubmit={onSubmit}>
         <InputText placeholder="Email" type="email" ref={emailRef} />
-
         <InputText placeholder={t("nombre")} type="name" ref={nombreRef} />
         <Password placeholder={t("contraseña")} type="password" onChange={(e) => setContraseña(e.target.value)} />
         <Button type="submit">{t("crear-cuenta")}</Button>
