@@ -11,31 +11,32 @@ function Clasificacion(props) {
   const [resultados, setResultados] = useState()
 
   useEffect(() => {
-    console.log("preguntas dentro del useeffect", resultados);
+    console.log("clasificacion dentro del useeffect");
     console.log("entra en el useEffect");
-    fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ categoria: props.categoria }),
-    })
-      .then((res) => res.json())
-      .then(json => setResultados(json.map(resultado => resultado)))
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: props.categoria._id })
+  };
+  fetch(url, requestOptions)
+      .then(response => response.json())
+      .then(json => setResultados(json.map((resultado) => resultado)))
+}, []);
 
-  }, [])
 
   function listaPosicion(resultados, i) {
     return "# " + (i.rowIndex + 1);
   }
+
   return (
 
     <div className='w-full'>
       <DataTable responsiveLayout="scroll" value={resultados}>
         <Column field="Index" header="Pos." body={listaPosicion}></Column>
         <Column field="nombre" header="Jugador"></Column>
-        <Column field="categoria.nombre" header="Categoria"></Column>
+        <Column field="props.categoria.nombre.es" header="Categoria"></Column>
         <Column field="puntuacion" header="Puntos"></Column>
+        <Column field="fecha" header="Fecha"></Column>
       </DataTable></div>
   );
 

@@ -12,7 +12,8 @@ function FinPartida(props) {
   const { usuario } = useContextoUsuario();
 
   let obtenerFecha = new Date();
-  /*   const mes = obtenerFecha.toLocaleString("es-ES", { month: "short" });
+  /*let fecha = obtenerFecha.toLocaleString()
+     const mes = obtenerFecha.toLocaleString("es-ES", { month: "short" });
   const dia = obtenerFecha.toLocaleString("es-ES", { day: "2-digit" });
   const ano = obtenerFecha.getFullYear();
   let fechaPartida = dia + "/" + mes + "/" + ano; */
@@ -27,16 +28,13 @@ function FinPartida(props) {
   const url = "http://localhost:3050/partidas";
 
   useEffect(() => {
-    console.log("partida dentro del useeffect", nuevaPartida);
-    console.log("entra en el useEffect");
-    fetch(url, {
+    // POST request using fetch inside useEffect React hook
+    const requestOptions = {
       method: "POST",
-      mode: "no-cors",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(nuevaPartida),
-    });
+    };
+    fetch(url, requestOptions).then((response) => response.json());
   }, []);
 
   return (
@@ -53,7 +51,7 @@ function FinPartida(props) {
         </div>
         <div className="w-full bg-blue-300 text-center">
           <h3>Ranking</h3>
-          <Clasificacion />
+          <Clasificacion categoria={props.categoria} />
         </div>
         <div className="card-container yellow-container p-5">
           <Button
