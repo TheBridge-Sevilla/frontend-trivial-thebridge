@@ -1,26 +1,26 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { useContextoUsuario } from "../contexto/contextoUsuario";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./firebase"
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
-import { Toast } from 'primereact/toast';
+
 
 
 const IniciarSesion = () => {
   const { t } = useTranslation();
   const emailRef = useRef();
   const contraseñaRef = useRef();
-  const toast = useRef();
+
   const { usuario,
     setUsuario,
     setDisabledInputName,
     setVisibleTop,
     setDisplayResponsive,
-    mensaje,
+
     setMensaje,
-    tipo,
+
     setTipo
   } = useContextoUsuario();
 
@@ -42,18 +42,7 @@ const IniciarSesion = () => {
     })
 
   }
-  const mostrarError = (tipo, mensaje) => {
-    toast.current.show({ severity: `${tipo}`, detail: `${mensaje}`, life: 3000 });
-  }
-  useEffect(() => {
-    if (mensaje) mostrarError(tipo, mensaje)
 
-    return (() => {
-      setMensaje()
-      setTipo()
-    })
-
-  }, [mensaje])
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -79,7 +68,7 @@ const IniciarSesion = () => {
         <InputText placeholder={t("contraseña")} ref={contraseñaRef} />
         <Button type="submit">{t("iniciar-sesion")}</Button>
       </form>
-      <Toast ref={toast} />
+
     </div>
   );
 };
