@@ -11,6 +11,7 @@ import UserSidebar from "./firebase/user-sidebar";
 import CambiarIdioma from "./cambiar-idioma";
 import { Toast } from 'primereact/toast';
 import { useContextoUsuario } from "../componentes/contexto/contextoUsuario";
+import PerfilUsuario from "./firebase/perfil-usuario"
 
 
 function Bienvenida(props) {
@@ -19,6 +20,7 @@ function Bienvenida(props) {
   const [disabledStartButton, setDisabledStartButton] = useState(true);
   const { usuario, setUsuario, disabledInputName,mensaje,setMensaje,tipo,setTipo } = useContextoUsuario();
   const [disabledLogOut, setDisabledLogOut] = useState(false)
+  
 
   const mostrarError = (tipo, mensaje) => {
     toast.current.show({ severity: `${tipo}`, detail: `${mensaje}`, life: 3000 });
@@ -59,13 +61,15 @@ function Bienvenida(props) {
         id="usuario">
         <div className="flex justify-content-center">
           <UserSidebar disabledLogOut={disabledLogOut} />
+          <PerfilUsuario/>
           <InputText className="w-13rem mr-7" defaultValue={usuario}
             placeholder={t("nombre")} disabled={disabledInputName}
             onChange={handleChange} />
         </div>
-        <div className="p-2" id="select-categoria">
+        <div className=" flex justify-content-center" id="select-categoria">
+
           <SelectCategoria
-            className="w-13rem h-full p-3 border-round"
+            className="w-13rem mr-7 border-round"
             setCategoria={props.setCategoria} />
 
         </div>

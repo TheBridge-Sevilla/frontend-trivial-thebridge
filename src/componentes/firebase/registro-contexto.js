@@ -19,15 +19,9 @@ const Registrarse = () => {
     setDisabledInputName,
     setVisibleTop,
     setDisplayResponsive,
-
     setMensaje,
-
     setTipo
   } = useContextoUsuario();
-
-
-
-
 
   const registrarUsuario = (email, contraseña, nombre) => {
     createUserWithEmailAndPassword(auth, email, contraseña)
