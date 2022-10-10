@@ -1,6 +1,5 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState} from "react";
 import { useTranslation } from "react-i18next";
-import { Toast } from 'primereact/toast';
 import { useContextoUsuario } from "../contexto/contextoUsuario";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { Password } from "primereact/password";
@@ -14,30 +13,19 @@ const Registrarse = () => {
   const emailRef = useRef();
   const nombreRef = useRef();
   const [contraseña, setContraseña] = useState();
-  const toast = useRef();
+
   const {
     setUsuario,
     setDisabledInputName,
     setVisibleTop,
     setDisplayResponsive,
-    mensaje,
+
     setMensaje,
-    tipo,
+
     setTipo
   } = useContextoUsuario();
 
-  const mostrarError = (tipo ,mensaje) => {
-    toast.current.show({ severity: `${tipo}`, detail: `${mensaje}`, life: 3000 });
-  }
 
-  useEffect(() => {
-    if (mensaje) mostrarError(tipo ,mensaje)
-
-    return (() => {
-      setMensaje()
-    })
-
-  }, [mensaje])
 
 
 
@@ -94,7 +82,7 @@ const Registrarse = () => {
         <Password placeholder={t("contraseña")} type="password" onChange={(e) => setContraseña(e.target.value)} />
         <Button type="submit">{t("crear-cuenta")}</Button>
       </form>
-      <Toast ref={toast} />
+
     </div>
   );
 };
