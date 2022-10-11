@@ -21,7 +21,6 @@ Pon a prueba tus conocimientos, aprende y diviertete.
 |![React](https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/React.svg/375px-React.svg.png "logotipo React" )| biblioteca Javascript de código abierto diseñada para crear interfaces de usuario  |
 | ![Jest](https://ih1.redbubble.net/image.404023256.1965/st,small,507x507-pad,600x600,f8f8f8.u2.jpg) | Marco de prueba de JavaScript |
 | ![gitHub](https://logos-world.net/wp-content/uploads/2020/11/GitHub-Logo-700x394.png) | Sistema de control de versiones |
-| ![Postman](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEhwv2Rja5M3emJCaj_oGEoDjBNFqT_QYVTp5PUaaajTRTRYmjLsoa3-kHcd2r5omts9Q&usqp=CAU) | Realizar diseño, construcción, pruebas e iteración de la API |
 | ![eslint](https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/eslint/eslint.png) | Análisis de código estático |
 | ![Firebase](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsuGyCVmkYlf2ndDdZLqc9LdyZ3rl1PVNQvw&usqp=CAU) | Control de acceso |
 | ![i18next](https://cdn.icon-icons.com/icons2/2699/PNG/512/inext_logo_icon_170002.png) | Multilenguaje |
