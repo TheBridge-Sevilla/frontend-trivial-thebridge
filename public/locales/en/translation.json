@@ -12,5 +12,16 @@
     "contraseña-recordada":"I already know my password",
     "cambiar-contraseña":"Change password",
     "recuperar-contraseña":"Restore password",
-    "crear-cuenta":"Sign in"
+    "crear-cuenta":"Sign in",
+    "revisar-correo": "Check your email",
+    "usuario-no-registrado": "User not registered",
+    "email-no-valido": "Invalid email",
+    "rellenar-datos": "Complete all fields",
+    "email-registrado": "Email is already registered",
+    "contraseña-corta": "The password should have at least 6 characters",
+    "alerta-bienvenida": "Welcome to Frågen {{nombre}} ",
+    "email-no-registrado": "Email not registered",
+    "contraseña-incorrecta": "Wrong password",
+    "alerta-inicio-sesion": "Welcome back {{nombre}}"
+
 }

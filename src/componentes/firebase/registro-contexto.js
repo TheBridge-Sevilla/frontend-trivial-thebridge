@@ -1,4 +1,4 @@
-import React, { useRef, useState} from "react";
+import React, { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useContextoUsuario } from "../contexto/contextoUsuario";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
@@ -19,9 +19,7 @@ const Registrarse = () => {
     setDisabledInputName,
     setVisibleTop,
     setDisplayResponsive,
-
     setMensaje,
-
     setTipo
   } = useContextoUsuario();
 
@@ -37,11 +35,11 @@ const Registrarse = () => {
         });
       }).catch((e) => {
         if (e.code == "auth/email-already-in-use") {
-          setMensaje("Email ya registrado")
+          setMensaje(t("email-registrado"))
           setTipo("error")
         }
         if (e.code == "auth/weak-password") {
-          setMensaje("La Contraseña Debe Tener Al Menos 6 Caracteres")
+          setMensaje(t("contraseña-corta"))
           setTipo("error")
         }
       })
@@ -59,13 +57,16 @@ const Registrarse = () => {
     const nombre = nombreRef.current.value;
 
     if (!email || !contraseña || !nombre) {
-      setMensaje("Rellene Los Campos Obligatorios")
+      setMensaje(t("rellenar-datos"))
       setTipo("error")
     }
     if (email && contraseña && nombre) {
       registrarUsuario(email, contraseña, nombre)
       setVisibleTop(false)
       setDisplayResponsive(false)
+      setMensaje(t('alerta-bienvenida',{nombre : nombre} ))
+      setTipo("success")
+
     }
 
 

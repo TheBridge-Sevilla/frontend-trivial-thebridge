@@ -11,7 +11,7 @@ import { Messages } from 'primereact/messages';
 
 const RegistroConEmail = () => {
   //Display responsive es un estado necesario para el Dialog, elemento de PrimeReact
-  const { usuario, setUsuario, setDisabledInputName, displayResponsive, setDisplayResponsive,mensaje,setMensaje,tipo,setTipo  } = useContextoUsuario();
+  const { usuario, setUsuario, setDisabledInputName, displayResponsive, setDisplayResponsive, mensaje, setMensaje, tipo, setTipo } = useContextoUsuario();
   const messages = useRef();
   const { t } = useTranslation();
 
@@ -19,7 +19,7 @@ const RegistroConEmail = () => {
     messages.current.show({ severity: `${tipo}`, detail: `${mensaje}`, life: 3000 });
   }
   useEffect(() => {
-    if (mensaje) mostrarError(tipo, mensaje)
+    if (mensaje && tipo !== "success") mostrarError(tipo, mensaje)
 
     return (() => {
       setMensaje()

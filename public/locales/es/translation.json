@@ -12,7 +12,18 @@
     "contraseña-recordada":"Sé mi contraseña",
     "cambiar-contraseña":"Cambiar contraseña",
     "recuperar-contraseña":"Recuperar contraseña",
-    "crear-cuenta":"Registrarse"
+    "crear-cuenta":"Registrarse",
+    "revisar-correo": "Revisa tu correo",
+    "usuario-no-registrado": "Usuario no registrado",
+    "email-no-valido": "Email no valido",
+    "rellenar-datos": "Rellene todos los campos",
+    "email-registrado": "Email ya registrado",
+    "contraseña-corta": "La contraseña debe tener al menos 6 caracteres",
+    "alerta-bienvenida": "Bienvenido a Frågen {{nombre}} ",
+    "email-no-registrado": "Email no registrado",
+    "contraseña-incorrecta": "Contraseña incorrecta",
+    "alerta-inicio-sesion": "Bienvenido de nuevo {{nombre}}"
+
 
 
 }

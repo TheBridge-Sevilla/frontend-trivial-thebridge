@@ -28,13 +28,15 @@ const IniciarSesion = () => {
     signInWithEmailAndPassword(auth, email, contraseña).then(() => {
       setUsuario(auth.currentUser.displayName)
       setDisabledInputName(true)
+      setMensaje(t('alerta-inicio-sesion', {nombre: auth.currentUser.displayName}))
+      setTipo("success")
     }).catch((e) => {
       if (e.code == "auth/user-not-found") {
-        setMensaje("Email No Registrado")
+        setMensaje(t("email-no-registrado"))
         setTipo("error")
       }
       if (e.code == "auth/wrong-password") {
-        setMensaje("Contraseña Incorrecta")
+        setMensaje(t("contraseña-incorrecta"))
         setTipo("error")
       }
       console.log(e.code)
@@ -49,7 +51,7 @@ const IniciarSesion = () => {
     const email = emailRef.current.value;
     const contraseña = contraseñaRef.current.value;
     if (!email || !contraseña) {
-      setMensaje("Rellene Los Campos Obligatorios")
+      setMensaje(t("rellenar-datos"))
       setTipo("error")
     }
     if (email && contraseña) iniciarSesion(email, contraseña);
@@ -65,7 +67,7 @@ const IniciarSesion = () => {
       <h1 className="text-blue-600"> Iniciar Sesión </h1>
       <form onSubmit={onSubmit}>
         <InputText placeholder="Email" icon="pi pi-envelope" type="email" ref={emailRef} />
-        <InputText placeholder={t("contraseña")} ref={contraseñaRef} />
+        <InputText placeholder={t("contraseña")} type="password" ref={contraseñaRef} />
         <Button type="submit">{t("iniciar-sesion")}</Button>
       </form>
 

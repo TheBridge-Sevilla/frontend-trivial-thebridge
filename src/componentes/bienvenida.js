@@ -1,5 +1,5 @@
 import "./bienvenida.css";
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useState,useRef} from "react";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 import "primereact/resources/themes/lara-light-indigo/theme.css"; //theme
@@ -9,16 +9,29 @@ import SelectCategoria from "./categoria";
 import { useTranslation } from "react-i18next";
 import UserSidebar from "./firebase/user-sidebar";
 import CambiarIdioma from "./cambiar-idioma";
-
+import { Toast } from 'primereact/toast';
 import { useContextoUsuario } from "../componentes/contexto/contextoUsuario";
 
 
 function Bienvenida(props) {
   const { t } = useTranslation();
-
+  const toast = useRef();
   const [disabledStartButton, setDisabledStartButton] = useState(true);
-  const { usuario, setUsuario, disabledInputName} = useContextoUsuario();
+  const { usuario, setUsuario, disabledInputName,mensaje,setMensaje,tipo,setTipo} = useContextoUsuario();
   const [disabledLogOut, setDisabledLogOut] = useState(false)
+
+  const mostrarExito = (tipo, mensaje) => {
+    toast.current.show({ severity: `${tipo}`, detail: `${mensaje}`, life: 3000 });
+  }
+  useEffect(() => {
+    if (mensaje && tipo == 'success') mostrarExito(tipo, mensaje)
+
+    return (() => {
+      setMensaje()
+      setTipo()
+    })
+
+  }, [mensaje])
 
 
 
@@ -72,7 +85,7 @@ function Bienvenida(props) {
           ></Button>
         </div>
       </div>
-
+      <Toast ref={toast} />
     </div>
   );
 }
