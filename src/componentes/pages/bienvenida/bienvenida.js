@@ -12,7 +12,6 @@ import CambiarIdioma from "./../../acciones/cambiar-idioma";
 import { Toast } from 'primereact/toast';
 import { useContextoUsuario } from "../../contexto/contextoUsuario";
 
-
 function Bienvenida(props) {
   const { t } = useTranslation();
   const toast = useRef();

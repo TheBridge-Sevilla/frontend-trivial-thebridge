@@ -20,9 +20,8 @@ function App() {
     );
   } else {
     return (
-      <Preguntas categoria={categoria}  setEsPantallaPrincipal={setEsPantallaPrincipal}/>
+      <Preguntas categoria={categoria} setEsPantallaPrincipal={setEsPantallaPrincipal} setCategoria={setCategoria} />
     );
-
   }
 }
 
