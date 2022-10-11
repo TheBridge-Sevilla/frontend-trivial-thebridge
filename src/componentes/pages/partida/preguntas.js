@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Pregunta from "./pregunta";
-import FinPartida from "./fin-partida";
+import FinPartida from "../../pages/findepartida/fin-partida";
 
 
 function Preguntas(props) {
@@ -48,6 +48,7 @@ function Preguntas(props) {
         puntuacion={puntuacion}
         esPantallaPrincipal={props.esPantallaPrincipal}
         setEsPantallaPrincipal={props.setEsPantallaPrincipal}
+        setCategoria={props.setCategoria}
       />
     );
   }

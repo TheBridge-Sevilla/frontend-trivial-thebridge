@@ -4,10 +4,14 @@ import "primereact/resources/primereact.min.css"; //core css
 import "primeicons/primeicons.css";
 import "primeflex/primeflex.css";
 import { Button } from "primereact/button";
-import Clasificacion from "./clasificacion";
+import Clasificacion from "./../../acciones/clasificacion";
 
 function FinPartida(props) {
   const resultado = props.puntuacion * 100 / props.indicePregunta
+  const onClick = () => {
+    props.setEsPantallaPrincipal(true);
+    props.setCategoria(undefined)
+  }
 
   return (
     <div className="bg-cyan-500 h-screen w-screen">
@@ -25,13 +29,12 @@ function FinPartida(props) {
         </div>
         <div className="card-container yellow-container p-5">
           <Button className="p-button-raised block bg-yellow-500 font-bold text-center p-4 border-round w-auto m-auto"
-            onClick={() => props.setEsPantallaPrincipal(true)}
-
-          >Volver a jugar
+            onClick={onClick}>
+            Volver a jugar
           </Button>
         </div>
       </div>
-    </div >
+    </div>
   );
 }
 
