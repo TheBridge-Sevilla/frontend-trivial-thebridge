@@ -16,7 +16,7 @@ function Pregunta(props) {
 
   useEffect(() => {
     const pasarPregunta = setTimeout(() => {
-      props.setIndicePregunta(props.indicePregunta + 1);
+      props.setIndicePregunta(props.indicePregunta + 1 );
     }, 20000);
     return () => clearTimeout(pasarPregunta);
   }, [props.indicePregunta]);
@@ -27,11 +27,12 @@ function Pregunta(props) {
         <h2 className="text-lg md:text-2xl lg:text-4xl">{props.pregunta.pregunta[i18n.language]}</h2>
         <span className="text-purple-800 text-lg line-height-3">{props.categoria.nombre[i18n.language]}</span>
       </div>
-      <div className="card">
-        <div id="reloj" className="mb-3">
+      <div id="reloj" className="mb-3">
           <Reloj />
         </div>
-        <div className="card-container flex-column">
+      
+        
+        <div className="flex flex-column lg:flex-row lg:flex-wrap lg:gap-4  lgcard-container ">
           {props.pregunta.opciones[i18n.language].map((opcion) => (
             <Boton
               key={opcion}
@@ -48,7 +49,7 @@ function Pregunta(props) {
             />
           ))}
         </div>
-      </div>
+      
     </div>
   );
 }
