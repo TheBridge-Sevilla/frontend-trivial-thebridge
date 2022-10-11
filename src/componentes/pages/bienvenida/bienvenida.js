@@ -7,10 +7,10 @@ import "primereact/resources/primereact.min.css"; //core css
 import "primeicons/primeicons.css";
 import SelectCategoria from "../../acciones/categoria";
 import { useTranslation } from "react-i18next";
-import UserSidebar from "./firebase/user-sidebar";
-import CambiarIdioma from "./cambiar-idioma";
+import UserSidebar from "./../../firebase/user-sidebar";
+import CambiarIdioma from "./../../acciones/cambiar-idioma";
 import { Toast } from 'primereact/toast';
-import { useContextoUsuario } from "../componentes/contexto/contextoUsuario";
+import { useContextoUsuario } from "../../contexto/contextoUsuario";
 
 
 function Bienvenida(props) {
