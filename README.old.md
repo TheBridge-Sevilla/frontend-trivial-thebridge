@@ -18,12 +18,12 @@ Pon a prueba tus conocimientos, aprende y diviertete.
 
 | Tecnología | Utilidad |
 | ------------------------------------ | --------- |
-|<p align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/React.svg/375px-React.svg.png" width="100" alt="React"></p>| biblioteca Javascript de código abierto diseñada para crear interfaces de usuario  |
-|<p align="center"><img src="https://ih1.redbubble.net/image.404023256.1965/st,small,507x507-pad,600x600,f8f8f8.u2.jpg" width="100" alt="Jest"></p>| Marco de prueba de JavaScript |
-|<p align="center"><img src="https://logos-world.net/wp-content/uploads/2020/11/GitHub-Logo-700x394.png" width="100" alt="gitHub"></p>| Sistema de control de versiones |
-|<p align="center"><img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/eslint/eslint.png" width="100" alt="eslint"></p>| Análisis de código estático |
-|<p align="center"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsuGyCVmkYlf2ndDdZLqc9LdyZ3rl1PVNQvw&usqp=CAU" width="100" alt="Firebase"></p>| Control de acceso |
-|<p align="center"><img src="https://cdn.icon-icons.com/icons2/2699/PNG/512/inext_logo_icon_170002.png" width="100" alt="i18next"></p>| Multilenguaje |
+|<img align="center" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/React.svg/375px-React.svg.png" width="100" alt="React">|Biblioteca Javascript de código abierto diseñada para crear interfaces de usuario.|
+|<img align="center" src="https://ih1.redbubble.net/image.404023256.1965/st,small,507x507-pad,600x600,f8f8f8.u2.jpg" width="100" alt="Jest">| Marco de prueba de JavaScript.|
+|<img align="center" src="https://logos-world.net/wp-content/uploads/2020/11/GitHub-Logo-700x394.png" width="100" alt="gitHub">|Sistema de control de versiones.|
+|<img align="center" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/eslint/eslint.png" width="100" alt="eslint">|Análisis de código estático.|
+|<img align="center" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsuGyCVmkYlf2ndDdZLqc9LdyZ3rl1PVNQvw&usqp=CAU" width="100" alt="Firebase">|Control de acceso.|
+|<img align="center" src="https://cdn.icon-icons.com/icons2/2699/PNG/512/inext_logo_icon_170002.png" width="100" alt="i18next">|Multilenguaje.|
 
 ## Otras fuentes
 
