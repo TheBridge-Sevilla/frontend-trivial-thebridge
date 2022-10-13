@@ -5,8 +5,11 @@ import "primereact/resources/primereact.min.css";                  //core css
 import "primeicons/primeicons.css";
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
+import { useTranslation } from "react-i18next";
+
 
 function Clasificacion(props) {
+
   const url = 'http://localhost:3050/partidas/categoria';
   const [resultados, setResultados] = useState()
 
@@ -20,13 +23,16 @@ function Clasificacion(props) {
   };
   fetch(url, requestOptions)
       .then(response => response.json())
-      .then(json => setResultados(json.map((resultado) => resultado)))
+      .then(json => setResultados(json))
 }, []);
 
 
   function listaPosicion(resultados, i) {
     return "# " + (i.rowIndex + 1);
   }
+//Para obtener el valor de la categoria según el idioma seleccionado creamos la variable categoria
+const { i18n } = useTranslation();
+let categoria = "categoria.nombre." + i18n.language
 
   return (
 
@@ -34,7 +40,7 @@ function Clasificacion(props) {
       <DataTable responsiveLayout="scroll" value={resultados}>
         <Column field="Index" header="Pos." body={listaPosicion}></Column>
         <Column field="nombre" header="Jugador"></Column>
-        <Column field="props.categoria.nombre.es" header="Categoria"></Column>
+        <Column field={categoria} header="Categoria"></Column>
         <Column field="puntuacion" header="Puntos"></Column>
         <Column field="fecha" header="Fecha"></Column>
       </DataTable></div>

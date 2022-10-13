@@ -13,7 +13,7 @@ function FinPartida(props) {
 
   let obtenerFecha = new Date();
   /*let fecha = obtenerFecha.toLocaleString()
-     const mes = obtenerFecha.toLocaleString("es-ES", { month: "short" });
+  const mes = obtenerFecha.toLocaleString("es-ES", { month: "short" });
   const dia = obtenerFecha.toLocaleString("es-ES", { day: "2-digit" });
   const ano = obtenerFecha.getFullYear();
   let fechaPartida = dia + "/" + mes + "/" + ano; */
