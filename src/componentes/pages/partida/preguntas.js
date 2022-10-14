@@ -4,7 +4,7 @@ import FinPartida from "../../pages/findepartida/fin-partida";
 
 
 function Preguntas(props) {
-  const url = "http://localhost:3050/preguntas/categoria";
+  const url = process.env.REACT_APP_API_URL + "/preguntas";
   const [preguntas, setPreguntas] = useState([]);
   const [indicePregunta, setIndicePregunta] = useState(0);
   const [puntuacion, setPuntuacion] = useState(0)
