@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 function SelectCategoria(props) {
   const { t } = useTranslation()
   const { i18n } = useTranslation();
-  const url = "http://localhost:3050/categorias";
+  const url = process.env.REACT_APP_API_URL + "/categorias";
   const [categorias, setCategorias] = useState([]);
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState();
   useEffect(() => {

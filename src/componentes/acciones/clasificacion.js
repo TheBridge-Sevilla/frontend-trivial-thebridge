@@ -7,7 +7,7 @@ import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 
 function Clasificacion() {
-    const url = 'http://localhost:3050/partidas';
+    const url = process.env.REACT_APP_API_URL + "/clasificacion";
 
     const [partidas, setPartidas] = useState()
 
