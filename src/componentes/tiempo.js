@@ -60,9 +60,9 @@ export default function Reloj(props) {
 
     return (
 
-        <div className="flex flex-wrap align-items-center justify-content-center card-container blue-container">
+        <div className="flex flex-wrap align-items-center justify-content-center card-container blue-container lg:w-max lg:flex-row lg:justify-content-center">
             <div className="scalein animation-duration-500 animation-iteration-1 flex align-items-center justify-content-center
-            font-bold bg-yellow-500 text-white border-round m-2 px-5 py-3" id="crono">{tiempo}</div>
+            font-bold bg-yellow-500 text-white border-round m-2 px-5 py-3 lg:w-10" id="crono">{tiempo}</div>
         </div>
     );
 }

@@ -11,12 +11,15 @@ function Pregunta(props) {
   const { i18n } = useTranslation();
   const respuestaCorrecta = props.pregunta.solucion;
   const respuesta = props.pregunta.opciones[i18n.language][respuestaCorrecta];
+  const dosOpciones = props.pregunta.opciones[i18n.language].slice(0,2)
+  const otrasOpciones = props.pregunta.opciones[i18n.language].slice(2)
+  console.log("hola",dosOpciones , otrasOpciones)
 
   const [botonSelecionado, setBotonSelecionado] = useState(false);
 
   useEffect(() => {
     const pasarPregunta = setTimeout(() => {
-      props.setIndicePregunta(props.indicePregunta + 1 );
+      props.setIndicePregunta(props.indicePregunta  );
     }, 20000);
     return () => clearTimeout(pasarPregunta);
   }, [props.indicePregunta]);
@@ -27,13 +30,27 @@ function Pregunta(props) {
         <h2 className="text-lg md:text-2xl lg:text-4xl">{props.pregunta.pregunta[i18n.language]}</h2>
         <span className="text-purple-800 text-lg line-height-3">{props.categoria.nombre[i18n.language]}</span>
       </div>
-      <div id="reloj" className="mb-3">
-          <Reloj />
-        </div>
+      
       
         
-        <div className="flex flex-column lg:flex-row lg:flex-wrap lg:gap-4  lgcard-container ">
-          {props.pregunta.opciones[i18n.language].map((opcion) => (
+        <div className="grid ">
+          {dosOpciones.map((opcion) => (
+            <Boton
+              key={opcion}
+              id="boton-opcion"
+              opcion={opcion}
+              respuesta={respuesta}
+              indicePregunta={props.indicePregunta}
+              setIndicePregunta={props.setIndicePregunta}
+              botonSelecionado={botonSelecionado}
+              setBotonSelecionado={setBotonSelecionado}
+              puntuacion={props.puntuacion}
+              setPuntuacion={props.setPuntuacion}
+
+            />
+          ))}
+         <div className="lg:col-12 flex justify-content-center align-item-center"> <Reloj/></div>
+           {otrasOpciones.map((opcion) => (
             <Boton
               key={opcion}
               id="boton-opcion"
