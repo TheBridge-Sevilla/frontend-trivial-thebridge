@@ -26,7 +26,6 @@ function FinPartida(props) {
   };
 
   const url = process.env.REACT_APP_API_URL + "/partidas";
-
   useEffect(() => {
     // POST request using fetch inside useEffect React hook
     const requestOptions = {
