@@ -10,7 +10,7 @@ import { useTranslation } from "react-i18next";
 
 function Clasificacion(props) {
 
-  const url = 'http://localhost:3050/partidas/categoria';
+  const url = process.env.REACT_APP_API_URL + '/partidas/categoria';
   const [resultados, setResultados] = useState()
 
   useEffect(() => {
