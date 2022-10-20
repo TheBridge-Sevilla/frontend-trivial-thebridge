@@ -3,8 +3,8 @@ import 'primeflex/primeflex.css';
 import "primereact/resources/themes/lara-light-indigo/theme.css";  //theme
 import "primereact/resources/primereact.min.css";                  //core css
 import "primeicons/primeicons.css";
-import Bienvenida from './componentes/bienvenida';
-import Preguntas from './componentes/preguntas';
+import Bienvenida from './componentes/pages/bienvenida/bienvenida';
+import Preguntas from './componentes/pages/partida/preguntas';
 
 
 function App() {
@@ -20,9 +20,8 @@ function App() {
     );
   } else {
     return (
-      <Preguntas categoria={categoria}  setEsPantallaPrincipal={setEsPantallaPrincipal}/>
+      <Preguntas categoria={categoria} setEsPantallaPrincipal={setEsPantallaPrincipal} setCategoria={setCategoria} />
     );
-
   }
 }
 

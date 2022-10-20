@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Pregunta from "./pregunta";
-import FinPartida from "./fin-partida";
+import FinPartida from "../../pages/findepartida/fin-partida";
 
 
 function Preguntas(props) {
-  const url = "http://localhost:3050/preguntas/categoria";
+  const url = process.env.REACT_APP_API_URL + "/preguntas/categoria";
   const [preguntas, setPreguntas] = useState([]);
   const [indicePregunta, setIndicePregunta] = useState(0);
   const [puntuacion, setPuntuacion] = useState(0)

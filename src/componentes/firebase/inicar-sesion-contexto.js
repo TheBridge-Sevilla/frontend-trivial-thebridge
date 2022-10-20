@@ -7,26 +7,53 @@ import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 
 
+
 const IniciarSesion = () => {
   const { t } = useTranslation();
   const emailRef = useRef();
   const contraseñaRef = useRef();
-  const { usuario, setUsuario, setDisabledInputName, setVisibleTop, setDisplayResponsive } = useContextoUsuario();
+
+  const { usuario,
+    setUsuario,
+    setDisabledInputName,
+    setVisibleTop,
+    setDisplayResponsive,
+
+    setMensaje,
+
+    setTipo
+  } = useContextoUsuario();
 
   const iniciarSesion = (email, contraseña,) => {
     signInWithEmailAndPassword(auth, email, contraseña).then(() => {
       setUsuario(auth.currentUser.displayName)
       setDisabledInputName(true)
+    }).catch((e) => {
+      if (e.code == "auth/user-not-found") {
+        setMensaje("Email No Registrado")
+        setTipo("error")
+      }
+      if (e.code == "auth/wrong-password") {
+        setMensaje("Contraseña Incorrecta")
+        setTipo("error")
+      }
+      console.log(e.code)
+      console.log(e.message)
     })
+
   }
+
 
   const onSubmit = (e) => {
     e.preventDefault();
     const email = emailRef.current.value;
     const contraseña = contraseñaRef.current.value;
+    if (!email || !contraseña) {
+      setMensaje("Rellene Los Campos Obligatorios")
+      setTipo("error")
+    }
     if (email && contraseña) iniciarSesion(email, contraseña);
     if (usuario) {
-      alert("Your file is being uploaded!")
       setVisibleTop(false);
       setDisplayResponsive(false);
     }
@@ -41,6 +68,7 @@ const IniciarSesion = () => {
         <InputText placeholder={t("contraseña")} ref={contraseñaRef} />
         <Button type="submit">{t("iniciar-sesion")}</Button>
       </form>
+
     </div>
   );
 };

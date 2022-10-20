@@ -9,7 +9,6 @@ import { useTranslation } from "react-i18next";
 
 
 function Clasificacion(props) {
-
   const url = process.env.REACT_APP_API_URL + '/partidas/categoria';
   const [resultados, setResultados] = useState()
 
