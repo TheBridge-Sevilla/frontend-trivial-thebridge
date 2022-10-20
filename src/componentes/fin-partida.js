@@ -25,7 +25,7 @@ function FinPartida(props) {
     fecha: obtenerFecha,
   };
 
-  const url = "http://localhost:3050/partidas";
+  const url = process.env.REACT_APP_API_URL + "/partidas";
 
   useEffect(() => {
     // POST request using fetch inside useEffect React hook
