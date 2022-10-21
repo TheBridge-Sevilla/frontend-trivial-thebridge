@@ -3,8 +3,8 @@ import 'primeflex/primeflex.css';
 import "primereact/resources/themes/lara-light-indigo/theme.css";  //theme
 import "primereact/resources/primereact.min.css";                  //core css
 import "primeicons/primeicons.css";
-import Bienvenida from './componentes/pages/bienvenida/bienvenida';
-import Preguntas from './componentes/pages/partida/preguntas';
+import Bienvenida from './componentes/pantallas-trivial/inicio/bienvenida';
+import Preguntas from './componentes/pantallas-trivial/partida/partida-preguntas'
 
 
 function App() {
