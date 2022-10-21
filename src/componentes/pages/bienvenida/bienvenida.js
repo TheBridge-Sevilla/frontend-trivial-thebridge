@@ -11,6 +11,7 @@ import UserSidebar from "./../../firebase/user-sidebar";
 import { Toast } from 'primereact/toast';
 import { useContextoUsuario } from "../../contexto/contextoUsuario";
 import PerfilUsuario from "../../acciones/menu"
+import { HeaderBar } from "../../acciones/userbar";
 
 function Bienvenida(props) {
   const { t } = useTranslation();
@@ -49,6 +50,7 @@ function Bienvenida(props) {
 
   return (
     <div className="flex-column h-screen w-screen flex justify-content-center bg-teal-400">
+    <HeaderBar />
       <div className="p-3">
       <PerfilUsuario/>
       </div>
