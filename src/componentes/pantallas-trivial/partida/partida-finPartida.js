@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Pregunta from "./pregunta";
-import FinPartida from "../../pages/findepartida/fin-partida";
-
+import Pregunta from "./partida-preguntas";
+import FinPartida from "../final/pagina-final"
 
 function Preguntas(props) {
   const url = process.env.REACT_APP_API_URL + "/preguntas/categoria";

@@ -4,7 +4,7 @@ import "primereact/resources/primereact.min.css"; //core css
 import "primeicons/primeicons.css";
 import "primeflex/primeflex.css";
 import { Button } from "primereact/button";
-import Clasificacion from "../../acciones/clasificacion";
+import Clasificacion from "./clasificacion"
 import { useContextoUsuario } from "../../contexto/contextoUsuario";
 
 function FinPartida(props) {
