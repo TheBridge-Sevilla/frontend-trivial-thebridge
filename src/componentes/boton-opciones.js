@@ -27,14 +27,14 @@ export default function Boton(props) {
   };
 
   return (
-    <div className="col-12 lg:col-6 flex justify-content-center align-item-center">
+    <div className="col-12 lg:col-6 flex justify-content-center align-item-center ">
     <Button
       onClick={handleIndicePreguntas}
       id="boton-opcion"
       label={props.opcion}
       className={
         `font-bold text-center  border-round  p-button-raised    bg-${colorBoton} 
-        transition-colors transition-duration-500 hover:border-300  `
+        transition-colors transition-duration-500 hover:border-300 w-full h-full   `
       }
     />
     </div>
