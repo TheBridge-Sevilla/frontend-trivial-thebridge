@@ -4,14 +4,13 @@ import "primereact/resources/primereact.min.css"; //core css
 import "primeicons/primeicons.css";
 import "primeflex/primeflex.css";
 import Boton from "./boton-opciones";
-import Reloj from "../../acciones/tiempo";
+import Reloj from "./tiempo";
 import { useTranslation } from "react-i18next";
 
 function Pregunta(props) {
   const { i18n } = useTranslation();
   const respuestaCorrecta = props.pregunta.solucion;
   const respuesta = props.pregunta.opciones[i18n.language][respuestaCorrecta];
-
   const [botonSelecionado, setBotonSelecionado] = useState(false);
 
   useEffect(() => {
