@@ -1,4 +1,4 @@
-import React, { useRef, useState} from "react";
+import React, { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useContextoUsuario } from "../contexto/contextoUsuario";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
@@ -6,6 +6,7 @@ import { Password } from "primereact/password";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 import { auth } from "./firebase";
+import RegistroConGoogle from "./registro-google";
 
 
 const Registrarse = () => {
@@ -75,6 +76,8 @@ const Registrarse = () => {
         <InputText placeholder={t("nombre")} type="name" ref={nombreRef} />
         <Password placeholder={t("contraseña")} type="password" onChange={(e) => setContraseña(e.target.value)} />
         <Button type="submit">{t("crear-cuenta")}</Button>
+        <p>o</p>
+        <RegistroConGoogle />
       </form>
 
     </div>

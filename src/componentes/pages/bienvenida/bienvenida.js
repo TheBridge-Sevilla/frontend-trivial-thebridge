@@ -7,11 +7,11 @@ import "primereact/resources/primereact.min.css"; //core css
 import "primeicons/primeicons.css";
 import SelectCategoria from "../../acciones/categoria";
 import { useTranslation } from "react-i18next";
-import UserSidebar from "./../../firebase/user-sidebar";
+import UserSidebar from "./boton-usuario-mobile";
 import { Toast } from 'primereact/toast';
 import { useContextoUsuario } from "../../contexto/contextoUsuario";
-import PerfilUsuario from "../../acciones/menu"
-import { HeaderBar } from "../../acciones/userbar";
+import { HeaderBar } from "./navbar-superior";
+import { SignDialog } from "../../firebase/iniciar-sesion-dialog";
 
 function Bienvenida(props) {
   const { t } = useTranslation();
@@ -52,7 +52,6 @@ function Bienvenida(props) {
     <div className="flex-column h-screen w-screen flex justify-content-center bg-teal-400">
     <HeaderBar />
       <div className="p-3">
-      <PerfilUsuario/>
       </div>
       <h1 className="flex justify-content-center p-8 font-bold font-italic text-6xl text-gray-900">
         {t("trivial")}
@@ -61,6 +60,7 @@ function Bienvenida(props) {
         id="usuario">
         <div className="flex justify-content-center">
           <UserSidebar disabledLogOut={disabledLogOut} />
+          <SignDialog />
           <InputText className="w-13rem mr-7" defaultValue={usuario}
             placeholder={t("nombre")} disabled={disabledInputName}
             onChange={handleChange} />
