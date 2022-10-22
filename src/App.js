@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import 'primeflex/primeflex.css';
-import "primereact/resources/themes/lara-light-indigo/theme.css";  //theme
-import "primereact/resources/primereact.min.css";                  //core css
+import "primereact/resources/themes/lara-light-indigo/theme.css";  
+import "primereact/resources/primereact.min.css";                  
 import "primeicons/primeicons.css";
 import Bienvenida from './componentes/pages/bienvenida/bienvenida';
 import Preguntas from './componentes/pages/partida/preguntas';

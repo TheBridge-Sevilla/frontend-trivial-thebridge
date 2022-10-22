@@ -25,6 +25,9 @@ function Bienvenida(props) {
   useEffect(() => {
     if (mensaje) mostrarError(tipo, mensaje)
 
+    if (typeof(setMensaje) != "function") {
+      return undefined
+    }
     return (() => {
       setMensaje()
       setTipo()
