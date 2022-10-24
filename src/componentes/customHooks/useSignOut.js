@@ -2,7 +2,6 @@ import { auth } from "./../firebase/firebase";
 import { useContextoUsuario } from '../contexto/contextoUsuario'
 import { signOut } from "firebase/auth";
 
-
 export function useSignOut() {
     const { setUsuario, setDisabledInputName } = useContextoUsuario();
 
@@ -16,6 +15,6 @@ export function useSignOut() {
                 console.log(error)
             })
     }
-
+    
     return { cerrarSesion }
 }
