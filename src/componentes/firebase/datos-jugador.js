@@ -34,6 +34,7 @@ function DatosJugador() {
     const fotoURL = await getDownloadURL(fileRef);
   
     updateProfile(currentUser, { photoURL: fotoURL });
+    setImagenPerfil(file)
   
     setLoading(false);
     alert("Uploaded file!");
@@ -45,9 +46,6 @@ function DatosJugador() {
             setImagenPerfil(currentUser.photoURL)
         }
         setNombre(currentUser.displayName)
-
-
-
 
     }, [auth])
 
