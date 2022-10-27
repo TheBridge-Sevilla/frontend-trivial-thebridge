@@ -5,7 +5,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./firebase"
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
-
+import RegistroConGoogle from "./registro-google";
 
 
 const IniciarSesion = () => {
@@ -62,13 +62,14 @@ const IniciarSesion = () => {
 
   return (
     <div className="form">
-      <h1 className="text-blue-600"> Iniciar Sesión </h1>
+      <h1 className="text-blue-600"> {t('iniciar-sesion')} </h1>
       <form onSubmit={onSubmit}>
         <InputText placeholder="Email" icon="pi pi-envelope" type="email" ref={emailRef} />
         <InputText placeholder={t("contraseña")} ref={contraseñaRef} />
         <Button type="submit">{t("iniciar-sesion")}</Button>
+        <p>o</p>
+        <RegistroConGoogle />
       </form>
-
     </div>
   );
 };

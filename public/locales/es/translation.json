@@ -12,7 +12,6 @@
     "contraseña-recordada":"Sé mi contraseña",
     "cambiar-contraseña":"Cambiar contraseña",
     "recuperar-contraseña":"Recuperar contraseña",
-    "crear-cuenta":"Registrarse"
-
-
+    "crear-cuenta":"Registrarse",
+    "registro-google":"Registrarme con Google"
 }

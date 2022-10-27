@@ -12,5 +12,6 @@
     "contraseña-recordada":"I already know my password",
     "cambiar-contraseña":"Change password",
     "recuperar-contraseña":"Restore password",
-    "crear-cuenta":"Sign in"
+    "crear-cuenta":"Sign in",
+    "registro-google":"Register with Google"
 }
