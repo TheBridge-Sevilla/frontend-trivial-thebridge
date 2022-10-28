@@ -27,7 +27,7 @@ export const HeaderBar = () => {
     const [items, setItems] = useState(
         [itemsOptions[0]]
     )
-    console.log(itemsOptions[0])
+
     useEffect(() => {
         if (usuario) {
             setItems([

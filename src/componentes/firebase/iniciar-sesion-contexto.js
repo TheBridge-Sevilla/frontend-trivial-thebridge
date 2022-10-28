@@ -71,8 +71,8 @@ const IniciarSesion = () => {
         <Divider align="center" type="dashed">
           <b>{t("o")}</b>
         </Divider>
-        <EntrarConGoogle alt="iniciar-sesion" />
       </form>
+      <EntrarConGoogle alt="iniciar-sesion" />
     </div>
   );
 };

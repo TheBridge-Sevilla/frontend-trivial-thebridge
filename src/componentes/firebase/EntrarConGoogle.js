@@ -11,7 +11,6 @@ export default function EntrarConGoogle(props) {
   return (
     <div className="flex align-items-center justify-content-center ">
       <Button
-
         className="mx-1"
         icon="pi pi-google"
         label={t(`${props.alt}`)}

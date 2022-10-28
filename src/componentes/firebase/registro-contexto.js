@@ -69,18 +69,18 @@ const Registrarse = () => {
   return (
     <div className="form">
       <h1 className="text-blue-600">{t("crear-cuenta")}</h1>
-      <div className="grid">
-      <form onSubmit={onSubmit}>
-        <InputText placeholder="Email" type="email" ref={emailRef} />
-        <InputText placeholder={t("nombre")} type="name" ref={nombreRef} />
-        <Password placeholder={t("contraseña")} type="password" onChange={(e) => setContraseña(e.target.value)} />
-        <Button type="submit">{t("crear-cuenta")}</Button>
-        <Divider align="center" type="dashed">
-          <b>{t("o")}</b>
-        </Divider>
+      <div>
+        <form onSubmit={onSubmit}>
+          <InputText placeholder="Email" type="email" ref={emailRef} />
+          <InputText placeholder={t("nombre")} type="name" ref={nombreRef} />
+          <Password placeholder={t("contraseña")} type="password" onChange={(e) => setContraseña(e.target.value)} />
+          <Button type="submit">{t("crear-cuenta")}</Button>
+          <Divider align="center" type="dashed">
+            <b>{t("o")}</b>
+          </Divider>
+        </form>
         <EntrarConGoogle alt="registro-google" />
-      </form>
-</div>
+      </div>
     </div>
   );
 };

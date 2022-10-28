@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import IniciarSesion from "./inicar-sesion-contexto"
+import IniciarSesion from "./iniciar-sesion-contexto"
 import Registrarse from "./registro-contexto"
 import ContraseñaOlvidada from "./contraseña-olvidada.js"
 import { useTranslation } from "react-i18next";
