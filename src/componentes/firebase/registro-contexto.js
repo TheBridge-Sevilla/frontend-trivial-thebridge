@@ -5,8 +5,9 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { Password } from "primereact/password";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
+import { Divider } from 'primereact/divider';
 import { auth } from "./firebase";
-import RegistroConGoogle from "./registro-google";
+import EntrarConGoogle from "./EntrarConGoogle";
 
 
 const Registrarse = () => {
@@ -62,24 +63,24 @@ const Registrarse = () => {
       setVisibleTop(false)
       setDisplayResponsive(false)
     }
-
-
-
   }
 
 
   return (
     <div className="form">
       <h1 className="text-blue-600">{t("crear-cuenta")}</h1>
+      <div className="grid">
       <form onSubmit={onSubmit}>
         <InputText placeholder="Email" type="email" ref={emailRef} />
         <InputText placeholder={t("nombre")} type="name" ref={nombreRef} />
         <Password placeholder={t("contraseña")} type="password" onChange={(e) => setContraseña(e.target.value)} />
         <Button type="submit">{t("crear-cuenta")}</Button>
-        <p>o</p>
-        <RegistroConGoogle />
+        <Divider align="center" type="dashed">
+          <b>{t("o")}</b>
+        </Divider>
+        <EntrarConGoogle alt="registro-google" />
       </form>
-
+</div>
     </div>
   );
 };

@@ -13,5 +13,6 @@
     "cambiar-contraseña":"Change password",
     "recuperar-contraseña":"Restore password",
     "crear-cuenta":"Sign in",
-    "registro-google":"Register with Google"
+    "registro-google":"Register with Google",
+    "o":"OR"
 }
