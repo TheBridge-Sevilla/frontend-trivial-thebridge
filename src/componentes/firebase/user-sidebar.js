@@ -30,12 +30,12 @@ function UserSidebar(props) {
     return (
         <div className='card'>
             <Sidebar visible={visibleTop} className="p-sidebar-sm" position="top" onHide={() => setVisibleTop(false)}>
-                <div className='flex justify-content-center'>
+                <div className='flex justify-content-center '>
                     <RegistroConGoogle />
                     <RegistroConEmail />
                 </div>
             </Sidebar>
-            {usuario ? <Button icon="pi pi-sign-out" disabled={props.disabledLogOut} onClick={handleClick} tooltip="Cerrar sesión" tooltipOptions={{ position: 'top' }} className="mx-2" /> : <Button icon="pi pi-user-plus" onClick={() => setVisibleTop(true)} tooltip="Inciar sesión" tooltipOptions={{ position: 'top' }} className="mx-2" />}
+            {usuario ? <Button icon="pi pi-sign-out " disabled={props.disabledLogOut} onClick={handleClick} tooltip="Cerrar sesión" tooltipOptions={{ position: 'top' }} className="mx-2 bg-white text-900 border-400" /> : <Button icon="pi pi-user-plus" onClick={() => setVisibleTop(true)} tooltip="Inciar sesión" tooltipOptions={{ position: 'top' }} className="mx-2 bg-white text-900 border-400 " />}
         </div>
 
     )

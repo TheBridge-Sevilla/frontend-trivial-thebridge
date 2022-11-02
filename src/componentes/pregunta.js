@@ -28,88 +28,93 @@ function Pregunta(props) {
   if (matches) {
     return (
       <div
-        className="w-screen min-h-screen max-h-screen max-w-screen p-3 bg-red-400"
+        className="grid  w-screen min-h-screen max-h-screen max-w-screen p-5 bg-blue-800"
+        // style="background-image: url('src\imagen\fondoTrivial.png')"
+      
+
+        
         id="pregunta"
       >
-        <div className="w-full flex-wrap bg-blue-400 text-center my-5 max-w-screen border-round-xl p-3">
-          <h2 className="text-lg md:text-2xl lg:text-4xl">
+        <div className="w-full flex-wrap surface-300 border-300  text-center my-5 max-w-screen border-round-xl p-3">
+          <h2 className="text-lg md:text-2xl lg:text-5xl">
             {props.pregunta.pregunta[i18n.language]}
           </h2>
-          <span className="text-purple-800 text-lg line-height-3">
+         {/*  <span className="text-purple-800 text-lg line-height-3">
             {props.categoria.nombre[i18n.language]}
-          </span>
+          </span> */}
         </div>
-        <div className="grid ">
-          {botonesArriba.map((opcion) => (
-            <Boton
-              key={opcion}
-              id="boton-opcion"
-              opcion={opcion}
-              respuesta={respuesta}
-              indicePregunta={props.indicePregunta}
-              setIndicePregunta={props.setIndicePregunta}
-              botonSelecionado={botonSelecionado}
-              setBotonSelecionado={setBotonSelecionado}
-              puntuacion={props.puntuacion}
-              setPuntuacion={props.setPuntuacion}
-            />
-          ))}
-          <div className="col-12 flex justify-content-center align-item-center">
-            {" "}
-            <Reloj />
-          </div>
-          {botonesAbajo.map((opcion) => (
-            <Boton
-              key={opcion}
-              id="boton-opcion"
-              opcion={opcion}
-              respuesta={respuesta}
-              indicePregunta={props.indicePregunta}
-              setIndicePregunta={props.setIndicePregunta}
-              botonSelecionado={botonSelecionado}
-              setBotonSelecionado={setBotonSelecionado}
-              puntuacion={props.puntuacion}
-              setPuntuacion={props.setPuntuacion}
-            />
-          ))}
+
+        {botonesArriba.map((opcion) => (
+          <Boton
+            key={opcion}
+            id="boton-opcion"
+            opcion={opcion}
+            respuesta={respuesta}
+            indicePregunta={props.indicePregunta}
+            setIndicePregunta={props.setIndicePregunta}
+            botonSelecionado={botonSelecionado}
+            setBotonSelecionado={setBotonSelecionado}
+            puntuacion={props.puntuacion}
+            setPuntuacion={props.setPuntuacion}
+          />
+        ))}
+        <div className="col-12  flex justify-content-center ">
+          {" "}
+          <Reloj />
         </div>
+
+        {botonesAbajo.map((opcion) => (
+          <Boton
+            key={opcion}
+            id="boton-opcion"
+            opcion={opcion}
+            respuesta={respuesta}
+            indicePregunta={props.indicePregunta}
+            setIndicePregunta={props.setIndicePregunta}
+            botonSelecionado={botonSelecionado}
+            setBotonSelecionado={setBotonSelecionado}
+            puntuacion={props.puntuacion}
+            setPuntuacion={props.setPuntuacion}
+          />
+        ))}
       </div>
     );
   } else {
     return (
       <div
-        className="w-screen min-h-screen  max-w-screen p-3 bg-red-500"
+        className="grid w-screen min-h-screen  max-w-screen p-3 bg-blue-800"
         id="pregunta"
       >
-        <div className="w-full flex-wrap bg-blue-400 text-center my-5 max-w-screen border-round-xl p-3">
+        <div className=" w-full flex-wrap surface-300 border-300 text-center my-5 max-w-screen border-round-xl p-3">
           <h2 className="text-lg md:text-2xl lg:text-4xl">
             {props.pregunta.pregunta[i18n.language]}
           </h2>
-          <span className="text-purple-800 text-lg line-height-3">
+         {/*  <span className="text-purple-800 text-lg line-height-3 ">
             {props.categoria.nombre[i18n.language]}
-          </span>
+          </span>  */}
+          </div>
+       
+          <div className="col-12 flex justify-content-center align-item-center">
+            {" "}
+            <Reloj />
+          </div>
+          
+            {props.pregunta.opciones[i18n.language].map((opcion) => (
+              <Boton
+                key={opcion}
+                id="boton-opcion"
+                opcion={opcion}
+                respuesta={respuesta}
+                indicePregunta={props.indicePregunta}
+                setIndicePregunta={props.setIndicePregunta}
+                botonSelecionado={botonSelecionado}
+                setBotonSelecionado={setBotonSelecionado}
+                puntuacion={props.puntuacion}
+                setPuntuacion={props.setPuntuacion}
+              />
+            ))}
         </div>
-        <div className="flex justify-content-center align-item-center">
-          {" "}
-          <Reloj />
-        </div>
-        <div className="card-container flex-column">
-          {props.pregunta.opciones[i18n.language].map((opcion) => (
-            <Boton
-              key={opcion}
-              id="boton-opcion"
-              opcion={opcion}
-              respuesta={respuesta}
-              indicePregunta={props.indicePregunta}
-              setIndicePregunta={props.setIndicePregunta}
-              botonSelecionado={botonSelecionado}
-              setBotonSelecionado={setBotonSelecionado}
-              puntuacion={props.puntuacion}
-              setPuntuacion={props.setPuntuacion}
-            />
-          ))}
-        </div>
-      </div>
+      
     );
   }
 }
