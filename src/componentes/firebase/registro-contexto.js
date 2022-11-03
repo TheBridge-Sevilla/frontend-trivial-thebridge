@@ -7,7 +7,7 @@ import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 import { Divider } from 'primereact/divider';
 import { auth } from "./firebase";
-import EntrarConGoogle from "./EntrarConGoogle";
+import EntrarConGoogle from "./iniciar-sesion-google";
 
 
 const Registrarse = () => {

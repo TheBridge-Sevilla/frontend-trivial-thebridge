@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Menubar } from 'primereact/menubar';
 import { useContextoUsuario } from '../../contexto/contextoUsuario';
-import { useSignOut } from '../../customHooks/useSignOut';
+import { useSignOut } from '../../customHooks/hook-cerrar-sesion';
+import CambiarIdioma from '../../acciones/cambiar-idioma';
 
 
 export const HeaderBar = () => {
@@ -43,7 +44,7 @@ export const HeaderBar = () => {
 
     return (
         <div className="card">
-            <Menubar model={items} />
+            <Menubar model={items} end={CambiarIdioma()} />
         </div>
     );
 }

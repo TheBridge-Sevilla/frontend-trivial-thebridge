@@ -1,6 +1,6 @@
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { useContextoUsuario } from '../contexto/contextoUsuario'
-import { auth } from "./../firebase/firebase";
+import { auth } from "../firebase/firebase";
 
 export function useSignWithG() {
     const { setUsuario, setDisabledInputName, setVisibleTop } = useContextoUsuario();

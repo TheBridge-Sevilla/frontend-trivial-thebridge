@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from 'primereact/button';
 import { useContextoUsuario } from '../../contexto/contextoUsuario'
 import { useTranslation } from "react-i18next";
-import { useSignOut } from '../../customHooks/useSignOut';
+import { useSignOut } from '../../customHooks/hook-cerrar-sesion';
 
 function UserSidebar(props) {
     //visibleTop necesario para Sidebar, elemento de PrimeReact

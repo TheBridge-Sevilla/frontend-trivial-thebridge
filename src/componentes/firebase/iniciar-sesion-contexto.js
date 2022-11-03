@@ -5,7 +5,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./firebase"
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
-import EntrarConGoogle from "./EntrarConGoogle";
+import EntrarConGoogle from "./iniciar-sesion-google";
 import { Divider } from "primereact/divider";
 
 

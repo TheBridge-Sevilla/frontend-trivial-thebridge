@@ -1,7 +1,7 @@
 import React from "react"
 import { useTranslation } from "react-i18next";
 import { Button } from "primereact/button";
-import { useSignWithG } from "../customHooks/useSignWithG";
+import { useSignWithG } from "../customHooks/hook-iniciar-sesion-g";
 
 export default function EntrarConGoogle(props) {
   const { iniciarSesionConG } = useSignWithG()

@@ -1,4 +1,4 @@
-import { auth } from "./../firebase/firebase";
+import { auth } from "../firebase/firebase";
 import { useContextoUsuario } from '../contexto/contextoUsuario'
 import { signOut } from "firebase/auth";
 
