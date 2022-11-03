@@ -7,6 +7,7 @@ import Boton from "./boton-opciones";
 import Reloj from "./tiempo";
 import { useTranslation } from "react-i18next";
 import { useMediaQuery } from "usehooks-ts";
+import fondoTrivial from "../imagen/fondoTrivial.png";
 
 function Pregunta(props) {
   const { i18n } = useTranslation();
@@ -29,7 +30,7 @@ function Pregunta(props) {
     return (
       <div
         className="grid  w-screen min-h-screen max-h-screen max-w-screen p-5 bg-blue-800"
-        // style="background-image: url('src\imagen\fondoTrivial.png')"
+        style={{ backgroundImage: `url(${fondoTrivial})` }}
       
 
         
