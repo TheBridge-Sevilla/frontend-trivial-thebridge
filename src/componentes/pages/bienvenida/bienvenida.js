@@ -11,6 +11,8 @@ import UserSidebar from "./../../firebase/user-sidebar";
 import CambiarIdioma from "./../../acciones/cambiar-idioma";
 import { Toast } from 'primereact/toast';
 import { useContextoUsuario } from "../../contexto/contextoUsuario";
+import PerfilUsuario from "../../firebase/perfil-usuario"
+
 
 function Bienvenida(props) {
   const { t } = useTranslation();
@@ -35,6 +37,14 @@ function Bienvenida(props) {
     })
 
   }, [mensaje])
+
+  useEffect(() => {
+  const local =window.indexedDB
+  console.log(local)
+
+
+
+  }, [])
 
   useEffect(() => {
     if (usuario) {
