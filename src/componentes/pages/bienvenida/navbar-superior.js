@@ -41,13 +41,13 @@ export const HeaderBar = (props) => {
                 itemsOptions[2]
             ])
         }
-        else if (props.disabledLogOut) {
+        else if (props.disabledLogIn) {
             setItems([itemsOptions[3]])
         }
         return () => {
             setItems([itemsOptions[0]])
         }
-    }, [currentUser, props.disabledLogOut])
+    }, [currentUser, props.disabledLogIn])
 
     return (
         <div className="card">

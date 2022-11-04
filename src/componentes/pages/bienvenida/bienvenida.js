@@ -18,7 +18,7 @@ function Bienvenida(props) {
   const toast = useRef();
   const [disabledStartButton, setDisabledStartButton] = useState(true);
   const { usuario, setUsuario, disabledInputName, mensaje, setMensaje, tipo, setTipo } = useContextoUsuario();
-  const [disabledLogOut, setDisabledLogOut] = useState(false)
+  const [disabledLogIn, setDisabledLogIn] = useState(false)
   console.log(usuario)
   const mostrarError = (tipo, mensaje) => {
     toast.current.show({ severity: `${tipo}`, detail: `${mensaje}`, life: 3000 });
@@ -45,14 +45,14 @@ function Bienvenida(props) {
   const handleChange = (e) => {
     setUsuario(e.target.value);
     if (e.target.value) {
-      setDisabledLogOut(true)
+      setDisabledLogIn(true)
     }
-    else setDisabledLogOut(false)
+    else setDisabledLogIn(false)
   }
 
   return (
     <div className="flex-column h-screen w-screen flex justify-content-center bg-teal-400">
-      <HeaderBar disabledLogOut={disabledLogOut} />
+      <HeaderBar disabledLogIn={disabledLogIn} />
       <div className="p-3">
       </div>
       <h1 className="flex justify-content-center p-8 font-bold font-italic text-6xl text-gray-900">
@@ -61,7 +61,7 @@ function Bienvenida(props) {
       <div className="h-screen w-screen text-center bg-yellow-500 p-4 font-bold text-gray-900"
         id="usuario">
         <div className="flex justify-content-center">
-          <UserSidebar disabledLogOut={disabledLogOut} />
+          <UserSidebar disabledLogOut={disabledLogIn} />
           <SignDialog />
           <InputText className="w-13rem mr-7" defaultValue={usuario}
             placeholder={t("nombre")} disabled={disabledInputName}

@@ -28,7 +28,7 @@ function UserSidebar(props) {
                     <Button
                         icon="pi pi-user-plus"
                         onClick={() => setVisibleTop(true)}
-                        disabled={props.disabledLogOut}
+                        disabled={props.disabledLogIn}
                         tooltip={t("iniciar-sesion")}
                         tooltipOptions={{ position: 'top' }}
                         className="mx-2"
