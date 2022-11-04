@@ -17,10 +17,9 @@ function Bienvenida(props) {
   const { t } = useTranslation();
   const toast = useRef();
   const [disabledStartButton, setDisabledStartButton] = useState(true);
-  const { usuario, setUsuario, disabledInputName,mensaje,setMensaje,tipo,setTipo } = useContextoUsuario();
+  const { usuario, setUsuario, disabledInputName, mensaje, setMensaje, tipo, setTipo } = useContextoUsuario();
   const [disabledLogOut, setDisabledLogOut] = useState(false)
-  
-
+  console.log(usuario)
   const mostrarError = (tipo, mensaje) => {
     toast.current.show({ severity: `${tipo}`, detail: `${mensaje}`, life: 3000 });
   }
@@ -45,12 +44,15 @@ function Bienvenida(props) {
 
   const handleChange = (e) => {
     setUsuario(e.target.value);
-    setDisabledLogOut(true)
+    if (e.target.value) {
+      setDisabledLogOut(true)
+    }
+    else setDisabledLogOut(false)
   }
 
   return (
     <div className="flex-column h-screen w-screen flex justify-content-center bg-teal-400">
-    <HeaderBar />
+      <HeaderBar disabledLogOut={disabledLogOut} />
       <div className="p-3">
       </div>
       <h1 className="flex justify-content-center p-8 font-bold font-italic text-6xl text-gray-900">

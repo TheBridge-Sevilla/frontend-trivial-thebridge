@@ -5,24 +5,29 @@ import { useSignOut } from '../../customHooks/hook-cerrar-sesion';
 import CambiarIdioma from '../../acciones/cambiar-idioma';
 
 
-export const HeaderBar = () => {
-    const { setVisibleTop, usuario } = useContextoUsuario();
+export const HeaderBar = (props) => {
+    const { setVisibleTop, currentUser } = useContextoUsuario();
     const { cerrarSesion } = useSignOut()
+
     const itemsOptions = [
         {
             label: 'Iniciar sesion',
-            icon: 'pi pi-fw pi-user-plus',
-            command: () => { setVisibleTop(true) }
+            icon: 'pi pi-user-plus',
+            command: () => { setVisibleTop(true) },
         },
         {
             label: 'User',
-            icon: 'pi pi-fw pi-user',
-
+            icon: 'pi pi-user',
         },
         {
-            label: 'Cerrar sesion',
+            label: 'Usuario',
             icon: 'pi pi-sign-out',
             command: () => { cerrarSesion() }
+        },
+        {
+            label: 'Usuario invitado',
+            icon: 'pi pi-user',
+            disabled: 'true'
         }]
 
     const [items, setItems] = useState(
@@ -30,17 +35,19 @@ export const HeaderBar = () => {
     )
 
     useEffect(() => {
-        if (usuario) {
+        if (currentUser) {
             setItems([
                 itemsOptions[1],
                 itemsOptions[2]
             ])
         }
-
+        else if (props.disabledLogOut) {
+            setItems([itemsOptions[3]])
+        }
         return () => {
             setItems([itemsOptions[0]])
         }
-    }, [usuario])
+    }, [currentUser, props.disabledLogOut])
 
     return (
         <div className="card">

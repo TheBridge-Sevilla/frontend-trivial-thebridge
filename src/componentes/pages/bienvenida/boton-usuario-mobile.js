@@ -6,7 +6,7 @@ import { useSignOut } from '../../customHooks/hook-cerrar-sesion';
 
 function UserSidebar(props) {
     //visibleTop necesario para Sidebar, elemento de PrimeReact
-    const { usuario,
+    const { currentUser,
         setVisibleTop } = useContextoUsuario();
     const { t } = useTranslation();
 
@@ -14,7 +14,26 @@ function UserSidebar(props) {
 
     return (
         <div className='card'>
-            {usuario ? <Button icon="pi pi-sign-out" disabled={props.disabledLogOut} onClick={cerrarSesion} tooltip="Cerrar sesión" tooltipOptions={{ position: 'top' }} className="mx-2" /> : <Button icon="pi pi-user-plus" onClick={() => setVisibleTop(true)} tooltip={t("iniciar-sesion")} tooltipOptions={{ position: 'top' }} className="mx-2" />}
+            {
+                currentUser ?
+                    <Button
+                        icon="pi pi-sign-out"
+
+                        onClick={cerrarSesion}
+                        tooltip="Cerrar sesión"
+                        tooltipOptions={{ position: 'top' }}
+                        className="mx-2"
+                    />
+                    :
+                    <Button
+                        icon="pi pi-user-plus"
+                        onClick={() => setVisibleTop(true)}
+                        disabled={props.disabledLogOut}
+                        tooltip={t("iniciar-sesion")}
+                        tooltipOptions={{ position: 'top' }}
+                        className="mx-2"
+                    />
+            }
         </div>
 
     )
