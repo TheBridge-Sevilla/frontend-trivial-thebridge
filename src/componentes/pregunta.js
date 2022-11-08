@@ -7,7 +7,7 @@ import Boton from "./boton-opciones";
 import Reloj from "./tiempo";
 import { useTranslation } from "react-i18next";
 import { useMediaQuery } from "usehooks-ts";
-import fondoTrivial from "../imagen/fondoTrivial.png";
+import fondo2 from "../imagen/fondo2.jpg";
 
 function Pregunta(props) {
   const { i18n } = useTranslation();
@@ -30,7 +30,7 @@ function Pregunta(props) {
     return (
       <div
         className="grid  w-screen min-h-screen max-h-screen max-w-screen p-5 bg-blue-800"
-        style={{ backgroundImage: `url(${fondoTrivial})` }}
+        style={{ backgroundImage: `url(${fondo2})` }}
       
 
         
@@ -80,8 +80,9 @@ function Pregunta(props) {
   } else {
     return (
       <div
-        className="grid w-screen min-h-screen  max-w-screen p-3 bg-blue-800"
+        className="grid w-screen min-h-screen  max-w-screen p-3 bg-blue-800 "
         id="pregunta"
+        style={{ backgroundImage: `url(${fondo2})` }}
       >
         <div className=" w-full flex-wrap surface-300 border-300 text-center my-5 max-w-screen border-round-xl p-3 border-3 border-primary">
           <h2 className="text-lg md:text-2xl lg:text-4xl">
