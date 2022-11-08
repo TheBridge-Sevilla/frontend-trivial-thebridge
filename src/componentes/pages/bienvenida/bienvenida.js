@@ -43,7 +43,6 @@ function Bienvenida(props) {
   useEffect(() => {
     auth.onAuthStateChanged(user => {
         setUsuario(user.displayName)
-        console.log("usuario: " + user.displayName,"id: " + user.uid)
 
     })
 
