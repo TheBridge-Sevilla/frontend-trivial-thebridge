@@ -12,15 +12,17 @@ import CambiarIdioma from "./../../acciones/cambiar-idioma";
 import { Toast } from 'primereact/toast';
 import { useContextoUsuario } from "../../contexto/contextoUsuario";
 import PerfilUsuario from "../../firebase/perfil-usuario"
+import { auth } from "../../firebase/firebase"
+
 
 
 function Bienvenida(props) {
   const { t } = useTranslation();
   const toast = useRef();
   const [disabledStartButton, setDisabledStartButton] = useState(true);
-  const { usuario, setUsuario, disabledInputName,mensaje,setMensaje,tipo,setTipo } = useContextoUsuario();
+  const { usuario, setUsuario, disabledInputName, mensaje, setMensaje, tipo, setTipo } = useContextoUsuario();
   const [disabledLogOut, setDisabledLogOut] = useState(false)
-  
+
 
   const mostrarError = (tipo, mensaje) => {
     toast.current.show({ severity: `${tipo}`, detail: `${mensaje}`, life: 3000 });
@@ -28,7 +30,7 @@ function Bienvenida(props) {
   useEffect(() => {
     if (mensaje) mostrarError(tipo, mensaje)
 
-    if (typeof(setMensaje) != "function") {
+    if (typeof (setMensaje) != "function") {
       return undefined
     }
     return (() => {
@@ -39,12 +41,15 @@ function Bienvenida(props) {
   }, [mensaje])
 
   useEffect(() => {
-  const local =window.indexedDB
-  console.log(local)
+    auth.onAuthStateChanged(user => {
+        setUsuario(user.displayName)
+        console.log("usuario: " + user.displayName,"id: " + user.uid)
+
+    })
 
 
+  }, [auth])
 
-  }, [])
 
   useEffect(() => {
     if (usuario) {
@@ -72,7 +77,7 @@ function Bienvenida(props) {
         id="usuario">
         <div className="flex justify-content-center">
           <UserSidebar disabledLogOut={disabledLogOut} />
-          <PerfilUsuario/>
+          <PerfilUsuario />
           <InputText className="w-13rem mr-7" defaultValue={usuario}
             placeholder={t("nombre")} disabled={disabledInputName}
             onChange={handleChange} />
