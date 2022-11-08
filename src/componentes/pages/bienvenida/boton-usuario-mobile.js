@@ -6,8 +6,7 @@ import { useSignOut } from '../../customHooks/hook-cerrar-sesion';
 
 function UserSidebar(props) {
     //visibleTop necesario para Sidebar, elemento de PrimeReact
-    const { currentUser,
-        setVisibleTop } = useContextoUsuario();
+    const { currentUser, setVisibleTop } = useContextoUsuario();
     const { t } = useTranslation();
 
     const { cerrarSesion } = useSignOut()
@@ -20,7 +19,7 @@ function UserSidebar(props) {
                         icon="pi pi-sign-out"
 
                         onClick={cerrarSesion}
-                        tooltip="Cerrar sesión"
+                        tooltip={t("cerrar-sesion")}
                         tooltipOptions={{ position: 'top' }}
                         className="mx-2"
                     />

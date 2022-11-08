@@ -3,15 +3,17 @@ import { Menubar } from 'primereact/menubar';
 import { useContextoUsuario } from '../../contexto/contextoUsuario';
 import { useSignOut } from '../../customHooks/hook-cerrar-sesion';
 import CambiarIdioma from '../../acciones/cambiar-idioma';
+import { useTranslation } from "react-i18next";
 
 
 export const HeaderBar = (props) => {
+    const { t } = useTranslation();
     const { setVisibleTop, currentUser } = useContextoUsuario();
     const { cerrarSesion } = useSignOut()
 
     const itemsOptions = [
         {
-            label: 'Iniciar sesion',
+            label: t("iniciar-sesion"),
             icon: 'pi pi-user-plus',
             command: () => { setVisibleTop(true) },
         },
