@@ -63,7 +63,7 @@ function Bienvenida(props) {
         <div className="flex justify-content-center">
           <UserSidebar disabledLogOut={disabledLogIn} />
           <SignDialog />
-          <InputText className="w-13rem mr-7" defaultValue={usuario}
+          <InputText className="w-13rem mr-7" Value={usuario}
             placeholder={t("nombre")} disabled={disabledInputName}
             onChange={handleChange} />
         </div>
