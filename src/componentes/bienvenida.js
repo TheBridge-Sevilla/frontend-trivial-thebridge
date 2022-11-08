@@ -37,7 +37,7 @@ function Bienvenida(props) {
       <div className="p-3 flex">
         <CambiarIdioma />
       </div>
-      <h1 className="flex justify-content-center p-8 font-bold font-italic text-6xl text-gray-900">
+      <h1 className="flex justify-content-center p-8 font-bold font-italic text-6xl lg:text-7xl text-gray-900">
         {t("trivial")}
       </h1>
       <div className=" h-screen w-screen text-center surface-300 p-4 font-bold text-gray-900 "
@@ -65,7 +65,7 @@ function Bienvenida(props) {
             type="button"
             label={t("iniciar")}
             icon="pi pi-check"
-            className="border-round-3xl bg-blue-800"
+            className="border-round-3xl bg-blue-800 shadow-7"
           ></Button>
         </div>
       </div>
