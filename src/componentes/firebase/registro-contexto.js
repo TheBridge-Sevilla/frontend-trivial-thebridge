@@ -73,7 +73,9 @@ const Registrarse = () => {
         <form onSubmit={onSubmit}>
           <InputText placeholder="Email" type="email" ref={emailRef} />
           <InputText placeholder={t("nombre")} type="name" ref={nombreRef} />
-          <Password placeholder={t("contraseña")} type="password" onChange={(e) => setContraseña(e.target.value)} />
+          <Password
+            placeholder={t("contraseña")}
+            onChange={(e) => setContraseña(e.target.value)} toggleMask />
           <Button type="submit">{t("crear-cuenta")}</Button>
           <Divider align="center" type="dashed">
             <b>{t("o")}</b>

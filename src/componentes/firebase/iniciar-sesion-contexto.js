@@ -67,7 +67,7 @@ const IniciarSesion = () => {
       <h1 className="text-blue-600"> {t('iniciar-sesion')} </h1>
       <form onSubmit={onSubmit}>
         <InputText placeholder="Email" icon="pi pi-envelope" type="email" ref={emailRef} />
-        <Password placeholder={t("contraseña")} ref={contraseñaRef} />
+        <Password placeholder={t("contraseña")} ref={contraseñaRef} toggleMask/>
         <Button type="submit">{t("iniciar-sesion")}</Button>
         <Divider align="center" type="dashed">
           <b>{t("o")}</b>
