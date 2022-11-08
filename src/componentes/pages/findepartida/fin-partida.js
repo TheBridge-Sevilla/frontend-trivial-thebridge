@@ -33,7 +33,10 @@ function FinPartida(props) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(nuevaPartida),
     };
-    fetch(url, requestOptions).then((response) => response.json());
+    
+    fetch(url, requestOptions)
+      .then((response) => response.json())
+
   }, []);
 
   return (
