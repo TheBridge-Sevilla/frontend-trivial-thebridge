@@ -35,7 +35,7 @@ export default function Boton(props) {
       label={props.opcion}
       className={
         `font-bold text-center text-blue-600  border-round-2xl p-button-raised m:text-l lg:text-2xl   bg-${colorBoton} 
-        transition-colors transition-duration-500 hover:border-300 w-full h-full surface-300 border-3   `
+        transition-colors transition-duration-500 hover:border-300 w-full h-full surface-300 border-3 shadow-8  `
       }
     />
     </div>

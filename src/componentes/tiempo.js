@@ -51,7 +51,7 @@ export default function Reloj(props) {
 
 
     useEffect(() => {
-   
+
         inicioTiempo(nuevoTiempoRespuesta());
     }, [props]);
 
@@ -60,9 +60,9 @@ export default function Reloj(props) {
 
     return (
 
-        <div className="flex align-items-center justify-content-center card-container blue-container ">
+        <div className="flex align-items-center justify-content-center card-container blue-container m-0">
             <div className="scalein animation-duration-500 animation-iteration-1 flex align-items-center justify-content-center
-            font-bold lg:text-lg surface-300 border-primary border-3 text-blue-600 border-round m-2 px-5 py-3 lg:w-10" id="crono">{tiempo} </div>
+            font-bold lg:text-lg surface-300 border-primary border-3 text-blue-600 border-round-xl lg:border-circle m-2 px-5 py-3 lg:w-11rem -mt-5 md:-mt-5 lg:m-0  shadow-8" id="crono">{tiempo} </div>
         </div>
     );
 }

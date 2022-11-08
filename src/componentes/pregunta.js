@@ -36,8 +36,8 @@ function Pregunta(props) {
         
         id="pregunta"
       >
-        <div className="w-full flex-wrap surface-300 border-300 border-primary text-center my-5 max-w-screen border-round-xl p-3 border-3">
-          <h2 className="text-lg md:text-2xl lg:text-5xl">
+        <div className="w-full flex-wrap surface-300 border-300 border-primary text-center my-5 max-w-screen border-round-xl p-3 border-3 font-italic shadow-8">
+          <h2 className="  text-5xl">
             {props.pregunta.pregunta[i18n.language]}
           </h2>
         </div>
@@ -80,12 +80,12 @@ function Pregunta(props) {
   } else {
     return (
       <div
-        className="grid w-screen min-h-screen  max-w-screen p-3 bg-blue-800 "
+        className="grid w-screen min-h-screen  max-w-screen p-3 bg-blue-800 font-italic "
         id="pregunta"
         style={{ backgroundImage: `url(${fondo2})` }}
       >
-        <div className=" w-full flex-wrap surface-300 border-300 text-center my-5 max-w-screen border-round-xl p-3 border-3 border-primary">
-          <h2 className="text-lg md:text-2xl lg:text-4xl">
+        <div className=" w-full flex-wrap surface-300 border-300 text-center my-5 max-w-screen border-round-xl p-3 border-3 border-primary shadow-8">
+          <h2 className="text-xl md:text-3xl">
             {props.pregunta.pregunta[i18n.language]}
           </h2>
          
