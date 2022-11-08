@@ -1,3 +1,4 @@
+import "./clasificacion.css";
 import React, { useEffect, useState } from 'react';
 import 'primeflex/primeflex.css';
 import "primereact/resources/themes/lara-light-indigo/theme.css";  //theme
@@ -5,6 +6,7 @@ import "primereact/resources/primereact.min.css";                  //core css
 import "primeicons/primeicons.css";
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
+
 
 function Clasificacion() {
     const url = 'http://localhost:3050/partidas';
@@ -23,10 +25,10 @@ console.log("partidas",partidas)
     return (
         <div className='w-full'>
         <DataTable responsiveLayout="scroll" value={partidas}>
-            <Column field="posicion" header="posicion"></Column>
-            <Column field="nombre" header="jugador"></Column>
-            <Column field="categoria" header="categoria"></Column>
-            <Column field="puntuacion" header="puntuacion"></Column>
+            <Column field="posicion" header="Posicion"></Column>
+            <Column field="nombre" header="Jugador"></Column> 
+            <Column field="puntuacion" header="Puntuación"></Column>
+            <Column field="fecha" header="Fecha"></Column>
         </DataTable></div>
     );
 

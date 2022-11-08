@@ -1,0 +1,29 @@
+.w-full-1 {
+    background-color: #aed4ffbb !important;
+    width: 80%;
+    display: block;
+    margin: auto;
+    border-radius: 1ch;
+    
+    
+}
+
+.w-full-2 {
+    background-color: #e0e0e0 ;
+}
+
+.w-auto {
+    border-radius: 1ch;
+    width: 80% !important;
+    display: block;
+    margin: auto;
+   
+    
+}
+
+
+.p-button-raised {
+    width: 1%;
+}
+
+
