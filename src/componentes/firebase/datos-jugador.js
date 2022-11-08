@@ -5,7 +5,7 @@ import { useContextoUsuario } from '../contexto/contextoUsuario';
 import { auth, storage } from "./firebase";
 import { updateProfile } from "firebase/auth";
 import { InputText } from "primereact/inputtext";
-import {  uploadBytes, ref, getDownloadURL } from "firebase/storage"
+import { uploadBytes, ref, getDownloadURL } from "firebase/storage"
 
 
 
@@ -25,20 +25,20 @@ function DatosJugador() {
 
     //actualizar foto de perfil
 
- async function upload(file, currentUser) {
-    const fileRef = ref(storage, currentUser.uid + '.png');
-  
-    setLoading(true);
-  
-    await uploadBytes(fileRef, file);
-    const fotoURL = await getDownloadURL(fileRef);
-  
-    updateProfile(currentUser, { photoURL: fotoURL });
-    setImagenPerfil(fotoURL)
-  
-    setLoading(false);
-    alert("Uploaded file!");
-  }
+    async function upload(file, currentUser) {
+        const fileRef = ref(storage, currentUser.uid + '.png');
+
+
+
+        await uploadBytes(fileRef, file);
+        const fotoURL = await getDownloadURL(fileRef);
+
+        updateProfile(currentUser, { photoURL: fotoURL });
+        setImagenPerfil(fotoURL)
+
+
+        alert("Uploaded file!");
+    }
 
     useEffect(() => {
         if (currentUser && currentUser.photoURL) {
@@ -76,19 +76,23 @@ function DatosJugador() {
     const handleChange = (e) => {
         if (e.target.files[0]) {
             setfoto(e.target.files[0])
+            setLoading(true)
         }
 
     }
-const handleClick = ()=>{
-    upload(foto, currentUser, setLoading)
+    const handleClick = () => {
+        upload(foto, currentUser,)
+        setLoading(false)
 
-}
+    }
 
     return (
         <div>
-            <Avatar image={imagenPerfil} referrerPolicy="no-referrer" className="mr-2" size="xlarge" shape="circle" />
-            <input type="file" onChange={handleChange}></input>
-            <Button disabled={loading || !foto} label="subir" onClick={handleClick}></Button>
+            <label style={{cursor:'pointer'}} htmlFor="file-input">
+              <Avatar  image={imagenPerfil} referrerPolicy="no-referrer" className="mr-2 shadow-5" size="xlarge" shape="circle" />
+            </label>
+            <input id="file-input" type="file" onChange={handleChange} hidden="true" />
+            { loading ? <Button label="subir" onClick={handleClick}></Button>:<></>  }
             <p>Nombre del Jugador: {nombre}</p>
             <p>Email del Jugador: {email}</p>
             <p>Partidas Recientes:</p>
