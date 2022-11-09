@@ -15,5 +15,7 @@
     "recuperar-contraseña":"Restore password",
     "crear-cuenta":"Sign in",
     "registro-google":"Register with Google",
-    "o":"OR"
+    "o":"OR",
+    "usuario-invitado": "Guest",
+    "usuario": "User"
 }

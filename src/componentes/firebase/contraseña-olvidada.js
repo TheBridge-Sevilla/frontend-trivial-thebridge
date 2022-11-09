@@ -1,4 +1,4 @@
-import React, { useRef} from 'react'
+import React, { useRef } from 'react'
 import { useTranslation } from "react-i18next";
 import { auth } from "./firebase"
 import { sendPasswordResetEmail } from "firebase/auth";
@@ -11,7 +11,7 @@ export default function ContraseñaOlvidada() {
   const { t } = useTranslation();
   const emailRef = useRef();
 
-  const { setMensaje,  setTipo } = useContextoUsuario();
+  const { setMensaje, setTipo } = useContextoUsuario();
 
 
   const contraseñaOlvidada = (email) => {

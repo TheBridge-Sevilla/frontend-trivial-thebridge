@@ -4,7 +4,7 @@ import { useContextoUsuario } from '../../contexto/contextoUsuario'
 import { useTranslation } from "react-i18next";
 import { useSignOut } from '../../customHooks/hook-cerrar-sesion';
 
-function UserSidebar(props) {
+export default function BotonIniciarSesion(props) {
     //visibleTop necesario para Sidebar, elemento de PrimeReact
     const { currentUser, setVisibleTop } = useContextoUsuario();
     const { t } = useTranslation();
@@ -37,5 +37,3 @@ function UserSidebar(props) {
 
     )
 }
-
-export default UserSidebar

@@ -7,7 +7,7 @@ import "primereact/resources/primereact.min.css"; //core css
 import "primeicons/primeicons.css";
 import SelectCategoria from "../../acciones/categoria";
 import { useTranslation } from "react-i18next";
-import UserSidebar from "./boton-usuario-mobile";
+import BotonIniciarSesion from "./boton-usuario-mobile";
 import { Toast } from 'primereact/toast';
 import { useContextoUsuario } from "../../contexto/contextoUsuario";
 import { HeaderBar } from "./navbar-superior";
@@ -61,7 +61,7 @@ function Bienvenida(props) {
       <div className="h-screen w-screen text-center bg-yellow-500 p-4 font-bold text-gray-900"
         id="usuario">
         <div className="flex justify-content-center">
-          <UserSidebar disabledLogOut={disabledLogIn} />
+          <BotonIniciarSesion disabledLogOut={disabledLogIn} />
           <SignDialog />
           <InputText className="w-13rem mr-7" Value={usuario}
             placeholder={t("nombre")} disabled={disabledInputName}

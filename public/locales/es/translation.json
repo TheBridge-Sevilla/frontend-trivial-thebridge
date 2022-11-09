@@ -15,6 +15,7 @@
     "recuperar-contraseña":"Recuperar contraseña",
     "crear-cuenta":"Registrarse",
     "registro-google":"Registrarme con Google",
-    "o":"O"
-
+    "o":"O",
+    "usuario-invitado": "Usuario invitado",
+    "usuario": "Usuario"
 }
