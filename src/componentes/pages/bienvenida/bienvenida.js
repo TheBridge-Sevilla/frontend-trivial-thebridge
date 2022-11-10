@@ -42,7 +42,9 @@ function Bienvenida(props) {
 
   useEffect(() => {
     auth.onAuthStateChanged(user => {
+      if (user){
         setUsuario(user.displayName)
+      }
 
     })
 
