@@ -68,14 +68,13 @@ function Bienvenida(props) {
   }
 
   return (
-    <div className="flex-column h-screen w-screen flex justify-content-center bg-teal-400">
+
+    <div className="flex-column h-screen w-screen flex justify-content-center bg-blue-400">      
       <HeaderBar disabledLogIn={disabledLogIn} />
-      <div className="p-3">
-      </div>
-      <h1 className="flex justify-content-center p-8 font-bold font-italic text-6xl text-gray-900">
+      <h1 className="flex justify-content-center p-8 font-bold font-italic text-6xl lg:text-7xl text-gray-900">
         {t("trivial")}
       </h1>
-      <div className="h-screen w-screen text-center bg-yellow-500 p-4 font-bold text-gray-900"
+      <div className=" h-screen w-screen text-center surface-300 p-4 font-bold text-gray-900 "
         id="usuario">
         <div className="flex justify-content-center">
           <PerfilUsuario/>
@@ -88,7 +87,7 @@ function Bienvenida(props) {
         <div className=" flex justify-content-center" id="select-categoria">
 
           <SelectCategoria
-            className="w-13rem mr-7 border-round"
+            className="w-15rem h-full p-3 border-round"
             setCategoria={props.setCategoria} />
 
         </div>
@@ -103,6 +102,7 @@ function Bienvenida(props) {
             type="button"
             label={t("iniciar")}
             icon="pi pi-check"
+            className="border-round-3xl bg-blue-800 shadow-7"
           ></Button>
         </div>
       </div>
