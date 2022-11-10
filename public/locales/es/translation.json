@@ -5,6 +5,7 @@
     "iniciar":"Iniciar partida",
     "categoria":"Categorías",
     "iniciar-sesion":"Iniciar sesión",
+    "cerrar-sesion":"Cerrar sesión",
     "contraseña": "Contraseña",
     "cuenta-no":"No tengo cuenta",
     "cuenta-si":"Ya tengo cuenta",
@@ -12,7 +13,9 @@
     "contraseña-recordada":"Sé mi contraseña",
     "cambiar-contraseña":"Cambiar contraseña",
     "recuperar-contraseña":"Recuperar contraseña",
-    "crear-cuenta":"Registrarse"
-
-
+    "crear-cuenta":"Registrarse",
+    "registro-google":"Registrarme con Google",
+    "o":"O",
+    "usuario-invitado": "Usuario invitado",
+    "usuario": "Usuario"
 }

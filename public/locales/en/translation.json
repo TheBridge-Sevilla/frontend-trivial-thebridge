@@ -5,6 +5,7 @@
     "iniciar":"Start game",
     "categoria":"Categories",
     "iniciar-sesion":"Log in",
+    "cerrar-sesion":"Log out",
     "contraseña": "Password",
     "cuenta-no":"I don't have account yet",
     "cuenta-si":"I already have an account",
@@ -12,5 +13,9 @@
     "contraseña-recordada":"I already know my password",
     "cambiar-contraseña":"Change password",
     "recuperar-contraseña":"Restore password",
-    "crear-cuenta":"Sign in"
+    "crear-cuenta":"Sign in",
+    "registro-google":"Register with Google",
+    "o":"OR",
+    "usuario-invitado": "Guest",
+    "usuario": "User"
 }

@@ -4,8 +4,10 @@ import { useContextoUsuario } from "../contexto/contextoUsuario";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./firebase"
 import { InputText } from 'primereact/inputtext';
+import { Password } from 'primereact/password';
 import { Button } from 'primereact/button';
-
+import EntrarConGoogle from "./iniciar-sesion-google";
+import { Divider } from "primereact/divider";
 
 
 const IniciarSesion = () => {
@@ -62,13 +64,16 @@ const IniciarSesion = () => {
 
   return (
     <div className="form">
-      <h1 className="text-blue-600"> Iniciar Sesión </h1>
+      <h1 className="text-blue-600"> {t('iniciar-sesion')} </h1>
       <form onSubmit={onSubmit}>
         <InputText placeholder="Email" icon="pi pi-envelope" type="email" ref={emailRef} />
-        <InputText placeholder={t("contraseña")} ref={contraseñaRef} />
+        <Password placeholder={t("contraseña")} ref={contraseñaRef} toggleMask/>
         <Button type="submit">{t("iniciar-sesion")}</Button>
+        <Divider align="center" type="dashed">
+          <b>{t("o")}</b>
+        </Divider>
       </form>
-
+      <EntrarConGoogle alt="iniciar-sesion" />
     </div>
   );
 };

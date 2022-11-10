@@ -9,10 +9,10 @@ export const ContextoUsuarioProvider = ({ children }) => {
     const [disabledInputName, setDisabledInputName] = useState(false)
     const [visibleTop, setVisibleTop] = useState(false);
     const [displayResponsive, setDisplayResponsive] = useState(false)
-    const [disabledLogInButton,setDisabledLogInButton] = useState(false)
+    const [disabledLogInButton, setDisabledLogInButton] = useState(false)
     const [mensaje, setMensaje] = useState()
     const [tipo, setTipo] = useState()
-
+    const [currentUser, setCurrentUser] = useState()
 
 
 
@@ -30,7 +30,9 @@ export const ContextoUsuarioProvider = ({ children }) => {
         mensaje,
         setMensaje,
         tipo,
-        setTipo
+        setTipo,
+        currentUser,
+        setCurrentUser
     }
     return (
         <ContextoUsuario.Provider value={contextValue}>{children}</ContextoUsuario.Provider>
