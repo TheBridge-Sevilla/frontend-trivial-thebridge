@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState } from "react";
 
+
 const ContextoUsuario = createContext({})
 
 export const useContextoUsuario = () => useContext(ContextoUsuario)
@@ -9,7 +10,11 @@ export const ContextoUsuarioProvider = ({ children }) => {
     const [disabledInputName, setDisabledInputName] = useState(false)
     const [visibleTop, setVisibleTop] = useState(false);
     const [displayResponsive, setDisplayResponsive] = useState(false)
-    const [disabledLogInButton,setDisabledLogInButton] = useState(false)
+    const [disabledLogInButton, setDisabledLogInButton] = useState(false)
+    const [mensaje, setMensaje] = useState()
+    const [tipo, setTipo] = useState()
+    const [currentUser, setCurrentUser] = useState()
+    const [visibleLeft, setVisibleLeft] = useState(false)
 
 
 
@@ -23,9 +28,16 @@ export const ContextoUsuarioProvider = ({ children }) => {
         displayResponsive,
         setDisplayResponsive,
         disabledLogInButton,
-        setDisabledLogInButton
+        setDisabledLogInButton,
+        mensaje,
+        setMensaje,
+        tipo,
+        setTipo,
+        currentUser,
+        setCurrentUser,
+        visibleLeft,
+        setVisibleLeft
     }
-    console.log(usuario)
     return (
         <ContextoUsuario.Provider value={contextValue}>{children}</ContextoUsuario.Provider>
     );

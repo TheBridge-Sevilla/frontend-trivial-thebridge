@@ -3,17 +3,17 @@ import { Button } from "primereact/button";
 
 
 export default function Boton(props) {
-  const [colorBoton, setColorBoton] = useState("yellow");
+  const [colorBoton, setColorBoton] = useState("bluegray-200");
 
   const handleIndicePreguntas = () => {
 
     if (!props.botonSelecionado) {
       if (props.opcion == props.respuesta) {
-        setColorBoton("green");
+        setColorBoton("green-500");
         props.setPuntuacion(props.puntuacion + 1)
 
       } else {
-        setColorBoton("red");
+        setColorBoton("red-500");
       }
       props.setBotonSelecionado(true);
 

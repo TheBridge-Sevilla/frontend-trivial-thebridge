@@ -3,8 +3,9 @@ import { Dropdown } from "primereact/dropdown";
 import { useTranslation } from "react-i18next";
 
 function SelectCategoria(props) {
+  const { t } = useTranslation()
   const { i18n } = useTranslation();
-  const url = "http://localhost:3050/categorias";
+  const url = process.env.REACT_APP_API_URL + "/categorias";
   const [categorias, setCategorias] = useState([]);
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState();
   useEffect(() => {
@@ -12,12 +13,11 @@ function SelectCategoria(props) {
       .then((res) => res.json())
       .then((json) => {
         setCategorias(json.map((categoria) => categoria));
-        console.log(categorias);
       });
   }, [i18n.language]);
   const handleCategorias = (e) => {
     // El objeto entero de la categoría.
-    let categoriaObj = categorias.filter((categoria) => 
+    let categoriaObj = categorias.filter((categoria) =>
       categoria.nombre[i18n.language] == e.target.value
     )[0];
 
@@ -33,9 +33,9 @@ function SelectCategoria(props) {
       value={categoriaSeleccionada}
       options={categorias.map((categoria) => categoria.nombre[i18n.language])}
       onChange={(e) => handleCategorias(e)}
-      placeholder="Categorias"
+      placeholder={t("categoria")}
     />
   );
 }
-
+  
 export default SelectCategoria;

@@ -1,22 +1,54 @@
 import "./bienvenida.css";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 import "primereact/resources/themes/lara-light-indigo/theme.css"; //theme
 import "primereact/resources/primereact.min.css"; //core css
 import "primeicons/primeicons.css";
-import SelectCategoria from "./categoria";
+import SelectCategoria from "../../acciones/categoria";
 import { useTranslation } from "react-i18next";
-import UserSidebar from "./firebase/user-sidebar";
-import CambiarIdioma from "./cambiar-idioma";
-import { useContextoUsuario } from "../componentes/contexto/contextoUsuario";
-
+import BotonIniciarSesion from "./boton-usuario-mobile";
+import { Toast } from 'primereact/toast';
+import { useContextoUsuario } from "../../contexto/contextoUsuario";
+import { HeaderBar } from "./navbar-superior";
+import { SignDialog } from "../../firebase/iniciar-sesion-dialog";
+import {auth} from "../../firebase/firebase"
+import PerfilUsuario from "../../firebase/perfil-usuario"
 
 function Bienvenida(props) {
   const { t } = useTranslation();
+  const toast = useRef();
   const [disabledStartButton, setDisabledStartButton] = useState(true);
-  const { usuario, setUsuario, disabledInputName } = useContextoUsuario();
-  const [disabledLogOut, setDisabledLogOut] = useState(false)
+  const { usuario, setUsuario, disabledInputName, mensaje, setMensaje, tipo, setTipo } = useContextoUsuario();
+  const [disabledLogIn, setDisabledLogIn] = useState(false)
+
+  const mostrarError = (tipo, mensaje) => {
+    toast.current.show({ severity: `${tipo}`, detail: `${mensaje}`, life: 3000 });
+  }
+  useEffect(() => {
+    if (mensaje) mostrarError(tipo, mensaje)
+
+    if (typeof (setMensaje) != "function") {
+      return undefined
+    }
+    return (() => {
+      setMensaje()
+      setTipo()
+    })
+
+  }, [mensaje])
+
+  useEffect(() => {
+    auth.onAuthStateChanged(user => {
+      if (user){
+        setUsuario(user.displayName)
+      }
+
+    })
+
+
+  }, [auth])
+
 
   useEffect(() => {
     if (usuario) {
@@ -29,26 +61,31 @@ function Bienvenida(props) {
 
   const handleChange = (e) => {
     setUsuario(e.target.value);
-    setDisabledLogOut(true)
+    if (e.target.value) {
+      setDisabledLogIn(true)
+    }
+    else setDisabledLogIn(false)
   }
 
   return (
-    <div className="flex-column h-screen w-screen flex justify-content-center bg-blue-400">
-      <div className="p-3 flex">
-        <CambiarIdioma />
-      </div>
+
+    <div className="flex-column h-screen w-screen flex justify-content-center bg-blue-400">      
+      <HeaderBar disabledLogIn={disabledLogIn} />
       <h1 className="flex justify-content-center p-8 font-bold font-italic text-6xl lg:text-7xl text-gray-900">
         {t("trivial")}
       </h1>
       <div className=" h-screen w-screen text-center surface-300 p-4 font-bold text-gray-900 "
         id="usuario">
         <div className="flex justify-content-center">
-          <UserSidebar disabledLogOut={disabledLogOut} />
-          <InputText className="w-13rem mr-7" defaultValue={usuario}
+          <PerfilUsuario/>
+          <BotonIniciarSesion disabledLogIn={disabledLogIn} />
+          <SignDialog />
+          <InputText className="w-13rem mr-7" value={usuario}
             placeholder={t("nombre")} disabled={disabledInputName}
             onChange={handleChange} />
         </div>
-        <div className="p-2" id="select-categoria">
+        <div className=" flex justify-content-center" id="select-categoria">
+
           <SelectCategoria
             className="w-15rem h-full p-3 border-round"
             setCategoria={props.setCategoria} />
@@ -69,6 +106,7 @@ function Bienvenida(props) {
           ></Button>
         </div>
       </div>
+      <Toast ref={toast} />
     </div>
   );
 }
