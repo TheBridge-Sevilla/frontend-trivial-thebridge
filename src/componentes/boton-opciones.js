@@ -9,11 +9,11 @@ export default function Boton(props) {
 
     if (!props.botonSelecionado) {
       if (props.opcion == props.respuesta) {
-        setColorBoton("green-600");
+        setColorBoton("green-400");
         props.setPuntuacion(props.puntuacion + 1)
 
       } else {
-        setColorBoton("red-600");
+        setColorBoton("red-400");
       }
       props.setBotonSelecionado(true);
 

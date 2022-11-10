@@ -21,7 +21,7 @@ function Pregunta(props) {
 
   useEffect(() => {
     const pasarPregunta = setTimeout(() => {
-      props.setIndicePregunta(props.indicePregunta);
+      props.setIndicePregunta(props.indicePregunta + 1);
     }, 20000);
     return () => clearTimeout(pasarPregunta);
   }, [props.indicePregunta]);
