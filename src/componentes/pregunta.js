@@ -37,7 +37,7 @@ function Pregunta(props) {
         id="pregunta"
       >
         <div className="w-full flex-wrap surface-300 border-300 border-primary text-center my-5 max-w-screen h-12rem  border-round-xl p-3 border-3 font-italic shadow-8">
-          <h2 className="  text-5xl -mt-1">
+          <h2 className="  text-4xl -mt-1">
             {props.pregunta.pregunta[i18n.language]}
           </h2>
         </div>
@@ -85,7 +85,7 @@ function Pregunta(props) {
         style={{ backgroundImage: `url(${fondo2})` }}
       >
         <div className=" w-full flex-wrap surface-300 border-300 text-center my-5 max-w-screen h-12rem  border-round-xl p-3 border-3 border-primary shadow-8">
-          <h2 className="text-xl md:text-3xl ">
+          <h2 className="text-xl md:text-3xl -mt-1">
             {props.pregunta.pregunta[i18n.language]}
           </h2>
 
