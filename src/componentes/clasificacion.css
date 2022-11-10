@@ -10,6 +10,11 @@
 
 .w-full-2 {
     background-color: #e0e0e0 ;
+    
+}
+
+#clasificacion {
+    margin:auto
 }
 
 .w-auto {
@@ -27,3 +32,6 @@
 }
 
 
+.w-auto2 {
+    background-color: #255D81;
+}

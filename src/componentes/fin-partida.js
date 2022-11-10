@@ -8,9 +8,10 @@ import Clasificacion from "./clasificacion";
 
 function FinPartida(props) {
   const resultado = props.puntuacion * 100 / props.indicePregunta
+  
 
   return (
-    <div className="bg-blue-600 h-screen w-screen">
+    <div className="w-auto2 h-screen w-screen">
       <br></br><br></br>
       <div className="w-auto bg-bluegray-100 text-center p-4">
 
@@ -26,7 +27,7 @@ function FinPartida(props) {
       <br></br> <br></br>
       <div className="w-full-1 p-4">
         
-        <div className="w-full-2  text-center"><h3>Clasificación:</h3>
+        <div className="w-full-2  text-center"><h3 id="clasificacion">Clasificación:</h3>
           <Clasificacion />
         </div>
 
