@@ -13,21 +13,21 @@ function FinPartida(props) {
   return (
     <div className="w-auto2 h-screen w-screen">
       <br></br><br></br>
-      <div className="w-auto bg-bluegray-100 text-center p-4">
+      <div className="w-auto bg-bluegray-100 text-center p-4 shadow-4">
 
-        <div className="card-container text-center text-3xl font-medium">
+        <div className="card-container text-center text-3xl font-medium ">
           {props.puntuacion + "/" + props.indicePregunta} ({resultado} %) preguntas acertadas
         </div>
         <br></br>
-        <Button className="p-button-raised block bg-yellow-500 font-bold text-center p-4 border-round w-auto m-auto"
+        <Button className="p-button-raised block shadow-8 bg-yellow-500 font-bold text-center p-4 border-round w-auto m-auto"
           onClick={() => props.setEsPantallaPrincipal(true)}>
           Jugar de nuevo
         </Button>
       </div>
       <br></br> <br></br>
-      <div className="w-full-1 p-4">
+      <div className="w-full-1 p-4 shadow-8">
         
-        <div className="w-full-2  text-center"><h3 id="clasificacion">Clasificación:</h3>
+        <div className="w-full-2 shadow-6  text-center"><h3 id="clasificacion">Clasificación:</h3>
           <Clasificacion />
         </div>
 
