@@ -61,9 +61,9 @@ function Bienvenida(props) {
       <div className="h-screen w-screen text-center bg-yellow-500 p-4 font-bold text-gray-900"
         id="usuario">
         <div className="flex justify-content-center">
-          <BotonIniciarSesion disabledLogOut={disabledLogIn} />
+          <BotonIniciarSesion disabledLogIn={disabledLogIn} />
           <SignDialog />
-          <InputText className="w-13rem mr-7" Value={usuario}
+          <InputText className="w-13rem mr-7" value={usuario}
             placeholder={t("nombre")} disabled={disabledInputName}
             onChange={handleChange} />
         </div>

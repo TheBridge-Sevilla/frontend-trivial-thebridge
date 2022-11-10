@@ -9,24 +9,24 @@ import i18next from "i18next";
 
 export const HeaderBar = (props) => {
 
-    const { setVisibleTop, currentUser, usuario } = useContextoUsuario();
+    const { currentUser, usuario } = useContextoUsuario();
     const { cerrarSesion } = useSignOut()
     const { Item } = useItem()
 
-    const [item, setItem] = useState([Item('iniciar-sesion', 'pi pi-user-plus', () => { setVisibleTop(true) })])
+    const [item, setItem] = useState([Item()])
 
     useEffect(() => {
         if (currentUser) {
             setItem([
-                Item(usuario, 'pi pi-user'),
+                Item(usuario, 'pi pi-user', () => undefined),
                 Item('cerrar-sesion', 'pi pi-sign-out', () => { cerrarSesion() })
             ])
         }
         else if (props.disabledLogIn) {
-            setItem([Item('usuario-invitado', 'pi pi-user')])
+            setItem([Item('usuario-invitado', 'pi pi-user',undefined,true)])
         }
         return () => {
-            setItem([Item('iniciar-sesion', 'pi pi-user-plus', () => { setVisibleTop(true) })])
+            setItem([Item()])
         }
     }, [currentUser, props.disabledLogIn, i18next.language])
 

@@ -10,7 +10,7 @@ export default function BotonIniciarSesion(props) {
     const { t } = useTranslation();
 
     const { cerrarSesion } = useSignOut()
-
+console.log(props.disabled)
     return (
         <div className='card'>
             {

@@ -7,7 +7,7 @@ export function useSignOut() {
 
     const cerrarSesion = () => {
         signOut(auth).then(() => {
-            setUsuario()
+            setUsuario("")
             setDisabledInputName(false)
             setCurrentUser(null)
         }
