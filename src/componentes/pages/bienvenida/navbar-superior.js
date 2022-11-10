@@ -9,7 +9,7 @@ import i18next from "i18next";
 
 export const HeaderBar = (props) => {
 
-    const { currentUser, usuario } = useContextoUsuario();
+    const { currentUser, usuario,setVisibleLeft } = useContextoUsuario();
     const { cerrarSesion } = useSignOut()
     const { Item } = useItem()
 
@@ -18,7 +18,7 @@ export const HeaderBar = (props) => {
     useEffect(() => {
         if (currentUser) {
             setItem([
-                Item(usuario, 'pi pi-user', () => undefined),
+                Item(usuario, 'pi pi-user', () => setVisibleLeft(true)),
                 Item('cerrar-sesion', 'pi pi-sign-out', () => { cerrarSesion() })
             ])
         }

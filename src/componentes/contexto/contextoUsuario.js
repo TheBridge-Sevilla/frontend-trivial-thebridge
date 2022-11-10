@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState } from "react";
 
+
 const ContextoUsuario = createContext({})
 
 export const useContextoUsuario = () => useContext(ContextoUsuario)
@@ -13,6 +14,7 @@ export const ContextoUsuarioProvider = ({ children }) => {
     const [mensaje, setMensaje] = useState()
     const [tipo, setTipo] = useState()
     const [currentUser, setCurrentUser] = useState()
+    const [visibleLeft, setVisibleLeft] = useState(false)
 
 
 
@@ -32,7 +34,9 @@ export const ContextoUsuarioProvider = ({ children }) => {
         tipo,
         setTipo,
         currentUser,
-        setCurrentUser
+        setCurrentUser,
+        visibleLeft,
+        setVisibleLeft
     }
     return (
         <ContextoUsuario.Provider value={contextValue}>{children}</ContextoUsuario.Provider>

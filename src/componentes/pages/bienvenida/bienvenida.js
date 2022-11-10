@@ -12,6 +12,8 @@ import { Toast } from 'primereact/toast';
 import { useContextoUsuario } from "../../contexto/contextoUsuario";
 import { HeaderBar } from "./navbar-superior";
 import { SignDialog } from "../../firebase/iniciar-sesion-dialog";
+import {auth} from "../../firebase/firebase"
+import PerfilUsuario from "../../firebase/perfil-usuario"
 
 function Bienvenida(props) {
   const { t } = useTranslation();
@@ -19,14 +21,14 @@ function Bienvenida(props) {
   const [disabledStartButton, setDisabledStartButton] = useState(true);
   const { usuario, setUsuario, disabledInputName, mensaje, setMensaje, tipo, setTipo } = useContextoUsuario();
   const [disabledLogIn, setDisabledLogIn] = useState(false)
-  console.log(usuario)
+
   const mostrarError = (tipo, mensaje) => {
     toast.current.show({ severity: `${tipo}`, detail: `${mensaje}`, life: 3000 });
   }
   useEffect(() => {
     if (mensaje) mostrarError(tipo, mensaje)
 
-    if (typeof(setMensaje) != "function") {
+    if (typeof (setMensaje) != "function") {
       return undefined
     }
     return (() => {
@@ -35,6 +37,18 @@ function Bienvenida(props) {
     })
 
   }, [mensaje])
+
+  useEffect(() => {
+    auth.onAuthStateChanged(user => {
+      if (user){
+        setUsuario(user.displayName)
+      }
+
+    })
+
+
+  }, [auth])
+
 
   useEffect(() => {
     if (usuario) {
@@ -64,6 +78,7 @@ function Bienvenida(props) {
       <div className="h-screen w-screen text-center bg-yellow-500 p-4 font-bold text-gray-900"
         id="usuario">
         <div className="flex justify-content-center">
+          <PerfilUsuario/>
           <BotonIniciarSesion disabledLogIn={disabledLogIn} />
           <SignDialog />
           <InputText className="w-13rem mr-7" value={usuario}
