@@ -3,11 +3,12 @@ import { Sidebar } from 'primereact/sidebar';
 import { Button } from 'primereact/button';
 import { useContextoUsuario } from '../contexto/contextoUsuario';
 import DatosJugador from './datos-jugador';
+import { useTranslation } from "react-i18next";
 
 
 
 function PerfilUsuario() {
-
+    const { t } = useTranslation();
     const { usuario} = useContextoUsuario();
     const [visibleLeft, setVisibleLeft] = useState(false)
 
@@ -24,7 +25,7 @@ function PerfilUsuario() {
 
                 </div>
             </Sidebar>
-            {usuario ? <Button icon="pi pi-user" onClick={() => abrirPerfil()} tooltipOptions={{ position: 'left' }} className="mx-2" /> : ""}
+            {usuario ? <Button icon="pi pi-user" tooltip={t("perfil")} onClick={() => abrirPerfil()} tooltipOptions={{ position: 'top' }} className="mx-2" /> : ""}
         </div>
     );
 }

@@ -65,7 +65,7 @@ const IniciarSesion = () => {
       <h1 className="text-blue-600"> Iniciar Sesión </h1>
       <form onSubmit={onSubmit}>
         <InputText placeholder="Email" icon="pi pi-envelope" type="email" ref={emailRef} />
-        <InputText placeholder={t("contraseña")} ref={contraseñaRef} />
+        <InputText placeholder={t("contraseña")} type="password" ref={contraseñaRef} />
         <Button type="submit">{t("iniciar-sesion")}</Button>
       </form>
 

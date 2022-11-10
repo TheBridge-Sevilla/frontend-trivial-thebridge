@@ -12,7 +12,17 @@
     "contraseña-recordada":"Sé mi contraseña",
     "cambiar-contraseña":"Cambiar contraseña",
     "recuperar-contraseña":"Recuperar contraseña",
-    "crear-cuenta":"Registrarse"
-
+    "crear-cuenta":"Registrarse",
+    "imagen-subida": "Imagen Subida Correctamente",
+    "campos-obligatorios":"Rellena los campos obligatorios",
+    "cambiar-nombre":"Cambiar Nombre",
+    "subir":"subir",
+    "actualizar-nombre":"Actualizar Nombre",
+    "cerrar-sesion":"Cerrar Sesión",
+    "perfil":"Perfil Del Usuario",
+    "nombre-jugador":"Nombre del Jugador",
+    "email":"Correo Electronico",
+    "partidas-recientes":"Partidas Recientes",
+    "actualizar-contraseña":"Actualizar Contraseña"
 
 }

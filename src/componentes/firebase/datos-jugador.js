@@ -3,8 +3,9 @@ import { Button } from 'primereact/button';
 import { Avatar } from 'primereact/avatar';
 import { useContextoUsuario } from '../contexto/contextoUsuario';
 import { auth, storage } from "./firebase";
-import { updateProfile } from "firebase/auth";
+import { updateProfile, updatePassword } from "firebase/auth";
 import { InputText } from "primereact/inputtext";
+import { useTranslation } from "react-i18next";
 import { uploadBytes, ref, getDownloadURL } from "firebase/storage"
 
 
@@ -12,10 +13,12 @@ import { uploadBytes, ref, getDownloadURL } from "firebase/storage"
 
 
 function DatosJugador() {
-
+    const { t } = useTranslation();
     const nombreRef = useRef();
+    const contraseñaRef = useRef();
     const currentUser = auth.currentUser;
     const [cambioNombre, setCambioNombre] = useState(false)
+    const [CambioContraseña, setCambioContraseña] = useState(false)
     const { setTipo, setMensaje } = useContextoUsuario();
     const [loading, setLoading] = useState(false)
     const [foto, setfoto] = useState()
@@ -37,7 +40,8 @@ function DatosJugador() {
         setImagenPerfil(fotoURL)
 
 
-        alert("Uploaded file!");
+        setMensaje(t("imagen-subida"))
+        setTipo("success")
     }
 
     useEffect(() => {
@@ -58,18 +62,40 @@ function DatosJugador() {
         });
     }
 
+    async function cambiarContraseña(nuevaContraseña) {
+        updatePassword(currentUser, nuevaContraseña).then(() => {
+            setMensaje(t("imagen-subida"))
+            setTipo("success")
+        }).catch(() => {
+            setMensaje(t("imagen-subida"))
+            setTipo("success")
+        });
+    }
 
-    function onSubmit(e) {
+    function onSubmitNombre(e) {
         e.preventDefault();
         const nombre = nombreRef.current.value
         if (!nombre) {
-            setMensaje("Rellene Los Campos Obligatorios")
+            setMensaje(t("campos-obligatorios"))
             setTipo("error")
         }
         if (nombre) {
             cambiarNombre(nombre)
             setCambioNombre(!cambioNombre)
             setNombre(nombre)
+        }
+    }
+
+    function onSubmitContraseña(e) {
+        e.preventDefault();
+        const contraseña = contraseñaRef.current.value
+        if (!contraseña) {
+            setMensaje(t("campos-obligatorios"))
+            setTipo("error")
+        }
+        if (contraseña) {
+            cambiarContraseña(contraseña)
+            setCambioContraseña(!CambioContraseña)
         }
     }
 
@@ -88,17 +114,21 @@ function DatosJugador() {
 
     return (
         <div>
-            <label style={{cursor:'pointer'}} htmlFor="file-input">
-              <Avatar  image={imagenPerfil} referrerPolicy="no-referrer" className="mr-2 shadow-5" size="xlarge" shape="circle" />
+            <label style={{ cursor: 'pointer' }} htmlFor="file-input">
+                <Avatar image={imagenPerfil} referrerPolicy="no-referrer" className="mr-2 shadow-5" size="xlarge" shape="circle" />
             </label>
             <input id="file-input" type="file" onChange={handleChange} hidden="true" />
-            { loading ? <Button label="subir" onClick={handleClick}></Button>:<></>  }
-            <p>Nombre del Jugador: {nombre}</p>
-            <p>Email del Jugador: {email}</p>
-            <p>Partidas Recientes:</p>
-            <Button label='Cambiar Nombre' onClick={() => setCambioNombre(!cambioNombre)}></Button>
-            {cambioNombre ? <div><InputText placeholder="nombre" type="name" ref={nombreRef} />
-                <Button type="submit" label='Actualizar Nombre' onClick={onSubmit}></Button> </div> : ""}
+            {loading ? <Button label={t("subir")} onClick={handleClick}></Button> : <></>}
+            <p>{t("nombre-jugador")} :{nombre}</p>
+            <p>{t("email")} : {email}</p>
+            <p>{t("partidas-recientes")} :</p>
+            <Button label={t("cambiar-nombre")} onClick={() => setCambioNombre(!cambioNombre)}></Button>
+            {cambioNombre ? <div><InputText placeholder={t("nombre")} type="name" ref={nombreRef} />
+                <Button type="submit" label={t("actualizar-nombre")} onClick={onSubmitNombre}></Button> </div> : ""}
+
+            <Button label={t("cambiar-contraseña")} onClick={() => setCambioContraseña(!CambioContraseña)}></Button>
+            {CambioContraseña ? <div><InputText placeholder={t("contraseña")} type="password" ref={contraseñaRef} />
+                <Button type="submit" label={t("actualizar-contraseña")} onClick={onSubmitContraseña}></Button> </div> : ""}
         </div>
     )
 

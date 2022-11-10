@@ -38,7 +38,7 @@ function UserSidebar(props) {
                     <RegistroConEmail />
                 </div>
             </Sidebar>
-            {usuario ? <Button icon="pi pi-sign-out" disabled={props.disabledLogOut} onClick={handleClick} tooltip="Cerrar sesión" tooltipOptions={{ position: 'top' }} className="mx-2" /> : <Button icon="pi pi-user-plus" onClick={() => setVisibleTop(true)} tooltip={t("iniciar-sesion")} tooltipOptions={{ position: 'top' }} className="mx-2" />}
+            {usuario ? <Button icon="pi pi-sign-out" disabled={props.disabledLogOut} onClick={handleClick} tooltip={t("cerrar-sesion")}tooltipOptions={{ position: 'top' }} className="mx-2" /> : <Button icon="pi pi-user-plus" onClick={() => setVisibleTop(true)} tooltip={t("iniciar-sesion")} tooltipOptions={{ position: 'top' }} className="mx-2" />}
         </div>
 
     )

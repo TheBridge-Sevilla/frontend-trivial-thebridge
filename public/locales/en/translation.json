@@ -12,5 +12,16 @@
     "contraseña-recordada":"I already know my password",
     "cambiar-contraseña":"Change password",
     "recuperar-contraseña":"Restore password",
-    "crear-cuenta":"Sign in"
+    "crear-cuenta":"Sign in",
+    "imagen-subida": "Image Upload Successfully",
+    "campos-obligatorios":"Complete the requiered fields",
+    "cambiar-nombre":"Change Name",
+    "subir":"Upload",
+    "actualizar-nombre":"Update Name",
+    "cerrar-sesion":"Sign Out",
+    "perfil":"Profile",
+    "nombre-jugador":"Username",
+    "email":"Email",
+    "partidas-recientes":"Last Games Played",
+    "actualizar-contraseña":"Update Password"
 }
