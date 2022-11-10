@@ -1,11 +1,13 @@
-import React, { useRef, useState} from "react";
+import React, { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useContextoUsuario } from "../contexto/contextoUsuario";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { Password } from "primereact/password";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
+import { Divider } from 'primereact/divider';
 import { auth } from "./firebase";
+import EntrarConGoogle from "./iniciar-sesion-google";
 
 
 const Registrarse = () => {
@@ -61,22 +63,26 @@ const Registrarse = () => {
       setVisibleTop(false)
       setDisplayResponsive(false)
     }
-
-
-
   }
 
 
   return (
     <div className="form">
       <h1 className="text-blue-600">{t("crear-cuenta")}</h1>
-      <form onSubmit={onSubmit}>
-        <InputText placeholder="Email" type="email" ref={emailRef} />
-        <InputText placeholder={t("nombre")} type="name" ref={nombreRef} />
-        <Password placeholder={t("contraseña")} type="password" onChange={(e) => setContraseña(e.target.value)} />
-        <Button type="submit">{t("crear-cuenta")}</Button>
-      </form>
-
+      <div>
+        <form onSubmit={onSubmit}>
+          <InputText placeholder="Email" type="email" ref={emailRef} />
+          <InputText placeholder={t("nombre")} type="name" ref={nombreRef} />
+          <Password
+            placeholder={t("contraseña")}
+            onChange={(e) => setContraseña(e.target.value)} toggleMask />
+          <Button type="submit">{t("crear-cuenta")}</Button>
+          <Divider align="center" type="dashed">
+            <b>{t("o")}</b>
+          </Divider>
+        </form>
+        <EntrarConGoogle alt="registro-google" />
+      </div>
     </div>
   );
 };

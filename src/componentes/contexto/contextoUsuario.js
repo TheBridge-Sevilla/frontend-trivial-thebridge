@@ -13,7 +13,8 @@ export const ContextoUsuarioProvider = ({ children }) => {
     const [disabledLogInButton, setDisabledLogInButton] = useState(false)
     const [mensaje, setMensaje] = useState()
     const [tipo, setTipo] = useState()
-
+    const [currentUser, setCurrentUser] = useState()
+    const [visibleLeft, setVisibleLeft] = useState(false)
 
 
 
@@ -31,7 +32,11 @@ export const ContextoUsuarioProvider = ({ children }) => {
         mensaje,
         setMensaje,
         tipo,
-        setTipo
+        setTipo,
+        currentUser,
+        setCurrentUser,
+        visibleLeft,
+        setVisibleLeft
     }
     return (
         <ContextoUsuario.Provider value={contextValue}>{children}</ContextoUsuario.Provider>

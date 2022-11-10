@@ -5,6 +5,7 @@
     "iniciar":"Start game",
     "categoria":"Categories",
     "iniciar-sesion":"Log in",
+    "cerrar-sesion":"Log out",
     "contraseña": "Password",
     "cuenta-no":"I don't have account yet",
     "cuenta-si":"I already have an account",
@@ -18,10 +19,13 @@
     "cambiar-nombre":"Change Name",
     "subir":"Upload",
     "actualizar-nombre":"Update Name",
-    "cerrar-sesion":"Sign Out",
     "perfil":"Profile",
     "nombre-jugador":"Username",
     "email":"Email",
     "partidas-recientes":"Last Games Played",
-    "actualizar-contraseña":"Update Password"
+    "actualizar-contraseña":"Update Password",
+    "registro-google":"Register with Google",
+    "o":"OR",
+    "usuario-invitado": "Guest",
+    "usuario": "User"
 }
