@@ -23,7 +23,7 @@ function Preguntas(props) {
       .then((json) => {
         setPreguntas(json);
       });
-  }, [indicePregunta]);
+  },[]);
 
   if (!preguntas.length) {
     return <div>cargando...</div>;

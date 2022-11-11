@@ -38,11 +38,11 @@ const Registrarse = () => {
         });
       }).catch((e) => {
         if (e.code == "auth/email-already-in-use") {
-          setMensaje("Email ya registrado")
+          setMensaje(t("email-registrado"))
           setTipo("error")
         }
         if (e.code == "auth/weak-password") {
-          setMensaje("La Contraseña Debe Tener Al Menos 6 Caracteres")
+          setMensaje(t("contraseña-corta"))
           setTipo("error")
         }
       })
@@ -55,7 +55,7 @@ const Registrarse = () => {
     const nombre = nombreRef.current.value;
 
     if (!email || !contraseña || !nombre) {
-      setMensaje("Rellene Los Campos Obligatorios")
+      setMensaje(t("campos-obligatorios"))
       setTipo("error")
     }
     if (email && contraseña && nombre) {
