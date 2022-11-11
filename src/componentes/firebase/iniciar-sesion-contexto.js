@@ -27,17 +27,19 @@ const IniciarSesion = () => {
     signInWithEmailAndPassword(auth, email, contraseña).then(() => {
       setUsuario(auth.currentUser.displayName)
       setDisabledInputName(true)
+      console.log(auth)
+      setMensaje(t("bienvenido"))
+      setTipo("success")
     }).catch((e) => {
       if (e.code == "auth/user-not-found") {
-        setMensaje("Email No Registrado")
+        setMensaje(t("email-no-registrado"))
         setTipo("error")
       }
       if (e.code == "auth/wrong-password") {
-        setMensaje("Contraseña Incorrecta")
+        setMensaje(t("contraseña-erronea"))
         setTipo("error")
       }
-      console.log(e.code)
-      console.log(e.message)
+
     })
 
   }
@@ -48,7 +50,7 @@ const IniciarSesion = () => {
     const email = emailRef.current.value;
     const contraseña = contraseñaRef.current.value;
     if (!email || !contraseña) {
-      setMensaje("Rellene Los Campos Obligatorios")
+      setMensaje(t("campos-obligatorios"))
       setTipo("error")
     }
     if (email && contraseña) iniciarSesion(email, contraseña);
