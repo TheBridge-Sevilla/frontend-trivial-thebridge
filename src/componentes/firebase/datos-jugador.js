@@ -64,11 +64,11 @@ function DatosJugador() {
 
     async function cambiarContraseña(nuevaContraseña) {
         updatePassword(currentUser, nuevaContraseña).then(() => {
-            setMensaje(t("imagen-subida"))
+            setMensaje(t("error-contraseña"))
             setTipo("success")
         }).catch(() => {
             setMensaje(t("imagen-subida"))
-            setTipo("success")
+            setTipo("error")
         });
     }
 

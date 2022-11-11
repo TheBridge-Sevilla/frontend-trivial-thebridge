@@ -27,5 +27,12 @@
     "registro-google":"Registrarme con Google",
     "o":"O",
     "usuario-invitado": "Usuario invitado",
-    "usuario": "Usuario"
+    "usuario": "Usuario",
+    "bienvenido": "Bienvenido a Frågen ",
+    "email-no-registrado": "Email no Registrado",
+    "contraseña-erronea": "Contraseña Incorrecta",
+    "email-registrado": "Email ya Registrado",
+    "contraseña-corta":"La Contraseña Debe Tener Al Menos 6 Caracteres",
+    "contraseña-cambiada": "Contraseña Cambiada Correctamente",
+    "error-contraseña":"Error al Cambiar la Contraseña "
 }
