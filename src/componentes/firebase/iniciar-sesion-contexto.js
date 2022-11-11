@@ -20,13 +20,16 @@ const IniciarSesion = () => {
     setVisibleTop,
     setDisplayResponsive,
     setMensaje,
-    setTipo
+    setTipo,
+    setCurrentUser
   } = useContextoUsuario();
 
   const iniciarSesion = (email, contraseña,) => {
-    signInWithEmailAndPassword(auth, email, contraseña).then(() => {
+    signInWithEmailAndPassword(auth, email, contraseña).then((resultado) => {
       setUsuario(auth.currentUser.displayName)
       setDisabledInputName(true)
+      setCurrentUser(resultado.user)
+      setVisibleTop(false)
     }).catch((e) => {
       if (e.code == "auth/user-not-found") {
         setMensaje("Email No Registrado")
