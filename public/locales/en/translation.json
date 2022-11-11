@@ -28,7 +28,7 @@
     "o":"OR",
     "usuario-invitado": "Guest",
     "usuario": "User",
-    "bienvenido": "Welcome to Frågen",
+    "bienvenido": "Welcome to Frågen {{nombre}}",
     "email-no-registrado": "Email not Registered",
     "contraseña-erronea": "Invalid Password",
     "email-registrado": "Email already Registered",
