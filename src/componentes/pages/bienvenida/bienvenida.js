@@ -19,7 +19,7 @@ function Bienvenida(props) {
   const { t } = useTranslation();
   const toast = useRef();
   const [disabledStartButton, setDisabledStartButton] = useState(true);
-  const { usuario, setUsuario, disabledInputName, mensaje, setMensaje, tipo, setTipo } = useContextoUsuario();
+  const { usuario, setUsuario, disabledInputName, mensaje, setMensaje, tipo, setTipo, setCurrentUser, setDisabledInputName } = useContextoUsuario();
   const [disabledLogIn, setDisabledLogIn] = useState(false)
 
   const mostrarError = (tipo, mensaje) => {
@@ -27,10 +27,10 @@ function Bienvenida(props) {
   }
   useEffect(() => {
     if (mensaje) mostrarError(tipo, mensaje)
-
+/* 
     if (typeof (setMensaje) != "function") {
       return undefined
-    }
+    } */
     return (() => {
       setMensaje()
       setTipo()
@@ -42,11 +42,10 @@ function Bienvenida(props) {
     auth.onAuthStateChanged(user => {
       if (user){
         setUsuario(user.displayName)
+        setCurrentUser(auth.currentUser)
+        setDisabledInputName(true)
       }
-
     })
-
-
   }, [auth])
 
 
@@ -80,7 +79,7 @@ function Bienvenida(props) {
           <PerfilUsuario/>
           <BotonIniciarSesion disabledLogIn={disabledLogIn} />
           <SignDialog />
-          <InputText className="w-13rem mr-7" value={usuario}
+          <InputText className="w-13rem mr-7" value={usuario ? usuario : ""}
             placeholder={t("nombre")} disabled={disabledInputName}
             onChange={handleChange} />
         </div>
