@@ -22,8 +22,7 @@ const Registrarse = () => {
     setVisibleTop,
     setDisplayResponsive,
     setMensaje,
-    setTipo,
-    setCurrentUser
+    setTipo
   } = useContextoUsuario();
 
   const registrarUsuario = (email, contraseña, nombre) => {
@@ -31,10 +30,6 @@ const Registrarse = () => {
       .then(() => {
         return updateProfile(auth.currentUser, {
           displayName: nombre,
-        }).then(() => {
-          setUsuario(auth.currentUser.displayName);
-          setDisabledInputName(true)
-          setCurrentUser(auth.currentUser);
         });
       }).catch((e) => {
         if (e.code == "auth/email-already-in-use") {
@@ -46,6 +41,11 @@ const Registrarse = () => {
           setTipo("error")
         }
       })
+
+      .then(() => {
+        setUsuario(auth.currentUser.displayName);
+        setDisabledInputName(true);
+      });
   };
 
 

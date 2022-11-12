@@ -16,6 +16,8 @@ export const ContextoUsuarioProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState()
     const [visibleLeft, setVisibleLeft] = useState(false)
 
+
+
     const contextValue = {
         usuario,
         setUsuario,
