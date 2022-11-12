@@ -20,17 +20,15 @@ const IniciarSesion = () => {
     setVisibleTop,
     setDisplayResponsive,
     setMensaje,
-    setTipo,
-    setCurrentUser
+    setTipo
   } = useContextoUsuario();
 
   const iniciarSesion = (email, contraseña,) => {
-    signInWithEmailAndPassword(auth, email, contraseña).then((resultado) => {
+    signInWithEmailAndPassword(auth, email, contraseña).then(() => {
       setUsuario(auth.currentUser.displayName)
       setDisabledInputName(true)
-      setCurrentUser(resultado.user)
-      setVisibleTop(false)
-      setMensaje(t("bienvenido", {nombre: auth.currentUser.displayName}))
+      console.log(auth)
+      setMensaje(t("bienvenido"))
       setTipo("success")
     }).catch((e) => {
       if (e.code == "auth/user-not-found") {
