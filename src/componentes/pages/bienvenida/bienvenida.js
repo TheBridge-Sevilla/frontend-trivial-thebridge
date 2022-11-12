@@ -84,7 +84,7 @@ function Bienvenida(props) {
             placeholder={t("nombre")} disabled={disabledInputName}
             onChange={handleChange} />
         </div>
-        <div className=" flex justify-content-center" id="select-categoria">
+        <div className=" flex justify-content-center pt-2" id="select-categoria">
 
           <SelectCategoria
             className="w-15rem h-full p-3 border-round"
@@ -92,7 +92,7 @@ function Bienvenida(props) {
 
         </div>
         <div
-          className="border-round-top-xl p-2 font-bold text-gray-900"
+          className="border-round-top-xl p-2 font-bold text-gray-900 pt-2 "
           id="botoninicio"
         >
           <Button
@@ -102,7 +102,7 @@ function Bienvenida(props) {
             type="button"
             label={t("iniciar")}
             icon="pi pi-check"
-            className="border-round-3xl bg-blue-800 shadow-7"
+            className="border-round-3xl bg-blue-800 shadow-7 w-12rem  "
           ></Button>
         </div>
       </div>
