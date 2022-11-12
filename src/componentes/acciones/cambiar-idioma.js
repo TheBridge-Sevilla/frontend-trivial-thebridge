@@ -1,27 +1,47 @@
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import React from "react";
+import { SelectButton } from 'primereact/selectbutton';
 
 function CambiarIdioma() {
   const { i18n } = useTranslation();
+  const [idiomaSeleccionado, setIdiomaSeleccionado] = useState(i18n.language)
+  const idiomas = [
+    {
+      value: "es",
+      label: "Spain",
+      src: 'Media/ES.svg'
+    },
+    {
+      value: "en",
+      label: "United States",
+      src: "Media/GB.svg",
+    }
+  ]
+
+  const idiomasDisponibles = (idioma) => {
+    return <img
+      className="cursor-pointer"
+      id={idioma.value}
+      alt={idioma.alt}
+      height="23"
+      src={idioma.src}
+    />
+  }
+  const handleClick = (e) => {
+    i18n.changeLanguage(e.target.value)
+    setIdiomaSeleccionado(e.value)
+  }
+
   return (
-    <div id="contenedor-banderas" className="flex flex-column  ">
-      <img
-        className="cursor-pointer"
-        id="españa"
-        onClick={() => i18n.changeLanguage("es")}
-        alt="Spain"
-        height={25}
-        src="https://purecatamphetamine.github.io/country-flag-icons/3x2/ES.svg"
-      />
-      &nbsp; &nbsp;
-      <img
-        className="cursor-pointer"
-        onClick={() => i18n.changeLanguage("en")}
-        alt="United States"
-        height={25}
-        src="https://purecatamphetamine.github.io/country-flag-icons/3x2/GB.svg"
-      />
-    </div>
+    <SelectButton
+      className="p-button-sm p-button-outlined"
+      value={idiomaSeleccionado}
+      options={idiomas}
+      optionLabel={idiomas.label}
+      itemTemplate={idiomasDisponibles}
+      onChange={handleClick}
+      unselectable={false}
+    />
   );
 }
 export default CambiarIdioma;

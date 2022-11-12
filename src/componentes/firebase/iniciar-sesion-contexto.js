@@ -62,12 +62,27 @@ const IniciarSesion = () => {
 
 
   return (
-    <div className="form">
+    <div className="form flex flex-column justify-content-center align-items-center">
       <h1 className="text-blue-600"> {t('iniciar-sesion')} </h1>
-      <form onSubmit={onSubmit}>
-        <InputText placeholder="Email" icon="pi pi-envelope" type="email" ref={emailRef} />
-        <InputText placeholder={t("contraseña")} type="password" ref={contraseñaRef} />
-        <Button type="submit">{t("iniciar-sesion")}</Button>
+      <form className="flex flex-column" onSubmit={onSubmit}>
+        <InputText
+          className="my-1 mx-4"
+          placeholder="Email"
+          icon="pi pi-envelope"
+          type="email"
+          ref={emailRef}
+        />
+        <InputText
+          className="my-1 mx-4"
+          placeholder={t("contraseña")}
+          type="password"
+          ref={contraseñaRef}
+        />
+        <Button
+          className="my-1 mx-4"
+          type="submit">
+          {t("iniciar-sesion")}
+        </Button>
         <Divider align="center" type="dashed">
           <b>{t("o")}</b>
         </Divider>

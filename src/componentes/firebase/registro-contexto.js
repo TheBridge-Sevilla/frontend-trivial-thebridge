@@ -67,16 +67,33 @@ const Registrarse = () => {
 
 
   return (
-    <div className="form">
+    <div className="form flex flex-column justify-content-center align-items-center">
       <h1 className="text-blue-600">{t("crear-cuenta")}</h1>
       <div>
-        <form onSubmit={onSubmit}>
-          <InputText placeholder="Email" type="email" ref={emailRef} />
-          <InputText placeholder={t("nombre")} type="name" ref={nombreRef} />
+        <form className="flex flex-column" onSubmit={onSubmit}>
+          <InputText
+            className="my-1 mx-4"
+            placeholder="Email"
+            type="email"
+            ref={emailRef}
+          />
+          <InputText
+            className="my-1 mx-4"
+            placeholder={t("nombre")}
+            type="name"
+            ref={nombreRef}
+          />
           <Password
+            className="my-1 mx-4"
             placeholder={t("contraseña")}
-            onChange={(e) => setContraseña(e.target.value)} toggleMask />
-          <Button type="submit">{t("crear-cuenta")}</Button>
+            onChange={(e) => setContraseña(e.target.value)}
+            toggleMask
+          />
+          <Button
+            className="my-1 mx-4"
+            type="submit">
+            {t("crear-cuenta")}
+          </Button>
           <Divider align="center" type="dashed">
             <b>{t("o")}</b>
           </Divider>

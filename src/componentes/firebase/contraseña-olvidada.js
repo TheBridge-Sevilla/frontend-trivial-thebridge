@@ -49,12 +49,21 @@ export default function ContraseñaOlvidada() {
 
   return (
     <div>
-      <div className="form">
+      <div className="form flex flex-column justify-content-center align-items-center">
         <h1 className="text-blue-600">{t("cambiar-contraseña")}</h1>
-        <form >
-          <InputText placeholder="Email" icon="pi pi-envelope" type="email" ref={emailRef} />
-          <Button onClick={forgotPasswordHandler} >{t("recuperar-contraseña")}</Button>
-
+        <form className="flex flex-column">
+          <InputText
+            className="my-1 mx-4"
+            placeholder="Email"
+            icon="pi pi-envelope"
+            type="email"
+            ref={emailRef}
+          />
+          <Button
+            className="my-1 mx-4"
+            onClick={forgotPasswordHandler}>
+            {t("recuperar-contraseña")}
+          </Button>
         </form>
       </div>
     </div>
