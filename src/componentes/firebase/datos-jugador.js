@@ -117,7 +117,7 @@ function DatosJugador() {
             <label style={{ cursor: 'pointer' }} htmlFor="file-input">
                 <Avatar image={imagenPerfil} referrerPolicy="no-referrer" className="mr-2 shadow-5" size="xlarge" shape="circle" />
             </label>
-            <input id="file-input" type="file" onChange={handleChange} hidden="true" />
+            <input id="file-input" type="file" onChange={handleChange} hidden={true} />
             {loading ? <Button label={t("subir")} onClick={handleClick}></Button> : <></>}
             <p>{t("nombre-jugador")} :{nombre}</p>
             <p>{t("email")} : {email}</p>
