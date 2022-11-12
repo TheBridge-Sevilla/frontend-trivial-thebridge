@@ -7,7 +7,7 @@ import { updateProfile, updatePassword } from "firebase/auth";
 import { InputText } from "primereact/inputtext";
 import { useTranslation } from "react-i18next";
 import { uploadBytes, ref, getDownloadURL } from "firebase/storage"
-
+import UsuarioClasificacion from '../acciones/usuarioClasificacion'
 
 
 
@@ -117,11 +117,11 @@ function DatosJugador() {
             <label style={{ cursor: 'pointer' }} htmlFor="file-input">
                 <Avatar image={imagenPerfil} referrerPolicy="no-referrer" className="mr-2 shadow-5" size="xlarge" shape="circle" />
             </label>
-            <input id="file-input" type="file" onChange={handleChange} hidden="true" />
+            <input id="file-input" type="file" onChange={handleChange} hidden={true} />
             {loading ? <Button label={t("subir")} onClick={handleClick}></Button> : <></>}
             <p>{t("nombre-jugador")} :{nombre}</p>
             <p>{t("email")} : {email}</p>
-            <p>{t("partidas-recientes")} :</p>
+            <UsuarioClasificacion />
             <Button label={t("cambiar-nombre")} onClick={() => setCambioNombre(!cambioNombre)}></Button>
             {cambioNombre ? <div><InputText placeholder={t("nombre")} type="name" ref={nombreRef} />
                 <Button type="submit" label={t("actualizar-nombre")} onClick={onSubmitNombre}></Button> </div> : ""}

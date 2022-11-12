@@ -12,7 +12,7 @@ export default function BotonIniciarSesion(props) {
     const { cerrarSesion } = useSignOut()
 
     return (
-        <div className='card'>
+        <div className='card '>
             {
                 currentUser ?
                     <Button
@@ -21,7 +21,7 @@ export default function BotonIniciarSesion(props) {
                         onClick={cerrarSesion}
                         tooltip={t("cerrar-sesion")}
                         tooltipOptions={{ position: 'top' }}
-                        className="mx-2"
+                        className="mx-2 bg-white text-gray-700 border-400 "
                     />
                     :
                     <Button
@@ -30,7 +30,7 @@ export default function BotonIniciarSesion(props) {
                         disabled={props.disabledLogIn}
                         tooltip={t("iniciar-sesion")}
                         tooltipOptions={{ position: 'top' }}
-                        className="mx-2"
+                        className="mx-2 bg-white text-gray-700 border-400"
                     />
             }
         </div>

@@ -14,6 +14,8 @@ import { HeaderBar } from "./navbar-superior";
 import { SignDialog } from "../../firebase/iniciar-sesion-dialog";
 import {auth} from "../../firebase/firebase"
 import PerfilUsuario from "../../firebase/perfil-usuario"
+import { Image } from 'primereact/image';
+
 
 function Bienvenida(props) {
   const { t } = useTranslation();
@@ -71,9 +73,13 @@ function Bienvenida(props) {
 
     <div className="flex-column h-screen w-screen flex justify-content-center bg-blue-400">      
       <HeaderBar disabledLogIn={disabledLogIn} />
-      <h1 className="flex justify-content-center p-8 font-bold font-italic text-6xl lg:text-7xl text-gray-900">
-        {t("trivial")}
-      </h1>
+      <div className="flex flex-wrap justify-content-center card-container  gap-1 ">
+      <Image  src='media/fragen.png'   className="flex justify-content-center py-8">
+      </Image>
+      <Image  src='media/logo-fragen.png'  id="rotar" className="flex justify-content-center py-8">
+      </Image>
+
+      </div>
       <div className=" h-screen w-screen text-center surface-300 p-4 font-bold text-gray-900 "
         id="usuario">
         <div className="flex justify-content-center">
@@ -84,7 +90,7 @@ function Bienvenida(props) {
             placeholder={t("nombre")} disabled={disabledInputName}
             onChange={handleChange} />
         </div>
-        <div className=" flex justify-content-center" id="select-categoria">
+        <div className=" flex justify-content-center pt-2" id="select-categoria">
 
           <SelectCategoria
             className="w-15rem h-full p-3 border-round"
@@ -92,7 +98,7 @@ function Bienvenida(props) {
 
         </div>
         <div
-          className="border-round-top-xl p-2 font-bold text-gray-900"
+          className="border-round-top-xl p-2 font-bold text-gray-900 pt-2 "
           id="botoninicio"
         >
           <Button
@@ -102,7 +108,7 @@ function Bienvenida(props) {
             type="button"
             label={t("iniciar")}
             icon="pi pi-check"
-            className="border-round-3xl bg-blue-800 shadow-7"
+            className="border-round-3xl bg-blue-800 shadow-7 w-12rem  "
           ></Button>
         </div>
       </div>
