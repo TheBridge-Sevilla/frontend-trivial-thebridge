@@ -12,7 +12,7 @@ export default function BotonIniciarSesion(props) {
     const { cerrarSesion } = useSignOut()
 console.log(props.disabled)
     return (
-        <div className='card'>
+        <div className='card '>
             {
                 currentUser ?
                     <Button

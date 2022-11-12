@@ -19,7 +19,7 @@ function PerfilUsuario() {
 
     return (
         <div className='card'>
-            <Sidebar visible={visibleLeft} className="p-sidebar-sm" position="left" onHide={() => setVisibleLeft(false)}>
+            <Sidebar visible={visibleLeft} className="p-sidebar-sm" position="left" onHide={() => setVisibleLeft()}>
                 <div className='flex flex-column justify-content-center '>
                    <DatosJugador/>
 
