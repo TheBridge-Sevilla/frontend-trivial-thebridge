@@ -30,7 +30,7 @@ function UsuarioClasificacion() {
   return (
 
     <div className='w-full'>
-      <DataTable responsiveLayout="scroll" value={resultados}>
+      <DataTable responsiveLayout="w-screen" value={resultados}>
         <Column field="nombre" header="Jugador"></Column>
         <Column field={categoria} header="Categoria"></Column>
         <Column field="puntuacion" header="Puntos"></Column>
