@@ -44,7 +44,6 @@ const IniciarSesion = () => {
 
   }
 
-
   const onSubmit = (e) => {
     e.preventDefault();
     const email = emailRef.current.value;
@@ -60,26 +59,25 @@ const IniciarSesion = () => {
     }
   };
 
-
   return (
-    <div className="form flex flex-column justify-content-center align-items-center">
-      <h1 className="text-blue-600"> {t('iniciar-sesion')} </h1>
-      <form className="flex flex-column" onSubmit={onSubmit}>
+    <div className="form flex flex-column">
+      <form className="flex flex-column justify-content-center align-items-center" onSubmit={onSubmit}>
+        <h1 className="text-blue-600"> {t('iniciar-sesion')}</h1>
         <InputText
-          className="my-1 mx-4"
+          className="my-1 w-11 md:w-9 lg:w-6 lg:my-2"
           placeholder="Email"
           icon="pi pi-envelope"
           type="email"
           ref={emailRef}
         />
         <InputText
-          className="my-1 mx-4"
+          className="my-1 w-11 md:w-9 lg:w-6 lg:my-2"
           placeholder={t("contraseña")}
           type="password"
           ref={contraseñaRef}
         />
         <Button
-          className="my-1 mx-4"
+          className="my-2 font-bold"
           type="submit">
           {t("iniciar-sesion")}
         </Button>

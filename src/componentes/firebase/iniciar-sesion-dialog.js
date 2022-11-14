@@ -8,7 +8,10 @@ export function SignDialog() {
     const { visibleTop, setVisibleTop } = useContextoUsuario();
 
     return (
-        <Dialog visible={visibleTop} className="p-sidebar-sm" onHide={() => setVisibleTop(false)}>
+        <Dialog
+            visible={visibleTop}
+            className="p-sidebar-sm md:w-9 lg:w-5"
+            onHide={() => setVisibleTop(false)}>
             <Usuario />
         </Dialog>
     )
