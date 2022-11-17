@@ -5,7 +5,7 @@ import { useSignOut } from "../../customHooks/hook-cerrar-sesion";
 import CambiarIdioma from "../../acciones/cambiar-idioma";
 import { useItem } from "../../customHooks/hook-navbar-item"
 import i18next from "i18next";
-
+import { Image } from 'primereact/image';
 
 export const HeaderBar = (props) => {
 
@@ -31,8 +31,8 @@ export const HeaderBar = (props) => {
     }, [currentUser, props.disabledLogIn, i18next.language])
 
     return (
-        <div className="card">
-            <Menubar model={item} end={CambiarIdioma()} />
+        <div className="card ">
+            <Menubar model={item} start={<Image width="50" height="50" src='media/logo-fragen.png'  id="rotar" className="" />} end={CambiarIdioma()} className="surface-300" />
         </div>
     );
 }
