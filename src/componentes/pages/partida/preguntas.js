@@ -10,8 +10,6 @@ function Preguntas(props) {
   const [puntuacion, setPuntuacion] = useState(0)
 
   useEffect(() => {
-    console.log("preguntas dentro del useeffect", preguntas);
-    console.log("entra en el useEffect");
     fetch(url, {
       method: "POST",
       headers: {
@@ -23,7 +21,7 @@ function Preguntas(props) {
       .then((json) => {
         setPreguntas(json);
       });
-  },[]);
+  }, []);
 
   if (!preguntas.length) {
     return <div>cargando...</div>;

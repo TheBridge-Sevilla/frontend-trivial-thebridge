@@ -11,9 +11,6 @@ import UsuarioClasificacion from '../acciones/usuarioClasificacion'
 import 'primeicons/primeicons.css';
 import { Badge } from 'primereact/badge';
 
-
-
-
 function DatosJugador() {
     const { t } = useTranslation();
     const nombreRef = useRef();
@@ -23,7 +20,7 @@ function DatosJugador() {
     const [CambioContraseña, setCambioContraseña] = useState(false)
     const { setTipo, setMensaje } = useContextoUsuario();
     const [loading, setLoading] = useState(false)
-    const [foto, setfoto] = useState()
+    const [foto, setFoto] = useState()
     const [nombre, setNombre] = useState()
     const email = currentUser.email
     const [imagenPerfil, setImagenPerfil] = useState("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png")
@@ -103,7 +100,7 @@ function DatosJugador() {
 
     const handleChange = (e) => {
         if (e.target.files[0]) {
-            setfoto(e.target.files[0])
+            setFoto(e.target.files[0])
             setLoading(true)
         }
 
@@ -120,7 +117,7 @@ function DatosJugador() {
             <label style={{ cursor: 'pointer' }} htmlFor="file-input">
                 <div className="relative">
                     <Avatar image={imagenPerfil} referrerPolicy="no-referrer" className="p-overlay-badge block m-auto mb-4 shadow-5 flex align-items-center justify-content-center  " size="xlarge" shape="circle"  >
-                        <Badge value={iconoFoto} className="shadow-5"  />
+                        <Badge value={iconoFoto} className="shadow-5" />
                     </Avatar>
                 </div>
             </label>
