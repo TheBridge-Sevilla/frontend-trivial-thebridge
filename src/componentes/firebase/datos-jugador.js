@@ -14,9 +14,6 @@ import { Password } from 'primereact/password';
  
 
 
-
-
-
 function DatosJugador() {
     const { t } = useTranslation();
     const nombreRef = useRef();
@@ -26,7 +23,7 @@ function DatosJugador() {
     const [CambioContraseña, setCambioContraseña] = useState(false)
     const { setTipo, setMensaje } = useContextoUsuario();
     const [loading, setLoading] = useState(false)
-    const [foto, setfoto] = useState()
+    const [foto, setFoto] = useState()
     const [nombre, setNombre] = useState()
     const email = currentUser.email
     const [imagenPerfil, setImagenPerfil] = useState("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png")
@@ -106,7 +103,7 @@ function DatosJugador() {
 
     const handleChange = (e) => {
         if (e.target.files[0]) {
-            setfoto(e.target.files[0])
+            setFoto(e.target.files[0])
             setLoading(true)
         }
 
