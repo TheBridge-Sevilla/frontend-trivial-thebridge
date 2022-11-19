@@ -28,7 +28,8 @@ function Preguntas(props) {
   }
   if (indicePregunta < preguntas.length) {
     return (
-      <div className="w-screen h-screen  flex align-items-center justify-content-center">
+      <div className="w-screen h-screen  flex align-items-center justify-content-center"
+      style={{ backgroundImage: `url("media/fondo2.jpg")` }}>
         <Pregunta
           pregunta={preguntas[indicePregunta]}
           setIndicePregunta={setIndicePregunta}
