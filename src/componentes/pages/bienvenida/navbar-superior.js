@@ -32,7 +32,7 @@ export const HeaderBar = (props) => {
 
     return (
         <div className="card ">
-            <Menubar model={item} start={<Image width="50" height="50" src='media/logo-fragen.png'  id="rotar" className="" />} end={CambiarIdioma()} className="surface-300" />
+            <Menubar model={item} start={<Image width="50" height="50" src='media/logo-fragen.png'  id="rotar" className="" />} end={CambiarIdioma()} className="surface-300 border-noround border-none" />
         </div>
     );
 }
