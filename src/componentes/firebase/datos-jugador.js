@@ -113,6 +113,14 @@ function DatosJugador() {
         setLoading(false)
 
     }
+    const handleNombre = ()=>{
+        setCambioNombre(!cambioNombre)
+        setCambioContraseña(false)
+    }
+    const handleContraseña = ()=>{
+        setCambioContraseña(!CambioContraseña)
+        setCambioNombre(false)
+    }
 
     return (
         <div className="form flex flex-column ">
@@ -132,13 +140,13 @@ function DatosJugador() {
             <p className='flex align-items-center justify-content-center  m-2 bold text-4xl'>{nombre}</p>
             <p className='flex align-items-center justify-content-center  m-3 bold '> {email}</p>
             <UsuarioClasificacion />
-            <Button className='flex align-items-center justify-content-center  m-auto my-3 font-bold w-9' label={t("cambiar-nombre")} onClick={() => setCambioNombre(!cambioNombre)}></Button>
-            {cambioNombre ? <div className="flex justify-content-center flex-wrap" ><InputText className='flex align-items-center justify-content-center  m-auto font-bold' placeholder={t("nombre")} type="name" ref={nombreRef} />
-                <Button className='flex align-items-center justify-content-center  my-2 font-bold p-button-outlined ' type="submit" label={t("actualizar-nombre")} onClick={onSubmitNombre}></Button> </div> : ""}
+            <Button className='flex align-items-center justify-content-center  m-auto my-3 font-bold w-9' label={t("cambiar-nombre")} onClick={() =>handleNombre() }></Button>
+            {cambioNombre ? <div className="flex justify-content-center flex-wrap" ><InputText className='flex align-items-center justify-content-center  m-auto font-bold w-9' placeholder={t("nombre")} type="name" ref={nombreRef} />
+                <Button className='flex align-items-center justify-content-center  my-2 font-bold p-button-outlined w-9' type="submit" label={t("actualizar-nombre")} onClick={onSubmitNombre}></Button> </div> : ""}
 
-            <Button  className='flex align-items-center justify-content-center  m-auto mb-2 font-bold w-9' label={t("cambiar-contraseña")} onClick={() => setCambioContraseña(!CambioContraseña)}></Button>
-            {CambioContraseña ? <div className='flex justify-content-center flex-wrap ' ><Password  className='flex align-items-center justify-content-center  m-auto font-bold' placeholder={t("contraseña")} type="password" ref={contraseñaRef} toggleMask />
-                <Button className='flex align-items-center justify-content-center  my-2 font-bold p-button-outlined  ' type="submit" label={t("actualizar-contraseña")} onClick={onSubmitContraseña}></Button> </div> : ""}
+            <Button  className='flex align-items-center justify-content-center  m-auto mb-2 font-bold w-9' label={t("cambiar-contraseña")} onClick={() => handleContraseña()}></Button>
+            {CambioContraseña ? <div className='flex justify-content-center flex-wrap ' ><Password  className='flex align-items-center justify-content-center  m-auto font-bold w-9' placeholder={t("contraseña")} type="password" ref={contraseñaRef} toggleMask />
+                <Button className='flex align-items-center justify-content-center  my-2 font-bold p-button-outlined  w-9' type="submit" label={t("actualizar-contraseña")} onClick={onSubmitContraseña}></Button> </div> : ""}
         </div>
 
     )
