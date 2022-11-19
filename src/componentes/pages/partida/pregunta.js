@@ -14,7 +14,6 @@ function Pregunta(props) {
   const respuesta = props.pregunta.opciones[i18n.language][respuestaCorrecta];
   const botonesArriba = props.pregunta.opciones[i18n.language].slice(0, 2);
   const botonesAbajo = props.pregunta.opciones[i18n.language].slice(2);
-
   const [botonSelecionado, setBotonSelecionado] = useState(false);
   const matches = useMediaQuery("(min-width: 992px)");
 
@@ -29,10 +28,6 @@ function Pregunta(props) {
     return (
       <div
         className="grid  w-screen min-h-screen max-h-screen max-w-screen p-5 bg-blue-800"
-        style={{ backgroundImage: `url("media/fondo2.jpg")` }}
-
-
-
         id="pregunta"
       >
         <div className="w-full flex-wrap surface-300 border-300 border-primary text-center my-5 max-w-screen h-12rem  border-round-xl p-3 border-3 font-italic shadow-8">
@@ -87,7 +82,6 @@ function Pregunta(props) {
           <h2 className="text-xl md:text-3xl -mt-1">
             {props.pregunta.pregunta[i18n.language]}
           </h2>
-
         </div>
 
         <div className="col-12 flex justify-content-center align-item-center -mt-5">
@@ -110,7 +104,6 @@ function Pregunta(props) {
           />
         ))}
       </div>
-
     );
   }
 }
