@@ -27,7 +27,7 @@ function Pregunta(props) {
   if (matches) {
     return (
       <div
-        className="grid  w-screen min-h-screen max-h-screen max-w-screen p-5 bg-blue-800"
+        className="grid  w-screen min-h-screen max-h-screen max-w-screen p-5"
         id="pregunta"
       >
         <div className="w-full flex-wrap surface-300 border-300 border-primary text-center my-5 max-w-screen h-12rem  border-round-xl p-3 border-3 font-italic shadow-8">
@@ -74,7 +74,7 @@ function Pregunta(props) {
   } else {
     return (
       <div
-        className="grid w-screen min-h-screen  max-w-screen p-3 bg-blue-800 font-italic "
+        className="grid w-screen min-h-screen  max-w-screen p-3 font-italic "
         id="pregunta"
         style={{ backgroundImage: `url("media/fondo2.jpg")` }}
       >
