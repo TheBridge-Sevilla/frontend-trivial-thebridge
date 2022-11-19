@@ -1,11 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "primereact/button";
+import { useTranslation } from "react-i18next";
 
 
 export default function Boton(props) {
   const [colorBoton, setColorBoton] = useState("surface-300");
+  const { i18n } = useTranslation();
 
-  const handleIndicePreguntas = () => {
+
+//let indiceBotones = props.pregunta.opciones[i18n.language].indexOf(props.opcion)
+ 
+  //const [seguimiento, setSeguimiento] = useState()
+
+   //let prueba = { id: props.pregunta._id, respuesta: indiceBotones}
+  //setSeguimiento(props.pregunta.opciones[i18n.language].indexOf(props.opcion))
+
+  props.jugando.seguimiento.comprobacion.push(props.pregunta.opciones[i18n.language].indexOf(props.opcion))
+  
+  const url = process.env.REACT_APP_API_URL + "/preguntas/respuesta";
+  useEffect(() => {
+    // POST request using fetch inside useEffect React hook
+    
+
+}, []); 
+
+const handleIndicePreguntas = () => {
+
+   const requestOptions = {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(props.jugando.seguimiento.pregunta),
+  };
+  fetch(url, requestOptions)
+  .then(response => response.json())
+  .then(json => props.setJugando(json)) 
+console.log(props.seguimiento)
 
     if (!props.botonSelecionado) {
       if (props.opcion == props.respuesta) {
