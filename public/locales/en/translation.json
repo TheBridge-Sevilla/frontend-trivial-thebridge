@@ -36,5 +36,6 @@
     "email-registrado": "Email already Registered",
     "contraseña-corta":"Password should have at least 6 Characters",
     "contraseña-cambiada": "Password Change Successfully",
-    "error-contraseña":"Error Changing Password "
+    "error-contraseña":"Error Changing Password ",
+    "menu": "Menu"
 }

@@ -19,7 +19,6 @@ function PerfilUsuario() {
                     onHide={() => setVisibleLeft(false)}>
                     <DatosJugador />
                 </Sidebar>
-
             </div>
         );
     } else {
