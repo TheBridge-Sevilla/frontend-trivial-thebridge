@@ -10,6 +10,9 @@ import { uploadBytes, ref, getDownloadURL } from "firebase/storage"
 import UsuarioClasificacion from '../acciones/usuarioClasificacion'
 import 'primeicons/primeicons.css';
 import { Badge } from 'primereact/badge';
+import { Password } from 'primereact/password';
+ 
+
 
 
 
@@ -115,26 +118,29 @@ function DatosJugador() {
     }
 
     return (
-        <div className="form flex flex-column  ">
-            <h2 className='flex align-items-center justify-content-center text-4xl  mb-4 text-primary'>Menú</h2>
+        <div className="form flex flex-column ">
+
+
+            <h2 className='flex align-items-center justify-content-center text-4xl  mb-4 text-primary'>{t("menu")}</h2>
+
             <label style={{ cursor: 'pointer' }} htmlFor="file-input">
                 <div className="relative">
                     <Avatar image={imagenPerfil} referrerPolicy="no-referrer" className="p-overlay-badge block m-auto mb-4 shadow-5 flex align-items-center justify-content-center  " size="xlarge" shape="circle"  >
-                        <Badge value={iconoFoto} className="shadow-5"  />
+                        <Badge value={iconoFoto} className="shadow-5" />
                     </Avatar>
                 </div>
             </label>
             <input id="file-input" type="file" onChange={handleChange} hidden={true} />
             {loading ? <Button label={t("subir")} onClick={handleClick}></Button> : <></>}
-            <p className='flex align-items-center justify-content-center  m-2 bold'>{nombre}</p>
-            <p className='flex align-items-center justify-content-center  m-3 bold'> {email}</p>
+            <p className='flex align-items-center justify-content-center  m-2 bold text-4xl'>{nombre}</p>
+            <p className='flex align-items-center justify-content-center  m-3 bold '> {email}</p>
             <UsuarioClasificacion />
             <Button className='flex align-items-center justify-content-center  m-auto my-3 font-bold w-9' label={t("cambiar-nombre")} onClick={() => setCambioNombre(!cambioNombre)}></Button>
             {cambioNombre ? <div className="flex justify-content-center flex-wrap" ><InputText className='flex align-items-center justify-content-center  m-auto font-bold' placeholder={t("nombre")} type="name" ref={nombreRef} />
                 <Button className='flex align-items-center justify-content-center  my-2 font-bold p-button-outlined ' type="submit" label={t("actualizar-nombre")} onClick={onSubmitNombre}></Button> </div> : ""}
 
-            <Button className='flex align-items-center justify-content-center  m-auto mb-2 font-bold w-9' label={t("cambiar-contraseña")} onClick={() => setCambioContraseña(!CambioContraseña)}></Button>
-            {CambioContraseña ? <div className='flex justify-content-center flex-wrap ' ><InputText className='flex align-items-center justify-content-center  m-auto font-bold' placeholder={t("contraseña")} type="password" ref={contraseñaRef} />
+            <Button  className='flex align-items-center justify-content-center  m-auto mb-2 font-bold w-9' label={t("cambiar-contraseña")} onClick={() => setCambioContraseña(!CambioContraseña)}></Button>
+            {CambioContraseña ? <div className='flex justify-content-center flex-wrap ' ><Password  className='flex align-items-center justify-content-center  m-auto font-bold' placeholder={t("contraseña")} type="password" ref={contraseñaRef} toggleMask />
                 <Button className='flex align-items-center justify-content-center  my-2 font-bold p-button-outlined  ' type="submit" label={t("actualizar-contraseña")} onClick={onSubmitContraseña}></Button> </div> : ""}
         </div>
 

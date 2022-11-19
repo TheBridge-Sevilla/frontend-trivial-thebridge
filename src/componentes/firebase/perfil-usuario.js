@@ -12,7 +12,7 @@ function PerfilUsuario() {
     if (matches) {
     return (
         <div className='card'>
-            <Sidebar visible={visibleLeft} className="p-sidebar" position="left" onHide={() => setVisibleLeft(false)}>
+            <Sidebar visible={visibleLeft} className="p-sidebar surface-300 " position="left" onHide={() => setVisibleLeft(false)}>
                 <div className='flex flex-column justify-content-center '>
                     <DatosJugador />
 
@@ -23,8 +23,8 @@ function PerfilUsuario() {
     );
 } else {
     return (
-        <div className='card'>
-            <Sidebar visible={visibleLeft} className="p-sidebar-sm w-screen" position="left" onHide={() => setVisibleLeft(false)}>
+        <div className='card '>
+            <Sidebar visible={visibleLeft} className="p-sidebar-sm w-screen surface-300" position="left" onHide={() => setVisibleLeft(false)}>
                 <div className='flex flex-column justify-content-center '>
                     <DatosJugador />
 
