@@ -15,7 +15,7 @@ import { SignDialog } from "../../firebase/iniciar-sesion-dialog";
 import {auth} from "../../firebase/firebase"
 import PerfilUsuario from "../../firebase/perfil-usuario"
 import { Image } from 'primereact/image';
-
+import Informacion from './footer'
 
 function Bienvenida(props) {
   const { t } = useTranslation();
@@ -113,6 +113,7 @@ function Bienvenida(props) {
           ></Button>
         </div>
       </div>
+      <Informacion />
       <Toast ref={toast} />
     </div>
   );
