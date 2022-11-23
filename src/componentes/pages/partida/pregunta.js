@@ -8,34 +8,21 @@ import Reloj from "../../acciones/tiempo";
 import { useTranslation } from "react-i18next";
 import { useMediaQuery } from "usehooks-ts";
 
-
-import {auth} from "../../firebase/firebase";
-const url = process.env.REACT_APP_API_URL + "/partidas/nuevaPartida/"
-
+//const url = process.env.REACT_APP_API_URL + "/partidas/nuevaPartida/"
   
-
-
 function Pregunta(props) {
+  console.log("botonesArriba", props.preguntas)
   const { i18n } = useTranslation();
-  const respuestaCorrecta = props.pregunta.solucion;
-  const respuesta = props.pregunta.opciones[i18n.language][respuestaCorrecta];
-  const botonesArriba = props.pregunta.opciones[i18n.language].slice(0, 2);
-  const botonesAbajo = props.pregunta.opciones[i18n.language].slice(2);
+  //const respuestaCorrecta = props.pregunta.solucion;
+  //const respuesta = props.preguntas[indicePregunta].opciones[i18n.language][respuestaCorrecta];
+  const botonesArriba = props.preguntas[props.indicePregunta].opciones[i18n.language].slice(0, 2);
+  const botonesAbajo = props.preguntas[props.indicePregunta].opciones[i18n.language].slice(2);
   const [botonSelecionado, setBotonSelecionado] = useState(false);
   const matches = useMediaQuery("(min-width: 992px)");
-
-
-const [jugando, setJugando] = useState()
-
-  let obtenerFecha = new Date();
-  let nuevaPartida = {
-    idUsuario: auth.currentUser.uid, //id del usuario Firebase
-    nombre: auth.currentUser.displayName,
-    categoria: props.categoria._id,
-    puntuacion: undefined,
-    fecha: obtenerFecha,
-    seguimiento: { pregunta: props.pregunta._id, comprobacion: undefined }
-  };
+console.log("partida-pregunta", props.preguntas[props.indicePregunta].pregunta[i18n.language])
+console.log("partida-opciones", props.preguntas[props.indicePregunta].opciones[i18n.language])
+/* const [jugando, setJugando] = useState()
+console.log
   
 const requestOptions = {
   method: "POST",
@@ -45,7 +32,7 @@ const requestOptions = {
 fetch(url, requestOptions)
 .then(response => response.json())
 .then(json => setJugando(json))
-
+ */
 
   useEffect(() => {
     const pasarPregunta = setTimeout(() => {
@@ -63,7 +50,7 @@ fetch(url, requestOptions)
       >
         <div className="w-full flex-wrap surface-300 border-300 border-primary text-center my-5 max-w-screen h-12rem  border-round-xl p-3 border-3 font-italic shadow-8">
           <h2 className="  text-4xl -mt-1">
-            {props.pregunta.pregunta[i18n.language]}
+            {props.preguntas[props.indicePregunta].pregunta[i18n.language]}
           </h2>
         </div>
 
@@ -72,15 +59,14 @@ fetch(url, requestOptions)
             key={opcion}
             id="boton-opcion"
             opcion={opcion}
-            respuesta={respuesta}
+           // respuesta={respuesta}
             indicePregunta={props.indicePregunta}
             setIndicePregunta={props.setIndicePregunta}
             botonSelecionado={botonSelecionado}
             setBotonSelecionado={setBotonSelecionado}
-            puntuacion={props.puntuacion}
-            setPuntuacion={props.setPuntuacion}
-            setJugando={setJugando}
-            jugando={jugando}
+            partida={props.partida}
+            setPartida={props.setPartida}
+            preguntas={props.preguntas}
           />
         ))}
         <div className="col-12  flex justify-content-center ">
@@ -93,15 +79,14 @@ fetch(url, requestOptions)
             key={opcion}
             id="boton-opcion"
             opcion={opcion}
-            respuesta={respuesta}
+          //  respuesta={respuesta}
             indicePregunta={props.indicePregunta}
             setIndicePregunta={props.setIndicePregunta}
             botonSelecionado={botonSelecionado}
             setBotonSelecionado={setBotonSelecionado}
-            puntuacion={props.puntuacion}
-            setPuntuacion={props.setPuntuacion}
-            setJugando={setJugando}
-            jugando={jugando}
+            partida={props.partida}
+            setPartida={props.setPartida}
+            preguntas={props.preguntas}
           />
         ))}
       </div>
@@ -115,7 +100,7 @@ fetch(url, requestOptions)
       >
         <div className=" w-full flex-wrap surface-300 border-300 text-center my-5 max-w-screen h-12rem  border-round-xl p-3 border-3 border-primary shadow-8">
           <h2 className="text-xl md:text-3xl -mt-1">
-            {props.pregunta.pregunta[i18n.language]}
+            {props.preguntas[props.indicePregunta].pregunta[i18n.language]}
           </h2>
         </div>
 
@@ -124,20 +109,20 @@ fetch(url, requestOptions)
           <Reloj />
         </div>
 
-        {props.pregunta.opciones[i18n.language].map((opcion) => (
+        {props.preguntas[props.indicePregunta].opciones[i18n.language].map((opcion) => (
           <Boton
             key={opcion}
             id="boton-opcion"
             opcion={opcion}
-            respuesta={respuesta}
+         //   respuesta={respuesta}
             indicePregunta={props.indicePregunta}
             setIndicePregunta={props.setIndicePregunta}
             botonSelecionado={botonSelecionado}
             setBotonSelecionado={setBotonSelecionado}
-            puntuacion={props.puntuacion}
-            setPuntuacion={props.setPuntuacion}
-            setJugando={setJugando}
-            jugando={jugando}
+            partida={props.partida}
+            setPartida={props.setPartida}
+            preguntas={props.preguntas}
+
           />
         ))}
       </div>

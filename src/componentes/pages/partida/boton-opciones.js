@@ -1,23 +1,26 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "primereact/button";
-import { useTranslation } from "react-i18next";
+//import { useTranslation } from "react-i18next";
 
 
 export default function Boton(props) {
   const [colorBoton, setColorBoton] = useState("surface-300");
-  const { i18n } = useTranslation();
+//  const { i18n } = useTranslation();
 
-
-//let indiceBotones = props.pregunta.opciones[i18n.language].indexOf(props.opcion)
+console.log("boton", props.partida)
+//let indiceBotones = props.preguntas[props.indicePregunta].opciones[i18n.language].indexOf(props.opcion)
  
   //const [seguimiento, setSeguimiento] = useState()
 
-   //let prueba = { id: props.pregunta._id, respuesta: indiceBotones}
-  //setSeguimiento(props.pregunta.opciones[i18n.language].indexOf(props.opcion))
 
-  props.jugando.seguimiento.comprobacion.push(props.pregunta.opciones[i18n.language].indexOf(props.opcion))
+  //setSeguimiento(props.preguntas[props.indicePregunta].opciones[i18n.language].indexOf(props.opcion))
+
+let prueba = { id: props.partida, respuesta: 2}
+console.log("prueba",prueba)
+  //props.jugando.seguimiento.comprobacion.push(props.pregunta.opciones[i18n.language].indexOf(props.opcion))
   
   const url = process.env.REACT_APP_API_URL + "/preguntas/respuesta";
+  
   useEffect(() => {
     // POST request using fetch inside useEffect React hook
     
@@ -29,18 +32,16 @@ const handleIndicePreguntas = () => {
    const requestOptions = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(props.jugando.seguimiento.pregunta),
+    body: JSON.stringify(prueba),
   };
   fetch(url, requestOptions)
   .then(response => response.json())
-  .then(json => props.setJugando(json)) 
-console.log(props.seguimiento)
+  .then(json => console.log("jseon", json)) 
+
 
     if (!props.botonSelecionado) {
-      if (props.opcion == props.respuesta) {
+      if (props.opcion == 1) {
         setColorBoton("green-400");
-        props.setPuntuacion(props.puntuacion + 1)
-
       } else {
         setColorBoton("red-400");
       }

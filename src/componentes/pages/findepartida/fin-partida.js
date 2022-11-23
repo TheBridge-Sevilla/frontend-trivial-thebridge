@@ -5,33 +5,19 @@ import "primeicons/primeicons.css";
 import "primeflex/primeflex.css";
 import { Button } from "primereact/button";
 import Clasificacion from "../../acciones/clasificacion";
-import {auth} from "../../firebase/firebase";
+//import {auth} from "../../firebase/firebase";
 
 function FinPartida(props) {
-  const resultado = (props.puntuacion * 100) / props.indicePregunta;
-console.log("usuario",auth.currentUser.uid)
-  let obtenerFecha = new Date();
-  /*let fecha = obtenerFecha.toLocaleString()
-  const mes = obtenerFecha.toLocaleString("es-ES", { month: "short" });
-  const dia = obtenerFecha.toLocaleString("es-ES", { day: "2-digit" });
-  const ano = obtenerFecha.getFullYear();
-  let fechaPartida = dia + "/" + mes + "/" + ano; */
+  //const resultado = (props.puntuacion * 100) / props.indicePregunta;
+console.log(props.partida)
 
-  let nuevaPartida = {
-    idUsuario: auth.currentUser.uid, //id del usuario Firebase
-    nombre: auth.currentUser.displayName,
-    categoria: props.categoria._id,
-    puntuacion: resultado,
-    fecha: obtenerFecha,
-  };
-
-  const url = process.env.REACT_APP_API_URL + "/partidas";
+  const url = process.env.REACT_APP_API_URL + "/partidas/usuario";
   useEffect(() => {
     // POST request using fetch inside useEffect React hook
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(nuevaPartida),
+      body: JSON.stringify(props.partida),
     };
     fetch(url, requestOptions).then((response) => response.json());
   }, []);
@@ -44,8 +30,7 @@ console.log("usuario",auth.currentUser.uid)
             Fin de Partida
           </div>
           <div className="card-container text-center text-3xl font-medium">
-            Tú puntuación es: {props.puntuacion + "/" + props.indicePregunta} (
-            {resultado} %)
+            Tú puntuación es:
           </div>
         </div>
         <div className="w-full bg-blue-300 text-center">
