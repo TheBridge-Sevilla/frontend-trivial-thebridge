@@ -14,20 +14,21 @@ const IniciarSesion = () => {
   const emailRef = useRef();
   const contraseñaRef = useRef();
 
-  const { usuario,
+  const { 
     setUsuario,
     setDisabledInputName,
     setVisibleTop,
     setDisplayResponsive,
     setMensaje,
-    setTipo
+    setTipo,
+    setCurrentUser
   } = useContextoUsuario();
 
   const iniciarSesion = (email, contraseña,) => {
     signInWithEmailAndPassword(auth, email, contraseña).then(() => {
       setUsuario(auth.currentUser.displayName)
+      setCurrentUser(auth.currentUser)
       setDisabledInputName(true)
-      console.log(auth)
       setMensaje(t("bienvenido"))
       setTipo("success")
     }).catch((e) => {
@@ -52,11 +53,11 @@ const IniciarSesion = () => {
       setMensaje(t("campos-obligatorios"))
       setTipo("error")
     }
-    if (email && contraseña) iniciarSesion(email, contraseña);
-    if (usuario) {
+    if (email && contraseña){
+      iniciarSesion(email, contraseña)
       setVisibleTop(false);
       setDisplayResponsive(false);
-    }
+    } 
   };
 
   return (
