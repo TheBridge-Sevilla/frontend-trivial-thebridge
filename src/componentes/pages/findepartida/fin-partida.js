@@ -5,21 +5,17 @@ import "primeicons/primeicons.css";
 import "primeflex/primeflex.css";
 import { Button } from "primereact/button";
 import Clasificacion from "../../acciones/clasificacion";
-import {auth} from "../../firebase/firebase";
+import { auth } from "../../firebase/firebase";
+import { useContextoUsuario } from './../../contexto/contextoUsuario'
 
 function FinPartida(props) {
+  console.log(auth)
   const resultado = (props.puntuacion * 100) / props.indicePregunta;
-console.log("usuario",auth.currentUser.uid)
+  const { usuario } = useContextoUsuario();
   let obtenerFecha = new Date();
-  /*let fecha = obtenerFecha.toLocaleString()
-  const mes = obtenerFecha.toLocaleString("es-ES", { month: "short" });
-  const dia = obtenerFecha.toLocaleString("es-ES", { day: "2-digit" });
-  const ano = obtenerFecha.getFullYear();
-  let fechaPartida = dia + "/" + mes + "/" + ano; */
-
   let nuevaPartida = {
-    idUsuario: auth.currentUser.uid, //id del usuario Firebase
-    nombre: auth.currentUser.displayName,
+    idUsuario: (auth.currentUser != null) ? auth.currentUser.uid : undefined, //id del usuario Firebase
+    nombre: auth.currentUser ? auth.currentUser.displayName : usuario,
     categoria: props.categoria._id,
     puntuacion: resultado,
     fecha: obtenerFecha,

@@ -21,7 +21,15 @@ function Bienvenida(props) {
   const { t } = useTranslation();
   const toast = useRef();
   const [disabledStartButton, setDisabledStartButton] = useState(true);
-  const { usuario, setUsuario, disabledInputName, mensaje, setMensaje, tipo, setTipo, setCurrentUser } = useContextoUsuario();
+  const {
+    usuario,
+    setUsuario,
+    disabledInputName,
+    mensaje, setMensaje,
+    tipo,
+    setTipo,
+    setCurrentUser
+  } = useContextoUsuario();
   const [disabledLogIn, setDisabledLogIn] = useState(false)
 
   const mostrarError = (tipo, mensaje) => {
