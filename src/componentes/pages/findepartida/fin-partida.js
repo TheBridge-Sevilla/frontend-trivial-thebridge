@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "primereact/resources/themes/lara-light-indigo/theme.css"; //theme
 import "primereact/resources/primereact.min.css"; //core css
 import "primeicons/primeicons.css";
@@ -8,7 +8,7 @@ import Clasificacion from "../../acciones/clasificacion";
 //import {auth} from "../../firebase/firebase";
 
 function FinPartida(props) {
-  //const resultado = (props.puntuacion * 100) / props.indicePregunta;
+/*   //const resultado = (props.puntuacion * 100) / props.indicePregunta;
 console.log(props.partida)
 
   const url = process.env.REACT_APP_API_URL + "/partidas/usuario";
@@ -20,7 +20,7 @@ console.log(props.partida)
       body: JSON.stringify(props.partida),
     };
     fetch(url, requestOptions).then((response) => response.json());
-  }, []);
+  }, []); */
 
   return (
     <div className="bg-cyan-500 h-screen w-screen">

@@ -40,7 +40,7 @@ let categoria = "categoria.nombre." + i18n.language
         <Column field="Index" header="Pos." body={listaPosicion}></Column>
         <Column field="nombre" header="Jugador"></Column>
         <Column field={categoria} header="Categoria"></Column>
-        <Column field="puntuacion" header="Puntos"></Column>
+        {/* <Column field="puntuacion" header="Puntos"></Column> */}
         <Column field="fecha" header="Fecha"></Column>
       </DataTable></div>
   );

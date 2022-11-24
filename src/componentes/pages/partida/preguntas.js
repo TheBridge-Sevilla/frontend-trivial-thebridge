@@ -25,13 +25,10 @@ function Preguntas(props) {
       categoria: props.categoria._id, }),
     })
       .then((res) => res.json())
-      .then((json) => {setPartida(json.id); //Almacena el id de la partida
+      .then((json) => {setPartida(json); //Almacena el id de la partida
         setPreguntas(json.quiz); // Almacena un array con objetos de preguntas y opciones
       });
   },[]);
-
-//  console.log("partida", partida)
- console.log(preguntas.length, "Preguntas")
 
   if (!preguntas.length) {
     return <div>cargando...</div>;
