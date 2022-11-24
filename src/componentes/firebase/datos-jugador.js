@@ -21,10 +21,10 @@ function DatosJugador() {
     const currentUser = auth.currentUser;
     const [cambioNombre, setCambioNombre] = useState(false)
     const [CambioContraseña, setCambioContraseña] = useState(false)
-    const { setTipo, setMensaje } = useContextoUsuario();
+    const { setTipo, setMensaje,usuario, setUsuario } = useContextoUsuario();
     const [loading, setLoading] = useState(false)
     const [foto, setFoto] = useState()
-    const [nombre, setNombre] = useState()
+/*     const [nombre, setNombre] = useState() */
     const email = currentUser.email
     const [imagenPerfil, setImagenPerfil] = useState("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png")
     const iconoFoto = <img src="https://cdn-icons-png.flaticon.com/512/32/32220.png" />
@@ -48,10 +48,9 @@ function DatosJugador() {
 
     useEffect(() => {
         if (currentUser && currentUser.photoURL) {
-            console.log(currentUser.photoURL)
             setImagenPerfil(currentUser.photoURL)
         }
-        setNombre(currentUser.displayName)
+        setUsuario(currentUser.displayName)
 
     }, [auth])
 
@@ -84,7 +83,7 @@ function DatosJugador() {
         if (nombre) {
             cambiarNombre(nombre)
             setCambioNombre(!cambioNombre)
-            setNombre(nombre)
+            setUsuario(nombre)
         }
     }
 
@@ -137,7 +136,7 @@ function DatosJugador() {
             </label>
             <input id="file-input" type="file" onChange={handleChange} hidden={true} />
             {loading ? <Button label={t("subir")} onClick={handleClick}></Button> : <></>}
-            <p className='flex align-items-center justify-content-center  m-2 bold text-4xl'>{nombre}</p>
+            <p className='flex align-items-center justify-content-center  m-2 bold text-4xl'>{usuario}</p>
             <p className='flex align-items-center justify-content-center  m-3 bold '> {email}</p>
             <UsuarioClasificacion />
             <Button className='flex align-items-center justify-content-center  m-auto my-3 font-bold w-9' label={t("cambiar-nombre")} onClick={() =>handleNombre() }></Button>

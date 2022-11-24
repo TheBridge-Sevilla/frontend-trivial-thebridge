@@ -15,6 +15,7 @@ import { SignDialog } from "../../firebase/iniciar-sesion-dialog";
 import { auth } from "../../firebase/firebase"
 import PerfilUsuario from "../../firebase/perfil-usuario"
 import { Image } from 'primereact/image';
+import Creditos from "./creditos";
 
 
 function Bienvenida(props) {
@@ -116,6 +117,7 @@ function Bienvenida(props) {
         </div>
       </div>
       <Toast ref={toast} />
+      <Creditos />
     </div>
   );
 }
