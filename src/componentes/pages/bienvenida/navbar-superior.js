@@ -5,18 +5,18 @@ import { useSignOut } from "../../customHooks/hook-cerrar-sesion";
 import CambiarIdioma from "../../acciones/cambiar-idioma";
 import { useItem } from "../../customHooks/hook-navbar-item"
 import i18next from "i18next";
-
+import { Image } from 'primereact/image';
 
 export const HeaderBar = (props) => {
 
-    const { currentUser, usuario,setVisibleLeft } = useContextoUsuario();
+    const {  usuario,setVisibleLeft } = useContextoUsuario();
     const { cerrarSesion } = useSignOut()
     const { Item } = useItem()
 
     const [item, setItem] = useState([Item()])
 
     useEffect(() => {
-        if (currentUser) {
+        if (usuario) {
             setItem([
                 Item(usuario, 'pi pi-user', () => setVisibleLeft(true)),
                 Item('cerrar-sesion', 'pi pi-sign-out', () => { cerrarSesion() })
@@ -28,11 +28,11 @@ export const HeaderBar = (props) => {
         return () => {
             setItem([Item()])
         }
-    }, [currentUser, props.disabledLogIn, i18next.language])
+    }, [usuario, props.disabledLogIn, i18next.language])
 
     return (
-        <div className="card">
-            <Menubar model={item} end={CambiarIdioma()} />
+        <div className="card ">
+            <Menubar model={item} start={<Image width="50" height="50" src='media/logo-fragen.png'  id="rotar" className="" />} end={CambiarIdioma()} className="surface-300 border-noround border-none" />
         </div>
     );
 }

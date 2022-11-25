@@ -5,9 +5,7 @@ import "primeicons/primeicons.css";
 import "primeflex/primeflex.css";
 import { Button } from "primereact/button";
 import Clasificacion from "../../acciones/clasificacion";
-
 function FinPartida(props) {
-
   return (
     <div className="bg-cyan-500 h-screen w-screen">
       <div className="w-full bg-cyan-500 p-4">

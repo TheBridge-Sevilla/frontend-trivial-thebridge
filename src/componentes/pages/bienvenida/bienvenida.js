@@ -12,16 +12,25 @@ import { Toast } from 'primereact/toast';
 import { useContextoUsuario } from "../../contexto/contextoUsuario";
 import { HeaderBar } from "./navbar-superior";
 import { SignDialog } from "../../firebase/iniciar-sesion-dialog";
-import {auth} from "../../firebase/firebase"
+import { auth } from "../../firebase/firebase"
 import PerfilUsuario from "../../firebase/perfil-usuario"
 import { Image } from 'primereact/image';
+import Creditos from "./creditos";
 
 
 function Bienvenida(props) {
   const { t } = useTranslation();
   const toast = useRef();
   const [disabledStartButton, setDisabledStartButton] = useState(true);
-  const { usuario, setUsuario, disabledInputName, mensaje, setMensaje, tipo, setTipo } = useContextoUsuario();
+  const {
+    usuario,
+    setUsuario,
+    disabledInputName,
+    mensaje, setMensaje,
+    tipo,
+    setTipo,
+    setCurrentUser
+  } = useContextoUsuario();
   const [disabledLogIn, setDisabledLogIn] = useState(false)
 
   const mostrarError = (tipo, mensaje) => {
@@ -37,18 +46,16 @@ function Bienvenida(props) {
       setMensaje()
       setTipo()
     })
-
   }, [mensaje])
 
   useEffect(() => {
     auth.onAuthStateChanged(user => {
-      if (user){
+      if (user) {
         setUsuario(user.displayName)
+        setCurrentUser(user)
       }
 
     })
-
-
   }, [auth])
 
 
@@ -70,32 +77,29 @@ function Bienvenida(props) {
   }
 
   return (
-
-    <div className="flex-column h-screen w-screen flex justify-content-center bg-blue-400">      
+    <div className="flex-column h-screen w-screen flex justify-content-center bg-blue-400">
       <HeaderBar disabledLogIn={disabledLogIn} />
       <div className="flex flex-wrap justify-content-center card-container  gap-1 ">
-      <Image  src='media/fragen.png'   className="flex justify-content-center py-8">
-      </Image>
-      <Image  src='media/logo-fragen.png'  id="rotar" className="flex justify-content-center py-8">
-      </Image>
+        <Image src='media/fragen.png' className="flex justify-content-center py-8">
+        </Image>
+        <Image src='media/logo-fragen.png' id="rotar" className="flex justify-content-center py-8">
+        </Image>
 
       </div>
       <div className=" h-screen w-screen text-center surface-300 p-4 font-bold text-gray-900 "
         id="usuario">
         <div className="flex justify-content-center">
-          <PerfilUsuario/>
+          <PerfilUsuario />
           <BotonIniciarSesion disabledLogIn={disabledLogIn} />
           <SignDialog />
           <InputText className="w-13rem mr-7" value={usuario}
             placeholder={t("nombre")} disabled={disabledInputName}
             onChange={handleChange} />
         </div>
-        <div className=" flex justify-content-center pt-2" id="select-categoria">
-
+        <div className="flex justify-content-center pt-2" id="select-categoria">
           <SelectCategoria
             className="w-15rem h-full p-3 border-round"
             setCategoria={props.setCategoria} />
-
         </div>
         <div
           className="border-round-top-xl p-2 font-bold text-gray-900 pt-2 "
@@ -113,6 +117,7 @@ function Bienvenida(props) {
         </div>
       </div>
       <Toast ref={toast} />
+      <Creditos />
     </div>
   );
 }

@@ -23,7 +23,8 @@ const Registrarse = () => {
     setVisibleTop,
     setDisplayResponsive,
     setMensaje,
-    setTipo
+    setTipo,
+    setCurrentUser
   } = useContextoUsuario();
 
   const registrarUsuario = (email, contraseña, nombre) => {
@@ -45,6 +46,7 @@ const Registrarse = () => {
 
       .then(() => {
         setUsuario(auth.currentUser.displayName);
+        setCurrentUser(auth.currentUser)
         setDisabledInputName(true);
       });
   };
@@ -62,6 +64,7 @@ const Registrarse = () => {
       registrarUsuario(email, contraseña, nombre)
       setVisibleTop(false)
       setDisplayResponsive(false)
+      
     }
   }
 

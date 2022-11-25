@@ -12,8 +12,6 @@ function Preguntas(props) {
   const [partida, setPartida] = useState() //Almacena el id de la partida
 
   useEffect(() => {
-    console.log("preguntas dentro del useeffect", preguntas);
-    console.log("entra en el useEffect");
     fetch(url, {
       method: "POST",
       headers: {
@@ -28,14 +26,15 @@ function Preguntas(props) {
       .then((json) => {setPartida(json); //Almacena el id de la partida
         setPreguntas(json.quiz); // Almacena un array con objetos de preguntas y opciones
       });
-  },[]);
+  }, []);
 
   if (!preguntas.length) {
     return <div>cargando...</div>;
   }
   if (indicePregunta < preguntas.length) {
     return (
-      <div className="w-screen h-screen  flex align-items-center justify-content-center">
+      <div className="w-screen h-screen  flex align-items-center justify-content-center"
+      style={{ backgroundImage: `url("media/fondo2.jpg")` }}>
         <Pregunta
 
           setIndicePregunta={setIndicePregunta}
