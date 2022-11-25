@@ -1,36 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "primereact/resources/themes/lara-light-indigo/theme.css"; //theme
 import "primereact/resources/primereact.min.css"; //core css
 import "primeicons/primeicons.css";
 import "primeflex/primeflex.css";
 import { Button } from "primereact/button";
 import Clasificacion from "../../acciones/clasificacion";
-import { auth } from "../../firebase/firebase";
-import { useContextoUsuario } from './../../contexto/contextoUsuario'
 
 function FinPartida(props) {
-  console.log(auth)
-  const resultado = (props.puntuacion * 100) / props.indicePregunta;
-  const { usuario } = useContextoUsuario();
-  let obtenerFecha = new Date();
-  let nuevaPartida = {
-    idUsuario: (auth.currentUser != null) ? auth.currentUser.uid : undefined, //id del usuario Firebase
-    nombre: auth.currentUser ? auth.currentUser.displayName : usuario,
-    categoria: props.categoria._id,
-    puntuacion: resultado,
-    fecha: obtenerFecha,
-  };
-
-  const url = process.env.REACT_APP_API_URL + "/partidas";
-  useEffect(() => {
-    // POST request using fetch inside useEffect React hook
-    const requestOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(nuevaPartida),
-    };
-    fetch(url, requestOptions).then((response) => response.json());
-  }, []);
 
   return (
     <div className="bg-cyan-500 h-screen w-screen">
@@ -40,13 +16,12 @@ function FinPartida(props) {
             Fin de Partida
           </div>
           <div className="card-container text-center text-3xl font-medium">
-            Tú puntuación es: {props.puntuacion + "/" + props.indicePregunta} (
-            {resultado} %)
+            Tú puntuación es: {props.partida.puntuacion}
           </div>
         </div>
         <div className="w-full bg-blue-300 text-center">
           <h3>Ranking</h3>
-          <Clasificacion categoria={props.categoria} />
+          <Clasificacion categoria={props.partida.categoriaID} />
         </div>
         <div className="card-container yellow-container p-5">
           <Button
