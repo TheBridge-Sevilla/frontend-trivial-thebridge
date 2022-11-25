@@ -29,7 +29,7 @@ function SelectCategoria(props) {
 
   return (
     <Dropdown
-      className="w-13rem"
+      className="w-13rem lg:w-17rem"
       value={categoriaSeleccionada}
       options={categorias.map((categoria) => categoria.nombre[i18n.language])}
       onChange={(e) => handleCategorias(e)}
