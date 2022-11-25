@@ -47,7 +47,6 @@ function Pregunta(props) {
           />
         ))}
         <div className="col-12  flex justify-content-center ">
-          {" "}
           <Reloj />
         </div>
 
@@ -79,7 +78,6 @@ function Pregunta(props) {
         </div>
 
         <div className="col-12 flex justify-content-center align-item-center -mt-5">
-          {" "}
           <Reloj />
         </div>
 
@@ -93,7 +91,6 @@ function Pregunta(props) {
             partida={props.partida}
             setPartida={props.setPartida}
             preguntas={props.preguntas}
-
           />
         ))}
       </div>

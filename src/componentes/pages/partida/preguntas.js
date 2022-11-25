@@ -54,7 +54,6 @@ function Preguntas(props) {
         setEsPantallaPrincipal={props.setEsPantallaPrincipal}
         partida={partida}
         setPartida={setPartida}
-
       />
     );
   }

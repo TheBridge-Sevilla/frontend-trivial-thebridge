@@ -26,7 +26,6 @@ function Clasificacion(props) {
   function listaPosicion(resultados, i) {
     return "# " + (i.rowIndex + 1);
   }
-//Para obtener el valor de la categoria según el idioma seleccionado creamos la variable categoria
 const { i18n } = useTranslation();
 let categoria = "categoria.nombre." + i18n.language
 
