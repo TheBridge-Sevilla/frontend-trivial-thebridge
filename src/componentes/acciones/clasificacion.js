@@ -13,8 +13,6 @@ function Clasificacion(props) {
   const [resultados, setResultados] = useState()
 
   useEffect(() => {
-    console.log("clasificacion dentro del useeffect");
-    console.log("entra en el useEffect");
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -24,7 +22,6 @@ function Clasificacion(props) {
       .then(response => response.json())
       .then(json => setResultados(json))
 }, []);
-
 
   function listaPosicion(resultados, i) {
     return "# " + (i.rowIndex + 1);
@@ -40,7 +37,7 @@ let categoria = "categoria.nombre." + i18n.language
         <Column field="Index" header="Pos." body={listaPosicion}></Column>
         <Column field="nombre" header="Jugador"></Column>
         <Column field={categoria} header="Categoria"></Column>
-        {/* <Column field="puntuacion" header="Puntos"></Column> */}
+        <Column field="puntuacion" header="Puntos"></Column>
         <Column field="fecha" header="Fecha"></Column>
       </DataTable></div>
   );
@@ -48,3 +45,24 @@ let categoria = "categoria.nombre." + i18n.language
 }
 
 export default Clasificacion
+/* {
+  "_id": "638110482366168e759d5543",
+  "idUsuario": "6Y7OBB2uXeORf3aDc6s9wFpYh3k1",
+  "nombre": "David",
+  "categoria": {
+      "nombre": {
+          "es": "Historia",
+          "en": "History"
+      },
+      "_id": "6375371ec0c90666117e12e3",
+      "__v": 0
+  },
+  "partida": [
+      1,
+      1,
+      1
+  ],
+  "fecha": "2022-11-25T18:58:16.048Z",
+  "__v": 3,
+  "puntuacion": 3
+}, */

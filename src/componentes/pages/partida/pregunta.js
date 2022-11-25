@@ -8,8 +8,6 @@ import Reloj from "../../acciones/tiempo";
 import { useTranslation } from "react-i18next";
 import { useMediaQuery } from "usehooks-ts";
 
-//const url = process.env.REACT_APP_API_URL + "/partidas/nuevaPartida/"
-  
 function Pregunta(props) {
   const { i18n } = useTranslation();
   const botonesArriba = props.preguntas[props.indicePregunta].opciones[i18n.language].slice(0, 2);

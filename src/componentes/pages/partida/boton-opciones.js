@@ -14,7 +14,7 @@ export default function Boton(props) {
   useEffect(() => {
     // POST request using fetch inside useEffect React hook
   }, []);
-
+console.log("datos partida", props.partida)
   const handleIndicePreguntas = () => {
 
     
@@ -23,7 +23,7 @@ export default function Boton(props) {
       headers: { "Content-Type": "application/json" },
     //  mode: "no-cors",
       body: JSON.stringify({
-        id: props.partida.id,
+        partidaID: props.partida.partidaID,
         pregunta: props.partida.quiz[props.indicePregunta].id,
         indice: props.indicePregunta,
         respuesta: indiceBotones,
