@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "primereact/resources/themes/lara-light-indigo/theme.css"; //theme
 import "primereact/resources/primereact.min.css"; //core css
 import "primeicons/primeicons.css";
@@ -11,28 +11,10 @@ import { useMediaQuery } from "usehooks-ts";
 //const url = process.env.REACT_APP_API_URL + "/partidas/nuevaPartida/"
   
 function Pregunta(props) {
-  console.log("botonesArriba", props.preguntas)
   const { i18n } = useTranslation();
-  //const respuestaCorrecta = props.pregunta.solucion;
-  //const respuesta = props.preguntas[indicePregunta].opciones[i18n.language][respuestaCorrecta];
   const botonesArriba = props.preguntas[props.indicePregunta].opciones[i18n.language].slice(0, 2);
   const botonesAbajo = props.preguntas[props.indicePregunta].opciones[i18n.language].slice(2);
-  const [botonSelecionado, setBotonSelecionado] = useState(false);
   const matches = useMediaQuery("(min-width: 992px)");
-console.log("partida-pregunta", props.preguntas[props.indicePregunta].pregunta[i18n.language])
-console.log("partida-opciones", props.preguntas[props.indicePregunta].opciones[i18n.language])
-/* const [jugando, setJugando] = useState()
-console.log
-  
-const requestOptions = {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify(nuevaPartida),
-};
-fetch(url, requestOptions)
-.then(response => response.json())
-.then(json => setJugando(json))
- */
 
   useEffect(() => {
     const pasarPregunta = setTimeout(() => {
@@ -59,11 +41,8 @@ fetch(url, requestOptions)
             key={opcion}
             id="boton-opcion"
             opcion={opcion}
-           // respuesta={respuesta}
             indicePregunta={props.indicePregunta}
             setIndicePregunta={props.setIndicePregunta}
-            botonSelecionado={botonSelecionado}
-            setBotonSelecionado={setBotonSelecionado}
             partida={props.partida}
             setPartida={props.setPartida}
             preguntas={props.preguntas}
@@ -79,11 +58,8 @@ fetch(url, requestOptions)
             key={opcion}
             id="boton-opcion"
             opcion={opcion}
-          //  respuesta={respuesta}
             indicePregunta={props.indicePregunta}
             setIndicePregunta={props.setIndicePregunta}
-            botonSelecionado={botonSelecionado}
-            setBotonSelecionado={setBotonSelecionado}
             partida={props.partida}
             setPartida={props.setPartida}
             preguntas={props.preguntas}
@@ -114,11 +90,8 @@ fetch(url, requestOptions)
             key={opcion}
             id="boton-opcion"
             opcion={opcion}
-         //   respuesta={respuesta}
             indicePregunta={props.indicePregunta}
             setIndicePregunta={props.setIndicePregunta}
-            botonSelecionado={botonSelecionado}
-            setBotonSelecionado={setBotonSelecionado}
             partida={props.partida}
             setPartida={props.setPartida}
             preguntas={props.preguntas}
