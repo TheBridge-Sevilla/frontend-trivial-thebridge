@@ -12,7 +12,7 @@ function Pregunta(props) {
   const { i18n } = useTranslation();
   const botonesArriba = props.preguntas[props.indicePregunta].opciones[i18n.language].slice(0, 2);
   const botonesAbajo = props.preguntas[props.indicePregunta].opciones[i18n.language].slice(2);
-  const [botonSelecionado, setBotonSelecionado] = useState(false);
+  // const [botonSelecionado, setBotonSelecionado] = useState(false);
 
   const matches = useMediaQuery("(min-width: 992px)");
 
