@@ -9,24 +9,24 @@ import { Image } from 'primereact/image';
 
 export const HeaderBar = (props) => {
 
-    const { currentUser, usuario, setVisibleLeft } = useContextoUsuario();
+    const { currentUser, usuario, setAbrirMenuUsuario, abrirFooter, setAbrirFooter } = useContextoUsuario();
     const { cerrarSesion } = useSignOut()
     const { Item } = useItem()
     const [item, setItem] = useState([Item()])
-    const itemGithub = [`Made with love ${<i className="pi pi-check"></i>}`, 'pi pi-github', () => {window.open('http://www.google.com')}]
 
     useEffect(() => {
         if (currentUser) {
             setItem([
-                Item(usuario, 'pi pi-user', () => setVisibleLeft(true)),
+                Item(usuario, 'pi pi-user', () => setAbrirMenuUsuario(true)),
                 Item('cerrar-sesion', 'pi pi-sign-out', () => { cerrarSesion() }),
-                Item(itemGithub[0], itemGithub[1], itemGithub[2])
+                Item('hecho por', 'pi pi-star-fill', () => { setAbrirFooter(!abrirFooter) })
             ])
         }
         else if (props.disabledLogIn) {
             setItem([
                 Item('usuario-invitado', 'pi pi-user', undefined, true),
-                Item(itemGithub[0], itemGithub[1], itemGithub[2])
+                Item('hecho por', 'pi pi-star-fill', () => { setAbrirFooter(!abrirFooter) })
+
 
             ])
         }
@@ -34,7 +34,8 @@ export const HeaderBar = (props) => {
             setItem(
                 [
                     Item(),
-                    Item(itemGithub[0], itemGithub[1], itemGithub[2])
+                    Item('hecho por', 'pi pi-star-fill', () => { setAbrirFooter(!abrirFooter) })
+
                 ]
             )
         }
