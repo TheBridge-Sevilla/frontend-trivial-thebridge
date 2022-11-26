@@ -18,7 +18,7 @@ function Clasificacion(props) {
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ id: props.categoria._id })
+      body: JSON.stringify({ id: props.categoria })
   };
   fetch(url, requestOptions)
       .then(response => response.json())

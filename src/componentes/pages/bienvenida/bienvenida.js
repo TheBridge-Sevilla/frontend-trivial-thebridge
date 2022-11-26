@@ -16,12 +16,14 @@ import { auth } from "../../firebase/firebase"
 import PerfilUsuario from "../../firebase/perfil-usuario"
 import { Image } from 'primereact/image';
 import Creditos from "./creditos";
+import { useMediaQuery } from "usehooks-ts";
 
 
 function Bienvenida(props) {
   const { t } = useTranslation();
   const toast = useRef();
   const [disabledStartButton, setDisabledStartButton] = useState(true);
+  const matches = useMediaQuery("(min-width: 992px)");
   const {
     usuario,
     setUsuario,
@@ -58,7 +60,6 @@ function Bienvenida(props) {
     })
   }, [auth])
 
-
   useEffect(() => {
     if (usuario) {
       setDisabledStartButton(false);
@@ -79,30 +80,28 @@ function Bienvenida(props) {
   return (
     <div className="flex-column h-screen w-screen flex justify-content-center bg-blue-400">
       <HeaderBar disabledLogIn={disabledLogIn} />
-      <div className="flex flex-wrap justify-content-center card-container  gap-1 ">
+      <div className="flex flex-wrap justify-content-center card-container gap-1 lg:mb-6">
         <Image src='media/fragen.png' className="flex justify-content-center py-8">
         </Image>
         <Image src='media/logo-fragen.png' id="rotar" className="flex justify-content-center py-8">
         </Image>
-
       </div>
-      <div className=" h-screen w-screen text-center surface-300 p-4 font-bold text-gray-900 "
+      <div
+        className=" h-screen lg:mt-8 w-screen text-center surface-300 p-4 font-bold text-gray-900"
         id="usuario">
-        <div className="flex justify-content-center">
+        <div className="flex justify-content-center mt-5 lg:mt-8">
           <PerfilUsuario />
-          <BotonIniciarSesion disabledLogIn={disabledLogIn} />
+          <BotonIniciarSesion disabledLogIn={disabledLogIn} matches={matches} />
           <SignDialog />
-          <InputText className="w-13rem mr-7" value={usuario}
+          <InputText className={`w-13rem lg:w-17rem mr-7 ${matches ? 'p-inputtext-lg' : undefined}`} value={usuario}
             placeholder={t("nombre")} disabled={disabledInputName}
             onChange={handleChange} />
         </div>
-        <div className="flex justify-content-center pt-2" id="select-categoria">
-          <SelectCategoria
-            className="w-15rem h-full p-3 border-round"
-            setCategoria={props.setCategoria} />
+        <div className={`flex justify-content-center pt-2 ${matches ? 'p-inputtext-lg' : undefined}`} id="select-categoria">
+          <SelectCategoria setCategoria={props.setCategoria} />
         </div>
         <div
-          className="border-round-top-xl p-2 font-bold text-gray-900 pt-2 "
+          className="border-round-top-xl p-2 font-bold text-gray-900 pt-2"
           id="botoninicio"
         >
           <Button
@@ -112,7 +111,7 @@ function Bienvenida(props) {
             type="button"
             label={t("iniciar")}
             icon="pi pi-check"
-            className="border-round-3xl bg-blue-800 shadow-7 w-12rem  "
+            className={`border-round-3xl bg-blue-800 shadow-7 w-13rem lg:w-17rem mt-3 ${matches ? 'p-button-lg' : undefined}`}
           ></Button>
         </div>
       </div>
