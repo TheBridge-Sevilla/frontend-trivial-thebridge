@@ -13,33 +13,32 @@ export const HeaderBar = (props) => {
     const { Item } = useItem()
     const [item, setItem] = useState([Item()])
 
+    
     useEffect(() => {
+        setItem(
+            [
+                Item(),
+                Item('hecho por', 'pi pi-github', () => { setAbrirFooter(!abrirFooter) })
+
+            ])
         if (currentUser) {
             setItem([
                 Item(usuario, 'pi pi-user', () => setAbrirMenuUsuario(true)),
                 Item('cerrar-sesion', 'pi pi-sign-out', () => { cerrarSesion() }),
-                Item('hecho por', 'pi pi-star-fill', () => { setAbrirFooter(!abrirFooter) })
+                Item('hecho por', 'pi pi-github', () => { setAbrirFooter(!abrirFooter) })
             ])
         }
         else if (props.disabledLogIn) {
 
             setItem([
                 Item('usuario-invitado', 'pi pi-user', undefined, true),
-                Item('hecho por', 'pi pi-star-fill', () => { setAbrirFooter(!abrirFooter) })
+                Item('hecho por', 'pi pi-github', () => { setAbrirFooter(!abrirFooter) })
 
 
             ])
 
         }
-        return () => {
-            setItem(
-                [
-                    Item(),
-                    Item('hecho por', 'pi pi-star-fill', () => { setAbrirFooter(!abrirFooter) })
-
-                ]
-            )
-        }
+        
     }, [usuario, props.disabledLogIn, i18next.language])
 
     return (
