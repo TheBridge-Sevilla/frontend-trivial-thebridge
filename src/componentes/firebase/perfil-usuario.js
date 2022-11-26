@@ -9,30 +9,18 @@ function PerfilUsuario() {
     const matches = useMediaQuery("(min-width: 576px)");
     const { abrirMenuUsuario, setAbrirMenuUsuario } = useContextoUsuario();
 
-    if (matches) {
-        return (
-            <div className='card'>
-                <Sidebar
-                    visible={abrirMenuUsuario}
-                    className="p-sidebar sm:w-6 md:w-5 lg:w-4 xl:w-3 flex flex-column justify-content-center"
-                    position="left"
-                    onHide={() => setAbrirMenuUsuario(false)}>
-                    <DatosJugador />
-                </Sidebar>
-            </div>
-        );
-    } else {
-        return (
-            <div className='card'>
-                <Sidebar visible={abrirMenuUsuario}
-                    className="p-sidebar-sm w-screen flex flex-column justify-content-center"
-                    position="left"
-                    onHide={() => setAbrirMenuUsuario(false)}>
-                    <DatosJugador />
-                </Sidebar>
-            </div>
-        );
 
-    }
+    return (
+        <div className='card'>
+            <Sidebar
+                visible={abrirMenuUsuario}
+                className={matches ? "p-sidebar sm:w-6 md:w-5 lg:w-4 xl:w-3 flex flex-column justify-content-center" : "p-sidebar-sm w-screen flex flex-column justify-content-center"}
+                position="left"
+                onHide={() => setAbrirMenuUsuario(false)}>
+                <DatosJugador />
+            </Sidebar>
+        </div>
+    );
 }
+
 export default PerfilUsuario
