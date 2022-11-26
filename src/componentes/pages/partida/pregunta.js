@@ -7,6 +7,8 @@ import Boton from "./boton-opciones";
 import Reloj from "../../acciones/tiempo";
 import { useTranslation } from "react-i18next";
 import { useMediaQuery } from "usehooks-ts";
+import { Button } from 'primereact/button';
+
 
 function Pregunta(props) {
   const { i18n } = useTranslation();
@@ -19,7 +21,7 @@ function Pregunta(props) {
 
   useEffect(() => {
     const pasarPregunta = setTimeout(() => {
-      props.setIndicePregunta(props.indicePregunta + 1);
+      props.setIndicePregunta(props.indicePregunta +1);
     }, 20000);
     return () => clearTimeout(pasarPregunta);
   }, [props.indicePregunta]);
@@ -69,7 +71,15 @@ function Pregunta(props) {
             setPuntuacion={props.setPuntuacion}
           />
         ))}
+        <div className="flex  w-full  justify-content-center  ">
+          <Button icon="pi pi-chevron-left" className="p-button-rounded bg-white text-blue-500 mt-3" aria-label="Cancel"
+            onClick={() => props.setEsPantallaPrincipal(true)}
+          />
+        </div>
       </div>
+
+
+
     );
   } else {
     return (
@@ -78,6 +88,11 @@ function Pregunta(props) {
         id="pregunta"
         style={{ backgroundImage: `url("media/fondo2.jpg")` }}
       >
+        <div className="flex  w-full  justify-content-end h-1rem">
+          <Button icon="pi pi-chevron-left" className="p-button-rounded bg-white text-blue-500 mt-3" aria-label="Cancel"
+            onClick={() => props.setEsPantallaPrincipal(true)}
+          />
+        </div>
         <div className=" w-full flex-wrap surface-300 border-300 text-center my-5 max-w-screen h-12rem  border-round-xl p-3 border-3 border-primary shadow-8">
           <h2 className="text-xl md:text-3xl -mt-1">
             {props.pregunta.pregunta[i18n.language]}
@@ -103,6 +118,7 @@ function Pregunta(props) {
             setPuntuacion={props.setPuntuacion}
           />
         ))}
+
       </div>
     );
   }

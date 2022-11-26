@@ -37,6 +37,8 @@ function Preguntas(props) {
           puntuacion={puntuacion}
           setPuntuacion={setPuntuacion}
           categoria={props.categoria}
+          esPantallaPrincipal={props.esPantallaPrincipal}
+          setEsPantallaPrincipal={props.setEsPantallaPrincipal}
         />
       </div>
     );
