@@ -48,6 +48,8 @@ function Preguntas(props) {
           setIndicePregunta={setIndicePregunta}
           indicePregunta={indicePregunta}
           partida={partida}
+          esPantallaPrincipal={props.esPantallaPrincipal}
+          setEsPantallaPrincipal={props.setEsPantallaPrincipal}
         />
       </div>
     );
