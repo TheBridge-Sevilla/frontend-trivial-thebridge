@@ -7,17 +7,17 @@ import { Button } from "primereact/button";
 import Clasificacion from "../../acciones/clasificacion";
 
 function FinPartida(props) {
-  const resultado = props.puntuacion * 100 / props.indicePregunta
+  
   
 
   return (
     <div className="w-auto2 h-screen" style={{ backgroundImage: `url("media/fondo2.jpg")` }}>
       <br></br><br></br>
-      <div className="border-round w-auto m-auto bg-bluegray-100 text-center p-4 shadow-4">
+      <div className="border-round w-30rem m-auto bg-bluegray-100 text-center p-4 shadow-4">
       
 
         <div className="card-container text-center text-3xl font-medium  ">
-          {props.puntuacion + "/" + props.indicePregunta} ({resultado} %) preguntas acertadas
+        Tú puntuación es: {props.partida.puntuacion}
         </div>
         <br></br>
         <Button className="p-button-raised block shadow-8 bg-yellow-500 font-bold text-center p-4 border-round w-auto m-auto"
