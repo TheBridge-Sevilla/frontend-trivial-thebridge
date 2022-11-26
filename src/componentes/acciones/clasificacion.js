@@ -35,14 +35,15 @@ let categoria = "categoria.nombre." + i18n.language
 
   return (
 
-    <div className='w-full'>
-      <DataTable responsiveLayout="scroll" value={resultados} scrollable scrollHeight="351px">
-        <Column field="Index" header="Pos." body={listaPosicion}></Column>
-        <Column field="nombre" header="Jugador"></Column>
-        <Column field={categoria} header="Categoria"></Column>
-        <Column field="puntuacion" header="Puntos"></Column>
-        <Column field="fecha" header="Fecha"></Column>
-      </DataTable></div>
+    
+      <DataTable className='sm:scrollDirection="both"' responsiveLayout="scroll" value={resultados} scrollable scrollHeight="351px" >
+        <Column className='min-w-100'field="Index" header="Pos." body={listaPosicion}></Column>
+        <Column className='min-w-100' field="nombre" header="Jugador"></Column>
+        <Column className='min-w-100'field={categoria} header="Categoria"></Column>
+        <Column className='min-w-100'field="puntuacion" header="Puntos"></Column>
+        <Column className='min-w-100'field="fecha" header="Fecha"></Column>
+      </DataTable>
+     
   );
 
 }

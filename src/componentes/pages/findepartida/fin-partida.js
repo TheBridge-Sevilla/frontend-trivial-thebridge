@@ -11,9 +11,9 @@ function FinPartida(props) {
   
 
   return (
-    <div className="w-auto2 h-screen" style={{ backgroundImage: `url("media/fondo2.jpg")` }}>
+    <div className="w-auto2 h-auto" style={{ backgroundImage: `url("media/fondo2.jpg")` }}>
       <br></br><br></br>
-      <div className="border-round w-30rem m-auto bg-bluegray-100 text-center p-4 shadow-4">
+      <div className="border-round max-w-max m-auto bg-bluegray-100 text-center p-4 shadow-4">
       
 
         <div className="card-container text-center text-3xl font-medium  ">
@@ -28,7 +28,7 @@ function FinPartida(props) {
       <br></br> <br></br>
       <div className="w-full-1 p-4 shadow-8">
         
-        <div className="w-full-2 shadow-6  text-center"><h3 id="clasificacion">CLASIFICACIÓN</h3><br></br>
+        <div className="w-full-2 shadow-6  text-center"><h1 id="clasificacion">CLASIFICACIÓN</h1><br></br>
         <Clasificacion categoria={props.partida.categoriaID} />
         </div>
 
