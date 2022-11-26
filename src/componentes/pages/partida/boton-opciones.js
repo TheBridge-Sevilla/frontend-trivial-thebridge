@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 
 export default function Boton(props) {
   const [colorBoton, setColorBoton] = useState("surface-300");
+  const [botonSelecionado, setBotonSelecionado] = useState(false);
   const { i18n } = useTranslation();
 
   let indiceBotones = props.preguntas[props.indicePregunta].opciones[
@@ -13,28 +14,28 @@ export default function Boton(props) {
 
   const handleIndicePreguntas = () => {
 
-    if (!props.botonSelecionado) {
-    const requestOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        partidaID: props.partida.partidaID,
-        preguntaID: props.partida.quiz[props.indicePregunta].id,
-        indice: props.indicePregunta,
-        respuesta: indiceBotones,
-      }),
-    };
-    fetch(url, requestOptions)
-      .then((response) => response.json())
-      .then(
-        (json) => json ? setColorBoton("green-400") : setColorBoton("red-400")
-      );
+    if (!botonSelecionado) {
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          partidaID: props.partida.partidaID,
+          preguntaID: props.partida.quiz[props.indicePregunta].id,
+          indice: props.indicePregunta,
+          respuesta: indiceBotones,
+        }),
+      };
+      fetch(url, requestOptions)
+        .then((response) => response.json())
+        .then(
+          (json) => json ? setColorBoton("green-400") : setColorBoton("red-400")
+        );
 
-      props.setBotonSelecionado(true);
+      setBotonSelecionado(true);
 
       setTimeout(() => {
         props.setIndicePregunta(props.indicePregunta + 1);
-        props.setBotonSelecionado(false);
+        setBotonSelecionado(false);
       }, 945);
     }
   };
@@ -45,8 +46,8 @@ export default function Boton(props) {
         onClick={handleIndicePreguntas}
         id="boton-opcion"
         label={props.opcion}
-        className={`surface-300 bg-${colorBoton}   font-bold text-center text-blue-600  border-round-2xl p-button-raised m:text-l lg:text-2xl    
-        transition-colors transition-duration-500   w-full h-full  border-3 hover:border-blue-900 shadow-8  `}
+        className={`surface-300 bg-${colorBoton} font-bold text-center text-blue-600  border-round-2xl p-button-raised m:text-l lg:text-2xl    
+        transition-colors transition-duration-500 w-full h-full  border-3 hover:border-blue-900 shadow-8`}
       />
     </div>
   );

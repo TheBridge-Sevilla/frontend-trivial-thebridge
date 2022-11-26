@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "primereact/resources/themes/lara-light-indigo/theme.css"; //theme
 import "primereact/resources/primereact.min.css"; //core css
 import "primeicons/primeicons.css";
@@ -14,7 +14,6 @@ function Pregunta(props) {
   const { i18n } = useTranslation();
   const botonesArriba = props.preguntas[props.indicePregunta].opciones[i18n.language].slice(0, 2);
   const botonesAbajo = props.preguntas[props.indicePregunta].opciones[i18n.language].slice(2);
-  const [botonSelecionado, setBotonSelecionado] = useState(false);
   const matches = useMediaQuery("(min-width: 992px)");
 
   useEffect(() => {
@@ -43,8 +42,6 @@ function Pregunta(props) {
             opcion={opcion}
             indicePregunta={props.indicePregunta}
             setIndicePregunta={props.setIndicePregunta}
-            botonSelecionado={botonSelecionado}
-            setBotonSelecionado={setBotonSelecionado}
             partida={props.partida}
             preguntas={props.preguntas}
           />
@@ -60,8 +57,6 @@ function Pregunta(props) {
             opcion={opcion}
             indicePregunta={props.indicePregunta}
             setIndicePregunta={props.setIndicePregunta}
-            botonSelecionado={botonSelecionado}
-            setBotonSelecionado={setBotonSelecionado}
             partida={props.partida}
             preguntas={props.preguntas}
           />
@@ -105,8 +100,6 @@ function Pregunta(props) {
               opcion={opcion}
               indicePregunta={props.indicePregunta}
               setIndicePregunta={props.setIndicePregunta}
-              botonSelecionado={botonSelecionado}
-              setBotonSelecionado={setBotonSelecionado}
               partida={props.partida}
               preguntas={props.preguntas}
             />
