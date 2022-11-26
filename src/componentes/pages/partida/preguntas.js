@@ -9,7 +9,6 @@ function Preguntas(props) {
   const [preguntas, setPreguntas] = useState([]);
   const [indicePregunta, setIndicePregunta] = useState(0);
   const [partida, setPartida] = useState();
-  const [puntuacion, setPuntuacion] = useState();
   const { usuario } = useContextoUsuario();
 
   useEffect(() => {
@@ -46,11 +45,6 @@ function Preguntas(props) {
           preguntas={preguntas}
           setIndicePregunta={setIndicePregunta}
           indicePregunta={indicePregunta}
-          puntuacion={puntuacion}
-          setPuntuacion={setPuntuacion}
-          categoria={props.categoria}
-          esPantallaPrincipal={props.esPantallaPrincipal}
-          setEsPantallaPrincipal={props.setEsPantallaPrincipal}
           partida={partida}
         />
       </div>
