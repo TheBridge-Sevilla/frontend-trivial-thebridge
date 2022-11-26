@@ -36,7 +36,7 @@ let categoria = "categoria.nombre." + i18n.language
   return (
 
     <div className='w-full'>
-      <DataTable responsiveLayout="scroll" value={resultados} scrollable scrollHeight="280px">
+      <DataTable responsiveLayout="scroll" value={resultados} scrollable scrollHeight="351px">
         <Column field="Index" header="Pos." body={listaPosicion}></Column>
         <Column field="nombre" header="Jugador"></Column>
         <Column field={categoria} header="Categoria"></Column>
