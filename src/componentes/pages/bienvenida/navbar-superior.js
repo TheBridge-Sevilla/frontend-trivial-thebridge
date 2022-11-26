@@ -8,31 +8,49 @@ import i18next from "i18next";
 import { Image } from 'primereact/image';
 
 export const HeaderBar = (props) => {
-
-    const { usuario, setVisibleLeft, currentUser } = useContextoUsuario();
+    const { currentUser, usuario, setAbrirMenuUsuario, abrirFooter, setAbrirFooter } = useContextoUsuario();
     const { cerrarSesion } = useSignOut()
     const { Item } = useItem()
-
     const [item, setItem] = useState([Item()])
 
+    
     useEffect(() => {
+        setItem(
+            [
+                Item(),
+                Item('hecho por', 'pi pi-github', () => { setAbrirFooter(!abrirFooter) })
+
+            ])
         if (currentUser) {
             setItem([
-                Item(usuario, 'pi pi-user', () => setVisibleLeft(true)),
-                Item('cerrar-sesion', 'pi pi-sign-out', () => { cerrarSesion() })
+                Item(usuario, 'pi pi-user', () => setAbrirMenuUsuario(true)),
+                Item('cerrar-sesion', 'pi pi-sign-out', () => { cerrarSesion() }),
+                Item('hecho por', 'pi pi-github', () => { setAbrirFooter(!abrirFooter) })
             ])
         }
         else if (props.disabledLogIn) {
-            setItem([Item('usuario-invitado', 'pi pi-user', (e) => { e.preventDefault() }, true)])
+
+            setItem([
+                Item('usuario-invitado', 'pi pi-user', undefined, true),
+                Item('hecho por', 'pi pi-github', () => { setAbrirFooter(!abrirFooter) })
+
+
+            ])
+
         }
-        return () => {
-            setItem([Item()])
-        }
+        
     }, [usuario, props.disabledLogIn, i18next.language])
 
     return (
         <div className="card ">
-            <Menubar model={item} start={<Image width="50" height="50" src='media/logo-fragen.png' id="rotar" className="" />} end={CambiarIdioma()} className="surface-300 border-noround border-none" />
+
+            <Menubar
+                model={item}
+                start={<Image width="50" height="50" src='media/logo-fragen.png' id="rotar" />}
+                end={CambiarIdioma()}
+                className="surface-300 border-noround border-none"
+            />
+
         </div>
     );
 }

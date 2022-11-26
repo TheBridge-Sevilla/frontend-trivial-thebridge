@@ -1,74 +1,109 @@
-*{
+* {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;    
+    box-sizing: border-box;
 }
-/* body{
-    display: flex;
-    align-items: center;
+
+a {
+    text-decoration: none;
+}
+.footer{
+    display: grid;
+    grid-auto-flow: column;
     justify-content: center;
-    min-height: 100vh;
-} */
-a{
-    text-decoration: none; 
+    align-items: center;
 }
-.wrapper{
+.movil{
+    display: grid;
+    grid-auto-flow: row;
+    justify-items: center;
+}
+.p-sidebar-content {
+     overflow-y: hidden;
+    flex-grow: 1;
+}
+.p-sidebar .p-sidebar-header {
+    padding: 1.25rem;
+    padding-bottom: 0;
+}
+.wrapper {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    background-color: #E0E0E0;
+    margin-bottom: 5px;
 }
-.wrapper .static-txt{
+
+ .static-txt {
     font-size: 40px;
     font-weight: 400;
-    color: #fff;
+    color: #00DF00;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 10px;
 }
-.wrapper .dynamic-txts{
+
+.wrapper .dynamic-txts {
     margin-left: 15px;
     height: 90px;
-    line-height: 90px ;
-
-    overflow: hidden; 
+    line-height: 90px;
+    overflow: hidden;
 
 }
-.dynamic-txts li{
+
+.dynamic-txts li {
     list-style: none;
     font-size: 40px;
     font-weight: 400;
     position: relative;
-    top:0;
+    top: 0;
+    color: #00DF00;
     animation: slide 18s steps(6) infinite;
     margin: 0px 0;
 }
+
 @keyframes slide {
-    100%{
+    100% {
         top: -535px;
     }
 }
 
 
-.dynamic-txts li span{
+.dynamic-txts li span {
     position: relative;
+    font-family: 8bits;
 }
-.dynamic-txts li span::after{
+
+.dynamic-txts span::after {
     content: "";
     position: absolute;
     height: 100%;
     width: 100%;
-    background-color: #609AF8;
-    border-left: 2px solid ;
+    background-color: #E0E0E0;
+    border-left: 4px solid #00DF00;
     left: 0;
-    margin: 19px 0;
-    animation: typing 3s steps(7) infinite;
+    margin: 20px 0; 
 
+    animation: typing 3s steps(7) infinite;
 }
+
+
+
 @keyframes typing {
-    40%, 60%{
-      left: calc(100% + 30px);
+
+    40%,
+    60% {
+        left: calc(100% + 30px);
     }
-    100%{
-      left: 0;
+
+    100% {
+        left: 0;
     }
-  }
+}
+#creditos .p-sidebar-close{
+    display: none;
+}
+.p-sidebar{
+    box-shadow: none;
+}
