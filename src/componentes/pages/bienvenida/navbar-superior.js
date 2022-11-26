@@ -9,21 +9,21 @@ import { Image } from 'primereact/image';
 
 export const HeaderBar = (props) => {
 
-    const {  usuario,setVisibleLeft } = useContextoUsuario();
+    const { usuario, setVisibleLeft, currentUser } = useContextoUsuario();
     const { cerrarSesion } = useSignOut()
     const { Item } = useItem()
 
     const [item, setItem] = useState([Item()])
 
     useEffect(() => {
-        if (usuario) {
+        if (currentUser) {
             setItem([
                 Item(usuario, 'pi pi-user', () => setVisibleLeft(true)),
                 Item('cerrar-sesion', 'pi pi-sign-out', () => { cerrarSesion() })
             ])
         }
         else if (props.disabledLogIn) {
-            setItem([Item('usuario-invitado', 'pi pi-user',undefined,true)])
+            setItem([Item('usuario-invitado', 'pi pi-user', (e) => { e.preventDefault() }, true)])
         }
         return () => {
             setItem([Item()])
@@ -32,7 +32,7 @@ export const HeaderBar = (props) => {
 
     return (
         <div className="card ">
-            <Menubar model={item} start={<Image width="50" height="50" src='media/logo-fragen.png'  id="rotar" className="" />} end={CambiarIdioma()} className="surface-300 border-noround border-none" />
+            <Menubar model={item} start={<Image width="50" height="50" src='media/logo-fragen.png' id="rotar" className="" />} end={CambiarIdioma()} className="surface-300 border-noround border-none" />
         </div>
     );
 }
