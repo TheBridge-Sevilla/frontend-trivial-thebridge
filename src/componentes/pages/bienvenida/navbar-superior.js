@@ -10,7 +10,7 @@ import { Image } from 'primereact/image';
 export const HeaderBar = (props) => {
 
 
-    const {  usuario, setAbrirMenuUsuario, abrirFooter, setAbrirFooter } = useContextoUsuario();
+    const { currentUser, usuario, setAbrirMenuUsuario, abrirFooter, setAbrirFooter } = useContextoUsuario();
 
     const { cerrarSesion } = useSignOut()
     const { Item } = useItem()
