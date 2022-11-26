@@ -14,7 +14,8 @@ export const ContextoUsuarioProvider = ({ children }) => {
     const [mensaje, setMensaje] = useState()
     const [tipo, setTipo] = useState()
     const [currentUser, setCurrentUser] = useState()
-    const [visibleLeft, setVisibleLeft] = useState(false)
+    const [abrirMenuUsuario, setAbrirMenuUsuario] = useState(false)
+    const [abrirFooter, setAbrirFooter] = useState(false)
 
 
 
@@ -35,8 +36,10 @@ export const ContextoUsuarioProvider = ({ children }) => {
         setTipo,
         currentUser,
         setCurrentUser,
-        visibleLeft,
-        setVisibleLeft
+        abrirMenuUsuario,
+        setAbrirMenuUsuario,
+        abrirFooter,
+        setAbrirFooter
     }
     return (
         <ContextoUsuario.Provider value={contextValue}>{children}</ContextoUsuario.Provider>

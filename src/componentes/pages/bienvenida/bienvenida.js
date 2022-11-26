@@ -26,11 +26,11 @@ function Bienvenida(props) {
     usuario,
     setUsuario,
     disabledInputName,
-    mensaje, setMensaje,
+    mensaje,
+    setMensaje,
     tipo,
     setTipo,
-    setCurrentUser
-  } = useContextoUsuario();
+    setCurrentUser } = useContextoUsuario();
   const [disabledLogIn, setDisabledLogIn] = useState(false)
 
   const mostrarError = (tipo, mensaje) => {

@@ -7,16 +7,16 @@ import { useMediaQuery } from "usehooks-ts";
 function PerfilUsuario() {
 
     const matches = useMediaQuery("(min-width: 576px)");
-    const { visibleLeft, setVisibleLeft } = useContextoUsuario();
+    const { abrirMenuUsuario, setAbrirMenuUsuario } = useContextoUsuario();
 
     if (matches) {
         return (
             <div className='card'>
                 <Sidebar
-                    visible={visibleLeft}
+                    visible={abrirMenuUsuario}
                     className="p-sidebar sm:w-6 md:w-5 lg:w-4 xl:w-3 flex flex-column justify-content-center"
                     position="left"
-                    onHide={() => setVisibleLeft(false)}>
+                    onHide={() => setAbrirMenuUsuario(false)}>
                     <DatosJugador />
                 </Sidebar>
             </div>
@@ -24,10 +24,10 @@ function PerfilUsuario() {
     } else {
         return (
             <div className='card'>
-                <Sidebar visible={visibleLeft}
+                <Sidebar visible={abrirMenuUsuario}
                     className="p-sidebar-sm w-screen flex flex-column justify-content-center"
                     position="left"
-                    onHide={() => setVisibleLeft(false)}>
+                    onHide={() => setAbrirMenuUsuario(false)}>
                     <DatosJugador />
                 </Sidebar>
             </div>

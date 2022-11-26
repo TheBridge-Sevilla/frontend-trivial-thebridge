@@ -9,30 +9,46 @@ import { Image } from 'primereact/image';
 
 export const HeaderBar = (props) => {
 
-    const {  usuario,setVisibleLeft } = useContextoUsuario();
+    const { currentUser, usuario, setAbrirMenuUsuario, abrirFooter, setAbrirFooter } = useContextoUsuario();
     const { cerrarSesion } = useSignOut()
     const { Item } = useItem()
-
     const [item, setItem] = useState([Item()])
 
     useEffect(() => {
         if (usuario) {
             setItem([
-                Item(usuario, 'pi pi-user', () => setVisibleLeft(true)),
-                Item('cerrar-sesion', 'pi pi-sign-out', () => { cerrarSesion() })
+                Item(usuario, 'pi pi-user', () => setAbrirMenuUsuario(true)),
+                Item('cerrar-sesion', 'pi pi-sign-out', () => { cerrarSesion() }),
+                Item('hecho por', 'pi pi-star-fill', () => { setAbrirFooter(!abrirFooter) })
             ])
         }
         else if (props.disabledLogIn) {
-            setItem([Item('usuario-invitado', 'pi pi-user',undefined,true)])
+            setItem([
+                Item('usuario-invitado', 'pi pi-user', undefined, true),
+                Item('hecho por', 'pi pi-star-fill', () => { setAbrirFooter(!abrirFooter) })
+
+
+            ])
         }
         return () => {
-            setItem([Item()])
+            setItem(
+                [
+                    Item(),
+                    Item('hecho por', 'pi pi-star-fill', () => { setAbrirFooter(!abrirFooter) })
+
+                ]
+            )
         }
     }, [usuario, props.disabledLogIn, i18next.language])
 
     return (
         <div className="card ">
-            <Menubar model={item} start={<Image width="50" height="50" src='media/logo-fragen.png'  id="rotar" className="" />} end={CambiarIdioma()} className="surface-300 border-noround border-none" />
+            <Menubar
+                model={item}
+                start={<Image width="50" height="50" src='media/logo-fragen.png' id="rotar" />}
+                end={CambiarIdioma()}
+                className="surface-300 border-noround border-none"
+            />
         </div>
     );
 }
