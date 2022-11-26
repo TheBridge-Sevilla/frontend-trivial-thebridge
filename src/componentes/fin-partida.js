@@ -11,11 +11,12 @@ function FinPartida(props) {
   
 
   return (
-    <div className="w-auto2 h-screen w-screen">
+    <div className="w-auto2">
       <br></br><br></br>
       <div className="w-auto bg-bluegray-100 text-center p-4 shadow-4">
+      
 
-        <div className="card-container text-center text-3xl font-medium ">
+        <div className="card-container text-center text-3xl font-medium  ">
           {props.puntuacion + "/" + props.indicePregunta} ({resultado} %) preguntas acertadas
         </div>
         <br></br>
