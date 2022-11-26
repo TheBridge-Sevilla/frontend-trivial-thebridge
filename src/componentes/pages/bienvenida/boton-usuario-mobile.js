@@ -8,7 +8,7 @@ export default function BotonIniciarSesion(props) {
     //visibleTop necesario para Sidebar, elemento de PrimeReact
     const { currentUser, setVisibleTop } = useContextoUsuario();
     const { t } = useTranslation();
-
+    const matches = props.matches
     const { cerrarSesion } = useSignOut()
 
     return (
@@ -21,7 +21,7 @@ export default function BotonIniciarSesion(props) {
                         onClick={cerrarSesion}
                         tooltip={t("cerrar-sesion")}
                         tooltipOptions={{ position: 'top' }}
-                        className="mx-2 bg-white text-gray-700 border-400 "
+                        className={`mx-2 bg-white text-gray-700 border-400 ${matches ? 'p-button-lg' : undefined}`}
                     />
                     :
                     <Button
@@ -30,7 +30,7 @@ export default function BotonIniciarSesion(props) {
                         disabled={props.disabledLogIn}
                         tooltip={t("iniciar-sesion")}
                         tooltipOptions={{ position: 'top' }}
-                        className="mx-2 bg-white text-gray-700 border-400"
+                        className={`mx-2 bg-white text-gray-700 border-400 ${matches ? 'p-button-lg' : undefined}`}
                     />
             }
         </div>
