@@ -79,14 +79,12 @@ export default function Creditos() {
       modal={false}
     >
 
-      <div className='footer'>
+      <div className='footer movil'>
       <h4>Made with <span style={{ color: "#e25555" }}>&#9829;</span> by <a
           href='https://github.com/TheBridge-Sevilla'
           target="_blank"
           rel="noopener noreferrer">The bridge Sev</a></h4>
-      <div className='static-txt'>By</div>
-      <div className='wrapper'>
-        
+      <div className='wrapper'>        
         <ul className='dynamic-txts'>
           <a href='https://github.com/eduardoaguilar96' target="_blank"
             rel="noopener noreferrer">

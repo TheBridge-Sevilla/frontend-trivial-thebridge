@@ -8,15 +8,24 @@ a {
     text-decoration: none;
 }
 .footer{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: center;
     align-items: center;
-
+}
+.movil{
+    display: grid;
+    grid-auto-flow: row;
+    justify-items: center;
+    margin-top: 90px;
 }
 .p-sidebar-content {
      overflow-y: hidden;
     flex-grow: 1;
+}
+.p-sidebar .p-sidebar-header {
+    padding: 1.25rem;
+    padding-bottom: 0;
 }
 .wrapper {
     display: inline-flex;
@@ -33,7 +42,7 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 30px;
+    margin-left: 10px;
 }
 
 .wrapper .dynamic-txts {
