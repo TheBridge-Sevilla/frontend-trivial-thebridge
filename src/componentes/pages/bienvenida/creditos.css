@@ -7,21 +7,33 @@
 a {
     text-decoration: none;
 }
+.footer{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
 
+}
+.p-sidebar-content {
+     overflow-y: hidden;
+    flex-grow: 1;
+}
 .wrapper {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background-color: black;
+    background-color: white;
+    margin-bottom: 5px;
 }
 
-.wrapper .static-txt {
-    font-size: 45px;
-    font-weight: 450;
+ .static-txt {
+    font-size: 40px;
+    font-weight: 400;
     color: #00DF00;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 30px;
 }
 
 .wrapper .dynamic-txts {
@@ -34,8 +46,8 @@ a {
 
 .dynamic-txts li {
     list-style: none;
-    font-size: 45px;
-    font-weight: 450;
+    font-size: 40px;
+    font-weight: 400;
     position: relative;
     top: 0;
     color: #00DF00;
@@ -60,11 +72,11 @@ a {
     position: absolute;
     height: 100%;
     width: 100%;
-    background-color: black;
+    background-color: white;
     border-left: 4px solid #00DF00;
     left: 0;
-    margin: 27px 0; 
-    padding-bottom: 3px;
+    margin: 20px 0; 
+
     animation: typing 3s steps(7) infinite;
 }
 
