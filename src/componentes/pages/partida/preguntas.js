@@ -10,6 +10,8 @@ function Preguntas(props) {
   const [indicePregunta, setIndicePregunta] = useState(0);
   const [partida, setPartida] = useState();
   const { usuario } = useContextoUsuario();
+  
+
 
   useEffect(() => {
     console.log("preguntas dentro del useeffect", preguntas);
