@@ -11,4 +11,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+@font-face {
 
+  font-family: "commodore64";
+  src: local("commodore64"),
+   url("./font/commodore64/Commodore-64-v6.3.TTF") format("truetype");
+  font-weight: bold;
+
+  
+  }
+  .font-face-gm {
+    font-family: "commodore64";
+   }
+  
+   
+  

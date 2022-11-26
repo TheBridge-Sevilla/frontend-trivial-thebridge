@@ -5,7 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "./i18n";
 import { ContextoUsuarioProvider } from './componentes/contexto/contextoUsuario';
-
+import "./font/8bit/8bitOperatorPlusSC-Bold.ttf";
+import "./font/commodore64/Commodore-64-v6.3.TTF"
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
